@@ -13,5 +13,9 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
+<form action ="home.htm" method="post">
+	<input type="text" value="1">
+	<input type="submit" name="입력하기">
+</form>
 </body>
 </html>
