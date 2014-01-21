@@ -25,14 +25,15 @@
     <body>
         
 	    
+	    <div class="main-container">
 	    
 	    <!-- HEADER -->
 	    <tiles:insertAttribute name="header"></tiles:insertAttribute>
 
         <!-- content -->
-        
 	    <tiles:insertAttribute name="content"></tiles:insertAttribute>
-	    </div>
+	    
+        </div> 
 	    
         <!-- footer -->
         <tiles:insertAttribute name="footer"></tiles:insertAttribute>

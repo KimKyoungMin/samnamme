@@ -4,7 +4,7 @@
 
 
 
-<div class="main-container">
+
 
 <div onclick="location.href='home.htm';" style="cursor: pointer;">
 	<header align="center">
@@ -57,4 +57,3 @@
 		</div>
 
 	</header>
-<!-- </div> -->
