@@ -35,6 +35,7 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="Controllers" />
+	<context:component-scan base-package="kr.co.sam"/>
 	
 	
 	

@@ -6,7 +6,7 @@
 
 
 
-<div onclick="location.href='home.htm';" style="cursor: pointer;">
+<div onclick="location.href='main.htm';" style="cursor: pointer;">
 	<header align="center">
 		<h1>Music Site</h1>
 	</header>
@@ -23,23 +23,30 @@
 <!-- <div class="head-container"> -->
 	<header class="block">
 		<ul class="header-menu horizontal-list">
-			<li><a class="header-menu-tab" href="#2"><span
+			<li><a class="header-menu-tab" href="music.htm"><span
 					class="icon fontawesome-star-empty scnd-font-color"></span>Music</a> <a
 				class="header-menu-number" href="#4">6</a></li>
-			<li><a class="header-menu-tab" href="#3"><span
+			<li><a class="header-menu-tab" href="musicViedo.htm"><span
 					class="icon fontawesome-eye-open scnd-font-color"></span>MusicVideo</a>
 			</li>
-			<li><a class="header-menu-tab" href="#5"><span
+			<li><a class="header-menu-tab" href="concert.htm"><span
 					class="icon entypo-calendar scnd-font-color"></span>Inform</a></li>
-			<li class="navi_set"><a class="header-menu-tab" href="#5"><span
-					class="icon entypo-paper-plane scnd-font-color"></span>Community</a></li>
-			<!-- <li class="navi_set"><a class="header-menu-tab" href="#1"><span class="icon fontawesome-user scnd-font-color"></span>Account</a></li> -->
-			<li>
-			    <a class="header-menu-tab" href="#1"><span class="icon entypo-cog scnd-font-color"></span>Settings</a>
+			<li class="navi_set"><a class="header-menu-tab" href="#"><span
+					class="icon entypo-paper-plane scnd-font-color"></span>Community</a>
 			    <ul class="subnav">
-					<li><a href="#">User</a></li>
-					<li><a href="#">Music</a></li>
-					<li><a href="#">Concert</a></li>
+					<li><a href="notice.htm">Notice</a></li>
+					<li><a href="community.htm">Community</a></li>
+				</ul>
+			</li>
+			<!-- <li class="navi_set">
+			    <a class="header-menu-tab" href="account.htm"><span class="icon fontawesome-user scnd-font-color"></span>Account</a>
+			</li> --> 
+			<li>
+			    <a class="header-menu-tab" href="#"><span class="icon entypo-cog scnd-font-color"></span>Settings</a>
+			    <ul class="subnav">
+					<li><a href="ausers.htm">User</a></li>
+					<li><a href="amusicform.htm">Music</a></li>
+					<li><a href="acform.htm">Concert</a></li>
 				</ul>
 		    </li>
 
