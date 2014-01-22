@@ -8,7 +8,7 @@
                     <h2 class="titular">Music Top5</h2>
                     <ul class="menu-box-menu">
                         <li>
-                            <a class="menu-box-tab" href="#6">${user.getUserid()}, ${user.getUname()}, ${user.getUtel()}</a>                            
+                            <a class="menu-box-tab" href="#6">1st music</a>                            
                         </li>
                         <li>
                             <a class="menu-box-tab" href="#8">2st music</a>                            
