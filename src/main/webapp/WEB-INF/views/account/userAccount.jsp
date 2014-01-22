@@ -8,19 +8,5 @@
 </head>
 <body>
 
-
-		<h3>
-		Hello main
-		</h3><br><hr>
-		
-		<a href="music.htm">Music</a> <br>
-		<a href="video.htm">Video</a> <br>
-		<a href="concert.htm">Inform</a> <br>
-		<a href="notice.htm">Notice Board</a> <br>
-		<a href="free.htm">Free Board</a> <br>
-		<a href="setting.htm">Setting</a> <br>
-		<a href="account.htm">Account</a> <br>
-		
-		
 </body>
 </html>
