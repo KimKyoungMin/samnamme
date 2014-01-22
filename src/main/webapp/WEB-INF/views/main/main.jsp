@@ -1,15 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-
-       
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 
             <!-- LEFT-CONTAINER -->
             <div class="left-container container">
-                <div class="menu-box block"> <!-- 챙��챙�� Top5 (LEFT-CONTAINER) -->
+                <div class="menu-box block"> <!--  Top5 (LEFT-CONTAINER) -->
                     <h2 class="titular">Music Top5</h2>
                     <ul class="menu-box-menu">
                         <li>
-                            <a class="menu-box-tab" href="#6">1st music</a>                            
+                            <a class="menu-box-tab" href="#6">${user.getUserid()}, ${user.getUname()}, ${user.getUtel()}</a>                            
                         </li>
                         <li>
                             <a class="menu-box-tab" href="#8">2st music</a>                            
@@ -26,7 +25,7 @@
                     </ul>
                 </div>
                                 
-			    <div class="join-newsletter block"> <!-- 챙쩍�챙��챠�쨍 챗쨈�챗쨀� (LEFT-CONTAINER) -->
+			    <div class="join-newsletter block"> <!--  (LEFT-CONTAINER) -->
 					<h2 class="titular">CONCERT INFOMATION</h2>
 					<P>CONTENT</P>
 				</div>
@@ -35,7 +34,7 @@
 
             <!-- MIDDLE-CONTAINER -->
             <div class="middle-container container">       
-                <div class="profile block"> <!-- 챗쨈�챗쨀� (MIDDLE-CONTAINER) -->
+                <div class="profile block"> <!--  (MIDDLE-CONTAINER) -->
                     <a class="add-button" href="#28"><span class="icon entypo-plus scnd-font-color"></span></a>
                     <div class="profile-picture big-profile-picture clear">
                         <img width="150px" alt="Anne Hathaway picture" src="http://upload.wikimedia.org/wikipedia/commons/e/e1/Anne_Hathaway_Face.jpg" >
@@ -50,7 +49,7 @@
            
             <!-- RIGHT-CONTAINER -->
             <div class="right-container container">
-                <div class="weather block clear"> <!-- 챗쨀쨉챙짠�챙�짭챠�짯 (RIGHT-CONTAINER) -->
+                <div class="weather block clear"> <!-- 梨��夷��吏�옙梨�옙吏��占쎌㎝ (RIGHT-CONTAINER) -->
                     <h2 class="titular">Least Notice</h2>
                     <div class="tweet first"> 
                        <p>
@@ -61,7 +60,7 @@
                 </div>
                 
                             
-                <div class="tweets block"> <!-- 챙쨉�챗쨌쩌 챗짼�챙��챗쨍� (RIGHT-CONTAINER) -->
+                <div class="tweets block"> <!-- (RIGHT-CONTAINER) -->
                     <h2 class="titular">NewsPeed</h2>
                       <p> board ......1 </p>
                       <hr>

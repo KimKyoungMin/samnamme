@@ -1,17 +1,28 @@
 package Controllers;
 
-
-
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import co.kr.common.dao.UserDao;
+import co.kr.common.dto.User;
+
 @Controller
 public class MenuController {
-
+	
+	@Autowired
+	private SqlSession sqlSession;
+	
+	
 	@RequestMapping("main.htm")
-	public String home() {
-		
+	public String home(Model model) {
+		UserDao userdao = sqlSession.getMapper(UserDao.class);
+		User user = userdao.getUser();
+		System.out.println("userid : "+user.getUserid() +"   username"+user.getUname());
+		model.addAttribute("user", user);
 		return "main.main";
 	}
 	
