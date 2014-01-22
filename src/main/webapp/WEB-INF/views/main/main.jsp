@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-
+<div class="main-container">
             <!-- LEFT-CONTAINER -->
             <div class="left-container container">
                 <div class="menu-box block"> <!--  Top5 (LEFT-CONTAINER) -->
@@ -49,7 +49,7 @@
            
             <!-- RIGHT-CONTAINER -->
             <div class="right-container container">
-                <div class="weather block clear"> <!-- 梨��夷��吏�옙梨�옙吏��占쎌㎝ (RIGHT-CONTAINER) -->
+                <div class="weather block clear"> <!-- 공지사항  (RIGHT-CONTAINER) -->
                     <h2 class="titular">Least Notice</h2>
                     <div class="tweet first"> 
                        <p>
@@ -70,6 +70,6 @@
             </div>
 
 
-
+</div>
 
 

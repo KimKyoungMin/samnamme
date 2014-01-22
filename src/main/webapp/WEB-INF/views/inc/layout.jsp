@@ -29,7 +29,7 @@
     <body>
         
 	    
-	    <div class="main-container">
+	    <!-- <div class="main-container"> -->
 	    
 	    <!-- HEADER -->
 	    <tiles:insertAttribute name="header"></tiles:insertAttribute>
@@ -42,7 +42,7 @@
         <!-- footer -->
         <tiles:insertAttribute name="footer"></tiles:insertAttribute>
 
-        <!-- </div> --> <!-- end main-container -->
+        
 	      
 
     </body>	

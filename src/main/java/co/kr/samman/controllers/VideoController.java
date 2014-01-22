@@ -15,7 +15,7 @@ public class VideoController {
 		@RequestMapping("musicViedo.htm")
 		public String video() {
 			
-			return "video.video";
+			return "video.videomain";
 		}
 
 }

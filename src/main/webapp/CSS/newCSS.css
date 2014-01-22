@@ -76,6 +76,7 @@
 .block3 {
 	text-align: right;
 	width: 960px;
+	margin-left: 195px;
 }
 
 
@@ -356,7 +357,7 @@ h1, h2, p, a, span{
 			background: #394264;
 			border-radius: 5px;
 		}
-		
+
 		/******************************************** LEFT CONTAINER *****************************************/
 		.left-container {}
 			.menu-box {
@@ -406,6 +407,50 @@ h1, h2, p, a, span{
 					.menu-box-tab:hover .menu-box-number {
 						background: #e64c65;
 					}
+	        
+	        /****** 음악 리스트 ******/				
+			.profileM {
+			   height: 350px;
+			   width: 300px;		   
+			}
+			.blockM {
+			  /*  display: inline; */
+			   margin-bottom: 25px;
+			   background: #394264;
+			   border-radius: 5px;	
+			   float: left;	
+			   margin-right: 20px ;
+			   margin-bottom: 25px;        
+			}	
+			.blockM li{
+			   margin-bottom: 10px; margin-left: 10px;
+			   font-size: 17px;
+			   color: #fff;
+			}
+			
+			/******뮤직 비디오********/
+			.navi {
+			   width: 330px;
+			}
+			
+			.profileV {
+			   height: 400px;
+			   width: 330px;		   
+			}
+			.blockV {
+			   margin-bottom: 25px;
+			   background: #394264;
+			   border-radius: 5px;	
+			   float: left;	
+			   margin-right: 20px ;
+			   margin-bottom: 25px;        
+			}	
+			.music-box-menu li{
+			   height: 60px;
+			   position: relative;
+			   text-align: center;									
+			}
+					
 			.donut-chart-block {
 				height: 200px;
 			}
@@ -758,6 +803,31 @@ h1, h2, p, a, span{
 			.profile {
 				height: 410px;
 			}
+			
+			/*******공지사항*********/
+			.profileN {
+			   height: 450px;
+			   width: 450px;	   
+			}
+			.blockN {
+			   margin-bottom: 25px;
+			   background: #394264;
+			   border-radius: 5px;	
+			   margin-right: 20px ;
+			   margin-bottom: 25px;   		        
+			}	
+		    .blockN input  {
+			   width: 260px;
+			   height: 30px;
+			   margin-left: 20px;
+			   margin-bottom: 20px;
+			   padding-left: 45px;
+		       background: #50597b;
+			   color: #fff;
+			   border: solid 1px #1f253d;
+		       border-radius: 5px;
+			}
+         
 				.add-button .icon {
 					float: right;
 					line-height: 18px;
@@ -1153,7 +1223,7 @@ h1, h2, p, a, span{
 	width: 950px;
     /* margin: 0 auto;  */
     margin-top: 50px;
-    margin-left: 108px;
+    margin-left: 200px;
 }
 .footer h4 {
 	text-align: center;

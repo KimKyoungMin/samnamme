@@ -12,10 +12,10 @@ public class ConcertController {
 	private SqlSession sqlSession;
 	
 	//콘서트 정보 페이지
-	@RequestMapping("concert.htm")
+	@RequestMapping("concertmain.htm")
 	public String conertdetail() {
 		
-		return "concert.concert";
+		return "concert.concertmain";
 	}
 
 }

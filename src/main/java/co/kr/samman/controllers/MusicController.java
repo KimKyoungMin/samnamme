@@ -12,10 +12,10 @@ public class MusicController {
 	private SqlSession sqlSession;
 	
 	//음악  목록 페이지
-		@RequestMapping("music.htm")
+		@RequestMapping("musicmain.htm")
 		public String music() {
 			
-			return "music.music";
+			return "music.musicmain";
 		}
 
 }
