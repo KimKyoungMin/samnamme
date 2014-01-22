@@ -1,6 +1,6 @@
-package co.kr.common.dao;
+package co.kr.samman.dao;
 
-import co.kr.common.dto.User;
+import co.kr.samman.dto.User;
 
 public interface UserDao {
 	public User getUser();

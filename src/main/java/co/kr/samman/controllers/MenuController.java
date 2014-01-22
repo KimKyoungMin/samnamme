@@ -1,4 +1,4 @@
-package Controllers;
+package co.kr.samman.controllers;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,8 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import co.kr.common.dao.UserDao;
-import co.kr.common.dto.User;
+import co.kr.samman.dao.UserDao;
+import co.kr.samman.dto.User;
 
 @Controller
 public class MenuController {

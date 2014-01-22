@@ -1,4 +1,4 @@
-package co.kr.common.dto;
+package co.kr.samman.dto;
 
 public class User {
 private String userid;
