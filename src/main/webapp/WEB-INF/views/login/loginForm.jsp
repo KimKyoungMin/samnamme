@@ -2,13 +2,14 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
         
+<br><br>
 
         <div class="right-container container">
             <form action="" method="post">
                 <div class="account block2"> <!-- login (RIGHT-CONTAINER) -->
                     <h2 class="titular">SIGN IN TO YOUR ACCOUNT</h2>
                     <div class="input-container">
-                        <input type="text" class="email text-input" placeholder="your Id" required>
+                        <input type="text" class="email text-input" placeholder="your Id" required autofocus>
                         <div class="input-icon envelope-icon-acount"><span class="fontawesome-envelope scnd-font-color"></span></div>
                     </div>
                     <div class="input-container">

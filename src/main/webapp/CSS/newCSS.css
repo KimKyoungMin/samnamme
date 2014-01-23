@@ -1274,7 +1274,7 @@ ul, li{list-style:none;}
 
 .subnav{
 	position: absolute;
-	width: 155px;
+	width: 100%;
 	left: 0; top: 80px;
 	background: black;
 	display: none;
@@ -1285,7 +1285,7 @@ ul, li{list-style:none;}
 
 .subnav li{
 	padding:0;
-	width:155px;
+	width:100%;
 	text-align:center;
 	border-bottom:1px solid #222;
 	border-top:1px solid;

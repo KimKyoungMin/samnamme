@@ -91,7 +91,9 @@
 </head>
 <body onload="window_onload()">
 	<!-- 연, 월 셋팅 -->
-	<table align="center" cellspacing="1" cellpadding="2" bgcolor="#e6f6e6">
+	
+	<div id="calalign" align="center">
+		<table   cellspacing="1" cellpadding="2" bgcolor="#e6f6e6">
 		<tr>
 			<td width="<%=boxweight * 7 +6%>" colspan="7"
 				style="color: blue; border: solid 1px green;"><b>&nbsp; <select
@@ -102,7 +104,7 @@
 				</select></b></td>
 	</table>
 	<!-- 요일 셋팅 -->
-	<table align="center" cellspacing="1" cellpadding="2" bgcolor="#cccccc">
+	<table   cellspacing="1" cellpadding="2" bgcolor="#cccccc">
 		<tr align="left" valign="top">
 			<td bgcolor="#e6e4e6" width="<%=boxweight%>" height="<%=boxheight%>"
 				style="color: red;">일</td>
@@ -174,6 +176,8 @@
 			%>
 		
 	</table>
+	</div>
+	
 	
 	<a href="concertdetail.jsp"> 디테일 딴</a>
 </body>
