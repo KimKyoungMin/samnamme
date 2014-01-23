@@ -68,7 +68,25 @@
 		   <artifactId>standard</artifactId>
 		   <version>1.1.2</version>
         </dependency>
-        
+	    <!-- cos   -->
+		<dependency>
+			<groupId>servlets.com</groupId>
+			<artifactId>cos</artifactId>
+			<version>05Nov2002</version>
+		</dependency>
+        <!-- multipart -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+        <!-- commons io -->
+        <dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.4</version>
+        </dependency>    
+            
 				
 		<!-- AspectJ -->
 		<dependency>

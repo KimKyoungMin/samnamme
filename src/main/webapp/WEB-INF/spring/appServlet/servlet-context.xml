@@ -35,5 +35,7 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="co.kr.samman.controllers" />
+
+	
 	
 </beans:beans>

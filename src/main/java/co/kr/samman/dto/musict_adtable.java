@@ -4,17 +4,18 @@ import java.util.ArrayList;
 
 import org.springframework.web.multipart.MultipartFile;
 
-public class musict {
-
+public class musict_adtable {
 	private int minfonum;
 	private String mtitle;
-	private String aid;
 	private String mfilename;
 	private String murl;
 	private String mpicname;
 	private String msname;
 	private String mgrade;
 	private String metcinfo;
+	
+	private String aid;
+	private String apwd;
 	
 	private ArrayList<MultipartFile> files;
 	
@@ -24,7 +25,6 @@ public class musict {
 	public void setFiles(ArrayList<MultipartFile> files) {
 		this.files = files;
 	}
-	
 	
 	public int getMinfonum() {
 		return minfonum;
@@ -37,12 +37,6 @@ public class musict {
 	}
 	public void setMtitle(String mtitle) {
 		this.mtitle = mtitle;
-	}
-	public String getAid() {
-		return aid;
-	}
-	public void setAid(String aid) {
-		this.aid = aid;
 	}
 	public String getMfilename() {
 		return mfilename;
@@ -81,5 +75,18 @@ public class musict {
 		this.metcinfo = metcinfo;
 	}
 	
+	public String getAid() {
+		return aid;
+	}
+	public void setAid(String aid) {
+		this.aid = aid;
+	}
+	public String getApwd() {
+		return apwd;
+	}
+	public void setApwd(String apwd) {
+		this.apwd = apwd;
+	}
 	
+
 }

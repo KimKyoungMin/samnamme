@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.kr.samman.dao.MemberDao">
+   <insert id="userInsert" parameterType="co.kr.samman.dto.usert">
+      INSERT INTO USERT(userid, upwd, uname, utel, uemail, ujoindate) 
+      VALUES(#{userid}, #{upwd}, #{uname}, #{utel}, #{uemail}, NOW())
+   
+   </insert>
+   
+   <!-- <select id="loginCk" parameterType="String" resultType="String">
+      select upwd from usert where userid=#{userid}
+   </select> -->
+
+</mapper>

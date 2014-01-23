@@ -7,6 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import co.kr.samman.dao.MemberDao;
+import co.kr.samman.dto.usert;
+
 @Controller
 public class MemberController {
 	
@@ -15,26 +18,21 @@ public class MemberController {
 	
 	@RequestMapping("main.htm")
 	public String home(Model model) {
-		
-		/* 실행 가능한 예제였음
-		//UserDao userdao = sqlSession.getMapper(UserDao.class);
-		//User user = userdao.getUser();
-	    //System.out.println("userid : "+user.getUserid() +"   username"+user.getUname());
-		//model.addAttribute("user", user);
-		 */
-		 
 		return "main.main";
 	}
 	
 	//로그인
 	@RequestMapping(value="login.htm", method=RequestMethod.GET)
 	public String login(){
-		
 		return "login.loginForm";
 	}
 	
 	@RequestMapping(value="login.htm", method=RequestMethod.POST)
-	public String loginCheck(){
+	public String loginCheck(String userid, String upwd){
+		/*MemberDao memberDao = sqlSession.getMapper(MemberDao.class);
+		memberDao.loginCk(userid);*/
+		
+		
 		
 		return "redirect:main.htm";
 	}
@@ -42,12 +40,13 @@ public class MemberController {
 	//회원가입
 	@RequestMapping(value="join.htm", method=RequestMethod.GET)
 	public String join(){
-		
 		return "login.joinForm";
 	}
 	
 	@RequestMapping(value="join.htm", method=RequestMethod.POST)
-	public String joinCheck(){
+	public String joinCheck(usert u){
+		MemberDao memberDao = sqlSession.getMapper(MemberDao.class);
+		memberDao.userInsert(u);
 		
 		return "redirect:main.htm";
 	}
