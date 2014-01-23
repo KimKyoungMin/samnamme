@@ -1,5 +1,9 @@
 package co.kr.samman.dto;
 
+import java.util.ArrayList;
+
+import org.springframework.web.multipart.MultipartFile;
+
 public class musict {
 
 	private int minfonum;
@@ -11,6 +15,16 @@ public class musict {
 	private String msname;
 	private String mgrade;
 	private String metcinfo;
+	
+	private ArrayList<MultipartFile> files;
+	
+	public ArrayList<MultipartFile> getFiles() {
+		return files;
+	}
+	public void setFiles(ArrayList<MultipartFile> files) {
+		this.files = files;
+	}
+	
 	
 	public int getMinfonum() {
 		return minfonum;

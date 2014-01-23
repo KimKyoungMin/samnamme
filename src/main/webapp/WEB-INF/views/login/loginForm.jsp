@@ -8,11 +8,11 @@
                 <div class="account block2"> <!-- login (RIGHT-CONTAINER) -->
                     <h2 class="titular">SIGN IN TO YOUR ACCOUNT</h2>
                     <div class="input-container">
-                        <input type="text" class="email text-input" placeholder="your Id" required>
+                        <input type="text" class="email text-input" name="userid" placeholder="your Id" required>
                         <div class="input-icon envelope-icon-acount"><span class="fontawesome-envelope scnd-font-color"></span></div>
                     </div>
                     <div class="input-container">
-                        <input type="password" class="password text-input" placeholder="Password" required>
+                        <input type="password" class="password text-input" name="upwd" placeholder="Password" required>
                         <div class="input-icon password-icon"><span class="fontawesome-lock scnd-font-color"></span></div>
                     </div>
                     <input type="submit" class="sign-in button" value="SIGN IN">
