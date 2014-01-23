@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.kr.samman.dao.MusicDao">
+
+   <select id="getMusiclists" resultType="co.kr.samman.dto.musict">
+       select minfonum, mpicname, mtitle, msname, mgrade, metcinfo from musict
+     
+   </select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</mapper>
