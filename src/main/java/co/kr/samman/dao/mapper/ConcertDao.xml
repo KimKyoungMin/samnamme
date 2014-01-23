@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.kr.samman.dao.ConcertDao">
+
+	<select id="getConcertList" resultType="co.kr.samman.dto.concert">
+		SELECT CONNUM, CONTITLE, DATE(CONDATE) CONDATE, CONPLACE, CONSINGER, CONGRADE,
+       CONECTINFO, CONLON, CONLAT, AID, 
+       YEAR(CONDATE) CONYEAR, MONTH(CONDATE) CONMONTH, DAYOFMONTH(CONDATE) CONDAY ,
+       year(now()) NOWYEAR, month(now()) NOWMONTH FROM CONCERT;
+
+	</select>
+	
+</mapper>
