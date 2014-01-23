@@ -150,7 +150,8 @@
 						<c:if test="${f.getConyear()==cyear}">
 							<c:if test="${f.getConmonth() == cmonth }">
 								<c:if test="${f.getConday()==scopeday}">
-									${f.getContitle()}
+									<a href="concertdetail.htm?connum=${f.getConnum()}" style="color: #CC0000"
+									>${f.getContitle()}</a>
 								</c:if>
 							</c:if>
 						</c:if>

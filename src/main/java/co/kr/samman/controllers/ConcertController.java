@@ -1,5 +1,7 @@
 package co.kr.samman.controllers;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,16 +24,20 @@ public class ConcertController {
 //		
 //		///////////////////////////////////////////////////////////////			
 //		model.addAttribute("user",noticeDao.getUser());
-		System.out.println("ConcertController.concert()");
+		//System.out.println("ConcertController.concert()");
 		ConcertDao concertdao = sqlSession.getMapper(ConcertDao.class);
-		System.out.println("ConcertController.concert() get Mapper");
+//		System.out.println("ConcertController.concert() get Mapper");
 		model.addAttribute("concertlist",concertdao.getConcertList());
-		System.out.println("ConcertController.concert() set Attribute");
+//		System.out.println("ConcertController.concert() set Attribute");
 		return "concert.concertmain";
 	}
 	
 	@RequestMapping("concertdetail.htm")
-	public String concertdetail(){
+	public String concertdetail(HttpServletRequest req, Model model){
+		int id = Integer.parseInt(req.getParameter("connum"));
+		//System.out.println("ConcertController. concertdetail()"+id);
+		ConcertDao concertdao = sqlSession.getMapper(ConcertDao.class);
+		model.addAttribute("concertDetail", concertdao.getConcertdetail(id));
 		return "concert.concertdetail";
 	}
 

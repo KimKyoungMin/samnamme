@@ -9,5 +9,6 @@
 </head>
 <body>
 			<h2> 콘서트 디테일</h2>
+			${concertDetail.getContitle() }
 </body>
 </html>

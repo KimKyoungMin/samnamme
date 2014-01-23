@@ -8,4 +8,5 @@ import co.kr.samman.dto.musict;
 public interface ConcertDao {
 
 	public List<concert> getConcertList();
+	public concert getConcertdetail(int id);
 }
