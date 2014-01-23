@@ -2,7 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 
+
 <h2> Notice board </h2>
+<div align="right">
+<a href="noticeReg.htm">글쓰기</a>
+</div>
 
 <div class="profileN blockN" align="center">
             
@@ -32,8 +36,5 @@
           </tr>  
              
       </table>
-            
-            
-            
-     
+    
 </div>

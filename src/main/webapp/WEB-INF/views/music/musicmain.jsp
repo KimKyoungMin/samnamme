@@ -1,99 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
 
    <h2>Music List</h2>
    
+   <c:forEach var="m" items="${musicList}">
    <div class="profileM blockM">  <!-- 음악 리스트  (RIGHT-CONTAINER) -->
-			<ul>
-			   <li align="right"><input type="checkbox" value="1"></li>
-			   <li align="center">
-			      <img src="aa.PNG" width="250px" height="150px">
-			   </li>
-			   <li>musicName : aaa</li>
-			   <li>artist : bbb</li>
-			   <li>genre : ccc</li>
-			   <li>info : ddd</li>
-			</ul>    
+			
+			   <ul>
+			     <li align="right"><input type="checkbox" value="1"></li>
+			   
+			   	
+			   <div class="music">
+			     <img src="${m.getMpicname()}" width="130px" height="150px">
+			   </div>
+			   <div class="music">
+			      ${m.getMtitle()}
+			      ${m.getMsname()}
+			      ${m.getMgrade()}
+			   </div>
+			   
+			   	<li>${m.getMetcinfo()}</li>
+			   	
+			   	</ul>
+	
+
    </div>  
+   </c:forEach>
    
-   <div class="profileM blockM">  <!-- 음악 리스트  (RIGHT-CONTAINER) -->
-			<ul>
-			   <li align="right"><input type="checkbox" value="1"></li>
-			   <li align="center">
-			      <img src="aa.PNG" width="250px" height="150px">
-			   </li>
-			   <li>musicName : aaa</li>
-			   <li>artist : bbb</li>
-			   <li>genre : ccc</li>
-			   <li>info : ddd</li>
-			</ul>    
-   </div> 
-   
-   <div class="profileM blockM">  <!-- 음악 리스트  (RIGHT-CONTAINER) -->
-			<ul>
-			   <li align="right"><input type="checkbox" value="1"></li>
-			   <li align="center">
-			      <img src="aa.PNG" width="250px" height="150px">
-			   </li>
-			   <li>musicName : aaa</li>
-			   <li>artist : bbb</li>
-			   <li>genre : ccc</li>
-			   <li>info : ddd</li>
-			</ul>    
-   </div> 
-   
-   <div class="profileM blockM">  <!-- 음악 리스트  (RIGHT-CONTAINER) -->
-			<ul>
-			   <li align="right"><input type="checkbox" value="1"></li>
-			   <li align="center">
-			      <img src="aa.PNG" width="250px" height="150px">
-			   </li>
-			   <li>musicName : aaa</li>
-			   <li>artist : bbb</li>
-			   <li>genre : ccc</li>
-			   <li>info : ddd</li>
-			</ul>    
-   </div> 
-   
-   <div class="profileM blockM">  <!-- 음악 리스트  (RIGHT-CONTAINER) -->
-			<ul>
-			   <li align="right"><input type="checkbox" value="1"></li>
-			   <li align="center">
-			      <img src="aa.PNG" width="250px" height="150px">
-			   </li>
-			   <li>musicName : aaa</li>
-			   <li>artist : bbb</li>
-			   <li>genre : ccc</li>
-			   <li>info : ddd</li>
-			</ul>    
-   </div> 
-   
-   <!-- <div class="profileM blockM">
-   <table>
-			
-			<tr>
-			    <td align="right"><input type="checkbox" value="1"></td>
-			</tr>
-			<tr>
-			    <td align="center"><img src="aa.PNG" width="250px" height="150px"></td>
-			</tr>
-			<tr>
-				<td>MusicName</td>
-				<td>gododd</td>
-			</tr>
-			<tr>
-				<th>Artist</th>
-				<td>dodods</td>
-			<tr>
-				<th>Genre</th>
-				<td>dosdo</td>
-			</tr>
-			<tr>
-				<th>Info</th>
-				<td>doasiosdiosdsodsioiodsiods</td>
-			</tr>
-			
-		</table>  
-    </div>     -->
             

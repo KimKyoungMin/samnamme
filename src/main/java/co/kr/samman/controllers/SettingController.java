@@ -1,10 +1,16 @@
 package co.kr.samman.controllers;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import co.kr.samman.dao.SettingDao;
+import co.kr.samman.dto.usert;
 
 @Controller
 public class SettingController {
@@ -14,15 +20,12 @@ public class SettingController {
 	
 	//관리자 관리
 		@RequestMapping("ausers.htm")
-		public String setting() {
+		public String users(Model model) {
+			SettingDao settingDao = sqlSession.getMapper(SettingDao.class);
+			List<usert> userList = settingDao.userlists();
+			model.addAttribute("userList", userList);
 			
 			return "setting.ausers";
-		}
-		
-		@RequestMapping("")
-		public String userDetail(){
-			
-			return "setting.audetail";
 		}
 		
 		@RequestMapping(value="amusicform.htm", method=RequestMethod.GET)
