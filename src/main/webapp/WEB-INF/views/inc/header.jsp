@@ -17,13 +17,13 @@
 	<h2>
 		<div>
 		 <audio src="" controls="controls" style="width: 30%"></audio>
-		  <s:authorize ifNotGranted="ROLL_USER">
+		  <s:authorize ifNotGranted="ROLL_USER, ROLL_ADMIN">
 			<a href="login.htm">Login</a> 
 		  </s:authorize>
 		  
 		  <s:authentication property="name" var="loginUser"/>
 		  <s:authorize ifAnyGranted="ROLE_USER, ROLE_ADMIN">
-			    <a href="/j_spring_security_logout">        
+			    <a href="${pageContext.request.contextPath}/j_spring_security_logout">        
 					      (${loginUser })로그아웃
 			    </a>
 	      </s:authorize>
@@ -56,17 +56,20 @@
 					<li><a href="community.htm">Community</a></li>
 				</ul>
 			</li>
-			<!-- <li class="navi_set">
-			    <a class="header-menu-tab" href="account.htm"><span class="icon fontawesome-user scnd-font-color"></span>Account</a>
-			</li> --> 
-			<li>
+			
+		    <li>
+		        <s:authorize ifAnyGranted="ROLE_USER">
+			       <a class="header-menu-tab" href="account.htm"><span class="icon fontawesome-user scnd-font-color"></span>Account</a>
+			    </s:authorize>
+			    <s:authorize ifAnyGranted="ROLE_ADMIN">
 			    <a class="header-menu-tab" href="#"><span class="icon entypo-cog scnd-font-color"></span>Settings</a>
-			    <ul class="subnav">
-					<li><a href="ausers.htm">User</a></li>
-					<li><a href="amusicform.htm">Music</a></li>
-					<li><a href="aconcertform.htm">Concert</a></li>
-				</ul>
-		    </li>
+			       <ul class="subnav">
+					   <li><a href="ausers.htm">User</a></li>
+					   <li><a href="amusicform.htm">Music</a></li>
+					   <li><a href="aconcertform.htm">Concert</a></li>
+				   </ul>
+				</s:authorize>
+			</li> 
 
 		</ul>
 

@@ -1,11 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- <beans:beans
-xmlns="http://www.springframework.org/schema/beans"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xmlns="http://www.springframework.org/schema/security"
-xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		            http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd">
- -->
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:security="http://www.springframework.org/schema/security"
@@ -14,14 +7,15 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 
 <security:http auto-config="true">
    <security:form-login login-page="/login.htm"
-                        authentication-failure-url="/login/login.htm?error"
-                        default-target-url="/main/main.htm"/>
-   <security:logout logout-success-url="/main/main.htm"/>
+                        authentication-failure-url="/login.htm?error"
+                        default-target-url="/main.htm"/>
+   <security:logout logout-success-url="/main.htm"/>
    <!-- pattern 매핑 방법 
         pattern="/customer/*" access="ROLE_USER"   =customer 폴더 안에 모든 파일
         pattern="/customer/**" access="ROLE_USER"  =customer 폴더 안에 하위 폴더를 포함한 하위 자원
    
    -->
+   <security:intercept-url pattern="/main/*" access="ROLE_USER, ROLE_ADMIN"/>
    <security:intercept-url pattern="/board/*" access="ROLE_USER"/>
    <security:intercept-url pattern="/concert/*" access="ROLE_USER"/>
    <security:intercept-url pattern="/music/*" access="ROLE_USER"/>
@@ -35,8 +29,13 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
       <!-- JDBC 사용해서 DB연동 인증 처리  -->
       <security:jdbc-user-service data-source-ref="dataSource"
          users-by-username-query="SELECT userid USERID, upwd PASSWORD, ENABLED FROM usert where userid=?"
-         authorities-by-username-query="SELECT userid USERID, 'ROLE_USER' ROLE_NAME FROM usert where userid=? "
-      />
+         authorities-by-username-query="SELECT userid USERID, 'ROLE_USER' ROLE_NAME FROM usert where userid=? "     
+      /> 
+      
+      <!-- DB연동 하지 않고 사용자 고정해서 사용하는 방법 -->
+      <!-- <security:user-service>
+         <security:user name="ADMIN" password="1004" authorities="ROLE_ADMIN"/>
+      </security:user-service>  --> 
       
       
    </security:authentication-provider>

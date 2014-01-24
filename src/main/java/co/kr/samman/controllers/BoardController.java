@@ -24,7 +24,7 @@ public class BoardController {
 	@RequestMapping(value="noticewrite.htm", method=RequestMethod.GET)
 	public String noticeform(){
 		
-		return "board.noticeForm";
+		return "board.noticewrite";
 	}
 	
 	@RequestMapping(value="noticewrite.htm", method=RequestMethod.POST)
