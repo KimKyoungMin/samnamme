@@ -7,12 +7,12 @@
 	<select id="getConcertList" 
 	resultType="co.kr.samman.dto.concert">
 		SELECT CONNUM, CONTITLE, DATE(CONDATE) CONDATE, CONPLACE, CONSINGER, CONGRADE,
-       CONECTINFO, CONLON, CONLAT, AID, 
+       CONECTINFO, CONLON, CONLAT, AID, CONPIC,
        YEAR(CONDATE) CONYEAR, MONTH(CONDATE) CONMONTH, DAYOFMONTH(CONDATE) CONDAY ,
        year(now()) NOWYEAR, month(now()) NOWMONTH FROM CONCERT;
 	</select>
 	<select id="getConcertdetail" parameterType="Integer" resultType="co.kr.samman.dto.concert">
 		SELECT CONNUM, CONTITLE, DATE(CONDATE) CONDATE, CONPLACE, CONSINGER, CONGRADE,
-       CONECTINFO, CONLON, CONLAT, AID FROM CONCERT WHERE CONNUM = #{param1}
+       CONECTINFO, CONLON, CONLAT, AID,CONPIC FROM CONCERT WHERE CONNUM = #{param1}
 	</select>
 </mapper>
