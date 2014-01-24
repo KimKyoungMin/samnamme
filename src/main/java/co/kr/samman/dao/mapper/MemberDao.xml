@@ -9,8 +9,8 @@
    
    </insert>
    
-   <!-- <select id="loginCk" parameterType="String" resultType="String">
-      select upwd from usert where userid=#{userid}
+   <!-- <select id="musictop">
+      
    </select> -->
 
 </mapper>

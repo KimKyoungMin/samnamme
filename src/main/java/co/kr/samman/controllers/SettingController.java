@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
@@ -48,7 +50,7 @@ public class SettingController {
 		}
 		
 		@RequestMapping(value="amusicform.htm", method=RequestMethod.POST)
-		public String musicInsert(musict_adtable ma , HttpServletRequest req, Model model) throws IOException{
+		public String musicInsert(musict_adtable ma, HttpServletRequest request, Model model) throws IOException{
 			System.out.println("컨트롤 들어옴");
 			
 			System.out.println(ma.getAid());
@@ -59,8 +61,11 @@ public class SettingController {
 			
 			for(MultipartFile multipartfile : files){
 				String fname = multipartfile.getOriginalFilename();
-				String path = req.getRealPath(fname);
-			    System.out.println(fname+"//"+path);
+				String path = request.getRealPath("/upload/"+fname);
+				//String path = request.getServletContext().getRealPath("/upload");
+			   
+				System.out.println(fname);
+				System.out.println(path);
 			    
 			    if(!fname.equals("")){
 			    	FileOutputStream fs = new FileOutputStream(path);

@@ -13,7 +13,7 @@
 			   
 			   	
 			   <div class="music">
-			     <img src="${m.getMpicname()}" width="130px" height="150px">
+			     <img src="upload/${m.getMpicname()}" width="130px" height="150px">
 			   </div>
 			   <div class="music">
 			      ${m.getMtitle()}

@@ -29,15 +29,9 @@
       <!-- JDBC 사용해서 DB연동 인증 처리  -->
       <security:jdbc-user-service data-source-ref="dataSource"
          users-by-username-query="SELECT userid USERID, upwd PASSWORD, ENABLED FROM usert where userid=?"
-         authorities-by-username-query="SELECT userid USERID, 'ROLE_USER' ROLE_NAME FROM usert where userid=? "     
+         authorities-by-username-query="SELECT userid USERID, ROLE_NAME FROM usert where userid=? "     
       /> 
-      
-      <!-- DB연동 하지 않고 사용자 고정해서 사용하는 방법 -->
-      <!-- <security:user-service>
-         <security:user name="ADMIN" password="1004" authorities="ROLE_ADMIN"/>
-      </security:user-service>  --> 
-      
-      
+   
    </security:authentication-provider>
 </security:authentication-manager>
 
