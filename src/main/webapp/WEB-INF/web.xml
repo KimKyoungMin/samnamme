@@ -9,19 +9,6 @@
 		<param-value>/WEB-INF/spring/root-context.xml</param-value>
 	</context-param> -->
 	
-	<!-- 공통 빈 설정하기  -->
-	<!-- Creates the Spring Container shared by all Servlets and Filters -->
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>
-		     /WEB-INF/spring/root-context.xml
-		     /WEB-INF/security-context.xml
-		</param-value>
-	</context-param>
-
 	<!-- Processes application requests -->
 	<servlet>
 		<servlet-name>appServlet</servlet-name>
@@ -37,6 +24,35 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>*.htm</url-pattern>
 	</servlet-mapping>
+
+<!-- 	<servlet-mapping>
+		<servlet-name>jsp</servlet-name>
+		<url-pattern>/WEB-INF/views/*</url-pattern>
+	</servlet-mapping> -->
+
+	
+	<!-- 공통 빈 설정하기  -->
+	<!-- Creates the Spring Container shared by all Servlets and Filters -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+		     /WEB-INF/spring/root-context.xml
+		     /WEB-INF/security-context.xml
+		</param-value>
+	</context-param>
+
+    <!-- 보안 필터 설정 -->
+   <filter>
+     <filter-name>springSecurityFilterChain</filter-name>
+     <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+   </filter>
+   <filter-mapping>
+     <filter-name>springSecurityFilterChain</filter-name>
+     <url-pattern>/*</url-pattern>
+   </filter-mapping>
 	
 	
 <filter>

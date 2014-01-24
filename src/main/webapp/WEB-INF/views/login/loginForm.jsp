@@ -13,8 +13,8 @@
               </c:if>    
            </div> 
         </c:if>
-         
-            <form action="/j_spring_security_check" method="post">
+            <c:url value="/j_spring_security_check" var="loginURL"></c:url>
+            <form action="${loginURL }" method="post">
                 <div class="account block2"> <!-- login (RIGHT-CONTAINER) -->
                     <h2 class="titular">SIGN IN TO YOUR ACCOUNT</h2>
                     <div class="input-container">
