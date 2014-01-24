@@ -86,6 +86,12 @@
 		location.href = addr;
 
 	}
+	
+	function openNewWindow(window){
+		open(window, "NewWindow" , "left=0, top=0, toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=yes, width=200, htight=200");
+		
+	}
+	
 </script>
 <title>Insert title here</title>
 </head>
@@ -152,7 +158,7 @@
 						<c:if test="${f.getConyear()==cyear}">
 							<c:if test="${f.getConmonth() == cmonth }">
 								<c:if test="${f.getConday()==scopeday}">
-									<a href="concertdetail.htm?connum=${f.getConnum()}" style="color: #CC0000"
+									<a href=javascript:openNewWindow("concertdetail.htm?connum=${f.getConnum()}") style="color: #CC0000"
 									>${f.getContitle()}</a>
 								</c:if>
 							</c:if>
