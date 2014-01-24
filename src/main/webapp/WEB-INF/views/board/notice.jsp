@@ -8,33 +8,65 @@
 <a href="noticeReg.htm">글쓰기</a>
 </div>
 
-<div class="profileN blockN" align="center">
-            
-      <table>
+<!-- <div class="profileN blockN" align="center"> -->
+   
+    <!--   <table border="1" style="width:200px; padding:5px;">
           <tr>
-             <td>Admin</td>
-             <td align="right">2014-01-22</td>     
+             <td>No1</td>
+             <td>김정훈</td>     
+             <td>2014-01-01</td>     
+          </tr>
+          
+          <tr>
+             <td>1</td>
+             <td>1</td>
+             <td>1</td>
           </tr>
           <tr>
-             <td colspan="2"></td>
-          </tr>
+             <td colspan="3">내용</td>
           <tr>
-             <td>제목</td>
-             <td>새해 복 많이 받으세요</td>
+             <td align="left"><img src="" width="300px" height="300px"></td>
+             <td colspan="2">2</td>
           </tr>
+          
           <tr>
-             <td colspan="2">내용</td>
-          <tr align="center">
-             <td colspan="2"><img src="" width="300px" height="150px"></td>
-          </tr>
-          <tr>
-             <td colspan="2">가나다라ㅏ마ㅏ아ㅏ사앤야ㅐ애래야ㅐ시야ㅐㅇ냐ㅐㄹ야ㅐㅑㅐㅇ랴ㅐ양냐ㅐ야ㅐㅑㅐㅇ량ㄴ랴ㅐㄴ랴ㅐㅇㄴ랴냐ㅐㅇ냐ㅐㅑ</td>
-          </tr>
-          <tr>
-             <td>댓글</td>
+             <td>3</td>
+             <td>3</td>
              <td><input type="text" name="re"></td>
           </tr>  
              
-      </table>
-    
-</div>
+      </table> -->
+      			<table class="article-list margin-small">
+      					<thead>
+							<tr>
+								<th class="seq">번호</th>
+								<th class="title">제목</th>
+								<th class="writer">작성자</th>
+								<th class="regdate">작성일</th>
+								<th class="hit">조회수</th>
+							</tr>
+						</thead>
+						</table>
+						
+						<table class="article-list margin-small">
+						<tbody>
+								<tr>
+									<td class="seq">1</td>
+									<td class="title"><a href="noticedetail.jsp">제목</a></td>
+									<td class="writer">글쓴이</td>
+									<td class="regdate">날짜</td>
+									<td class="hit">조회수</td>
+								</tr>
+								
+								<tr>
+									<td class="seq">2</td>
+									<td class="title"><a href="#">송지혜짱</a></td>
+									<td class="writer">송지혜</td>
+									<td class="regdate">2013-05-05</td>
+									<td class="hit">9999</td>
+								</tr>
+						
+						</tbody>
+						</table>
+    				
+<!-- </div> -->
