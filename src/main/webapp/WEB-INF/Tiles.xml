@@ -3,18 +3,24 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 <tiles-definitions>
-  <definition name="*.*" template="/WEB-INF/views/inc/layout.jsp">
-    <put-attribute name="header" value="/WEB-INF/views/inc/header.jsp"/>
-    <put-attribute name="footer" value="/WEB-INF/views/inc/footer.jsp"/>
-    <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"/>
-  </definition>  
-  
-  <definition name="video.videomain" template="/WEB-INF/views/inc/videolayout.jsp">
-    <put-attribute name="header" value="/WEB-INF/views/inc/header.jsp"/>
-    <put-attribute name="footer" value="/WEB-INF/views/inc/footer.jsp"/>
-    <put-attribute name="navi" value="/WEB-INF/views/inc/videomenu.jsp"/>
-    <put-attribute name="content" value="/WEB-INF/views/video/videomain.jsp"/>
-  </definition>
+	<definition name="*.*" template="/WEB-INF/views/inc/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/inc/header.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/inc/footer.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />
+	</definition>
 
-  
+	<definition name="video.videomain" template="/WEB-INF/views/inc/videolayout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/inc/header.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/inc/footer.jsp" />
+		<put-attribute name="navi" value="/WEB-INF/views/inc/videomenu.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/video/videomain.jsp" />
+	</definition>
+
+	<definition name="concert.concertdetail"
+		template="/WEB-INF/views/inc/concertdetaillayout.jsp">
+		<put-attribute name="content"
+			value="/WEB-INF/views/concert/concertdetail.jsp" />
+	</definition>
+
+
 </tiles-definitions>
