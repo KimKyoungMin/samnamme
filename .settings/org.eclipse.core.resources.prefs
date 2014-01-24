@@ -1,3 +1,7 @@
 eclipse.preferences.version=1
+encoding//src/main/webapp/WEB-INF/views/concert/concertdetail.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/concert/concertdetailfooter.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/concert/concertmap.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/inc/layout.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/main/main.jsp=UTF-8
+encoding//src/main/webapp/main.htm=UTF-8

@@ -11,8 +11,17 @@
 <title>concertDetailLayout</title>
 </head>
     <body>
+    <table style="width: 480; height: 500">
         <!-- content -->
+	    <tiles:insertAttribute name="header"></tiles:insertAttribute>
+	    <tr><td colspan="2">
+	    <!-- content -->
 	    <tiles:insertAttribute name="content"></tiles:insertAttribute>
+	    </td></tr>
+	    <tr>
+	    <!-- footer -->
+	    <tiles:insertAttribute name="footer"></tiles:insertAttribute>
+	    </tr>
     </body>	
-
+</table>
 </html>
