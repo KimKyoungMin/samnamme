@@ -15,16 +15,21 @@
 <div class="block3">
 		<s:authentication property="name" var="loginUser"/>
 	<h2>
-		<audio src="" controls="controls" style="width: 30%"></audio>
-		<s:authorize ifNotGranted="ROLL_USER">
-			<a href="${pageContext.request.contextPath}/login.htm">Login</a> || <a href="join.htm">Join</a>
-		</s:authorize>
-		<!-- <a href="login.htm">Login</a> || <a href="join.htm">Join</a> -->
-			<s:authorize ifAnyGranted="ROLE_USER, ROLE_ADMIN">
-			    <a href="${pageContext.request.contextPath}/j_spring_security_logout">        
+		<div>
+		 <audio src="" controls="controls" style="width: 30%"></audio>
+		  <s:authorize ifNotGranted="ROLL_USER">
+			<a href="login.htm">Login</a> 
+		  </s:authorize>
+		  
+		  <s:authentication property="name" var="loginUser"/>
+		  <s:authorize ifAnyGranted="ROLE_USER, ROLE_ADMIN">
+			    <a href="/j_spring_security_logout">        
 					      (${loginUser })로그아웃
 			    </a>
-	        </s:authorize>
+	      </s:authorize>
+		|| <a href="join.htm">Join</a>
+		</div>
+			
 
 	</h2>
 	

@@ -13,7 +13,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
 <security:http auto-config="true">
-   <security:form-login login-page="/login/login.htm"
+   <security:form-login login-page="/login.htm"
                         authentication-failure-url="/login/login.htm?error"
                         default-target-url="/main/main.htm"/>
    <security:logout logout-success-url="/main/main.htm"/>
@@ -37,27 +37,6 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
          users-by-username-query="SELECT userid USERID, upwd PASSWORD, ENABLED FROM usert where userid=?"
          authorities-by-username-query="SELECT userid USERID, 'ROLE_USER' ROLE_NAME FROM usert where userid=? "
       />
-      
-      <!-- 
-           security:jdbc-user-service <- 얘는 USERID, PASSWORD, ENABLED//USERID, ROLE_NAME 만 넘겨주면 인증 시스템을 하겠다
-      
-                 기본: 사용자는 하나의 롤을 가진다
-           JDBC 사용해서 DB연동 하려면 몇가지 규칙이 있다
-           1.규칙 (사용자 정보)
-                 아래의 컬럼명은 정의되어 있는 것을 사용  
-           SELECT USERID, PASSWORD, ENABLED FROM...
-           -> 실제 테이블 컬럼 은 select userid, password...from...
-                 해결방안 
-            ->SELECT id USERID, pwd PASSWORD, 1 ENABLED FROM tmember
-                                             //활성화된 사용자
-           2.규칙 (역할 정보)
-           SELECT USERID, ROLE_NAME FROM ...  
-           -> select TMEMBER.ROLEID, TROLE.ROLE_NAME from tmember inner join trole 
-              on tmember.roleid = trole.roleid
-              where tmember.id = 'song'  
-                 해결방안
-            ->SELECT ID USERID, 'ROLE_USER' ROLE_NAME FROM TMEMBER where id=?              
-      -->
       
       
    </security:authentication-provider>

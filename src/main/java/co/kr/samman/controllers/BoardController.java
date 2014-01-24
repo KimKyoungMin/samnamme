@@ -21,17 +21,18 @@ public class BoardController {
 	}
 	
 	//관리자가 공지사항 글쓰기
-	@RequestMapping(value="noticeReg.htm", method=RequestMethod.GET)
+	@RequestMapping(value="noticewrite.htm", method=RequestMethod.GET)
 	public String noticeform(){
 		
 		return "board.noticeForm";
 	}
 	
-	@RequestMapping(value="noticeReg.htm", method=RequestMethod.POST)
+	@RequestMapping(value="noticewrite.htm", method=RequestMethod.POST)
 	public String noticeReg(){
 		
 		return "redirect:notice.htm";
 	}
+	
 	//공지사항 상세 보기
 	@RequestMapping(value="noticedetail.htm", method=RequestMethod.GET)
 	public String noticedetail(){

@@ -5,7 +5,7 @@
 
 <h2> Notice board </h2>
 <div align="right">
-<a href="noticeReg.htm">글쓰기</a>
+<a href="noticewrite.htm">글쓰기</a>
 </div>
 
 <!-- <div class="profileN blockN" align="center"> -->
