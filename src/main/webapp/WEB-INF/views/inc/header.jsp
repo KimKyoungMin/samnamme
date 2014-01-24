@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-
+<%@ taglib prefix="s" uri="http://www.springframework.org/security/tags" %>
 
 
 
@@ -13,10 +13,23 @@
 </div>
 
 <div class="block3">
+		<s:authentication property="name" var="loginUser"/>
 	<h2>
 		<audio src="" controls="controls" style="width: 30%"></audio>
-		<a href="login.htm">Login</a> || <a href="join.htm">Join</a>
+		<s:authorize ifNotGranted="ROLL_USER">
+			<a href="${pageContext.request.contextPath}/login.htm">Login</a> || <a href="join.htm">Join</a>
+		</s:authorize>
+		<!-- <a href="login.htm">Login</a> || <a href="join.htm">Join</a> -->
+			<s:authorize ifAnyGranted="ROLE_USER, ROLE_ADMIN">
+			    <a href="${pageContext.request.contextPath}/j_spring_security_logout">        
+					      (${loginUser })로그아웃
+			    </a>
+	        </s:authorize>
+
 	</h2>
+	
+	
+	
 </div>
 
 <div class="main-container">

@@ -5,19 +5,24 @@
 <br><br>
 
         <div class="right-container container">
-            <form action="" method="post">
+        <c:if test="${param.error!=null }">
+           <div>
+                    로그인 실패 <br>
+              <c:if test="${SPRING_SECURITY_LAST_EXCEPTION != null }">
+                         이유 : <c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message }"></c:out>               
+              </c:if>    
+           </div> 
+        </c:if>
+         
+            <form action="/j_spring_security_check" method="post">
                 <div class="account block2"> <!-- login (RIGHT-CONTAINER) -->
                     <h2 class="titular">SIGN IN TO YOUR ACCOUNT</h2>
                     <div class="input-container">
-
-                        <input type="text" class="email text-input" placeholder="your Id" required autofocus>
-
-                        <input type="text" class="email text-input" name="userid" placeholder="your Id" required>
-
+                        <input type="text" class="email text-input" name="j_username" placeholder="your Id" required autofocus>
                         <div class="input-icon envelope-icon-acount"><span class="fontawesome-envelope scnd-font-color"></span></div>
                     </div>
                     <div class="input-container">
-                        <input type="password" class="password text-input" name="upwd" placeholder="Password" required>
+                        <input type="password" class="password text-input" name="j_password" placeholder="Password" required>
                         <div class="input-icon password-icon"><span class="fontawesome-lock scnd-font-color"></span></div>
                     </div>
                     <input type="submit" class="sign-in button" value="SIGN IN">
