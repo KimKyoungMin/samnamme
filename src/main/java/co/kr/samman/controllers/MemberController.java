@@ -27,15 +27,6 @@ public class MemberController {
 		return "login.loginForm";
 	}
 	
-	/*@RequestMapping(value="login.htm", method=RequestMethod.POST)
-	public String loginCheck(String userid, String upwd){
-		MemberDao memberDao = sqlSession.getMapper(MemberDao.class);
-		memberDao.loginCk(userid);
-		
-		
-		
-		return "redirect:main.htm";
-	}*/
 	
 	//회원가입
 	@RequestMapping(value="join.htm", method=RequestMethod.GET)
