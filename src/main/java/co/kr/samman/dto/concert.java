@@ -19,8 +19,15 @@ public class concert {
 	private int conday;
 	private int nowyear;
 	private int nowmonth;
+	private String conpic;
 	
 	
+	public String getConpic() {
+		return conpic;
+	}
+	public void setConpic(String conpic) {
+		this.conpic = conpic;
+	}
 	public int getNowyear() {
 		return nowyear;
 	}
