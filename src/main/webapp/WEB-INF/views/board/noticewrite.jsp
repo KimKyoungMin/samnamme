@@ -9,15 +9,26 @@
 </div>
 
 <!-- <div class="profileN blockN" align="center"> -->
-  
-  
-  <div id="notice-article-detail" class="article-detail margin-large" >						
+   
+   <h2>공지사항</h2>
+					<h3 class="hidden">방문페이지위치</h3>
+					<ul id="breadscrumb" class="block_hlist">
+						<li>HOME</li>
+						<li>
+							고객센터
+						</li>
+						<li>
+							공지사항수정
+						</li>
+					</ul>
+   
+   <div id="notice-article-detail" class="article-detail margin-large" >						
 						<dl class="article-detail-row">
 							<dt class="article-detail-title">
 								제목
 							</dt>
 							<dd class="article-detail-data">
-								1
+								${notice.title}
 							</dd>
 						</dl>	
 						<dl class="article-detail-row half-row">
@@ -25,7 +36,7 @@
 								작성자
 							</dt>
 							<dd class="article-detail-data half-data" >
-							   2
+							   ${notice.writer}
 							</dd>
 						</dl>
 						<dl class="article-detail-row half-row">
@@ -33,7 +44,7 @@
 								조회수
 							</dt>
 							<dd class="article-detail-data half-data">
-								3
+								${notice.hit }
 							</dd>
 						</dl>
 						<dl class="article-detail-row">
@@ -46,10 +57,11 @@
 						</dl>
 
 						<div class="article-content" >
-							<textarea id="txtContent" class="txtContent" name="content" >바보
+							<textarea id="txtContent" class="txtContent" name="content" >
+								${notice.content}
 							</textarea>
 						</div>						
 					</div>
-               	
+               			
     				
 <!-- </div> -->
