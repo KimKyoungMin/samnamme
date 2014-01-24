@@ -9,11 +9,11 @@
                 <div class="account block2"> <!-- login (RIGHT-CONTAINER) -->
                     <h2 class="titular">SIGN IN TO YOUR ACCOUNT</h2>
                     <div class="input-container">
-<<<<<<< HEAD
+
                         <input type="text" class="email text-input" placeholder="your Id" required autofocus>
-=======
+
                         <input type="text" class="email text-input" name="userid" placeholder="your Id" required>
->>>>>>> branch 'master' of https://github.com/KimKyoungMin/samnamme.git
+
                         <div class="input-icon envelope-icon-acount"><span class="fontawesome-envelope scnd-font-color"></span></div>
                     </div>
                     <div class="input-container">
