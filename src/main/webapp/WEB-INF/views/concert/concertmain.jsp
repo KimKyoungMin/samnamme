@@ -88,7 +88,7 @@
 	}
 	
 	function openNewWindow(window){
-		open(window, "NewWindow" , "left=0, top=0, toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=yes, width=200, htight=200");
+		open(window, "NewWindow" , "top=0,left=0,width=500,height=640,resizable=1,scrollbars=no");
 		
 	}
 	
@@ -183,8 +183,5 @@
 		
 	</table>
 	</div>
-	
-	
-	<a href="concertdetail.jsp"> 디테일 딴</a>
 </body>
 </html>
