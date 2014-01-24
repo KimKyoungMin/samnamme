@@ -52,7 +52,7 @@
 						<tbody>
 								<tr>
 									<td class="seq">1</td>
-									<td class="title"><a href="noticedetail.jsp">제목</a></td>
+									<td class="title"><a href="noticedetail.htm">제목</a></td>
 									<td class="writer">글쓴이</td>
 									<td class="regdate">날짜</td>
 									<td class="hit">조회수</td>

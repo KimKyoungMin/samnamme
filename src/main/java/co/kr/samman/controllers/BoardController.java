@@ -32,6 +32,13 @@ public class BoardController {
 		
 		return "redirect:notice.htm";
 	}
+	//공지사항 상세 보기
+	@RequestMapping(value="noticedetail.htm", method=RequestMethod.GET)
+	public String noticedetail(){
+		
+		return "board.noticedetail";
+	}
+	
 	
 	//자유 게시판
 	@RequestMapping("community.htm")

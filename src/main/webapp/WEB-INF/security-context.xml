@@ -34,8 +34,8 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
    <security:authentication-provider>
       <!-- JDBC 사용해서 DB연동 인증 처리  -->
       <security:jdbc-user-service data-source-ref="dataSource"
-         users-by-username-query="SELECT id userid, pwd upwd, 1 ENABLED FROM usert where id=?"
-         authorities-by-username-query="SELECT ID userid, 'ROLE_USER' ROLE_NAME FROM usert where id=? "
+         users-by-username-query="SELECT userid USERID, upwd PASSWORD, ENABLED FROM usert where userid=?"
+         authorities-by-username-query="SELECT userid USERID, 'ROLE_USER' ROLE_NAME FROM usert where userid=? "
       />
       
       <!-- 
