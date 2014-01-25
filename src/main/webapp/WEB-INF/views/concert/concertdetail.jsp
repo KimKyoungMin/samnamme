@@ -18,7 +18,7 @@
 	
 		<tr>
 			<td colspan="2" align="center"
-				style="color: #fff0f5; font-size: 18pt;">
+				style="color: #fff0f5; font-size: 18pt;"><br>
 				${concertDetail.getContitle()} <br>
 			<br>
 		</tr>

@@ -18,10 +18,10 @@
 
 	<definition name="concert.concertdetail"
 		template="/WEB-INF/views/inc/concertdetaillayout.jsp">
-		<put-attribute name="header"
-			value="/WEB-INF/views/concert/concertdetail.jsp" />
-		<put-attribute name="content" value="/WEB-INF/views/concert/concertmap.jsp" />	
-		<put-attribute name="footer" value="/WEB-INF/views/concert/concertdetailfooter.jsp" />
+		<put-attribute name="header" value="/WEB-INF/views/concert/concertdetailfooter.jsp" />
+		<put-attribute name="content" value="/WEB-INF/views/concert/concertdetail.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/concert/concertmap.jsp" />	
+		
 	</definition>
 
 

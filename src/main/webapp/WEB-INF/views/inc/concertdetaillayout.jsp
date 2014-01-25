@@ -13,15 +13,17 @@
     <body>
     <table style="width: 480; height: 500">
         <!-- content -->
+        <tr>
 	    <tiles:insertAttribute name="header"></tiles:insertAttribute>
-	    <tr><td colspan="2">
+	    
+	    </tr>
+	    
 	    <!-- content -->
 	    <tiles:insertAttribute name="content"></tiles:insertAttribute>
-	    </td></tr>
-	    <tr>
 	    <!-- footer -->
+	    <tr><td colspan="2">
 	    <tiles:insertAttribute name="footer"></tiles:insertAttribute>
-	    </tr>
+	    </td></tr>
     </body>	
 </table>
 </html>
