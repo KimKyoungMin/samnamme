@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import co.kr.samman.dao.ConcertDao;
 
@@ -40,5 +41,17 @@ public class ConcertController {
 		model.addAttribute("concertDetail", concertdao.getConcertdetail(id));
 		return "concert.concertdetail";
 	}
-
+	
+	@RequestMapping(value="aconcertform.htm", method=RequestMethod.GET)
+	public String concertinputform(HttpServletRequest req, Model model){
+		System.out.println("Concertinput start");
+		
+		return "setting.aconcertform";
+	}
+	
+	@RequestMapping(value="aconcertform.htm", method=RequestMethod.POST)
+	public String concertinputaction(HttpServletRequest req, Model model){
+		
+		return null;
+	}
 }
