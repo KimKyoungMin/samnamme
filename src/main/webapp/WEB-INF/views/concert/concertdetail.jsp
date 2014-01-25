@@ -27,7 +27,7 @@
 				width="220" height="210"></td>
 			<td style="color: #fff0f5">공연명 : ${concertDetail.getContitle()}<br>
 			<br> 공연날자 : ${concertDetail.getCondate()}<br>
-			<br> 공연시간 : <br>
+			<br> 공연시간 :${concertDetail.getStarttime()} ~${concertDetail.getEndtime() }<br>
 			<br> 공연장소 : ${concertDetail.getConplace() }<br>
 			<br>
 			</td>
