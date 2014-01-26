@@ -129,7 +129,7 @@ h1, h2, p, a, span{
 .input-container {
 	position: relative;
 }
-	input[type=text],[type=password]{
+	input.text-input{
 		width: 260px;
 		height: 50px;
 		margin-left: 20px;
