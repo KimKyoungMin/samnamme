@@ -8,6 +8,7 @@ import java.util.List;
 
 
 
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
@@ -34,7 +35,7 @@ public class SettingController {
 	//관리자 관리
 	
 	    //회원 List
-		@RequestMapping("ausers.htm")
+		@RequestMapping("ausers.admin")
 		public String users(Model model) {
 			SettingDao settingDao = sqlSession.getMapper(SettingDao.class);
 			List<usert> userList = settingDao.userlists();
@@ -44,12 +45,12 @@ public class SettingController {
 		}
 		
 		//음악 등록
-		@RequestMapping(value="amusicform.htm", method=RequestMethod.GET)
+		@RequestMapping(value="amusicform.admin", method=RequestMethod.GET)
 		public String musicform(){
 			return "setting.amusicform";
 		}
 		
-		@RequestMapping(value="amusicform.htm", method=RequestMethod.POST)
+		@RequestMapping(value="amusicform.admin", method=RequestMethod.POST)
 		public String musicInsert(musict_adtable ma, HttpServletRequest request, Model model) throws IOException{
 			System.out.println("컨트롤 들어옴");
 			
@@ -81,18 +82,29 @@ public class SettingController {
      		SettingDao settingDao = sqlSession.getMapper(SettingDao.class);
 			settingDao.musicInsert(ma);
 			
-			return "redirect:musicmain.htm";
+			return "redirect:musicmain.user";
 		}
 		
-		@RequestMapping(value="acform.htm", method=RequestMethod.GET)
+		@RequestMapping(value="acform.admin", method=RequestMethod.GET)
 		public String concertform(){	
 			return "setting.acform";
 		}
 		
-		@RequestMapping(value="acform.htm", method=RequestMethod.POST)
+		@RequestMapping(value="acform.admin", method=RequestMethod.POST)
 		public String concertInsert(){
 			
-			return "redirect:concert.htm";
+			return "redirect:concert.user";
 		}
-
+		@RequestMapping(value="aconcertform.admin", method=RequestMethod.GET)
+		public String concertinputform(HttpServletRequest req, Model model){
+			System.out.println("Concertinput start");
+			
+			return "setting.aconcertform";
+		}
+		
+		@RequestMapping(value="aconcertform.admin", method=RequestMethod.POST)
+		public String concertinputaction(HttpServletRequest req, Model model){
+			
+			return null;
+		}
 }

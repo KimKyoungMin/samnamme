@@ -59,14 +59,14 @@
 			
 		    <li>
 		        <s:authorize ifAnyGranted="ROLE_USER">
-			       <a class="header-menu-tab" href="account.htm"><span class="icon fontawesome-user scnd-font-color"></span>Account</a>
+			       <a class="header-menu-tab" href="account.admin"><span class="icon fontawesome-user scnd-font-color"></span>Account</a>
 			    </s:authorize>
 			    <s:authorize ifAnyGranted="ROLE_ADMIN">
 			    <a class="header-menu-tab" href="#"><span class="icon entypo-cog scnd-font-color"></span>Settings</a>
 			       <ul class="subnav">
-					   <li><a href="ausers.htm">User</a></li>
-					   <li><a href="amusicform.htm">Music</a></li>
-					   <li><a href="aconcertform.htm">Concert</a></li>
+					   <li><a href="ausers.admin">User</a></li>
+					   <li><a href="amusicform.admin">Music</a></li>
+					   <li><a href="aconcertform.admin">Concert</a></li>
 				   </ul>
 				</s:authorize>
 			</li> 

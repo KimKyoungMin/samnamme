@@ -42,16 +42,4 @@ public class ConcertController {
 		return "concert.concertdetail";
 	}
 	
-	@RequestMapping(value="aconcertform.htm", method=RequestMethod.GET)
-	public String concertinputform(HttpServletRequest req, Model model){
-		System.out.println("Concertinput start");
-		
-		return "setting.aconcertform";
-	}
-	
-	@RequestMapping(value="aconcertform.htm", method=RequestMethod.POST)
-	public String concertinputaction(HttpServletRequest req, Model model){
-		
-		return null;
-	}
 }
