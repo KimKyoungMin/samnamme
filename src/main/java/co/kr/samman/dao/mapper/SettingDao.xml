@@ -12,5 +12,12 @@
       VALUES(#{mtitle}, #{aid}, #{mfilename}, #{murl}, #{mpicname}, #{msname}, #{mgrade}, #{metcinfo})
    </insert>
 
+  <insert id="concertInsert" parameterType="co.kr.samman.dto.concert">
+      INSERT INTO CONCERT (CONTITLE, CONPLACE, CONSINGER, CONDATE, conenddate, CONGRADE,
+		       CONLON, CONLAT, CONECTINFO, conpic, AID)
+		VALUES(#{contitle}, #{conplace} ,#{consinger}, #{starttime} ,#{endtime} ,#{congrade}
+		        ,#{conlon},#{conlat} ,#{conectinfo}, #{conpic},'ADMIN');
+   
+   </insert>
 
 </mapper>
