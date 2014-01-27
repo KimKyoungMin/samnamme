@@ -121,9 +121,10 @@
 						<div>
 							<input id="contitle" name="contitle" class="element text medium"
 								type="text" maxlength="200" value="${concertDetail.getContitle()}" />
-						</div></td>
+						</div>
+						<input name="connum" type="hidden" value="${concertDetail.getConnum()}" />
+						</td>
 				</tr>
-
 				<tr>
 					<td><label class="description" for="element_6">공연장소
 					</label>
