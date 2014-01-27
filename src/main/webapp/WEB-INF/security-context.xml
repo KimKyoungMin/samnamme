@@ -15,10 +15,10 @@
         pattern="/customer/**" access="ROLE_USER"  =customer 폴더 안에 하위 폴더를 포함한 하위 자원
    
    -->
-   <security:intercept-url pattern="/notice.htm" access="ROLE_USER"/>
-   <security:intercept-url pattern="/concert/*" access="ROLE_USER"/>
+   <security:intercept-url pattern="/*.user" access="ROLE_USER, ROLE_ADMIN"/>
+   <!-- <security:intercept-url pattern="/concert/*" access="ROLE_USER"/>
    <security:intercept-url pattern="/music/*" access="ROLE_USER"/>
-   <security:intercept-url pattern="/account/*" access="ROLE_USER"/>
+   <security:intercept-url pattern="/account/*" access="ROLE_USER"/> -->
    <security:intercept-url pattern="/setting/*" access="ROLE_ADMIN"/>
   
 </security:http>

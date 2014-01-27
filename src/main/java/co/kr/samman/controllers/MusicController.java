@@ -18,7 +18,7 @@ public class MusicController {
 	private SqlSession sqlSession;
 	
 	//음악  목록 페이지
-		@RequestMapping("musicmain.htm")
+		@RequestMapping("musicmain.user")
 		public String music(Model model) {
 			MusicDao musicDao = sqlSession.getMapper(MusicDao.class);
 			

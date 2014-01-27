@@ -14,27 +14,27 @@ public class BoardController {
 	
 	
 	//공지사항 게시판
-	@RequestMapping("notice.htm")
+	@RequestMapping("notice.user")
 	public String free() {
 		
 		return "board.notice";
 	}
 	
 	//관리자가 공지사항 글쓰기
-	@RequestMapping(value="noticewrite.htm", method=RequestMethod.GET)
+	@RequestMapping(value="noticewrite.user", method=RequestMethod.GET)
 	public String noticeform(){
 		
 		return "board.noticewrite";
 	}
 	
-	@RequestMapping(value="noticewrite.htm", method=RequestMethod.POST)
+	@RequestMapping(value="noticewrite.user", method=RequestMethod.POST)
 	public String noticeReg(){
 		
-		return "redirect:notice.htm";
+		return "redirect:notice.user";
 	}
 	
 	//공지사항 상세 보기
-	@RequestMapping(value="noticedetail.htm", method=RequestMethod.GET)
+	@RequestMapping(value="noticedetail.user", method=RequestMethod.GET)
 	public String noticedetail(){
 		
 		return "board.noticedetail";
@@ -42,7 +42,7 @@ public class BoardController {
 	
 	
 	//자유 게시판
-	@RequestMapping("community.htm")
+	@RequestMapping("community.user")
 	public String notice() {	
 		return "board.community";
 	}
@@ -55,7 +55,7 @@ public class BoardController {
 	
 	@RequestMapping(value="communityReg.htm", method=RequestMethod.POST)
 	public String communityReg(){
-		return "redirect:community.htm";
+		return "redirect:community.user";
 	}
 	
 

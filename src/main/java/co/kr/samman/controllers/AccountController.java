@@ -17,7 +17,4 @@ public class AccountController {
 		public String account() {
 			return "account.userAccount";
 		}
-		
-		
-
 }

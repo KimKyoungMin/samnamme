@@ -12,7 +12,7 @@ public class VideoController {
 	private SqlSession sqlSession;
 	
 	//뮤직 비디오 페이지
-		@RequestMapping("musicViedo.htm")
+		@RequestMapping("musicViedo.user")
 		public String video() {
 			
 			return "video.videomain";

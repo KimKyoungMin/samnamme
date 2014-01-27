@@ -5,7 +5,7 @@
 
 <h2> Notice board </h2>
 <div align="right">
-<a href="noticewrite.htm">글쓰기</a>
+<a href="noticewrite.user">글쓰기</a>
 </div>
 
 <!-- <div class="profileN blockN" align="center"> -->
@@ -52,7 +52,7 @@
 						<tbody>
 								<tr>
 									<td class="seq">1</td>
-									<td class="title"><a href="noticedetail.htm">제목</a></td>
+									<td class="title"><a href="noticedetail.user">제목</a></td>
 									<td class="writer">글쓴이</td>
 									<td class="regdate">날짜</td>
 									<td class="hit">조회수</td>

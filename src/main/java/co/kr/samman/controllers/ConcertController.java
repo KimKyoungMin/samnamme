@@ -18,7 +18,7 @@ public class ConcertController {
 	private SqlSession sqlSession;
 	
 	//콘서트 정보 페이지
-	@RequestMapping("concertmain.htm")
+	@RequestMapping("concertmain.user")
 	public String concert(Model model) {
 //		System.out.println("인터페이스의 구현을   Mapper가담당 : notices");
 //		NoticeDao noticeDao = sqlSession.getMapper(NoticeDao.class);
@@ -33,7 +33,7 @@ public class ConcertController {
 		return "concert.concertmain";
 	}
 	
-	@RequestMapping("concertdetail.htm")
+	@RequestMapping("concertdetail.user")
 	public String concertdetail(HttpServletRequest req, Model model){
 		int id = Integer.parseInt(req.getParameter("connum"));
 		//System.out.println("ConcertController. concertdetail()"+id);

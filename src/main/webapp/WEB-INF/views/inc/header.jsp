@@ -41,19 +41,19 @@
 <!-- <div class="head-container"> -->
 	<header class="block">
 		<ul class="header-menu horizontal-list">
-			<li><a class="header-menu-tab" href="musicmain.htm"><span
+			<li><a class="header-menu-tab" href="musicmain.user"><span
 					class="icon fontawesome-star-empty scnd-font-color"></span>Music</a> <a
 				class="header-menu-number" href="#4">6</a></li>
-			<li><a class="header-menu-tab" href="musicViedo.htm"><span
+			<li><a class="header-menu-tab" href="musicViedo.user"><span
 					class="icon fontawesome-eye-open scnd-font-color"></span>MusicVideo</a>
 			</li>
-			<li><a class="header-menu-tab" href="concertmain.htm"><span
+			<li><a class="header-menu-tab" href="concertmain.user"><span
 					class="icon entypo-calendar scnd-font-color"></span>Inform</a></li>
 			<li class="navi_set"><a class="header-menu-tab" href="#"><span
 					class="icon entypo-paper-plane scnd-font-color"></span>Community</a>
 			    <ul class="subnav">
-					<li><a href="notice.htm">Notice</a></li>
-					<li><a href="community.htm">Community</a></li>
+					<li><a href="notice.user">Notice</a></li>
+					<li><a href="community.user">Community</a></li>
 				</ul>
 			</li>
 			
