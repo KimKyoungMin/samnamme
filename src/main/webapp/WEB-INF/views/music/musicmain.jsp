@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
 
-   <h2>Music List.</h2>
+   <h2>Music List</h2>
    
    <c:forEach var="m" items="${musicList}">
    <div class="profileM blockM">  <!-- 음악 리스트  (RIGHT-CONTAINER) -->
