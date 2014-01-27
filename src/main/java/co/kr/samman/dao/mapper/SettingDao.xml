@@ -19,5 +19,8 @@
 		        ,#{conlon},#{conlat} ,#{conectinfo}, #{conpic},'ADMIN');
    
    </insert>
-
+	   <insert id="musicInsert" parameterType="co.kr.samman.dto.musict_adtable">
+      INSERT INTO MUSICT (MTITLE, AID, MFILENAME, MURL, MPICNAME, MSNAME, MGRADE, METCINFO, MINSERTDATE)
+      VALUES(#{mtitle}, #{aid}, #{mfilename}, #{murl}, #{mpicname}, #{msname}, #{mgrade}, #{metcinfo}, now)
+   </insert>
 </mapper>
