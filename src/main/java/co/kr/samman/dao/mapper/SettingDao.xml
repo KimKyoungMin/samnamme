@@ -17,7 +17,9 @@
 		       CONLON, CONLAT, CONECTINFO, conpic, AID)
 		VALUES(#{contitle}, #{conplace} ,#{consinger}, #{condate} ,#{conenddate} ,#{congrade}
 		        ,#{conlon},#{conlat} ,#{conectinfo}, #{conpic},'ADMIN');
-   
    </insert>
   
+  <delete id="getConcertdelete" parameterType="Integer" >
+  	DELETE FROM concert WHERE CONNUM = #{param1}
+  </delete>
 </mapper>

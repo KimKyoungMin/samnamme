@@ -10,6 +10,8 @@ import java.util.List;
 
 
 
+
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
+import co.kr.samman.dao.ConcertDao;
 import co.kr.samman.dao.SettingDao;
 import co.kr.samman.dto.concert;
 import co.kr.samman.dto.musict;
@@ -97,6 +100,8 @@ public class SettingController {
 			
 			return "redirect:concert.user";
 		}
+		
+		//공연 입력창 호출
 		@RequestMapping(value="aconcertform.admin", method=RequestMethod.GET)
 		public String concertinputform(HttpServletRequest req, Model model){
 			System.out.println("Concertinput start");
@@ -104,6 +109,7 @@ public class SettingController {
 			return "setting.aconcertform";
 		}
 		
+		//공연 입력 로직 수행 및 입력한 공연 정보 입력
 		@RequestMapping(value="aconcertform.admin", method=RequestMethod.POST)
 		public String concertinputaction(concert con, HttpServletRequest req, Model model) throws IOException{
 //			System.out.println("aconcertform.admin, post방식 start");
@@ -133,5 +139,15 @@ public class SettingController {
 //			
 //			return "redirect:musicmain.user";
 			return "redirect:concertmain.user";
+		}
+		
+		//공연 정보 삭제
+		@RequestMapping(value="concertdelete.admin")
+		public String concertdelete(HttpServletRequest req, Model model){
+			int id = Integer.parseInt(req.getParameter("connum"));
+			SettingDao concertdao = sqlSession.getMapper(SettingDao.class);
+			concertdao.getConcertdelete(id);
+			return "concert.concertdetailfooter";
+			
 		}
 }
