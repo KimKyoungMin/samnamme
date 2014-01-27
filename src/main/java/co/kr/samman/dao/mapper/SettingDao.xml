@@ -13,9 +13,9 @@
     </insert>
 
     <insert id="concertInsert" parameterType="co.kr.samman.dto.concert">
-      INSERT INTO CONCERT (CONTITLE, CONPLACE, CONSINGER, CONDATE, conenddate, CONGRADE,
+      INSERT INTO CONCERT (CONTITLE, CONPLACE, CONSINGER, CONDATE, CONENDDATE, CONGRADE,
 		       CONLON, CONLAT, CONECTINFO, conpic, AID)
-		VALUES(#{contitle}, #{conplace} ,#{consinger}, #{starttime} ,#{endtime} ,#{congrade}
+		VALUES(#{contitle}, #{conplace} ,#{consinger}, #{condate} ,#{conenddate} ,#{congrade}
 		        ,#{conlon},#{conlat} ,#{conectinfo}, #{conpic},'ADMIN');
    
    </insert>

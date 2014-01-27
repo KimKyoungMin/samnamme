@@ -9,6 +9,7 @@ import java.util.List;
 
 
 
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
 import co.kr.samman.dao.SettingDao;
+import co.kr.samman.dto.concert;
 import co.kr.samman.dto.musict;
 import co.kr.samman.dto.musict_adtable;
 import co.kr.samman.dto.usert;
@@ -103,8 +105,33 @@ public class SettingController {
 		}
 		
 		@RequestMapping(value="aconcertform.admin", method=RequestMethod.POST)
-		public String concertinputaction(HttpServletRequest req, Model model){
+		public String concertinputaction(concert con, HttpServletRequest req, Model model) throws IOException{
+//			System.out.println("aconcertform.admin, post방식 start");
+//			System.out.println(con.getStartday() + con.getContitle());
+			con.setConpic(con.getFiles().getOriginalFilename());
+			String path = req.getRealPath("/concertpic/"+con.getConpic());
+//			System.out.println(con.getConpic());
+//			System.out.println(path);
 			
-			return null;
+			if(!con.getConpic().equals("")){
+		    	FileOutputStream fs = new FileOutputStream(path);
+		    	fs.write(con.getFiles().getBytes());
+		    	fs.close();
+		    }
+			
+//			System.out.println(con.getStartday());
+//			System.out.println(con.getStarttime());
+//			System.out.println(con.getEndtime());
+			
+			con.setCondate(con.getStartday() + " " + con.getStarttime()+":00");
+			con.setConenddate(con.getStartday() + " " + con.getEndtime()+":00");
+			System.out.println(con.getCondate());
+			System.out.println(con.getConenddate());
+			
+			SettingDao settingDao = sqlSession.getMapper(SettingDao.class);
+			settingDao.concertInsert(con);
+//			
+//			return "redirect:musicmain.user";
+			return "redirect:concertmain.user";
 		}
 }

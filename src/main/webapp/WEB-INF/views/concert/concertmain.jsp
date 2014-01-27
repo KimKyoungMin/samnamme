@@ -71,7 +71,7 @@
 	function month_onchange() {
 		var month = smonth.value;
 		var year = syear.value;
-		var addr = "concertmain.htm?year=" + year + "&month=" + month;
+		var addr = "concertmain.user?year=" + year + "&month=" + month;
 		// alert(addr);
 		//addr 이 가지는 주소값으로  페이지를 이동시킨다.       
 		location.href = addr;
@@ -81,14 +81,14 @@
 	function year_onchange() {
 		var year = syear.value;
 		var month = smonth.value;
-		var addr = "concertmain.htm?year=" + year + "&month=" + month;
+		var addr = "concertmain.user?year=" + year + "&month=" + month;
 
 		location.href = addr;
 
 	}
 	
 	function openNewWindow(window){
-		open(window, "NewWindow" , "top=0,left=0,width=500,height=640,resizable=1,scrollbars=no");
+		open(window, "NewWindow" , "top=0,left=0,width=550,height=630,resizable=0,scrollbars=no");
 		
 	}
 	

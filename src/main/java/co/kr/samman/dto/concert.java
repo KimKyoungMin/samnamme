@@ -1,12 +1,13 @@
 package co.kr.samman.dto;
 
-import java.util.Date;
+import org.springframework.web.multipart.MultipartFile;
 
 public class concert {
 	
 	private int connum;
 	private String contitle;
-	private Date condate;
+	private String condate;
+	private String conenddate;
 	private String conplace;
 	private String consinger;
 	private String congrade;
@@ -22,8 +23,32 @@ public class concert {
 	private String conpic;
 	private String starttime;
 	private String endtime;
+	private String startday;
+	private MultipartFile files;
 	
 	
+	public String getConenddate() {
+		return conenddate;
+	}
+
+	public void setConenddate(String conenddate) {
+		this.conenddate = conenddate;
+	}
+
+	public MultipartFile getFiles() {
+		return files;
+	}
+	
+	public void setFiles(MultipartFile files) {
+		this.files = files;
+	}
+	
+	public String getStartday() {
+		return startday;
+	}
+	public void setStartday(String startday) {
+		this.startday = startday;
+	}
 	public String getStarttime() {
 		return starttime;
 	}
@@ -84,10 +109,10 @@ public class concert {
 	public void setContitle(String contitle) {
 		this.contitle = contitle;
 	}
-	public Date getCondate() {
+	public String getCondate() {
 		return condate;
 	}
-	public void setCondate(Date condate) {
+	public void setCondate(String condate) {
 		this.condate = condate;
 	}
 	public String getConplace() {
