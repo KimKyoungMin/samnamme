@@ -9,4 +9,5 @@ public interface ConcertDao {
 
 	public List<concert> getConcertList();
 	public concert getConcertdetail(int id);
+	public concert concertupdate(int id);
 }

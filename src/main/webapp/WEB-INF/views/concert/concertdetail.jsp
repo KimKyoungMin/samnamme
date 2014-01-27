@@ -19,7 +19,6 @@
 <s:authorize ifAnyGranted="ROLE_ADMIN">
 			    <a href="concertdelete.admin?connum=${concertDetail.getConnum()}">게시물 삭제</a>
 	      </s:authorize>
-			&nbsp;&nbsp;||&nbsp;&nbsp;
 		<tr>
 			<td colspan="2" align="center"
 				style="color: #fff0f5; font-size: 18pt;"><br>

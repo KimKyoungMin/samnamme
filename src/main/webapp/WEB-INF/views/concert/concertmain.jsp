@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="java.util.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="s" uri="http://www.springframework.org/security/tags" %>
 <%@ page import="co.kr.samman.dto.concert"%>
 <%
 	request.setCharacterEncoding("utf-8");
@@ -159,12 +160,14 @@
 							<c:if test="${f.getConmonth() == cmonth }">
 								<c:if test="${f.getConday()==scopeday}">
 									<a href=javascript:openNewWindow("concertdetail.user?connum=${f.getConnum()}") style="color: #CC0000"
-									><h6>${f.getContitle()}</h6><br></a>
+									><h6>${f.getContitle()}</h6>
+									 <s:authorize ifAnyGranted="ROLE_ADMIN">
+												<a href="concertupdate.admin?connum=${f.getConnum()}" style="color: #00EE00"><h6>수정</h6></a>
+									</s:authorize> <br></a>
 								</c:if>
 							</c:if>
 						</c:if>
 					</c:forEach>
-					
 			</font></td>
 			<%newLine++;
 					

@@ -13,7 +13,8 @@
 	</select>
 	<select id="getConcertdetail" parameterType="Integer" resultType="co.kr.samman.dto.concert">
 		SELECT CONNUM, CONTITLE, DATE(CONDATE) CONDATE, CONPLACE, CONSINGER, CONGRADE,
-       CONECTINFO, CONLON, CONLAT, AID,CONPIC,
+       CONECTINFO, CONLON, CONLAT, AID,CONPIC, CONENDDATE,
        TIME(CONDATE) STARTTIME, TIME(CONENDDATE) ENDTIME FROM CONCERT WHERE CONNUM = #{param1}
 	</select>
+	
 </mapper>

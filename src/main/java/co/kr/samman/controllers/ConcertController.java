@@ -41,5 +41,12 @@ public class ConcertController {
 		model.addAttribute("concertDetail", concertdao.getConcertdetail(id));
 		return "concert.concertdetail";
 	}
-	
+	@RequestMapping(value="concertupdate.admin", method=RequestMethod.GET)
+	public String concertupdateform(HttpServletRequest req, Model model){
+		int id = Integer.parseInt(req.getParameter("connum"));
+		//System.out.println("ConcertController. concertdetail()"+id);
+		ConcertDao concertdao = sqlSession.getMapper(ConcertDao.class);
+		model.addAttribute("concertDetail", concertdao.getConcertdetail(id));
+		return "concert.concertUpdate";
+	}
 }
