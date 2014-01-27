@@ -17,7 +17,7 @@
 	<h2>
 		<div>
 		 <audio src="" controls="controls" style="width: 30%"></audio>
-		  <s:authorize ifNotGranted="ROLL_USER, ROLL_ADMIN">
+		  <s:authorize ifNotGranted="ROLE_USER, ROLE_ADMIN">
 			<a href="login.htm">Login</a> 
 		  </s:authorize>
 		  

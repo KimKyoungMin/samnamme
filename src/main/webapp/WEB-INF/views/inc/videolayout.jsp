@@ -9,7 +9,21 @@
 
 <link rel="stylesheet" type="text/css" href="CSS/newCSS.css" />
 <title>main</title>
-
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+ $(document).ready(function(){  
+   
+  $(".header-menu-tab").hover(function() {     
+   $(this).parent().find(".subnav").slideDown('normal').show(); 
+   $(this).parent().hover(function() {  
+   }, function(){  
+    $(this).parent().find(".subnav").slideUp('fast');   
+   });  
+  });  
+   
+ });  
+   
+</script>
 </head>
     <body>
         

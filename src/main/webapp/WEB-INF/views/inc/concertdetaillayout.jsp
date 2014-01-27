@@ -9,6 +9,7 @@
 
 <link rel="stylesheet" type="text/css" href="CSS/newCSS.css" />
 <title>concertDetailLayout</title>
+
 </head>
     <body>
     <table style="width: 480; height: 500">
