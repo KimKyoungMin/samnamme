@@ -26,7 +26,7 @@
                 </div>
                                 
 			    <div class="join-newsletter block"> <!--  (LEFT-CONTAINER) -->
-					<h2 class="titular">CONCERT INFOMATION</h2>
+					<h2 class="titular">CONCERT INFOMATION.</h2>
 					<P>CONTENT</P>
 				</div>
             
