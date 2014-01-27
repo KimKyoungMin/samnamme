@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.kr.samman.dao.BoardDao">
+  
+   <select id="qnalists" resultType="co.kr.samman.dto.qna">
+      select qnum, qtitle, userid, qdate, qdepth from qna
+   </select>
+   
+   <select id="qnaDetail" resultType="co.kr.samman.dto.qna">
+      select qtitle,userid,qdepth,qcontent from qna where qnum = #{qnum}
+   </select>
+   
+   <insert id="qnaWrite" parameterType="co.kr.samman.dto.qna">
+      insert into qna(qnum, userid, qtitle, qcontent, qdate, qstep)
+      value(#{qnum}, #{userid}, #{qtitle}, #{qcontent}, now(), 1)
+   	  
+   </insert>
+
+</mapper>

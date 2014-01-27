@@ -54,6 +54,7 @@
 			    <ul class="subnav">
 					<li><a href="notice.user">Notice</a></li>
 					<li><a href="community.user">Community</a></li>
+					<li><a href="qna.user">Q&A</a></li>
 				</ul>
 			</li>
 			

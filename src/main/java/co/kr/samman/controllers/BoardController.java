@@ -1,10 +1,19 @@
 package co.kr.samman.controllers;
 
+
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import co.kr.samman.dao.BoardDao;
+import co.kr.samman.dto.qna;
 
 @Controller
 public class BoardController {
@@ -58,5 +67,44 @@ public class BoardController {
 		return "redirect:community.user";
 	}
 	
+	//qna 게시판
+		@RequestMapping("qna.user")
+		public String qna(Model model) {
+
+			BoardDao BoardDao = sqlSession.getMapper(BoardDao.class);
+			List<qna> qnaList = BoardDao.qnalists();
+			model.addAttribute("qnaList", qnaList);
+			return "board.qna";
+		}
+		
+		//qna detail 게시판
+		@RequestMapping("qnaDetail.user")
+		public String qnaDetail(String qnum, Model model) {
+			
+			BoardDao BoardDao = sqlSession.getMapper(BoardDao.class);
+			qna qnaDetail = BoardDao.qnaDetail(qnum);
+			model.addAttribute("qnaDetail", qnaDetail);
+			return "board.qnaDetail";
+		}
+		
+		//qnaWrite 게시판
+		@RequestMapping(value= "qnaWrite.user" , method=RequestMethod.GET)
+		public String qnaWritemenu() {	
+			return "board.qnaWrite";
+		}
+		
+		@RequestMapping(value= "qnaWrite.user" , method=RequestMethod.POST)
+		public String qnaWrite(qna qnadto, Model model) {	
+			BoardDao BoardDao = sqlSession.getMapper(BoardDao.class);
+			
+			UserDetails user =   
+				       (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+				qnadto.setUserid(user.getUsername());
+			//System.out.println(user.getUsername());
+			
+			qna qnaWirte = BoardDao.qnaWrite(qnadto);
+			model.addAttribute("qnaWirte", qnaWirte);
+			return "redirect:board.qna";
+		}
 
 }
