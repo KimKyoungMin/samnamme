@@ -5,7 +5,7 @@
 <mapper namespace="co.kr.samman.dao.MusicDao">
 
    <select id="getMusiclists" resultType="co.kr.samman.dto.musict">
-       select minfonum, mpicname, mtitle, msname, mgrade, metcinfo from musict order by minfonum desc 
+       select minfonum, mpicname, mfilename, mtitle, msname, mgrade, metcinfo from musict order by minfonum desc 
      
    </select>
 

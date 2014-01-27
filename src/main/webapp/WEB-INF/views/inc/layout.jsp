@@ -11,20 +11,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<%-- <%
-   UserDetails user = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-   if(user==null){
-%>
-<jsp:forward page="/View/LoginForm.jsp"/>
-<%
-}
-%> --%>
 
 <title>main</title>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
  $(document).ready(function(){  
-   
   $(".header-menu-tab").hover(function() {     
    $(this).parent().find(".subnav").slideDown('normal').show(); 
    $(this).parent().hover(function() {  
@@ -33,8 +24,46 @@
    });  
   });  
    
- });  
+ });
+ 
+ //myplayerlist
+ $(document).ready(function(){  
+  $(".profile-menu").click(function() {     
+   $(this).parent().find(".subnav2").slideDown('normal').show(); 
+	  /*  $(this).parent().click(function() {  
+	   }, function(){  
+	    $(this).parent().find(".subnav2").slideUp('normal');   
+	   });  */ 
+  });  
    
+ });
+
+    //checkbox 전체 선택 & 해제
+	var check = false;
+	function CheckAll() {
+		var chk = document.getElementsByName("check[]");
+		if (check == false) {
+			check = true;
+			for (var i = 0; i < chk.length; i++) {
+				chk[i].checked = true; //모두 체크
+			}
+		} else {
+			check = false;
+			for (var i = 0; i < chk.length; i++) {
+				chk[i].checked = false; //모두 해제
+			}
+		}
+	}
+	
+
+	function selectChanged(indexNumber){
+		document.getElementById("check"+indexNumber).checked = true;
+		document.getElementById("check"+indexNumber).value = "true";
+	} 
+
+	
+	
+	
 </script>
 
 </head>

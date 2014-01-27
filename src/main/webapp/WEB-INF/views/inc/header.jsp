@@ -24,7 +24,7 @@
 		  <s:authentication property="name" var="loginUser"/>
 		  <s:authorize ifAnyGranted="ROLE_USER, ROLE_ADMIN">
 			    <a href="${pageContext.request.contextPath}/j_spring_security_logout">        
-					      (${loginUser })로그아웃
+					        로그아웃
 			    </a>
 	      </s:authorize>
 		|| <a href="join.htm">Join</a>
@@ -77,12 +77,17 @@
 
 		<div class="profile-menu">
 			<p>
-				Me <a href="#26"><span class="entypo-down-open scnd-font-color"></span></a>
-			</p>
-			<div class="profile-picture small-profile-picture">
+				${loginUser } <a href="#"><span class="entypo-down-open scnd-font-color"></span></a>
+				              <ul class="subnav2">
+				                 <li><a href="#">list1</a></li>
+					             <li><a href="#">list2</a></li>
+					             <li><a href="#">list3</a></li>
+				              </ul>
+		    </p>
+			<!-- <div class="profile-picture small-profile-picture">
 				<img width="40px" alt="Anne Hathaway picture"
 					src="http://upload.wikimedia.org/wikipedia/commons/e/e1/Anne_Hathaway_Face.jpg">
-			</div>
+			</div> -->
 		</div>
 
 	</header>
