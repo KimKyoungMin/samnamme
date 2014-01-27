@@ -6,7 +6,11 @@
    <select id="userlists" resultType="co.kr.samman.dto.usert">
       select userid, uname, utel, uemail, uexpdate from usert
    </select>
-   
+    
+   <select id="qnalists" resultType="co.kr.samman.dto.qna">
+      select qnum, qtitle, userid, qdate, qdepth from qna
+   </select>
+
     <insert id="musicInsert" parameterType="co.kr.samman.dto.musict_adtable">
       INSERT INTO MUSICT (MTITLE, AID, MFILENAME, MURL, MPICNAME, MSNAME, MGRADE, METCINFO, MINSERTDATE)
       VALUES(#{mtitle}, #{aid}, #{mfilename}, #{murl}, #{mpicname}, #{msname}, #{mgrade}, #{metcinfo}, now())

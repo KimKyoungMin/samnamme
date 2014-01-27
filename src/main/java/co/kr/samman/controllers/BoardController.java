@@ -1,10 +1,16 @@
 package co.kr.samman.controllers;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import co.kr.samman.dao.SettingDao;
+import co.kr.samman.dto.qna;
 
 @Controller
 public class BoardController {
@@ -41,7 +47,6 @@ public class BoardController {
 	}
 	
 	
-	//자유 게시판
 	@RequestMapping("community.user")
 	public String notice() {	
 		return "board.community";
@@ -58,5 +63,23 @@ public class BoardController {
 		return "redirect:community.user";
 	}
 	
+	//qna 게시판
+	@RequestMapping("qna.user")
+	public String qna(Model model) {
 
+		SettingDao settingDao = sqlSession.getMapper(SettingDao.class);
+		List<qna> qnaList = settingDao.qnalists();
+		model.addAttribute("qnaList", qnaList);
+		return "board.qna";
+	}
+	
+	//qna detail 게시판
+	@RequestMapping("qnaDetail.user")
+	public String qnaDetail(Model model) {
+
+		
+		return "board.qnaDetail";
+	}
+	
+	
 }

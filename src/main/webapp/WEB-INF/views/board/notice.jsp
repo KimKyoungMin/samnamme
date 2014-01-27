@@ -50,21 +50,23 @@
 						
 						<table class="article-list margin-small">
 						<tbody>
-								<tr>
+							<!-- 	<tr>
 									<td class="seq">1</td>
 									<td class="title"><a href="noticedetail.user">제목</a></td>
 									<td class="writer">글쓴이</td>
 									<td class="regdate">날짜</td>
 									<td class="hit">조회수</td>
-								</tr>
+								</tr> -->
 								
+						<c:forEach items="${list}"  var="n">
 								<tr>
-									<td class="seq">2</td>
-									<td class="title"><a href="#">송지혜짱</a></td>
-									<td class="writer">송지혜</td>
-									<td class="regdate">2013-05-05</td>
-									<td class="hit">9999</td>
+									<td class="seq">${n.seq}</td>
+									<td class="title"><a href="noticeDetail.htm?seq=${n.seq}">${n.title}</a></td>
+									<td class="writer">${n.writer}</td>
+									<td class="regdate">${n.regdate}</td>
+									<td class="hit">${n.hit}</td>
 								</tr>
+							</c:forEach>
 						
 						</tbody>
 						</table>
