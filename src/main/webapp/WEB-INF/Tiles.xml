@@ -23,6 +23,11 @@
 		<put-attribute name="footer" value="/WEB-INF/views/concert/concertmap.jsp" />	
 		
 	</definition>
-
+	
+	<definition name="concert.okmessage"
+		template="/WEB-INF/views/inc/okmessagelayout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/concert/okmessage.jsp" />
+		
+	</definition>
 
 </tiles-definitions>

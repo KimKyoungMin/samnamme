@@ -159,7 +159,7 @@
 							<c:if test="${f.getConmonth() == cmonth }">
 								<c:if test="${f.getConday()==scopeday}">
 									<a href=javascript:openNewWindow("concertdetail.user?connum=${f.getConnum()}") style="color: #CC0000"
-									>${f.getContitle()}</a>
+									><h6>${f.getContitle()}</h6><br></a>
 								</c:if>
 							</c:if>
 						</c:if>

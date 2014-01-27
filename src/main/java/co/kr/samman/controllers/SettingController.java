@@ -147,7 +147,7 @@ public class SettingController {
 			int id = Integer.parseInt(req.getParameter("connum"));
 			SettingDao concertdao = sqlSession.getMapper(SettingDao.class);
 			concertdao.getConcertdelete(id);
-			return "concert.concertdetailfooter";
+			return "concert.okmessage";
 			
 		}
 }
