@@ -5,11 +5,15 @@
 <mapper namespace="co.kr.samman.dao.BoardDao">
   
    <select id="qnalists" resultType="co.kr.samman.dto.qna">
-      select qnum, qtitle, userid, qdate, qdepth from qna
+       select * from qna order by qnum desc limit #{pg}, #{pg}+2
    </select>
    
    <select id="qnaDetail" resultType="co.kr.samman.dto.qna">
       select qtitle,userid,qdepth,qcontent,qnum from qna where qnum = #{qnum}
+   </select>
+   
+   <select id="listcount" resultType="Integer">
+   select count(qnum) from qna
    </select>
    
    <insert id="qnaWrite" >

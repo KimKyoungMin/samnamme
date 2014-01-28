@@ -3,6 +3,8 @@ package co.kr.samman.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -20,35 +22,6 @@ public class BoardController {
 	
 	@Autowired
 	private SqlSession sqlSession;
-	
-	
-	//공지사항 게시판
-	@RequestMapping("notice.user")
-	public String free() {
-		
-		return "board.notice";
-	}
-	
-	//관리자가 공지사항 글쓰기
-	@RequestMapping(value="noticewrite.user", method=RequestMethod.GET)
-	public String noticeform(){
-		
-		return "board.noticewrite";
-	}
-	
-	@RequestMapping(value="noticewrite.user", method=RequestMethod.POST)
-	public String noticeReg(){
-		
-		return "redirect:notice.user";
-	}
-	
-	//공지사항 상세 보기
-	@RequestMapping(value="noticedetail.user", method=RequestMethod.GET)
-	public String noticedetail(){
-		
-		return "board.noticedetail";
-	}
-	
 	
 	//자유 게시판
 	@RequestMapping("community.user")
@@ -69,11 +42,41 @@ public class BoardController {
 	
 	//qna 게시판
 		@RequestMapping("qna.user")
-		public String qna(Model model) {
+		public String qna(HttpServletRequest request, Model model) {
 
+			int page = 1;
+			int limit = 15;
+			
+			if(request.getParameter("page") != null){
+				page = Integer.parseInt(request.getParameter("page"));
+			}
+			
+			//다른거 가지고와 spring 방식이 아님
+		/*	int listcount = boarddao.getListCount();
+			boardlist = boarddao.getBoardList(page, limit); //sql session
+			
+			int maxpage = (int)((double)listcount/limit + 0.95);
+			int startpage = (((int)((double)page / 10 + 0.9)) -1)*10 + 1;
+			int endpage = startpage + 10 - 1;
+			if(endpage > maxpage){
+				endpage = maxpage;
+			}
+			
+			request.setAttribute("page", page);
+			request.setAttribute("maxpage", maxpage);
+			request.setAttribute("startpage", startpage);
+			request.setAttribute("endpage", endpage);
+			request.setAttribute("listcount", listcount);
+			request.setAttribute("boardlist", boardlist);
+			
+			
+			*/
 			BoardDao BoardDao = sqlSession.getMapper(BoardDao.class);
+			int listcount = BoardDao.listcount();
+			System.out.println("큐넘!"+listcount);
 			List<qna> qnaList = BoardDao.qnalists();
 			model.addAttribute("qnaList", qnaList);
+			model.addAttribute("getqnum",listcount);
 			return "board.qna";
 		}
 		
@@ -99,7 +102,8 @@ public class BoardController {
 			
 			UserDetails user =   
 				       (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-				qnadto.setUserid(user.getUsername());
+				
+			qnadto.setUserid(user.getUsername());
 			
 			BoardDao.qnaWrite(qnadto);
 			return "redirect:qna.user";

@@ -46,23 +46,46 @@
 
 
 	<div id="pager-wrapper" class="margin-small">
-		<div class="pager clear">
-			<p id="btnPrev">
-				<a class="button btn-prev" href="notice.jsp">이전</a>
-			</p>
-			<ul>
-				<li><a class="strong"
-					href="notice.htm?pg=1&f=${param.f}&q=${param.q}">1</a></li>
-				<li><a href="notice.htm?pg=2&f=${param.f}&q=${param.q}">2</a></li>
-				<li><a href="notice.htm?pg=3&f=${param.f}&q=${param.q}">3</a></li>
-				<li><a href="notice.htm?pg=4&f=${param.f}&q=${param.q}">4</a></li>
-				<li><a href="notice.htm?pg=5&f=${param.f}&q=${param.q}">5</a></li>
-			</ul>
-			<p id="btnNext">
-				<span class="button btn-next">다음</span>
-			</p>
+		<br>
+		<div>
+			<a href="notice.jsp">이전</a>
+			<c:forEach var="i" begin="1" end="${getqnum}" step="1">
+				<a href="notice.htm?pg=1&f=${param.f}&q=${param.q}">${i}</a>&nbsp;
+				</c:forEach>
+			<span>다음</span>
 		</div>
 	</div>
+	
+	<center>
+  <div style="clear: both">
+  <br>
+   <table>
+   <tr align=center height=20>
+      <td colspan=7 style=font-family:Tahoma;font-size:10pt;>
+         <%if(nowpage<=1){ %>
+         [이전]&nbsp;
+         <%}else{ %>
+         <a href="VisitMainMenu.service?page=<%=nowpage-1 %>">[이전]</a>&nbsp;
+         <%} %>
+         
+         <%for(int a=startpage;a<=endpage;a++){
+            if(a==nowpage){%>
+            [<%=a %>]
+            <%}else{ %>
+            <a href="VisitMainMenu.service?page=<%=a %>">[<%=a %>]</a>&nbsp;
+            <%} %>
+         <%} %>
+         
+         <%if(nowpage>=maxpage){ %>
+         [다음]
+         <%}else{ %>
+         <a href="VisitMainMenu.service?page=<%=nowpage+1 %>">[다음]</a>
+         <%} %>
+      </td>
+   </tr>
+   </table>
+   </div>
+   </center>
 
 
 

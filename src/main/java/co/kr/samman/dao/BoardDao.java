@@ -8,4 +8,5 @@ public interface BoardDao {
 	public List<qna> qnalists();
 	public void qnaWrite(qna qnadto);
 	public void qnaDelete(String qnum);
+	public int listcount();
 }
