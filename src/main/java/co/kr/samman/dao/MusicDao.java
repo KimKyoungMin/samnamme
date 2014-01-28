@@ -9,5 +9,6 @@ public interface MusicDao {
 	public List<musict> getMusiclists(); //음악 리스트 
 	public void myplayerlist(mymusict m); //myplayerlist (DB에)추가
 	public List<mymusict> getmylist(String userid); //mylist
+	public void mydownlist(String userid, int minfonum); //mdlist (DB)추가
 
 }

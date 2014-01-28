@@ -18,6 +18,9 @@
              where my.USERID=#{userid} order by myordernum desc
    </select>
 
+   <insert id="mydownlist" >
+      insert into mdlist(userid, minfonum) values(#{param1},#{param2})
+   </insert>
 
 
 

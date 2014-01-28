@@ -16,16 +16,15 @@
 			
 			   <ul>
 			     <li align="right"><input type="checkbox" id="check[]" name="check[]" value=${m.getMinfonum() }></li>
-			   
-			   	
-			   <div class="music">
-			     <img src="upload/${m.getMpicname()}" width="130px" height="150px">
+		   	
+			   <div class="music" align="center">
+			     <img src="upload/${m.getMpicname()}" width="250px" height="200px">
 			   </div>
 			   <div class="music">
 			      노래 : ${m.getMtitle()}<br>
 			      가수 : ${m.getMsname()}<br>
 			      장르 : ${m.getMgrade()}<br>
-			      다운 : <a href="download.htm?p=upload&f=${m.getMfilename()}">${m.getMfilename()}</a>
+			      다운 : <a href="download.htm?p=upload&f=${m.getMfilename()}&minfonum=${m.getMinfonum()}">${m.getMfilename()}</a>
 			   </div>
 			   
 			   	<li>${m.getMetcinfo()}</li>

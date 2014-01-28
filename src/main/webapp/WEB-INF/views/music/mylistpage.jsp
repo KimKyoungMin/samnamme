@@ -11,7 +11,7 @@
   <ul>
 	   <c:forEach var="m" items="${mylists}">
 		  <li>
-			  ${m.getMtitle()}/${m.getMsname()}
+			  <a href="#">${m.getMtitle()}/${m.getMsname()}</a>
 			  <hr>
     	  </li>
 	   </c:forEach>

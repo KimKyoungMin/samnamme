@@ -3,6 +3,7 @@ package co.kr.samman.controllers;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
@@ -41,7 +42,7 @@ public class MusicController {
 		
 		//음악 다운로드
 		@RequestMapping("download.htm")
-		public void download(String p, String f, HttpServletRequest req, HttpServletResponse res) throws IOException{
+		public void download(String p, String f, int minfonum, HttpServletRequest req, HttpServletResponse res) throws IOException{
 			System.out.println(f); //한글파일명 깨짐
 			String fname = new String(f.getBytes("ISO8859_1"), "UTF-8");
 			System.out.println(fname); //한글파일명 깨짐 해결
@@ -61,6 +62,14 @@ public class MusicController {
 			}
 			fin.close();
 			sout.close();
+			
+			//mdlist 에 추가
+			MusicDao musicDao = sqlSession.getMapper(MusicDao.class);
+			UserDetails user =   
+				       (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			
+			musicDao.mydownlist(user.getUsername(),minfonum);
+			 
 	
 		}
 		
