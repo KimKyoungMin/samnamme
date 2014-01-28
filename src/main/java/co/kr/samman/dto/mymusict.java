@@ -6,6 +6,12 @@ public class mymusict {
 	private int minfonum;
 	private int myordernum;
 	
+	//join 때문에 추가
+	private String mtitle;
+	private String msname;
+	private String mfilename;
+	
+	
 	public String getUserid() {
 		return userid;
 	}
@@ -23,6 +29,25 @@ public class mymusict {
 	}
 	public void setMyordernum(int myordernum) {
 		this.myordernum = myordernum;
+	}
+	
+	public String getMtitle() {
+		return mtitle;
+	}
+	public void setMtitle(String mtitle) {
+		this.mtitle = mtitle;
+	}
+	public String getMsname() {
+		return msname;
+	}
+	public void setMsname(String msname) {
+		this.msname = msname;
+	}
+	public String getMfilename() {
+		return mfilename;
+	}
+	public void setMfilename(String mfilename) {
+		this.mfilename = mfilename;
 	}
 	
 	

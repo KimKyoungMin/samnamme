@@ -64,21 +64,37 @@ public class MusicController {
 	
 		}
 		
-		//MyPlayerList 에 곡 넣기
+		//mymusict DB에 음악 넣기
 		@RequestMapping("myplayerlist.htm")
 		public String mpl(HttpServletRequest req){
-			//String chk[] = req.getParameterValues("check");
 			String [] checked = req.getParameterValues("check[]");
 			   for(int i=0; i<checked.length; i++){
-			       System.out.println(checked[i]);
+			       //System.out.println(checked[i]); //리스트에 넣을 minfonum
 			       MusicDao musicDao = sqlSession.getMapper(MusicDao.class);
 			       UserDetails user =   
 					       (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 					mymusict m = new mymusict();
+					//System.out.println(user.getUsername()); //로그인하고 있는 username
 					m.setUserid(user.getUsername());
-			       musicDao.myplayerlist(checked[i]);
+					m.setMinfonum(Integer.parseInt(checked[i]));
+			       musicDao.myplayerlist(m);
 			   }
+			   
 			return "redirect:musicmain.user";
+		}
+		
+		//MyPlayerList 곡 select 
+		@RequestMapping("mylist.user")
+		public String mylistSelect(Model model){
+			MusicDao musicDao = sqlSession.getMapper(MusicDao.class);
+			UserDetails user = 
+					(UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();            
+			System.out.println(user.getUsername());
+
+			List<mymusict> mylists = musicDao.getmylist(user.getUsername());
+			model.addAttribute("mylists", mylists);
+			
+			return "music.mylistpage";
 		}
 		
 

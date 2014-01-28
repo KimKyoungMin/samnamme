@@ -347,6 +347,15 @@ h1, h2, p, a, span{
 				display: inline-block;
 				vertical-align: middle;				
 			}
+			
+			
+			.popup  ul{
+			   text-align: left;
+			   font-size: 14px;
+			   color: #fff;
+			}
+			
+			
 	/** CONTAINERS **/
 	.container {
 		float: left;

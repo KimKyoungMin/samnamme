@@ -29,5 +29,10 @@
 		<put-attribute name="header" value="/WEB-INF/views/concert/okmessage.jsp" />
 		
 	</definition>
+	
+	<definition name="music.mylistpage"
+	    template="/WEB-INF/views/inc/mylistlayout.jsp">
+	    <put-attribute name="content" value="/WEB-INF/views/music/mylistpage.jsp"/>
+	</definition>
 
 </tiles-definitions>

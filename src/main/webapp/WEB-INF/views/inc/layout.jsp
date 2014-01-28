@@ -26,18 +26,13 @@
    
  });
  
-//myplayerlist
- $(document).ready(function(){  
-  $(".profile-menu").click(function() {     
-   $(this).parent().find(".subnav2").slideDown('normal').show(); 
-	  /*  $(this).parent().click(function() {  
-	   }, function(){  
-	    $(this).parent().find(".subnav2").slideUp('normal');   
-	   });  */ 
-  });  
-   
- });
-
+ 
+ //mylist popup 
+ function openNewWindow(window){
+	 open(window, "NewWindow", "top=0, right=0, width=320, height=310, resizable=0, scrollbars=yes");
+ }
+ 
+ 
     //checkbox 전체 선택 & 해제
 	var check = false;
 	function CheckAll() {
@@ -55,9 +50,6 @@
 		}
 	}
 
-	
-	
-	
 </script>
 
 </head>

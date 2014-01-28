@@ -8,10 +8,15 @@
        select minfonum, mpicname, mfilename, mtitle, msname, mgrade, metcinfo from musict order by minfonum desc   
    </select>
    
-   <insert id="myplayerlist" >
-       insert into mymusict(userid, minfonum) VALUES(#{userid}, #{minfonum})
+   <insert id="myplayerlist" parameterType="co.kr.samman.dto.mymusict">
+      insert into mymusict(userid, minfonum) VALUES(#{userid}, #{minfonum})
    </insert>
 
+   <select id="getmylist" resultType="co.kr.samman.dto.mymusict">
+      select my.USERID userid, m.MTITLE mtitle, m.MSNAME msname, my.MINFONUM minfonum, m.MFILENAME mfilename
+             from mymusict my inner join musict m on my.MINFONUM=m.MINFONUM 
+             where my.USERID=#{userid} order by myordernum desc
+   </select>
 
 
 

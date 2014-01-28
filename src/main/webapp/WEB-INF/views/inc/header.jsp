@@ -2,9 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ taglib prefix="s" uri="http://www.springframework.org/security/tags" %>
-<!-- <link rel="stylesheet" type="text/css" href="CSS/newCSS.css" />
- -->
-
 
 <div onclick="location.href='main.htm';" style="cursor: pointer;">
 	<header align="center">
@@ -74,20 +71,14 @@
 
 		</ul>
 
-
 		<div class="profile-menu">
 			<p>
-				${loginUser } <a href="#"><span class="entypo-down-open scnd-font-color"></span></a>
-				              <!-- <ul class="subnav2">
-				                 <li><a href="#">list1</a></li>
-					             <li><a href="#">list2</a></li>
-					             <li><a href="#">list3</a></li>
-				              </ul> -->
+				${loginUser } 
+				<s:authorize ifAnyGranted="ROLE_USER, ROLE_ADMIN">
+				    <a href=javascript:openNewWindow("mylist.user") style="color:white"><span class="entypo-down-open scnd-font-color"></span></a>
+				              
+				</s:authorize>              
 		    </p>
-			<!-- <div class="profile-picture small-profile-picture">
-				<img width="40px" alt="Anne Hathaway picture"
-					src="http://upload.wikimedia.org/wikipedia/commons/e/e1/Anne_Hathaway_Face.jpg">
-			</div> -->
 		</div>
 
 	</header>
