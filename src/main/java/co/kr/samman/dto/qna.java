@@ -10,8 +10,8 @@ public class qna {
 	private String qtitle;
 	private String qcontent;
 	private Date qdate;
-	private int step;  
-	private int depth;
+	private int qstep;  
+	private int qdepth;
 	
 	
 	public int getQnum() {
@@ -45,16 +45,16 @@ public class qna {
 		this.qdate = qdate;
 	}
 	public int getStep() {
-		return step;
+		return qstep;
 	}
 	public void setStep(int step) {
-		this.step = step;
+		this.qstep = step;
 	}
 	public int getDepth() {
-		return depth;
+		return qdepth;
 	}
 	public void setDepth(int depth) {
-		this.depth = depth;
+		this.qdepth = depth;
 	}
 	
 	

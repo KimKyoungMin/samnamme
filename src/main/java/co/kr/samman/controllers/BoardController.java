@@ -94,17 +94,26 @@ public class BoardController {
 		}
 		
 		@RequestMapping(value= "qnaWrite.user" , method=RequestMethod.POST)
-		public String qnaWrite(qna qnadto, Model model) {	
+		public String qnaWrite(qna qnadto) {	
 			BoardDao BoardDao = sqlSession.getMapper(BoardDao.class);
 			
 			UserDetails user =   
 				       (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 				qnadto.setUserid(user.getUsername());
-			//System.out.println(user.getUsername());
 			
-			qna qnaWirte = BoardDao.qnaWrite(qnadto);
-			model.addAttribute("qnaWirte", qnaWirte);
-			return "redirect:board.qna";
+			BoardDao.qnaWrite(qnadto);
+			return "redirect:qna.user";
+		}
+		
+	    //qna 글 삭제
+		@RequestMapping(value="qnaDelete.user", method=RequestMethod.POST)
+		public String qnaDelete(String qnum) {	
+			System.out.println("삭제 포스트");
+			System.out.println(qnum);
+			BoardDao BoardDao = sqlSession.getMapper(BoardDao.class);
+			BoardDao.qnaDelete(qnum);
+			
+			return "redirect:qna.user";
 		}
 
 }

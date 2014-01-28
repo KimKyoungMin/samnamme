@@ -9,7 +9,7 @@
 <body>
  
    <h2>공지사항</h2>
-			<form action="" method="post">
+			<form action="qnaWrite.user" method="post">
    <div id="notice-article-detail" class="article-detail margin-large" >						
 						<dl class="article-detail-row">
 							<dt class="article-detail-title">
@@ -37,7 +37,7 @@
 						</dl>
 
 						<div class="article-content" >
-							<textarea id="qContent" class="txtContent" name="qcontent" ></textarea>
+							<textarea id="qcontent" class="txtContent" name="qcontent" ></textarea>
 						
 						<br>
 						<input type="submit" value="등록" >

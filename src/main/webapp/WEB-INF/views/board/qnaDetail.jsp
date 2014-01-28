@@ -14,7 +14,7 @@ qnadetail게시판
 
 <!-- <div class="profileN blockN" align="center"> -->
   
-  
+  <form action="qnaDelete.user?qnum=${qnaDetail.qnum}" method="post">
   <div id="notice-article-detail" class="article-detail margin-large" >						
 						<dl class="article-detail-row">
 							<dt class="article-detail-title">
@@ -47,6 +47,9 @@ qnadetail게시판
 							</textarea>
 						</div>
 					</div>
+					<input type="submit" value="삭제">
+					</form>
+					
 
 
 </body>

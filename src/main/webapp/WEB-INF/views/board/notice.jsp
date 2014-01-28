@@ -8,34 +8,6 @@
 <a href="noticewrite.user">글쓰기</a>
 </div>
 
-<!-- <div class="profileN blockN" align="center"> -->
-   
-    <!--   <table border="1" style="width:200px; padding:5px;">
-          <tr>
-             <td>No1</td>
-             <td>김정훈</td>     
-             <td>2014-01-01</td>     
-          </tr>
-          
-          <tr>
-             <td>1</td>
-             <td>1</td>
-             <td>1</td>
-          </tr>
-          <tr>
-             <td colspan="3">내용</td>
-          <tr>
-             <td align="left"><img src="" width="300px" height="300px"></td>
-             <td colspan="2">2</td>
-          </tr>
-          
-          <tr>
-             <td>3</td>
-             <td>3</td>
-             <td><input type="text" name="re"></td>
-          </tr>  
-             
-      </table> -->
       			<table class="article-list margin-small">
       					<thead>
 							<tr>

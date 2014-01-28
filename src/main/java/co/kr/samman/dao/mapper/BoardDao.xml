@@ -9,13 +9,17 @@
    </select>
    
    <select id="qnaDetail" resultType="co.kr.samman.dto.qna">
-      select qtitle,userid,qdepth,qcontent from qna where qnum = #{qnum}
+      select qtitle,userid,qdepth,qcontent,qnum from qna where qnum = #{qnum}
    </select>
    
-   <insert id="qnaWrite" parameterType="co.kr.samman.dto.qna">
+   <insert id="qnaWrite" >
       insert into qna(qnum, userid, qtitle, qcontent, qdate, qstep)
       value(#{qnum}, #{userid}, #{qtitle}, #{qcontent}, now(), 1)
    	  
    </insert>
+   
+   <delete id="qnaDelete">
+   		delete from qna where qnum= #{qnum};
+   </delete>
 
 </mapper>
