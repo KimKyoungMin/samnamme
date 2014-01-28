@@ -78,11 +78,11 @@
 		<div class="profile-menu">
 			<p>
 				${loginUser } <a href="#"><span class="entypo-down-open scnd-font-color"></span></a>
-				              <ul class="subnav2">
+				              <!-- <ul class="subnav2">
 				                 <li><a href="#">list1</a></li>
 					             <li><a href="#">list2</a></li>
 					             <li><a href="#">list3</a></li>
-				              </ul>
+				              </ul> -->
 		    </p>
 			<!-- <div class="profile-picture small-profile-picture">
 				<img width="40px" alt="Anne Hathaway picture"

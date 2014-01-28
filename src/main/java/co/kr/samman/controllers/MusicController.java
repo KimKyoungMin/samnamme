@@ -12,12 +12,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import co.kr.samman.dao.MusicDao;
 import co.kr.samman.dto.musict;
+import co.kr.samman.dto.mymusict;
 
 @Controller
 public class MusicController {
@@ -63,9 +66,19 @@ public class MusicController {
 		
 		//MyPlayerList 에 곡 넣기
 		@RequestMapping("myplayerlist.htm")
-		public void mpl(HttpServletRequest req){
+		public String mpl(HttpServletRequest req){
 			//String chk[] = req.getParameterValues("check");
-			
+			String [] checked = req.getParameterValues("check[]");
+			   for(int i=0; i<checked.length; i++){
+			       System.out.println(checked[i]);
+			       MusicDao musicDao = sqlSession.getMapper(MusicDao.class);
+			       UserDetails user =   
+					       (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+					mymusict m = new mymusict();
+					m.setUserid(user.getUsername());
+			       musicDao.myplayerlist(checked[i]);
+			   }
+			return "redirect:musicmain.user";
 		}
 		
 

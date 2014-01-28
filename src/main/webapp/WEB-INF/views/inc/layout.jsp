@@ -26,7 +26,7 @@
    
  });
  
- //myplayerlist
+//myplayerlist
  $(document).ready(function(){  
   $(".profile-menu").click(function() {     
    $(this).parent().find(".subnav2").slideDown('normal').show(); 
@@ -54,12 +54,6 @@
 			}
 		}
 	}
-	
-
-	function selectChanged(indexNumber){
-		document.getElementById("check"+indexNumber).checked = true;
-		document.getElementById("check"+indexNumber).value = "true";
-	} 
 
 	
 	

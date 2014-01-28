@@ -4,7 +4,7 @@
     
 
    <h2>Music List</h2>
-   <!-- <a href="myplayerlist.htm?minfonum=">MyPlayerList에 추가하기</a> <br> -->
+
    <form action="myplayerlist.htm" method="post">
    <h2>
    <input type="submit" value="MyPlayerList에 추가하기">
@@ -15,7 +15,7 @@
    <div class="profileM blockM">  <!-- 음악 리스트  (RIGHT-CONTAINER) -->
 			
 			   <ul>
-			     <li align="right"><input type="checkbox" id="check[]" name="check[]"></li>
+			     <li align="right"><input type="checkbox" id="check[]" name="check[]" value=${m.getMinfonum() }></li>
 			   
 			   	
 			   <div class="music">
