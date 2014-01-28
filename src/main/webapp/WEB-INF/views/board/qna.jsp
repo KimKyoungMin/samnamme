@@ -3,6 +3,8 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -43,34 +45,31 @@
 	</table>
 
 
-
-
-	<div id="pager-wrapper" class="margin-small">
-		<br>
-		<div>
-			<a href="notice.jsp">이전</a>
-			<c:forEach var="i" begin="1" end="${getqnum}" step="1">
-				<a href="notice.htm?pg=1&f=${param.f}&q=${param.q}">${i}</a>&nbsp;
-				</c:forEach>
-			<span>다음</span>
-		</div>
-	</div>
-	
-	<center>
+<%-- 
+ <center>
   <div style="clear: both">
   <br>
    <table>
    <tr align=center height=20>
       <td colspan=7 style=font-family:Tahoma;font-size:10pt;>
+         
+         <c:when test="${nowpage}<=1"></c:when>
          <%if(nowpage<=1){ %>
          [이전]&nbsp;
+         <c:when test="${nowpage}>1"></c:when>
          <%}else{ %>
          <a href="VisitMainMenu.service?page=<%=nowpage-1 %>">[이전]</a>&nbsp;
+         <a href="VisitMainMenu.service?page=${nowpage}-1">[이전]</a>&nbsp;
          <%} %>
          
+         <c:set var="a" value="${startpage}"></c:set>
+         <c:forEach begin="a" end="${endpage}" step="a"></c:forEach>
          <%for(int a=startpage;a<=endpage;a++){
             if(a==nowpage){%>
+            <c:when test="a==${nowpage}"></c:when>
             [<%=a %>]
+            [${a}]
+            <c:out value=""></c:out>
             <%}else{ %>
             <a href="VisitMainMenu.service?page=<%=a %>">[<%=a %>]</a>&nbsp;
             <%} %>
@@ -86,9 +85,23 @@
    </table>
    </div>
    </center>
-
+ --%>
 
 
 
 </body>
 </html>
+
+<%-- 
+
+	<div id="pager-wrapper" class="margin-small">
+		<br>
+		<div>
+			<a href="notice.jsp">이전</a>
+			<c:forEach var="i" begin="1" end="${getqnum}" step="1">
+				<a href="notice.htm?pg=1&f=${param.f}&q=${param.q}">${i}</a>&nbsp;
+				</c:forEach>
+			<span>다음</span>
+		</div>
+	</div> --%>
+	

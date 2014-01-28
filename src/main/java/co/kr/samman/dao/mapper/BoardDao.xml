@@ -5,7 +5,7 @@
 <mapper namespace="co.kr.samman.dao.BoardDao">
   
    <select id="qnalists" resultType="co.kr.samman.dto.qna">
-       select * from qna order by qnum desc limit #{pg}, #{pg}+2
+       select * from qna order by qnum desc limit 0,2
    </select>
    
    <select id="qnaDetail" resultType="co.kr.samman.dto.qna">

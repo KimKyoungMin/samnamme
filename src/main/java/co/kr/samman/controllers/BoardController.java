@@ -41,42 +41,20 @@ public class BoardController {
 	}
 	
 	//qna 게시판
-		@RequestMapping("qna.user")
-		public String qna(HttpServletRequest request, Model model) {
-
-			int page = 1;
-			int limit = 15;
-			
-			if(request.getParameter("page") != null){
-				page = Integer.parseInt(request.getParameter("page"));
-			}
-			
-			//다른거 가지고와 spring 방식이 아님
-		/*	int listcount = boarddao.getListCount();
-			boardlist = boarddao.getBoardList(page, limit); //sql session
-			
-			int maxpage = (int)((double)listcount/limit + 0.95);
-			int startpage = (((int)((double)page / 10 + 0.9)) -1)*10 + 1;
-			int endpage = startpage + 10 - 1;
-			if(endpage > maxpage){
-				endpage = maxpage;
-			}
-			
-			request.setAttribute("page", page);
-			request.setAttribute("maxpage", maxpage);
-			request.setAttribute("startpage", startpage);
-			request.setAttribute("endpage", endpage);
-			request.setAttribute("listcount", listcount);
-			request.setAttribute("boardlist", boardlist);
+		@RequestMapping(value="qna.user",method=RequestMethod.GET)
+		public String qna(Model model) {
 			
 			
-			*/
+			
 			BoardDao BoardDao = sqlSession.getMapper(BoardDao.class);
 			int listcount = BoardDao.listcount();
-			System.out.println("큐넘!"+listcount);
 			List<qna> qnaList = BoardDao.qnalists();
 			model.addAttribute("qnaList", qnaList);
-			model.addAttribute("getqnum",listcount);
+			model.addAttribute("listcount",listcount);
+			
+			System.out.println(listcount);
+			
+			
 			return "board.qna";
 		}
 		
