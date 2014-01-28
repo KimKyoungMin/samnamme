@@ -1,44 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
-<h2> Notice board </h2>
+<h2>Notice board</h2>
 <div align="right">
-<a href="noticewrite.user">글쓰기</a>
+	<a href="noticewrite.user">글쓰기</a>
 </div>
+<!-- noticeBoardList -->
+<c:forEach var="f" items="${noticeBoardList}">
+	<div class="blockM">
+		<ul>
+			<li>${f.getUserid()}: ${f.getBtitle() }<br>
+			</li>
+			<div class="notice">
+				${f.getBcontent() }<br> <img
+					src="CSS/noticeboardpic/${f.getBpicname()}" width="500px"
+					height="300px">
+			</div>
+		</ul>
+	</div>
+	<!-- noticeBoardReplyList -->
+	<div class="blockM" style="margin-top: 50px">
+	<c:forEach var="c" items="${noticeBoardReplyList}">
+		<c:if test="${f.getBnum() == c.getBnum()}">
+			${c.getUsername() } : ${c.getCcontent() }<br>
+			</c:if>
+	</c:forEach>
+	</div>
+</c:forEach>
 
-      			<table class="article-list margin-small">
-      					<thead>
-							<tr>
-								<th class="seq">번호</th>
-								<th class="title">제목</th>
-								<th class="writer">작성자</th>
-								<th class="regdate">작성일</th>
-								<th class="hit">조회수</th>
-							</tr>
-						</thead>
-						</table>
-						
-						<table class="article-list margin-small">
-						<tbody>
-								<tr>
-									<td class="seq">1</td>
-									<td class="title"><a href="noticedetail.user">제목</a></td>
-									<td class="writer">글쓴이</td>
-									<td class="regdate">날짜</td>
-									<td class="hit">조회수</td>
-								</tr>
-								
-								<tr>
-									<td class="seq">2</td>
-									<td class="title"><a href="#">송지혜짱</a></td>
-									<td class="writer">송지혜</td>
-									<td class="regdate">2013-05-05</td>
-									<td class="hit">9999</td>
-								</tr>
-						
-						</tbody>
-						</table>
-    				
 <!-- </div> -->

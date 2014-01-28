@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.kr.samman.dao.NoticeBoardDao">
+	<select id="noticeBoardList" resultType="co.kr.samman.dto.board">
+		SELECT BNUM, USERID, BTITLE, BCONTENT, BPICNAME, BDATE, BSUB FROM BOARDT
+		WHERE BSUB=1
+	</select>
+
+	<select id="noticereplyList" resultType="co.kr.samman.dto.cont">
+		SELECT USERT.UNAME
+		USERNAME, CONT.CNUM CNUM, CONT.BNUM BNUM, CONT.CCONTENT CCONTENT,
+		CONT.CDATE CDATE
+		FROM CONT
+		INNER JOIN USERT
+		ON
+		CONT.USERID=USERT.USERID
+	</select>
+</mapper>
