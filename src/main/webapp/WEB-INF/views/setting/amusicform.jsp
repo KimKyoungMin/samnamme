@@ -2,45 +2,60 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 
-<form action="" method="post" enctype="multipart/form-data">
-   <table>
-      <tr>
-         <td>노래제목</td>
-         <td><input type="text" name="mtitle" id="mtitle"></td>
-      </tr>
-      <tr>
-         <td>가수</td>
-         <td><input type="text" name="msname"></td>
-      </tr>
-      <tr>
-         <td>장르</td>
-         <td><input type="text" name="mgrade"></td>
-      </tr>
-      <tr>
-         <td>Etc</td>
-         <td><input type="text" name="metcinfo"></td>
-      </tr>
-      <tr>
-         <td>url경로</td>
-         <td><input type="text" name="murl"></td>
-      </tr>
-      <tr>
-         <td>Img</td>
-         <td><input type="file" name="files[0]"></td>
-      </tr>
-      <tr>
-         <td>MusicFile</td>
-         <td><input type="file" name="files[1]"></td>
-      </tr>
-      <tr>
-         <td colspan="2" align="center">
-             <input type="hidden" name="aid" value="ADMIN">
-             <input type="submit" value="OK">  
-         </td>
-      </tr>
-   
-   </table>
+<div id="form_container">
 
+	<form class="appnitro" enctype="multipart/form-data" method="post"
+		action="">
+		<div class="form_description">
+			<h2>음악정보 업로드 하는곳</h2>
+			<p>음악정보를 업로드 하세요</p>
+			
+		</div >
 
-
-</form>
+			<label class="description" for="element_1">노래제목
+			</label>
+				<div>
+					<input id="mtitle" name="mtitle" class="element text medium"
+						type="text" maxlength="255" value="" />
+				</div>
+			<label class="description" for="element_2">가수이름
+			</label>
+				<div>
+					<input id="msname" name="msname" class="element text medium"
+						type="text" maxlength="255" value="" />
+				</div>
+			<label class="description" for="element_3">음악장르
+			</label>
+				<div>
+					<input id="mgrade" name="mgrade" class="element text medium"
+						type="text" maxlength="255" value="" />
+				</div>
+			<label class="description" for="element_4">Etc 기타정보
+			</label>
+				<div>
+					<textarea id="metcinfo" name="metcinfo"
+						class="element textarea medium"></textarea>
+				</div>
+			<label class="description" for="element_4">유투브 URL 경로
+			</label>
+				<div>
+					<textarea id="murl" name="murl"
+						class="element textarea medium"></textarea>
+				</div>
+			<label class="description" for="element_5">음악정보 사진
+					a File </label>
+				<div>
+					<input id="files[0]" name="files[0]" class="element file"
+						type="file" />
+				</div>
+			<label class="description" for="element_6">MusicFile
+					a File </label>
+				<div>
+					<input id="files[1]" name="files[1]" class="element file"
+						type="file" />
+				</div>
+			<input type="hidden" name="aid" value="ADMIN">
+			<input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
+	</form>
+	
+</div>

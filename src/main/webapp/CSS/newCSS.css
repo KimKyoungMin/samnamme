@@ -1468,8 +1468,7 @@ body
 
 #form_container
 {
-	background:#fff;
-	
+	background:#5D6D4C;
 	margin:0 auto;
 	text-align:left;
 	width:640px;
@@ -1748,13 +1747,14 @@ input.button_text
 /**** Inputs and Labels ****/
 label.description
 {
+	
 	border:none;
 	color:#222;
 	display:block;
 	font-size:95%;
 	font-weight:700;
-	line-height:150%;
-	padding:0 0 1px;
+	line-height:200%;
+	padding:0 0 3px;
 }
 
 span.symbol

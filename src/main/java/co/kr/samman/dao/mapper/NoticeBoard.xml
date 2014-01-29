@@ -5,7 +5,7 @@
 <mapper namespace="co.kr.samman.dao.NoticeBoardDao">
 	<select id="noticeBoardList" resultType="co.kr.samman.dto.board">
 		SELECT BNUM, USERID, BTITLE, BCONTENT, BPICNAME, BDATE, BSUB FROM BOARDT
-		WHERE BSUB=1
+		WHERE BSUB=1  ORDER BY BNUM DESC
 	</select>
 
 	<select id="noticereplyList" resultType="co.kr.samman.dto.cont">
@@ -16,5 +16,6 @@
 		INNER JOIN USERT
 		ON
 		CONT.USERID=USERT.USERID
+		ORDER BY CONT.CNUM ASC 
 	</select>
 </mapper>
