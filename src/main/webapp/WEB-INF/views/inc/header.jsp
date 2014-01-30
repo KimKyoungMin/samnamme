@@ -15,7 +15,7 @@
 		<div>
 		 <audio src="" controls="controls" style="width: 30%"></audio>
 		  <s:authorize ifNotGranted="ROLE_USER, ROLE_ADMIN">
-			<a href="login.htm">Login</a> 
+			<a href="login.htm">Login</a> || <a href="join.htm">Join</a>
 		  </s:authorize>
 		  
 		  <s:authentication property="name" var="loginUser"/>
@@ -24,7 +24,7 @@
 					        로그아웃
 			    </a>
 	      </s:authorize>
-		|| <a href="join.htm">Join</a>
+		
 		</div>
 			
 
