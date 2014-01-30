@@ -281,7 +281,7 @@ h1, h2, p, a, span{
 
 	/*********************************************** HEADER ***********************************************/
 	header {
-		height: 80px;
+		height: 140px;
 	}
 		.header-menu {
 			font-size: 17px;
@@ -2300,3 +2300,12 @@ background: #dedede;
 font-weight: bold;
 }
 
+div#banner {
+      border: 1px black solid;
+      border-radius: 4px;    
+      clear: both;
+      height: 60pt;
+      background-color: rgb(85, 126, 185); /* For non-CSS3 browsers. */
+      background-image: -webkit-radial-gradient(100% 0%, circle cover, rgb(104,24,136) 0%, rgb(85,126,185) 100%);
+      background-image: radial-gradient(circle at 100% 0%, rgb(104,24,136) 0%, rgb(85,126,185) 100%); /* IE10 and later */
+    }

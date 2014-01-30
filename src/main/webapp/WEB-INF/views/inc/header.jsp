@@ -80,5 +80,5 @@
 				</s:authorize>              
 		    </p>
 		</div>
-
+	<div id="banner"></div>
 	</header>
