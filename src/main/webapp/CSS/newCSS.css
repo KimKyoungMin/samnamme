@@ -285,7 +285,7 @@ h1, h2, p, a, span{
 	}
 		.header-menu {
 			font-size: 17px;
-			line-height: 80px;
+			line-height: 30px;
 		}
 			.header-menu li {
 				position: relative;
