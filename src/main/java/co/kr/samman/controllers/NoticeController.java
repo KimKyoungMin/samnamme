@@ -1,6 +1,5 @@
 package co.kr.samman.controllers;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
@@ -17,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import co.kr.samman.dao.NoticeBoardDao;
 import co.kr.samman.dto.board;
 import co.kr.samman.dto.cont;
+import co.kr.samman.dto.lastNumber;
 
 @Controller
 public class NoticeController {
@@ -28,15 +28,19 @@ public class NoticeController {
 		public String noticeList(HttpServletRequest req, Model model) {
 			NoticeBoardDao noticeBoardDao = sqlSession.getMapper(NoticeBoardDao.class);
 			int lastnum=3;
-			
+			int firstnum=0;
 			String lastnumS = req.getParameter("lastnum");
-			
+//			System.out.println("noticeList-lastnumS : "+lastnumS);
+//			System.out.println("noticeList-lastnum : "+lastnum);
 			if(lastnumS !=null && !lastnumS.equals("")){
-				lastnum = Integer.parseInt(lastnumS);
+				lastnum = Integer.parseInt(lastnumS)+3;
 			}
-			
-			System.out.println(lastnum);
-			List<board> noticeBoardList = noticeBoardDao.noticeBoardList(lastnum-3, lastnum);
+//			System.out.println("noticeList-lastnumS : "+lastnumS);
+//			System.out.println("noticeList-lastnum : "+lastnum);
+			lastNumber lastnumb = new lastNumber();
+			lastnumb.setLastnum(lastnum);
+			model.addAttribute("lastNumber", lastnumb);
+			List<board> noticeBoardList = noticeBoardDao.noticeBoardList(firstnum, lastnum);
 			List<cont> noticeBoardReplyList = noticeBoardDao.noticereplyList();
 			model.addAttribute("noticeBoardList", noticeBoardList);
 			model.addAttribute("noticeBoardReplyList", noticeBoardReplyList);

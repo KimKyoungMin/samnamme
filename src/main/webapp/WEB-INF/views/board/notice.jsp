@@ -2,13 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/security/tags" %>
-
 <h2>공지사항</h2>
-<script type="text/javascript">
 
-
-
-</script>
 <div align="right">
 <s:authorize ifAnyGranted="ROLE_ADMIN">
 			    <a href="noticewrite.user">공지사항 등록</a>
@@ -46,5 +41,9 @@
 	</div>
 	</div>
 </c:forEach>
-
-<!-- </div> -->
+<div class="blockM">
+<form method="get" action="">
+<input type="hidden" name="lastnum" value="${lastNumber.getLastnum() }">
+<input type="submit" name="" value="공지사항 더 확인하기">
+</form>
+</div>

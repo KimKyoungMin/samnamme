@@ -427,6 +427,15 @@ h1, h2, p, a, span{
 			width:800pt;
 			
 			}
+			.blockK {
+			  /*  display: inline; */
+			   margin-bottom: 25px;
+			   background: #394264;
+			   border-radius: 5px;	
+			   float: left;	
+			   margin-right: 20px ;
+			   margin-bottom: 25px;
+			}	
 			.blockM {
 			  /*  display: inline; */
 			   margin-bottom: 25px;

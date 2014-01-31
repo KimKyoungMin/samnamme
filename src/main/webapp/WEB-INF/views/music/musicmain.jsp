@@ -12,7 +12,7 @@
    </h2>
    <div>
    <c:forEach var="m" items="${musicList}">
-   <div class="profileM blockM">  <!-- 음악 리스트  (RIGHT-CONTAINER) -->
+   <div class="profileM blockK">  <!-- 음악 리스트  (RIGHT-CONTAINER) -->
 			
 			   <ul>
 			     <li align="right"><input type="checkbox" id="check[]" name="check[]" value=${m.getMinfonum() }></li>
