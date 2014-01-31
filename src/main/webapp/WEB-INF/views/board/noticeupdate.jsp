@@ -24,5 +24,6 @@
 		</div>  
 			    <!-- <input type="hidden" name="form_id" value="783685" />  -->
 				<input id="saveForm" class="button_text" type="submit" name="submit" value="수정하기" />
+				<input type="button" value="돌아가기" onclick="location.href='notice.user'">
 		</form>	
 		</div>

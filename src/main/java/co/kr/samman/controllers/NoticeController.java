@@ -11,11 +11,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import co.kr.samman.dao.ConcertDao;
 import co.kr.samman.dao.NoticeBoardDao;
 import co.kr.samman.dto.board;
 import co.kr.samman.dto.cont;
@@ -27,9 +25,18 @@ public class NoticeController {
 	
 	//공지사항 게시판
 		@RequestMapping("notice.user")
-		public String noticeList(Model model) {
+		public String noticeList(HttpServletRequest req, Model model) {
 			NoticeBoardDao noticeBoardDao = sqlSession.getMapper(NoticeBoardDao.class);
-			List<board> noticeBoardList = noticeBoardDao.noticeBoardList();
+			int lastnum=3;
+			
+			String lastnumS = req.getParameter("lastnum");
+			
+			if(lastnumS !=null && !lastnumS.equals("")){
+				lastnum = Integer.parseInt(lastnumS);
+			}
+			
+			System.out.println(lastnum);
+			List<board> noticeBoardList = noticeBoardDao.noticeBoardList(lastnum-3, lastnum);
 			List<cont> noticeBoardReplyList = noticeBoardDao.noticereplyList();
 			model.addAttribute("noticeBoardList", noticeBoardList);
 			model.addAttribute("noticeBoardReplyList", noticeBoardReplyList);
@@ -68,7 +75,7 @@ public class NoticeController {
 			
 			NoticeBoardDao noticeBoardDao = sqlSession.getMapper(NoticeBoardDao.class);
 //			System.out.println("sqlsession create good");
-			model.addAttribute("board", noticeBoardDao.getConcertdetail(boardid));
+			model.addAttribute("board", noticeBoardDao.getNoticedetail(boardid));
 			return "board.noticeupdate";
 		}
 		
@@ -85,12 +92,18 @@ public class NoticeController {
 		    }
 			
 			NoticeBoardDao noticeBoardDao = sqlSession.getMapper(NoticeBoardDao.class);
-			noticeBoardDao.concertupdate(board);
+			noticeBoardDao.noticeupdate(board);
 			
 			return "redirect:notice.user";
 		}
 		
-		
+		@RequestMapping("noticedelete.user")
+		public String noticeDelete(HttpServletRequest req, Model model){
+			int boardid = Integer.parseInt(req.getParameter("bnum"));
+			NoticeBoardDao noticeBoardDao = sqlSession.getMapper(NoticeBoardDao.class);
+			noticeBoardDao.noticeudelete(boardid);
+			return "redirect:notice.user";
+		}
 }
 
 	

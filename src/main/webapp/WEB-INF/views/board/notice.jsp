@@ -26,7 +26,8 @@
 			<div class="notice">
 				${f.getBcontent() }<br>
 				<s:authorize ifAnyGranted="ROLE_ADMIN">
-			    <a href="noticeupdate.user?bnum=${f.getBnum() }">공지사항 수정하기</a>
+			    <a href="noticeupdate.user?bnum=${f.getBnum() }">글 수정하기</a> ||
+				<a href="noticedelete.user?bnum=${f.getBnum() }">글 삭제하기</a>
 	      </s:authorize>
 				
 				 <img

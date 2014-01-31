@@ -7,9 +7,10 @@ import co.kr.samman.dto.cont;
 
 
 public interface NoticeBoardDao {
-	public List<board> noticeBoardList();
+	public List<board> noticeBoardList( int firstnum,int lastnum);
 	public List<cont> noticereplyList();
 	public void writenotice(board bor);
-	public board getConcertdetail(int boardid);
-	public void concertupdate(board board);
+	public board getNoticedetail(int boardid);
+	public void noticeupdate(board board);
+	public void noticeudelete(int boardid);
 }

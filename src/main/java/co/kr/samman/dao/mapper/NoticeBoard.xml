@@ -4,8 +4,11 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.kr.samman.dao.NoticeBoardDao">
 	<select id="noticeBoardList" resultType="co.kr.samman.dto.board">
-		SELECT BNUM, USERID, BTITLE, BCONTENT, BPICNAME, BDATE, BSUB FROM BOARDT
-		WHERE BSUB=1  ORDER BY BNUM DESC
+		SELECT BNUM, USERID,
+		BTITLE, BCONTENT, BPICNAME, BDATE, BSUB FROM BOARDT
+		WHERE BSUB=1 ORDER
+		BY BNUM DESC
+		LIMIT #{param1}, #{param2}
 	</select>
 
 	<select id="noticereplyList" resultType="co.kr.samman.dto.cont">
@@ -16,28 +19,34 @@
 		INNER JOIN USERT
 		ON
 		CONT.USERID=USERT.USERID
-		ORDER BY CONT.CNUM ASC 
+		ORDER BY CONT.CNUM ASC
 	</select>
-	
+
 	<insert id="writenotice" parameterType="co.kr.samman.dto.board">
-	INSERT INTO BOARDT
-	 (USERID, BTITLE, BCONTENT, BPICNAME, BDATE, BSUB)
-	 VALUES
-	 ('admin', #{btitle},#{bcontent},#{bpicname},NOW(),1)
+		INSERT INTO BOARDT
+		(USERID, BTITLE, BCONTENT, BPICNAME, BDATE, BSUB)
+		VALUES
+		('admin', #{btitle},#{bcontent},#{bpicname},NOW(),1)
 	</insert>
-	
-	<select id="getConcertdetail" parameterType="Integer" resultType="co.kr.samman.dto.board" >
-		SELECT BNUM, USERID, BTITLE, BCONTENT, BPICNAME, BDATE, BSUB FROM BOARDT
-		WHERE BSUB=1 AND BNUM = #{param1}
+
+	<select id="getNoticedetail" parameterType="Integer"
+		resultType="co.kr.samman.dto.board">
+		SELECT BNUM, USERID, BTITLE,
+		BCONTENT, BPICNAME, BDATE, BSUB FROM BOARDT
+		WHERE BSUB=1 AND BNUM =
+		#{param1}
 	</select>
-	
-	<update id="concertupdate" parameterType="co.kr.samman.dto.board">
-		UPDATE 
-BOARDT 
-SET BTITLE=#{btitle},
-BCONTENT =#{bcontent},
-BPICNAME=#{bpicname},
-BDATE=NOW()
-where BNUM=#{bnum};
+
+	<update id="noticeupdate" parameterType="co.kr.samman.dto.board">
+		UPDATE
+		BOARDT
+		SET BTITLE=#{btitle},
+		BCONTENT =#{bcontent},
+		BPICNAME=#{bpicname},
+		BDATE=NOW()
+		where BNUM=#{bnum};
 	</update>
+	<delete id="noticeudelete" parameterType="Integer">
+		DELETE FROM BOARDT WHERE BNUM = #{param1};
+	</delete>
 </mapper>
