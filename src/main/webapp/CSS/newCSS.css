@@ -422,6 +422,11 @@ h1, h2, p, a, span{
 			   height: 350px;
 			   width: 300px;		   
 			}
+			.blockL {
+			background: #6a5acd;
+			width:800pt;
+			
+			}
 			.blockM {
 			  /*  display: inline; */
 			   margin-bottom: 25px;
@@ -429,7 +434,19 @@ h1, h2, p, a, span{
 			   border-radius: 5px;	
 			   float: left;	
 			   margin-right: 20px ;
-			   margin-bottom: 25px;        
+			   margin-bottom: 25px;
+			   width:440pt;     
+			}	
+			.blockN {
+			  /*  display: inline; */
+			   margin-bottom: 25px;
+			   background: #394264;
+			   border-radius: 5px;	
+			   float: left;	
+			   margin-right: 20px ;
+			   margin-bottom: 25px;
+			   margin-top : 40pt;
+			   width:300pt;     
 			}	
 			.blockM li{
 			   margin-bottom: 10px; margin-left: 10px;

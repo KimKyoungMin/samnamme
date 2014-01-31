@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<script type="text/javascript" src="http://openapi.map.naver.com/openapi/naverMap.naver?ver=2.0&key=6137af059a44af13484d757b57569645"></script>
+<script type="text/javascript" src="http://openapi.map.naver.com/openapi/naverMap.naver?ver=2.0&key=1e5345790099981b35fcd2e0b2388766"></script>
 <div id = "naverMap" style="border:3px solid #959595; width:450px; height:250px; margin:5px; display:block;"></div>
 <script type="text/javascript">
 //Mybatis --> JSTL --> JavaScript 변수 선언해주기

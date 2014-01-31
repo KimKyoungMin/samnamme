@@ -57,7 +57,7 @@
 			
 		    <li>
 		        <s:authorize ifAnyGranted="ROLE_USER">
-			       <a class="header-menu-tab" href="account.admin"><span class="icon fontawesome-user scnd-font-color"></span>Account</a>
+			       <a class="header-menu-tab" href="account.user?userid=${loginUser }"><span class="icon fontawesome-user scnd-font-color"></span>Account</a>
 			    </s:authorize>
 			    <s:authorize ifAnyGranted="ROLE_ADMIN">
 			    <a class="header-menu-tab" href="#"><span class="icon entypo-cog scnd-font-color"></span>Settings</a>

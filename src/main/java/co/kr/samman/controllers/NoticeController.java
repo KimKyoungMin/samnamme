@@ -1,14 +1,21 @@
 package co.kr.samman.controllers;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import co.kr.samman.dao.ConcertDao;
 import co.kr.samman.dao.NoticeBoardDao;
 import co.kr.samman.dto.board;
 import co.kr.samman.dto.cont;
@@ -31,10 +38,58 @@ public class NoticeController {
 		
 		@RequestMapping(value="noticewrite.user", method=RequestMethod.GET)
 		public String noticeWriteForm(Model model){
-//			System.out.println("NoticeController.noticeWriteForm()");
+//			System.out.println("NoticeController.noticeWriteForm()-get");
 			
 			return "board.noticewrite";
 		}
+		
+		@RequestMapping(value="noticewrite.user", method=RequestMethod.POST)
+		public String noticeWrite(board bor, HttpServletRequest req, Model model) throws IOException{
+			//System.out.println("NoticeController.noticeWriteForm()- post");
+			bor.setBpicname(bor.getFilespic().getOriginalFilename());
+			String path = req.getRealPath("/CSS/noticeboardpic/"+bor.getBpicname());
+			
+			if(!bor.getBpicname().equals("")){
+		    	FileOutputStream fs = new FileOutputStream(path);
+		    	fs.write(bor.getFilespic().getBytes());
+		    	fs.close();
+		    }
+			
+			NoticeBoardDao noticeBoardDao = sqlSession.getMapper(NoticeBoardDao.class);
+			noticeBoardDao.writenotice(bor);
+			return "redirect:notice.user";
+		}
+		
+		@RequestMapping(value="noticeupdate.user", method=RequestMethod.GET)
+		public String noticeUpdateform(HttpServletRequest req, Model model){
+//			System.out.println("NoticeController.noticeUpdateform - get");
+			int boardid = Integer.parseInt(req.getParameter("bnum"));
+//			System.out.println("boardid"+boardid);
+			
+			NoticeBoardDao noticeBoardDao = sqlSession.getMapper(NoticeBoardDao.class);
+//			System.out.println("sqlsession create good");
+			model.addAttribute("board", noticeBoardDao.getConcertdetail(boardid));
+			return "board.noticeupdate";
+		}
+		
+		@RequestMapping(value="noticeupdate.user", method=RequestMethod.POST)
+		public String noticeUpdate(board board, HttpServletRequest req, Model model) throws IOException{
+//			System.out.println("NoticeController.noticeUpdateform - post");
+			board.setBpicname(board.getFilespic().getOriginalFilename());
+			String path = req.getRealPath("/CSS/noticeboardpic/"+board.getBpicname());
+			
+			if(!board.getBpicname().equals("")){
+		    	FileOutputStream fs = new FileOutputStream(path);
+		    	fs.write(board.getFilespic().getBytes());
+		    	fs.close();
+		    }
+			
+			NoticeBoardDao noticeBoardDao = sqlSession.getMapper(NoticeBoardDao.class);
+			noticeBoardDao.concertupdate(board);
+			
+			return "redirect:notice.user";
+		}
+		
 		
 }
 

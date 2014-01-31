@@ -13,8 +13,9 @@ public class AccountController {
 	private SqlSession sqlSession;
 	
 	//회원 정보 페이지
-		@RequestMapping(value = "account.htm", method = RequestMethod.GET)
+		@RequestMapping(value = "account.user", method = RequestMethod.GET)
 		public String account() {
-			return "account.userAccount";
+			
+			return "account.useraccountmain";
 		}
 }

@@ -17,25 +17,32 @@
 </div>
 <!-- noticeBoardList -->
 <c:forEach var="f" items="${noticeBoardList}">
+<div class="blockL">
 	<div class="blockM">
 		<ul>
 			<li>${f.getUserid()}: ${f.getBtitle() }<br>
 				<div style="text-align: left">${f.getBdate() }</div>
 			</li>
 			<div class="notice">
-				${f.getBcontent() }<br> <img
+				${f.getBcontent() }<br>
+				<s:authorize ifAnyGranted="ROLE_ADMIN">
+			    <a href="noticeupdate.user?bnum=${f.getBnum() }">공지사항 수정하기</a>
+	      </s:authorize>
+				
+				 <img
 					src="CSS/noticeboardpic/${f.getBpicname()}" width="500px"
 					height="300px">
 			</div>
 		</ul>
 	</div>
 	<!-- noticeBoardReplyList -->
-	<div class="blockM" style="margin-top: 50px">
+	<div class="blockN">
 	<c:forEach var="c" items="${noticeBoardReplyList}">
 		<c:if test="${f.getBnum() == c.getBnum()}">
 			${c.getUsername() } : ${c.getCcontent() } <div style="text-align: left">${c.getCdate() }</div><br>
 			</c:if>
 	</c:forEach>
+	</div>
 	</div>
 </c:forEach>
 

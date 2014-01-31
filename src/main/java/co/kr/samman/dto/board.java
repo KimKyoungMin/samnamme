@@ -2,6 +2,8 @@ package co.kr.samman.dto;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class board {
 	
 	private int bnum;
@@ -11,8 +13,14 @@ public class board {
 	private String bpicname;
 	private Date bdate;
 	private int bsub;
+	private MultipartFile filespic;
 	
-	
+	public MultipartFile getFilespic() {
+		return filespic;
+	}
+	public void setFilespic(MultipartFile filespic) {
+		this.filespic = filespic;
+	}
 	public int getBnum() {
 		return bnum;
 	}
