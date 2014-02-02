@@ -2,8 +2,33 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/security/tags" %>
-<h2>공지사항</h2>
 
+<!-- Ajax 추가 소스 아직 안되는 상태 시작-->
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<h2>공지사항</h2>
+<script type="text/javascript">
+
+$("#btnMore").click(function(){  
+	
+    var url="noticemore.user";  
+    var params="lastnum="+'<c:out value="${lastNumber.getLastnum() }"/>';  
+  
+    $.ajax({      
+        type:"GET",  
+        url:url,      
+        data:params,      
+        success:function(args){   
+            $("#result").html(args);
+        },   
+        beforeSend:showRequest,  
+        error:function(e){  
+            alert(e.responseText);  
+        }  
+    });  
+      
+});
+</script>
+<!-- Ajax 추가 소스 아직 안되는 상태 끝-->
 <div align="right">
 <s:authorize ifAnyGranted="ROLE_ADMIN">
 			    <a href="noticewrite.user">공지사항 등록</a>
@@ -45,5 +70,6 @@
 <form method="get" action="">
 <input type="hidden" name="lastnum" value="${lastNumber.getLastnum() }">
 <input type="submit" name="" value="공지사항 더 확인하기">
+<!-- <input type="submit" name="" value="공지사항 더 확인하기" onclick="btnMore"> -->
 </form>
 </div>
