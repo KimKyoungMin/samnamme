@@ -5,7 +5,7 @@
 
 <div onclick="location.href='main.htm';" style="cursor: pointer;">
 	<header align="center">
-		<h1>Music Site</h1>
+		<h1 class="header01">Music Site</h1>
 	</header>
 </div>
 
