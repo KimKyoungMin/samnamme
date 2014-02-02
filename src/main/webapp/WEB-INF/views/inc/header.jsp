@@ -12,8 +12,7 @@
 <div class="block3">
 		<s:authentication property="name" var="loginUser"/>
 	<h2>
-		<div>
-		 <audio src="" controls="controls" style="width: 30%"></audio>
+		
 		  <s:authorize ifNotGranted="ROLE_USER, ROLE_ADMIN">
 			<a href="login.htm">Login</a> || <a href="join.htm">Join</a>
 		  </s:authorize>
@@ -25,7 +24,6 @@
 			    </a>
 	      </s:authorize>
 		
-		</div>
 			
 
 	</h2>
@@ -80,5 +78,9 @@
 				</s:authorize>              
 		    </p>
 		</div>
-	<div id="banner"></div>
+	<div id="banner">
+		 <audio src="" controls="controls" style="width: 30%"></audio>
+	
+	
+	</div>
 	</header>

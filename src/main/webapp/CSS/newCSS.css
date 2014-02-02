@@ -76,7 +76,7 @@
 .block3 {
 	text-align: right;
 	width: 960px;
-	margin-left: 195px;
+/* 	margin-left: 195px; */
 }
 
 
@@ -269,7 +269,7 @@ h1, h2, p, a, span{
 .main-container {
 	font-family: 'Ubuntu', sans-serif;
 	width: 960px;
-	height: 1000px;
+	/* height: 1000px; */
 	margin: 0 auto;
 }
 .head-container {
@@ -281,8 +281,8 @@ h1, h2, p, a, span{
 
 	/*********************************************** HEADER ***********************************************/
 	header {
-		height: 140px;
-	}
+/* 		height: 90px;
+ */	}
 		.header-menu {
 			font-size: 17px;
 			line-height: 30px;
@@ -362,7 +362,7 @@ h1, h2, p, a, span{
 		width: 300px;
 	}
 		.block {
-			margin-bottom: 25px;
+			margin-bottom: 15px;
 			background: #394264;
 			border-radius: 5px;
 		}
@@ -419,7 +419,7 @@ h1, h2, p, a, span{
 	        
 	        /****** 음악 리스트 ******/				
 			.profileM {
-			   height: 350px;
+			   /* height: 350px; */
 			   width: 300px;		   
 			}
 			.blockL {
@@ -1258,7 +1258,7 @@ h1, h2, p, a, span{
 	width: 950px;
     /* margin: 0 auto;  */
     margin-top: 50px;
-    margin-left: 200px;
+   /*  margin-left: 200px; */	
 }
 .footer h4 {
 	text-align: center;

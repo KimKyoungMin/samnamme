@@ -5,6 +5,6 @@
 <!-- <link rel="stylesheet" type="text/css" href="CSS/newCSS.css" /> -->
 
    <div class="footer" align="center">
-	   <hr>
+	   <img alt="" src="CSS/images/footline.jpg" style="width:710pt;height:3pt">
 	   <h4>copyright@.........</h4>
 	</div>

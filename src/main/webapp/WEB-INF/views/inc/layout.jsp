@@ -53,7 +53,7 @@
 </script>
 
 </head>
-    <body>
+    <body class="main-container">
         
 	    
 	    <!-- <div class="main-container"> -->

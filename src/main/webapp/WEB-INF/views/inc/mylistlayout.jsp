@@ -11,7 +11,7 @@
 <title>MyPlayerList</title>
 
 </head>
-    <body>
+    <body class="main-container">
 
 	    <!-- content -->
 	    <tiles:insertAttribute name="content"></tiles:insertAttribute>
