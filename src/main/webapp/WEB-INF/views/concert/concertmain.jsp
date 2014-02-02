@@ -35,7 +35,7 @@
 	int week = cal.get(Calendar.DAY_OF_WEEK);
 	///////////////////
 	//칸크기 셋팅
-	int boxweight = 120;
+	int boxweight = 137;
 	int boxheight = 100;
 	//List<concert> list = new List<concert>();
 	
