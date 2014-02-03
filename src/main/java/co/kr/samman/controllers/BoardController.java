@@ -111,6 +111,27 @@ public class BoardController {
 			return "redirect:qna.user";
 		}
 		
+		//qnaReply 게시판
+		@RequestMapping(value= "qnaReply.user" , method=RequestMethod.GET)
+		public String qnaReplymenu() {	
+			return "board.qnaReply";
+		}
+		
+		
+		@RequestMapping(value= "qnaReply.user" , method=RequestMethod.POST)
+		public String qnaReply(qna qnadto) {	
+			BoardDao BoardDao = sqlSession.getMapper(BoardDao.class);
+			
+			UserDetails user =   
+				       (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+				
+			qnadto.setUserid(user.getUsername());
+			
+			BoardDao.qnaReply(qnadto);
+			return "redirect:qna.user";
+		}
+		
+		
 	    //qna 글 삭제
 		@RequestMapping(value="qnaDelete.user", method=RequestMethod.POST)
 		public String qnaDelete(String qnum) {	

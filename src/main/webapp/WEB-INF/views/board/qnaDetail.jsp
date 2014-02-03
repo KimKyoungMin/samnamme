@@ -49,7 +49,9 @@ qnadetail게시판
 					</div>
 					<input type="submit" value="삭제">
 					</form>
-					
+					<form action="qnaReply.user?qnum=${qnaDetail.qnum}" method="post">
+					<input type="submit" value="댓글">
+					</form>
 
 
 </body>
