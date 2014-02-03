@@ -7,8 +7,6 @@
 int startpage = (Integer)request.getAttribute("startpage");
 int endpage = (Integer)request.getAttribute("endpage");
 int nowpage = (Integer)request.getAttribute("page");
- 
-
 %>
 
 
@@ -17,6 +15,8 @@ int nowpage = (Integer)request.getAttribute("page");
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+
+
 </head>
 <body>
 	qna 게시판
@@ -61,49 +61,28 @@ int nowpage = (Integer)request.getAttribute("page");
    <center>
   <div style="clear: both">
   <br>
-   <table>
+   <table  class="list_n_menu">
    <tr align=center height=20>
       <td colspan=7 style=font-family:Tahoma;font-size:10pt;>
          <c:choose>
-         <c:when test="${page<=1}">[이전]&nbsp;</c:when>
+         <c:when test="${page<=1}"><a class="active">이전</a>&nbsp;</c:when>
          <c:otherwise>
-         <a href="qna.user?page=${page-1}">[이전]</a>&nbsp;
+         <a href="qna.user?page=${page-1}" class="disabled">이전</a>&nbsp;
          </c:otherwise>
          </c:choose>
         
-        
-        
-        <%--  
-         <c:set var="a" value="${startpage }"></c:set>
-        <c:forEach begin="${a}" end="${endpage }" step="${a}">
-         <c:choose>
-         	<c:when test="${a==page }">[${a}]</c:when>
-         	<c:otherwise>
-         	
-         	<a href="qna.user?page=${a}">[${a}]</a>&nbsp;
-         	</c:otherwise>
-         	
-         </c:choose>
-         </c:forEach>
-         --%>
-     
-    
-     
       <%for(int a=startpage;a<=endpage;a++){
 				if(a==nowpage){%>
-				[<%=a %>]
+				<a class="current"><%=a %></a>
 				<%}else{ %>
-				<a href="qna.user?page=<%=a %>">[<%=a %>]</a>&nbsp;
+				<a href="qna.user?page=<%=a %>" class="disabled"><%=a %></a>&nbsp;
 				<%} %>
 			<%} %>
-        
-         
-         
           
          <c:choose>
-         <c:when test="${page>=maxpage }">[다음]</c:when>
+         <c:when test="${page>=maxpage }"><a class="active">다음</a></c:when>
          <c:otherwise>
-         <a href="qna.user?page=${page+1}">[다음]</a>
+         <a href="qna.user?page=${page+1}">다음</a>
          </c:otherwise>
          </c:choose>
       </td>
@@ -111,8 +90,6 @@ int nowpage = (Integer)request.getAttribute("page");
    </table>
    </div>
    </center>
-
-
 
 
 </body>
