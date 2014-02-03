@@ -67,6 +67,11 @@ public class BoardController {
 			System.out.println("start"+startpage);
 			System.out.println("end"+endpage);
 			System.out.println("====================");
+			
+			request.setAttribute("page", page);
+			request.setAttribute("startpage", startpage);
+			request.setAttribute("endpage", endpage);
+			
 			model.addAttribute("page", page);
 			model.addAttribute("maxpage", maxpage);
 			model.addAttribute("startpage", startpage);

@@ -3,6 +3,13 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<%
+int startpage = (Integer)request.getAttribute("startpage");
+int endpage = (Integer)request.getAttribute("endpage");
+int nowpage = (Integer)request.getAttribute("page");
+ 
+
+%>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -49,7 +56,7 @@
  end:  ${endpage }
    <br>
    
-   <c:set var="a" value="${startpage }"></c:set>
+  
 	${a}
    <center>
   <div style="clear: both">
@@ -64,10 +71,11 @@
          </c:otherwise>
          </c:choose>
         
+        
+        
+        <%--  
          <c:set var="a" value="${startpage }"></c:set>
-        
-        
-        <%--  <c:forEach begin="${a}" end="${endpage }" step="${a}">
+        <c:forEach begin="${a}" end="${endpage }" step="${a}">
          <c:choose>
          	<c:when test="${a==page }">[${a}]</c:when>
          	<c:otherwise>
@@ -79,17 +87,15 @@
          </c:forEach>
          --%>
      
-       <c:forEach begin="${a}" end="${endpage }" step="${a}">
-         
-        <c:choose>
-         	<c:when test="${a==page }">[${a}]</c:when>
-         	
-         	<c:otherwise>
-         	<a href="qna.user?page=${a}">[${a}]</a>&nbsp;
-         	</c:otherwise>
-         	
-         </c:choose> 
-         </c:forEach>
+    
+     
+      <%for(int a=startpage;a<=endpage;a++){
+				if(a==nowpage){%>
+				[<%=a %>]
+				<%}else{ %>
+				<a href="qna.user?page=<%=a %>">[<%=a %>]</a>&nbsp;
+				<%} %>
+			<%} %>
         
          
          
