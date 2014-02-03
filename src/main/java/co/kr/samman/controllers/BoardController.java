@@ -42,18 +42,37 @@ public class BoardController {
 	
 	//qna 게시판
 		@RequestMapping(value="qna.user",method=RequestMethod.GET)
-		public String qna(Model model) {
+		public String qna(HttpServletRequest request, Model model) {
 			
+			int page = 1;
+			int limit = 2;
 			
+			if(request.getParameter("page") != null){
+				page = Integer.parseInt(request.getParameter("page"));
+			}
 			
 			BoardDao BoardDao = sqlSession.getMapper(BoardDao.class);
+			
 			int listcount = BoardDao.listcount();
-			List<qna> qnaList = BoardDao.qnalists();
-			model.addAttribute("qnaList", qnaList);
+			List<qna> qnaList = BoardDao.qnalists(page, limit);
+			
+			int maxpage = (int)((double)listcount/limit + 0.95);
+			int startpage = (((int)((double)page / 10 + 0.9)) -1)*10 + 1;
+			int endpage = startpage + 10 - 1;
+			if(endpage > maxpage){
+				endpage = maxpage;
+			}
+			System.out.println("page"+page);
+			System.out.println("max"+maxpage);
+			System.out.println("start"+startpage);
+			System.out.println("end"+endpage);
+			System.out.println("====================");
+			model.addAttribute("page", page);
+			model.addAttribute("maxpage", maxpage);
+			model.addAttribute("startpage", startpage);
+			model.addAttribute("endpage", endpage);
 			model.addAttribute("listcount",listcount);
-			
-			System.out.println(listcount);
-			
+			model.addAttribute("qnaList", qnaList);
 			
 			return "board.qna";
 		}

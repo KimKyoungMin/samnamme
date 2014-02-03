@@ -43,49 +43,69 @@
 
 		</tbody>
 	</table>
-
-
-<%-- 
- <center>
+ page:  ${page }
+ max:  ${maxpage }
+ start:  ${startpage }
+ end:  ${endpage }
+   <br>
+   
+   <c:set var="a" value="${startpage }"></c:set>
+	${a}
+   <center>
   <div style="clear: both">
   <br>
    <table>
    <tr align=center height=20>
       <td colspan=7 style=font-family:Tahoma;font-size:10pt;>
+         <c:choose>
+         <c:when test="${page<=1}">[이전]&nbsp;</c:when>
+         <c:otherwise>
+         <a href="qna.user?page=${page-1}">[이전]</a>&nbsp;
+         </c:otherwise>
+         </c:choose>
+        
+         <c:set var="a" value="${startpage }"></c:set>
+        
+        
+        <%--  <c:forEach begin="${a}" end="${endpage }" step="${a}">
+         <c:choose>
+         	<c:when test="${a==page }">[${a}]</c:when>
+         	<c:otherwise>
+         	
+         	<a href="qna.user?page=${a}">[${a}]</a>&nbsp;
+         	</c:otherwise>
+         	
+         </c:choose>
+         </c:forEach>
+         --%>
+     
+       <c:forEach begin="${a}" end="${endpage }" step="${a}">
          
-         <c:when test="${nowpage}<=1"></c:when>
-         <%if(nowpage<=1){ %>
-         [이전]&nbsp;
-         <c:when test="${nowpage}>1"></c:when>
-         <%}else{ %>
-         <a href="VisitMainMenu.service?page=<%=nowpage-1 %>">[이전]</a>&nbsp;
-         <a href="VisitMainMenu.service?page=${nowpage}-1">[이전]</a>&nbsp;
-         <%} %>
+        <c:choose>
+         	<c:when test="${a==page }">[${a}]</c:when>
+         	
+         	<c:otherwise>
+         	<a href="qna.user?page=${a}">[${a}]</a>&nbsp;
+         	</c:otherwise>
+         	
+         </c:choose> 
+         </c:forEach>
+        
          
-         <c:set var="a" value="${startpage}"></c:set>
-         <c:forEach begin="a" end="${endpage}" step="a"></c:forEach>
-         <%for(int a=startpage;a<=endpage;a++){
-            if(a==nowpage){%>
-            <c:when test="a==${nowpage}"></c:when>
-            [<%=a %>]
-            [${a}]
-            <c:out value=""></c:out>
-            <%}else{ %>
-            <a href="VisitMainMenu.service?page=<%=a %>">[<%=a %>]</a>&nbsp;
-            <%} %>
-         <%} %>
          
-         <%if(nowpage>=maxpage){ %>
-         [다음]
-         <%}else{ %>
-         <a href="VisitMainMenu.service?page=<%=nowpage+1 %>">[다음]</a>
-         <%} %>
+          
+         <c:choose>
+         <c:when test="${page>=maxpage }">[다음]</c:when>
+         <c:otherwise>
+         <a href="qna.user?page=${page+1}">[다음]</a>
+         </c:otherwise>
+         </c:choose>
       </td>
    </tr>
    </table>
    </div>
    </center>
- --%>
+
 
 
 
@@ -104,4 +124,3 @@
 			<span>다음</span>
 		</div>
 	</div> --%>
-	
