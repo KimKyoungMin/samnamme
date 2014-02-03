@@ -6,12 +6,15 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import net.sf.json.JSONObject;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import co.kr.samman.dao.NoticeBoardDao;
 import co.kr.samman.dto.board;
@@ -47,6 +50,21 @@ public class NoticeController {
 			return "board.notice";
 		}
 		
+		@RequestMapping("noticereply.user")
+		@ResponseBody
+		public String noticeReplyList(HttpServletRequest req, Model model,String bnum, String userid, String ccontent, String replynum) {
+//			System.out.println("noticeReplyList+ noticereply.user 댓글 AJAX Controller단");
+//			System.out.println(bnum+"  "+userid+"   "+ccontent);
+			NoticeBoardDao noticeBoardDao = sqlSession.getMapper(NoticeBoardDao.class);
+			noticeBoardDao.noticereplyInsert(bnum, userid, ccontent);
+			cont cont=noticeBoardDao.noticereplyResult(bnum, userid);
+			//Json 객체 생성
+			JSONObject obj = new JSONObject();
+			//Json에 String 값 입력
+			obj.put("replynum", replynum);
+			obj.put("username", cont.getUsername()+":"+cont.getCcontent()+"<br>"+cont.getCdate());
+			return obj.toString();
+		}
 		@RequestMapping(value="noticewrite.user", method=RequestMethod.GET)
 		public String noticeWriteForm(Model model){
 //			System.out.println("NoticeController.noticeWriteForm()-get");

@@ -13,4 +13,6 @@ public interface NoticeBoardDao {
 	public board getNoticedetail(int boardid);
 	public void noticeupdate(board board);
 	public void noticeudelete(int boardid);
+	public void noticereplyInsert(String bnum, String userid, String ccontent);
+	public cont noticereplyResult(String bnum, String userid);
 }

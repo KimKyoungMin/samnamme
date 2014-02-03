@@ -49,4 +49,20 @@
 	<delete id="noticeudelete" parameterType="Integer">
 		DELETE FROM BOARDT WHERE BNUM = #{param1};
 	</delete>
+	
+	<insert id="noticereplyInsert" >
+		INSERT INTO CONT (BNUM, USERID, CCONTENT, CDATE) VALUES
+		(#{param1},#{param2},#{param3},NOW()) 
+	</insert>
+
+	<select id="noticereplyResult" resultType="co.kr.samman.dto.cont">
+		SELECT USERT.UNAME
+		USERNAME, CONT.CNUM CNUM, CONT.BNUM BNUM, CONT.CCONTENT CCONTENT,
+		CONT.CDATE CDATE
+		FROM CONT INNER JOIN USERT
+		ON
+		CONT.USERID=USERT.USERID
+		WHERE CONT.CNUM=(SELECT MAX(CONT.CNUM)FROM CONT WHERE CONT.BNUM=#{param1}
+		AND CONT.USERID=#{param2})
+	</select>
 </mapper>
