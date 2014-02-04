@@ -114,14 +114,18 @@
 					<c:if test="${f.getBpicname()!=null && f.getBpicname()!='' }">
 					<div class="boardimagebox">
 					<img src="CSS/noticeboardpic/${f.getBpicname()}"  class="boardimagereal"><br>
+					
+					</div>
+					
+					</c:if>
+					
+				</div>
+				<div class="morebutton">
 					<s:authorize ifAnyGranted="ROLE_ADMIN">
 						<a href="noticeupdate.user?bnum=${f.getBnum() }" class="dynamiclabel">공지사항수정</a>
 						<a href="noticedelete.user?bnum=${f.getBnum() }" class="dynamiclabel">공지사항삭제</a>
 					</s:authorize>
 					</div>
-					</c:if>
-					
-				</div>
 				<h5 class="buttonmore">현재 댓글수 3</h5>
 			</ul>
 			<div class="blockN">
