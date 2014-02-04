@@ -5,7 +5,7 @@
 
 <script type="text/javascript">
 	//mylist 에서 음악파일 
-	function doplay(){
+	/* function doplay(){
 		var au = document.getElementById("au");		
 		if(au.paused){
 			au.play();
@@ -14,14 +14,13 @@
 			au.pause();
 		}
 		
-	}   
+	}  */  
 	//mylist 에서 음악파일 
 	function doopen(mfilename){
 		//alert(mfilename);
 		opener.document.getElementById("mfilename").value=mfilename;
 		opener.document.getElementById("au").src = "upload/" + mfilename;
 		self.close();
-		doplay();
 	}
 </script>
 
