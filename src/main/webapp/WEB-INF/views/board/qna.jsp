@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -13,24 +13,24 @@ int nowpage = (Integer)request.getAttribute("page");
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
 
 </head>
 <body>
-	qna °Ô½ÃÆÇ
+	qna ê²Œì‹œíŒ
 	<div align="right">
-		<a href="qnaWrite.user">±Û¾²±â</a> &nbsp;
+		<a href="qnaWrite.user">ê¸€ì“°ê¸°</a> &nbsp;
 	</div>
 	<table class="article-list margin-small">
 		<thead>
 			<tr>
-				<th class="seq">¹øÈ£</th>
-				<th class="title">Á¦¸ñ</th>
-				<th class="writer">ÀÛ¼ºÀÚ</th>
-				<th class="regdate">ÀÛ¼ºÀÏ</th>
-				<th class="hit">Á¶È¸¼ö</th>
+				<th class="seq">ë²ˆí˜¸</th>
+				<th class="title">ì œëª©</th>
+				<th class="writer">ì‘ì„±ì</th>
+				<th class="regdate">ì‘ì„±ì¼</th>
+				<th class="hit">ì¡°íšŒìˆ˜</th>
 			</tr>
 		</thead>
 	</table>
@@ -65,9 +65,9 @@ int nowpage = (Integer)request.getAttribute("page");
    <tr align=center height=20>
       <td colspan=7 style=font-family:Tahoma;font-size:10pt;>
          <c:choose>
-         <c:when test="${page<=1}"><a class="active">ÀÌÀü</a>&nbsp;</c:when>
+         <c:when test="${page<=1}"><a class="active">ì´ì „</a>&nbsp;</c:when>
          <c:otherwise>
-         <a href="qna.user?page=${page-1}" class="disabled">ÀÌÀü</a>&nbsp;
+         <a href="qna.user?page=${page-1}" class="disabled">ì´ì „</a>&nbsp;
          </c:otherwise>
          </c:choose>
         
@@ -80,9 +80,9 @@ int nowpage = (Integer)request.getAttribute("page");
 			<%} %>
           
          <c:choose>
-         <c:when test="${page>=maxpage }"><a class="active">´ÙÀ½</a></c:when>
+         <c:when test="${page>=maxpage }"><a class="active">ë‹¤ìŒ</a></c:when>
          <c:otherwise>
-         <a href="qna.user?page=${page+1}">´ÙÀ½</a>
+         <a href="qna.user?page=${page+1}">ë‹¤ìŒ</a>
          </c:otherwise>
          </c:choose>
       </td>
@@ -100,10 +100,10 @@ int nowpage = (Integer)request.getAttribute("page");
 	<div id="pager-wrapper" class="margin-small">
 		<br>
 		<div>
-			<a href="notice.jsp">ÀÌÀü</a>
+			<a href="notice.jsp">ì´ì „</a>
 			<c:forEach var="i" begin="1" end="${getqnum}" step="1">
 				<a href="notice.htm?pg=1&f=${param.f}&q=${param.q}">${i}</a>&nbsp;
 				</c:forEach>
-			<span>´ÙÀ½</span>
+			<span>ë‹¤ìŒ</span>
 		</div>
 	</div> --%>

@@ -1,16 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     
       <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 
-qnadetail°Ô½ÃÆÇ
+qnadetailê²Œì‹œíŒ
 
 <!-- <div class="profileN blockN" align="center"> -->
   
@@ -18,7 +18,7 @@ qnadetail°Ô½ÃÆÇ
   <div id="notice-article-detail" class="article-detail margin-large" >						
 						<dl class="article-detail-row">
 							<dt class="article-detail-title">
-								Á¦¸ñ
+								ì œëª©
 							</dt>
 							<dd class="article-detail-data">
 								${qnaDetail.qtitle}
@@ -26,7 +26,7 @@ qnadetail°Ô½ÃÆÇ
 						</dl>	
 						<dl class="article-detail-row half-row">
 							<dt class="article-detail-title">
-								ÀÛ¼ºÀÚ
+								ì‘ì„±ì
 							</dt>
 							<dd class="article-detail-data half-data" >
 							   ${qnaDetail.userid}
@@ -34,7 +34,7 @@ qnadetail°Ô½ÃÆÇ
 						</dl>
 						<dl class="article-detail-row half-row">
 							<dt class="article-detail-title">
-								Á¶È¸¼ö
+								ì¡°íšŒìˆ˜
 							</dt>
 							<dd class="article-detail-data half-data">
 							${qnaDetail.qcount }
@@ -47,9 +47,9 @@ qnadetail°Ô½ÃÆÇ
 							</textarea>
 						</div>
 					</div>
-					<input type="submit" value="»èÁ¦">
+					<input type="submit" value="ì‚­ì œ">
 					</form>
-					<a href ="qnaReply.user?qnum=${qnaDetail.qnum}">´ñ±Û</a>
+					<a href ="qnaReply.user?qnum=${qnaDetail.qnum}">ëŒ“ê¸€</a>
 				<%-- ?qnum=${qnaDetail.qnum} --%>
 
 </body>
