@@ -162,6 +162,19 @@ h1, h2, p, a, span{
 		border: solid 1px #1f253d;
 		border-radius: 5px;		
 	}
+	input.text4-input{
+		width: 350px;
+		height: 35px;
+		margin-top: 3px;
+		background: #50597b;
+		color: #fff;
+		border: solid 1px #1f253d;
+		border-radius: 5px;		
+	}
+	audio#au{
+	    margin-top: 10px;
+	
+	}
 		input[type=text]::-webkit-input-placeholder { /* WebKit browsers */
 	   		color: #COCOCO;	   		
 	   	}
@@ -227,6 +240,38 @@ h1, h2, p, a, span{
 	transition: background .3s;
 }
 	.button:hover {
+		text-decoration: none;
+	}
+
+/***********button2 (musicmain 삭제 버튼)****/
+.button2 {
+	width: 80px;
+	/* line-height: 20px; */
+	font-size: 15px;
+	font-weight: 700;
+	text-align: center;
+	margin: 0 auto;
+	border-radius: 5px;
+	-webkit-transition: background .3s;
+	transition: background .3s;
+}
+	.button2:hover {
+		text-decoration: none;
+	}
+
+/***********button3 (musicmain list 노래 추가 버튼)****/
+.button3 {
+	width: 220px;
+	/* line-height: 20px; */
+	font-size: 15px;
+	font-weight: 700;
+	text-align: center;
+	margin: 0 auto;
+	border-radius: 3px;
+	-webkit-transition: background .3s;
+	transition: background .3s;
+}
+	.button3:hover {
 		text-decoration: none;
 	}
 
@@ -1218,6 +1263,8 @@ h1, h2, p, a, span{
 						background: #cc324b;
 					}
 			    
+			    
+			    /***** 회원 정보 수정 버튼 *****/
 			    .edit.button {
 				    border: none;
 					background: #e64c65;
@@ -1227,6 +1274,28 @@ h1, h2, p, a, span{
 					.edit.button:hover {
 						background: #cc324b;
 					}
+			    /***** 노래 삭제 버튼 ********/
+			    .delete.button2 {
+				    border: none;
+					background: #e64c65;
+					color: #fff;
+					margin: 2px auto;
+				}
+					.edit.button2:hover {
+						background: #cc324b;
+					}
+					
+				/***** 노래 리스트 추가 버튼 ***/
+			    .listadd.button3 {
+				    border: none;
+					background: #11a8ab;
+					color: #fff;
+					margin-top: 3px;
+				}
+					.listadd.button3:hover {
+						background: #0F9295;
+					}
+			    
 			    
 				.account p { 
 					text-align: center;
@@ -2418,13 +2487,15 @@ font-weight: bold;
 }
 
 div#banner {
-      border: 1px black solid;
+      /* border: 1px black solid; */
+      line-height: 5px;
       border-radius: 4px;    
       clear: both;
-      height: 60pt;
-      background-color: rgb(85, 126, 185); For non-CSS3 browsers.
-      background-image: -webkit-radial-gradient(100% 0%, circle cover, rgb(104,24,136) 0%, rgb(85,126,185) 100%);
-      background-image: radial-gradient(circle at 100% 0%, rgb(104,24,136) 0%, rgb(85,126,185) 100%); IE10 and later
+      height: 35pt;
+      /* background-color: rgb(85, 126, 185); For non-CSS3 browsers. */
+      background-color: #1f253d;
+      /* background-image: -webkit-radial-gradient(100% 0%, circle cover, rgb(104,24,136) 0%, rgb(85,126,185) 100%); */
+      /* background-image: radial-gradient(circle at 100% 0%, rgb(104,24,136) 0%, rgb(85,126,185) 100%); IE10 and later */
     } 
     
     /*===================================================plactice*/

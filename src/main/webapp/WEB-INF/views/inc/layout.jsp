@@ -32,7 +32,6 @@
 	 open(window, "NewWindow", "top=0, right=0, width=320, height=310, resizable=0, scrollbars=yes");
  }
  
- 
     //checkbox 전체 선택 & 해제
 	var check = false;
 	function CheckAll() {

@@ -51,7 +51,7 @@ public class MusicController {
 			
 			//파일 실 경로에서 읽어와서 써준다
 			String fullpath = req.getRealPath(p+"/"+f);
-			//System.out.println(fullpath);
+			System.out.println(fullpath);
 			FileInputStream fin = new FileInputStream(fullpath);
 			ServletOutputStream sout = res.getOutputStream();
 			
@@ -119,15 +119,6 @@ public class MusicController {
 			return "redirect:musicmain.user";
 		}
 		
-		//음악 플레이어 
-		@RequestMapping("playermv.htm")
-		public String playermove(String mfilename, Model model) throws FileNotFoundException{
-			System.out.println(mfilename);
-            model.addAttribute("mfilename", mfilename);
-            
-			//return "inc.header?mfilename=aaaaa";
-			//return "main.main?mfilename=aaa";
-			return "music.test";
-		}
+		
 
 }

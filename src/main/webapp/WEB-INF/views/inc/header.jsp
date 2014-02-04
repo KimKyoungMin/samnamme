@@ -76,9 +76,9 @@
 		    </p>
 		</div>
 
-	    <div id="banner">
-	    야호야호 : ${mfilename} ddd
-			 <audio src="upload/${param.mfilename}" controls="controls" style="width: 30%"></audio>
+	    <div id="banner">   
+			 <input type="text" id="mfilename" class="text4-input" placeholder="노래 리스트가 없습니다..">
+			 <audio  id="au" src="" controls="controls" style="width: 30%;"></audio>
 		</div> 
 	</header>
 	

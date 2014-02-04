@@ -17,9 +17,8 @@ public class MemberController {
 	private SqlSession sqlSession;
 	
 	@RequestMapping("main.htm")
-	public String home(Model model, String mfilename) {
-		System.out.println("member컨트롤러 : " + mfilename);
-		model.addAttribute("mfilename", mfilename);
+	public String home(Model model) {
+
 		return "main.main";
 	}
 	

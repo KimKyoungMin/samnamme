@@ -8,10 +8,10 @@
    <form action="myplayerlist.htm" method="post" name="form1">
    <div align="right">
 	   <h2>
-	   <input type="submit" value="MyPlayerList에 추가하기"> 
+	   <input type="submit" class="listadd button3" value="MyPlayerList에 추가하기"> 
 	   
 	   <s:authorize ifAnyGranted="ROLE_ADMIN">
-	  	 <input type="button" value="Delete" onclick="javascript:submit_delete()">
+	  	 <input type="button" class="delete button2" value="Delete" onclick="javascript:submit_delete()">
 	   </s:authorize>
 	      || 전체 선택 <input type="checkbox" name="checkall" onclick="javascript:CheckAll()">
 	   </h2>
