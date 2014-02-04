@@ -48,6 +48,12 @@
 			}
 		}
 	}
+	
+	//음악 삭제 
+	function submit_delete(){
+		document.form1.action="musicDelete.htm";
+		document.form1.submit();
+	}
 
 </script>
 

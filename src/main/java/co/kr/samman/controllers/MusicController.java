@@ -112,7 +112,7 @@ public class MusicController {
 			System.out.println("delete controller");
 			String [] checked = req.getParameterValues("check[]");
 			for(int i=0; i<checked.length; i++){
-				//System.out.println(checked[i]);
+				System.out.println(checked[i]);
 				MusicDao musicDao = sqlSession.getMapper(MusicDao.class);
 				musicDao.musicDel(Integer.parseInt(checked[i]));			
 			}
