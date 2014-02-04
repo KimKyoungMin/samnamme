@@ -45,7 +45,9 @@ public class BoardController {
 		public String qna(HttpServletRequest request, Model model) {
 			
 			int page = 1;
-			int limit = 2;
+			int limit = 10	;
+			 
+			
 			
 			if(request.getParameter("page") != null){
 				page = Integer.parseInt(request.getParameter("page"));
@@ -54,7 +56,13 @@ public class BoardController {
 			BoardDao BoardDao = sqlSession.getMapper(BoardDao.class);
 			
 			int listcount = BoardDao.listcount();
-			List<qna> qnaList = BoardDao.qnalists(page, limit);
+			
+			
+				int startrow = ((page-1)*limit);	
+				List<qna> qnaList = BoardDao.qnalists(startrow, limit);
+				model.addAttribute("qnaList", qnaList);
+			
+
 			
 			int maxpage = (int)((double)listcount/limit + 0.95);
 			int startpage = (((int)((double)page / 10 + 0.9)) -1)*10 + 1;
@@ -77,7 +85,7 @@ public class BoardController {
 			model.addAttribute("startpage", startpage);
 			model.addAttribute("endpage", endpage);
 			model.addAttribute("listcount",listcount);
-			model.addAttribute("qnaList", qnaList);
+			
 			
 			return "board.qna";
 		}
@@ -88,7 +96,9 @@ public class BoardController {
 			
 			BoardDao BoardDao = sqlSession.getMapper(BoardDao.class);
 			qna qnaDetail = BoardDao.qnaDetail(qnum);
+			BoardDao.qnaCount(qnum);
 			model.addAttribute("qnaDetail", qnaDetail);
+			
 			return "board.qnaDetail";
 		}
 		
@@ -106,31 +116,36 @@ public class BoardController {
 				       (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 				
 			qnadto.setUserid(user.getUsername());
+			System.out.println("글넘버"+ qnadto.getQnum());
 			
+			int qrenum = BoardDao.qnaQnumCount();
+			System.out.println("111" + qrenum); 	
+			qnadto.setQrenum(qrenum);
 			BoardDao.qnaWrite(qnadto);
 			return "redirect:qna.user";
 		}
 		
-		//qnaReply 게시판
 		@RequestMapping(value= "qnaReply.user" , method=RequestMethod.GET)
-		public String qnaReplymenu() {	
+		public String qnaReply(String qnum, Model model) {
+			
+			BoardDao BoardDao = sqlSession.getMapper(BoardDao.class);
+			qna qnaReply = BoardDao.qnaDetail(qnum);
+			System.out.println(qnum);
+			model.addAttribute("qnaReply", qnaReply);
 			return "board.qnaReply";
 		}
 		
-		
 		@RequestMapping(value= "qnaReply.user" , method=RequestMethod.POST)
-		public String qnaReply(qna qnadto) {	
+		public String qnaReply2(qna qnadto) {	
 			BoardDao BoardDao = sqlSession.getMapper(BoardDao.class);
-			
-			UserDetails user =   
-				       (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-				
-			qnadto.setUserid(user.getUsername());
-			
-			BoardDao.qnaReply(qnadto);
+			BoardDao.qnaWriteRef(qnadto);
+			qnadto.setQstep(qnadto.getQstep() + 1);
+			qnadto.setQdepth(qnadto.getQdepth() + 1);
+			BoardDao.qnaReplyWrite(qnadto);
 			return "redirect:qna.user";
 		}
 		
+	
 		
 	    //qna 글 삭제
 		@RequestMapping(value="qnaDelete.user", method=RequestMethod.POST)

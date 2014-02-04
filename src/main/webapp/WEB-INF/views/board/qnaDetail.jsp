@@ -37,7 +37,7 @@ qnadetail게시판
 								조회수
 							</dt>
 							<dd class="article-detail-data half-data">
-							${qnaDetail.depth }
+							${qnaDetail.qcount }
 							</dd>
 						</dl>
 						
@@ -49,10 +49,8 @@ qnadetail게시판
 					</div>
 					<input type="submit" value="삭제">
 					</form>
-					<form action="qnaReply.user?qnum=${qnaDetail.qnum}" method="post">
-					<input type="submit" value="댓글">
-					</form>
-
+					<a href ="qnaReply.user?qnum=${qnaDetail.qnum}">댓글</a>
+				<%-- ?qnum=${qnaDetail.qnum} --%>
 
 </body>
 </html>

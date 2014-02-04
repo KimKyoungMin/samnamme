@@ -44,7 +44,7 @@ int nowpage = (Integer)request.getAttribute("page");
 					<td class="title"><a href="qnaDetail.user?qnum=${n.qnum}">${n.qtitle}</a></td>
 					<td class="writer">${n.userid}</td>
 					<td class="regdate">${n.qdate}</td>
-					<td class="hit">${n.depth}</td>
+					<td class="hit">${n.qcount}</td>
 				</tr>
 			</c:forEach>
 

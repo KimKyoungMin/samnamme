@@ -12,8 +12,34 @@ public class qna {
 	private Date qdate;
 	private int qstep;  
 	private int qdepth;
+	private int qrenum;
+	private int qcount;
 	
 	
+	public int getQstep() {
+		return qstep;
+	}
+	public void setQstep(int qstep) {
+		this.qstep = qstep;
+	}
+	public int getQdepth() {
+		return qdepth;
+	}
+	public void setQdepth(int qdepth) {
+		this.qdepth = qdepth;
+	}
+	public int getQrenum() {
+		return qrenum;
+	}
+	public void setQrenum(int qrenum) {
+		this.qrenum = qrenum;
+	}
+	public int getQcount() {
+		return qcount;
+	}
+	public void setQcount(int qcount) {
+		this.qcount = qcount;
+	}
 	public int getQnum() {
 		return qnum;
 	}
