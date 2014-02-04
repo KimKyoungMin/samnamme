@@ -5,7 +5,7 @@
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-latest.js"></script>
 <!-- Ajax 추가 소스 아직 안되는 상태 시작-->
-<h2>공지사항</h2>
+<H1>공지사항</h1>
 <s:authentication property="name" var="loginUser"/>
 
 <!-- Ajax 함수 모음 -->
@@ -93,7 +93,7 @@
 
 <div align="right">
 	<s:authorize ifAnyGranted="ROLE_ADMIN">
-		<a href="noticewrite.user">공지사항 등록</a>
+		<a href="noticewrite.user" class="dynamiclabel">공지사항 등록</a>
 	</s:authorize>
 
 </div>
@@ -110,21 +110,21 @@
 					<div style="text-align: left">${f.getBdate() }</div>
 				</li>
 				<div class="notice">
-					${f.getBcontent() }<br>
-					<s:authorize ifAnyGranted="ROLE_ADMIN">
-						<a href="noticeupdate.user?bnum=${f.getBnum() }">글 수정하기</a> ||
-				<a href="noticedelete.user?bnum=${f.getBnum() }">글 삭제하기</a>
-					</s:authorize>
+					${f.getBcontent() }
 					<c:if test="${f.getBpicname()!=null && f.getBpicname()!='' }">
-					<img src="CSS/noticeboardpic/${f.getBpicname()}" width="500px"
-						height="300px">
-						</c:if>
+					<div class="boardimagebox">
+					<img src="CSS/noticeboardpic/${f.getBpicname()}"  class="boardimagereal"><br>
+					<s:authorize ifAnyGranted="ROLE_ADMIN">
+						<a href="noticeupdate.user?bnum=${f.getBnum() }" class="dynamiclabel">공지사항수정</a>
+						<a href="noticedelete.user?bnum=${f.getBnum() }" class="dynamiclabel">공지사항삭제</a>
+					</s:authorize>
+					</div>
+					</c:if>
+					
 				</div>
+				<h5 class="buttonmore">현재 댓글수 3</h5>
 			</ul>
-		</div>
-		<!-- noticeBoardReplyList -->
-		
-		<div class="blockN">
+			<div class="blockN">
 		
 		<div id="simson${varnum }" >
 		<c:set var="replynum" value="0"></c:set>
@@ -149,8 +149,11 @@
 			<input type="text" id="ccontent${varnum }" name="ccontent" value="" class="element text medium">
 			<input type="button" id= "reply${varnum }" name="${varnum }" value="댓글달기" class="element text small">
 		</div>
+		</div>
+		<!-- noticeBoardReplyList -->
 		
-	</div>
+		
+		</div>
 </c:forEach>
 <div class="blockM">
 	<form method="get" action="">
