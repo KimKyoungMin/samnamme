@@ -1,6 +1,5 @@
 package co.kr.samman.dto;
 
-import java.util.Date;
 
 public class cont {
 
@@ -8,7 +7,7 @@ public class cont {
 	private int bnum;
 	private String userid;
 	private String ccontent;
-	private Date cdate;
+	private String cdate;
 	private String username;
 	
 	public String getUsername() {
@@ -41,12 +40,11 @@ public class cont {
 	public void setCcontent(String ccontent) {
 		this.ccontent = ccontent;
 	}
-	public Date getCdate() {
+	public String getCdate() {
 		return cdate;
 	}
-	public void setCdate(Date cdate) {
+	public void setCdate(String cdate) {
 		this.cdate = cdate;
 	}
-	
 	
 }

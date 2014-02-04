@@ -9,6 +9,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -53,31 +54,66 @@ public class NoticeController {
 			return "board.notice";
 		}
 		
-		@RequestMapping(value="noticereply.user" ,produces="text/plain;charset=UTF-8")
+		@RequestMapping(value="noticereplydelete.user" ,produces="text/plain;charset=UTF-8")
 		@ResponseBody
-		public String noticeReplyList(HttpServletRequest req,HttpServletResponse res, Model model,String bnum, String userid, String ccontent, String replynum) throws UnsupportedEncodingException {
-//			System.out.println("noticeReplyList+ noticereply.user 댓글 AJAX Controller단");
-//			System.out.println(bnum+"  "+userid+"   "+ccontent);
+		public String noticeReplyDelete(HttpServletRequest req,HttpServletResponse res, Model model, String cnum, String bnum) throws UnsupportedEncodingException {
 			NoticeBoardDao noticeBoardDao = sqlSession.getMapper(NoticeBoardDao.class);
-			noticeBoardDao.noticereplyInsert(bnum, userid, ccontent);
-			cont cont=noticeBoardDao.noticereplyResult(bnum, userid);
+			noticeBoardDao.noticereplyDelete(cnum);
+			List<cont> cont=noticeBoardDao.noticereplyResult(bnum);
 			
 			//Ajax 한글처리를위한 추가구문
 			req.setCharacterEncoding("UTF-8");
 			res.setHeader("Content-Type", "text/html; charest=utf-8");
 			
-			//Json 객체 생성
-			JSONObject obj = new JSONObject();
+			//Json 리스트객체 생성
+			JSONArray data2 = new JSONArray();
 			
-			//Json에 String 값 입력
-			 //URLEncoder.encode(value,"UTF-8")
-			obj.put("replynum", URLEncoder.encode(replynum,"UTF-8"));
-//			obj.put("username", cont.getUsername());
-//			obj.put("userccontent", cont.getCcontent());
-//			obj.put("userCdate", cont.getCdate());
-			obj.put("username2",cont.getUsername()+":"+cont.getCcontent()+"<br>"+cont.getCdate());
-			return obj.toString();
+			for(cont b : cont){
+				//Json 객체 생성
+				JSONObject obj = new JSONObject();
+				obj.put("username",b.getUsername());
+				obj.put("ccontent",b.getCcontent());
+				obj.put("cdate", b.getCdate());
+				obj.put("userid", b.getUserid());
+				obj.put("bnum",  b.getBnum());
+				obj.put("cnum", b.getCnum());
+				//Json 리스트에 객체를 추가함
+				data2.add(obj);
+			}
+			System.out.println(data2.toString());
+			return data2.toString();
 		}
+		
+		@RequestMapping(value="noticereply.user" ,produces="text/plain;charset=UTF-8")
+		@ResponseBody
+		public String noticeReplyList(HttpServletRequest req,HttpServletResponse res, Model model,String bnum, String userid, String ccontent, String replynum) throws UnsupportedEncodingException {
+//			System.out.println(bnum+"  "+userid+"   "+ccontent);
+			NoticeBoardDao noticeBoardDao = sqlSession.getMapper(NoticeBoardDao.class);
+			noticeBoardDao.noticereplyInsert(bnum, userid, ccontent);
+			List<cont> cont=noticeBoardDao.noticereplyResult(bnum);
+			
+			//Ajax 한글처리를위한 추가구문
+			req.setCharacterEncoding("UTF-8");
+			res.setHeader("Content-Type", "text/html; charest=utf-8");
+			
+			//Json 리스트객체 생성
+			JSONArray data = new JSONArray();
+			for(cont b : cont){
+				//Json 객체 생성
+				JSONObject obj = new JSONObject();
+				obj.put("username",b.getUsername());
+				obj.put("ccontent",b.getCcontent());
+				obj.put("cdate", b.getCdate());
+				obj.put("userid", b.getUserid());
+				obj.put("bnum",  b.getBnum());
+				obj.put("cnum", b.getCnum());
+				//Json 리스트에 객체를 추가함
+				data.add(obj);
+			}
+			/*System.out.println(data.toString());*/
+			return data.toString();
+		}
+		
 		@RequestMapping(value="noticewrite.user", method=RequestMethod.GET)
 		public String noticeWriteForm(Model model){
 //			System.out.println("NoticeController.noticeWriteForm()-get");
