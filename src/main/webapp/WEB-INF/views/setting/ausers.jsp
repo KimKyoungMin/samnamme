@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 
-<div>
+<div class="ausers">
   <h2>회원 List</h2>
   <table border="1">
     <thead>

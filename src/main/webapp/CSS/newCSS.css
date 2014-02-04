@@ -79,7 +79,6 @@
 /* 	margin-left: 195px; */
 }
 
-
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -97,6 +96,7 @@ ul {
 }
 
 h1 {
+	text-align: center;
 	font-size: 45px;
 	margin-top: 5px;
 	margin-bottom: 0;
@@ -134,6 +134,28 @@ h1, h2, p, a, span{
 		height: 50px;
 		margin-left: 20px;
 		margin-bottom: 20px;
+		padding-left: 45px;
+		background: #50597b;
+		color: #fff;
+		border: solid 1px #1f253d;
+		border-radius: 5px;		
+	}
+	input.text2-input{
+		width: 200px;
+		height: 40px;
+		margin-left: 20px;
+		margin-bottom: 20px;
+		padding-left: 45px;
+		background: #50597b;
+		color: #fff;
+		border: solid 1px #1f253d;
+		border-radius: 5px;		
+	}
+	input.text3-input{
+		width: 230px;
+		height: 40px;
+		margin-left: 20px;
+		margin-bottom: 10px;
 		padding-left: 45px;
 		background: #50597b;
 		color: #fff;
@@ -419,10 +441,65 @@ h1, h2, p, a, span{
 					.menu-box-tab:hover .menu-box-number {
 						background: #e64c65;
 					}
+	        /****** 회원 명단 ********/
+	        .ausers table ,thead ,tbody{
+	           color: #fff;
+	        }
+	       
+	        /****** 사용자 정보 페이지 **/
+	        .profileA {
+	           color: #fff;
+			   height: 450px;
+			   width: 300px;		   
+			}
+	        .blockA {
+			  /*  display: inline; */
+			   margin-bottom: 25px;
+			   background: #394264;
+			   border-radius: 5px;	
+			   float: left;	
+			   margin-right: 20px ;
+			   margin-bottom: 25px;
+			   text-align: center;
+			}	
+			
+			/****** 사용자 다운 리스트 **/
+	        .profileD {
+	           color: #fff;
+			   height: 450px;
+			   width: 300px;		   
+			}
+	        .blockD{
+			  /*  display: inline; */
+			   margin-bottom: 25px;
+			   background: #394264;
+			   border-radius: 5px;	
+			   float: left;	
+			   margin-right: 20px ;
+			   margin-bottom: 25px;
+			}	
+			
+			/****** 사용자 결제 페이지 **/
+	        .profileP {
+	           color: #fff;
+			   height: 450px;
+			   width: 300px;		   
+			}
+	        .blockP{
+			  /*  display: inline; */
+			   color: #fff;
+			   margin-bottom: 25px;
+			   background: #394264;
+			   border-radius: 5px;	
+			   float: left;	
+			   margin-right: 20px ;
+			   margin-bottom: 25px;
+			}	
 	        
 	        /****** 음악 리스트 ******/				
 			.profileM {
-			   /* height: 350px; */
+			   color: #fff;
+			   height: 350px;
 			   width: 300px;		   
 			}
 			.blockL {
@@ -1140,6 +1217,17 @@ h1, h2, p, a, span{
 					.sign-in.button:hover {
 						background: #cc324b;
 					}
+			    
+			    .edit.button {
+				    border: none;
+					background: #e64c65;
+					color: #fff;
+					margin: 2px auto;
+				}
+					.edit.button:hover {
+						background: #cc324b;
+					}
+			    
 				.account p { 
 					text-align: center;
 				}
@@ -2334,10 +2422,10 @@ div#banner {
       border-radius: 4px;    
       clear: both;
       height: 60pt;
-      background-color: rgb(85, 126, 185); /* For non-CSS3 browsers. */
+      background-color: rgb(85, 126, 185); For non-CSS3 browsers.
       background-image: -webkit-radial-gradient(100% 0%, circle cover, rgb(104,24,136) 0%, rgb(85,126,185) 100%);
-      background-image: radial-gradient(circle at 100% 0%, rgb(104,24,136) 0%, rgb(85,126,185) 100%); /* IE10 and later */
-    }
+      background-image: radial-gradient(circle at 100% 0%, rgb(104,24,136) 0%, rgb(85,126,185) 100%); IE10 and later
+    } 
     
     /*===================================================plactice*/
     

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.kr.samman.dao.AccountDao">
+  
+  <select id="getuserinfo" resultType="co.kr.samman.dto.usert">
+    select userid, uname, utel, uemail, uexpdate from usert where userid=#{userid}
+  </select>
+  
+  <update id="usertEdit">
+    update usert set uname=#{uname}, utel=#{utel}, uemail=#{uemail} where userid=#{userid}
+  </update>
+
+  <select id="getmdlist" resultType="co.kr.samman.dto.mdlist">
+    select md.MINFONUM minfonum, mu.MTITLE mtitle, mu.MSNAME msname 
+    from musict mu inner join mdlist md on mu.MINFONUM=md.MINFONUM
+    where md.USERID=#{userid} order by mdownnum desc;
+  </select>
+  
+  <select id="getpay" resultType="co.kr.samman.dto.payt">
+    select pt.PAYSUBCODE paysubcode, pi.PAYNAME payname, pt.PAYDATE paydate, pt.PAYMONEY paymoney
+    from payt pt inner join payinfo pi on pt.PAYSUBCODE=pi.PAYSUBCODE
+    where userid=#{userid} order by paydate desc; 
+  </select>
+
+
+</mapper>
+
+
+
+
+
+
+
+

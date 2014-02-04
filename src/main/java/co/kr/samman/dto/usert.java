@@ -10,7 +10,7 @@ public class usert {
 	private String utel;
 	private String uemail;
 	private Date ujoindate;
-	private Date uexpdate;
+	private String uexpdate;
 	
 	public String getUserid() {
 		return userid;
@@ -48,10 +48,10 @@ public class usert {
 	public void setUjoindate(Date ujoindate) {
 		this.ujoindate = ujoindate;
 	}
-	public Date getUexpdate() {
+	public String getUexpdate() {
 		return uexpdate;
 	}
-	public void setUexpdate(Date uexpdate) {
+	public void setUexpdate(String uexpdate) {
 		this.uexpdate = uexpdate;
 	}
 	

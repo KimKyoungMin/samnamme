@@ -6,6 +6,10 @@ public class mdlist {
 	private int minfonum;
 	private int mdownnum;
 	
+	//join 때문에 추가
+	private String mtitle;
+	private String msname;
+	
 	public String getUserid() {
 		return userid;
 	}
@@ -25,6 +29,18 @@ public class mdlist {
 		this.mdownnum = mdownnum;
 	}
 	
+	public String getMtitle() {
+		return mtitle;
+	}
+	public void setMtitle(String mtitle) {
+		this.mtitle = mtitle;
+	}
+	public String getMsname() {
+		return msname;
+	}
+	public void setMsname(String msname) {
+		this.msname = msname;
+	}
 	
 	
 }

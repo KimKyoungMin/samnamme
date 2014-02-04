@@ -20,12 +20,9 @@
 		  <s:authentication property="name" var="loginUser"/>
 		  <s:authorize ifAnyGranted="ROLE_USER, ROLE_ADMIN">
 			    <a href="${pageContext.request.contextPath}/j_spring_security_logout">        
-					        로그아웃
+					        Logout
 			    </a>
 	      </s:authorize>
-		
-			
-
 	</h2>
 	
 	
@@ -78,9 +75,11 @@
 				</s:authorize>              
 		    </p>
 		</div>
-	<div id="banner">
-		 <audio src="" controls="controls" style="width: 30%"></audio>
-	
-	
-	</div>
+
+	    <div id="banner">
+	    야호야호 : ${mfilename} ddd
+			 <audio src="upload/${param.mfilename}" controls="controls" style="width: 30%"></audio>
+		</div> 
 	</header>
+	
+	

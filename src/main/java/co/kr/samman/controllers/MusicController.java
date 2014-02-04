@@ -44,13 +44,13 @@ public class MusicController {
 		@RequestMapping("download.htm")
 		public void download(String p, String f, int minfonum, HttpServletRequest req, HttpServletResponse res) throws IOException{
 			System.out.println(f); //한글파일명 깨짐
-			String fname = new String(f.getBytes("ISO8859_1"), "UTF-8");
-			System.out.println(fname); //한글파일명 깨짐 해결
+			//String fname = new String(f.getBytes("ISO8859_1"), "UTF-8");
+			//System.out.println(fname); //한글파일명 깨짐 해결
 			
-			res.setHeader("Content-Disposition", "attachment;filename="+new String(fname.getBytes(),"ISO8859_1"));
+			res.setHeader("Content-Disposition", "attachment;filename="+new String(f.getBytes(),"ISO8859_1"));
 			
 			//파일 실 경로에서 읽어와서 써준다
-			String fullpath = req.getRealPath(p+"/"+fname);
+			String fullpath = req.getRealPath(p+"/"+f);
 			//System.out.println(fullpath);
 			FileInputStream fin = new FileInputStream(fullpath);
 			ServletOutputStream sout = res.getOutputStream();
@@ -106,5 +106,28 @@ public class MusicController {
 			return "music.mylistpage";
 		}
 		
+		//musict 음악 삭제
+		@RequestMapping("musicDelete.htm")
+		public String musicDel(HttpServletRequest req){
+			System.out.println("delete controller");
+			String [] checked = req.getParameterValues("check[]");
+			for(int i=0; i<checked.length; i++){
+				//System.out.println(checked[i]);
+				MusicDao musicDao = sqlSession.getMapper(MusicDao.class);
+				musicDao.musicDel(Integer.parseInt(checked[i]));			
+			}
+			return "redirect:musicmain.user";
+		}
+		
+		//음악 플레이어 
+		@RequestMapping("playermv.htm")
+		public String playermove(String mfilename, Model model) throws FileNotFoundException{
+			System.out.println(mfilename);
+            model.addAttribute("mfilename", mfilename);
+            
+			//return "inc.header?mfilename=aaaaa";
+			//return "main.main?mfilename=aaa";
+			return "music.test";
+		}
 
 }

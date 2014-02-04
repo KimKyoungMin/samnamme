@@ -64,7 +64,7 @@
                     <h2 class="titular">NewsPeed</h2>
                       <p> board ......1 </p>
                       <hr>
-                      <p>  board ......2 </p>
+                      <p>   ${mfilename}</p>
                 </div>
 
             </div>

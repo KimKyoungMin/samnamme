@@ -11,7 +11,8 @@
   <ul>
 	   <c:forEach var="m" items="${mylists}">
 		  <li>
-			  <a href="#">${m.getMtitle()}/${m.getMsname()}</a>
+			  <%-- <a href="playermv.htm?mfilename=${m.getMfilename()}" onclick="javascript:self.close();parent.opener.location.reload();">${m.getMtitle()}/${m.getMsname()}</a> --%>
+			  <a href="playermv.htm?mfilename=${m.getMfilename()}">ddd</a>
 			  <hr>
     	  </li>
 	   </c:forEach>
