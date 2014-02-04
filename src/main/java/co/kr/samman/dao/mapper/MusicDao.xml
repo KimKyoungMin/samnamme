@@ -8,6 +8,10 @@
        select minfonum, mpicname, mfilename, mtitle, msname, mgrade, metcinfo from musict order by minfonum desc   
    </select>
    
+   <select id="myplayerlistCk" resultType="int">
+       select COUNT(*) from mymusict where userid=#{param1} and minfonum=#{param2}
+   </select>
+   
    <insert id="myplayerlist" parameterType="co.kr.samman.dto.mymusict">
       insert into mymusict(userid, minfonum) VALUES(#{userid}, #{minfonum})
    </insert>
