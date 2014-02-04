@@ -8,10 +8,11 @@
 <h2>공지사항</h2>
 <s:authentication property="name" var="loginUser"/>
 
+<!-- Ajax 댓글 추가시 진행 건 -->
 <script type="text/javascript">
 $(document).ready(function(){
 $(':button[id*=reply]').click(function(){
-	/* alert("^^"); */
+	//id 값 끌고 오기
 	var _id = $(this).attr('id');
     var __num = $(this).attr('name');
     
@@ -24,21 +25,25 @@ $(':button[id*=reply]').click(function(){
     var _bnum = document.getElementById(__bnum).value;
 	var _userid = document.getElementById(__userid).value;
 	var _ccontent = document.getElementById(__ccontent).value;
-	
-	/* alert(_bnum);
-	alert(_userid);
-	alert(_ccontent); */
 		$.ajax({
 			type : "post",
 			url : "noticereply.user",
 			data : ({bnum:_bnum, userid:_userid, ccontent:_ccontent, replynum:__num}),   //data를 갖고
 			dataType : "json",
+			/* contentType: "application/x-www-form-urlencoded; charset=UTF-8",  */
 			success : function(data) {
-					$.each(data,function(){
-						$('#simson'+data.replynum).append(
-							data.username);
-					});
+				
+				$.each(data,function(){
+					$('#simson'+data.replynum).append(
+							data.username2);
+				});
+				
+					/* $.each(data,function(){
+						$('#simson'+data.replynum).html(
+								escape(data.username2),"UTF-8");
+					}); */
 			},
+			
 			error : function(data) {
 				alert("Error 발생");
 			}	
@@ -46,6 +51,7 @@ $(':button[id*=reply]').click(function(){
 	});
 });
 </script>
+
 
 <div align="right">
 	<s:authorize ifAnyGranted="ROLE_ADMIN">

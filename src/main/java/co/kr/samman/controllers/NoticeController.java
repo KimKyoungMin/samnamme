@@ -2,9 +2,12 @@ package co.kr.samman.controllers;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONObject;
 
@@ -50,19 +53,29 @@ public class NoticeController {
 			return "board.notice";
 		}
 		
-		@RequestMapping("noticereply.user")
+		@RequestMapping(value="noticereply.user" ,produces="text/plain;charset=UTF-8")
 		@ResponseBody
-		public String noticeReplyList(HttpServletRequest req, Model model,String bnum, String userid, String ccontent, String replynum) {
+		public String noticeReplyList(HttpServletRequest req,HttpServletResponse res, Model model,String bnum, String userid, String ccontent, String replynum) throws UnsupportedEncodingException {
 //			System.out.println("noticeReplyList+ noticereply.user 댓글 AJAX Controller단");
 //			System.out.println(bnum+"  "+userid+"   "+ccontent);
 			NoticeBoardDao noticeBoardDao = sqlSession.getMapper(NoticeBoardDao.class);
 			noticeBoardDao.noticereplyInsert(bnum, userid, ccontent);
 			cont cont=noticeBoardDao.noticereplyResult(bnum, userid);
+			
+			//Ajax 한글처리를위한 추가구문
+			req.setCharacterEncoding("UTF-8");
+			res.setHeader("Content-Type", "text/html; charest=utf-8");
+			
 			//Json 객체 생성
 			JSONObject obj = new JSONObject();
+			
 			//Json에 String 값 입력
-			obj.put("replynum", replynum);
-			obj.put("username", cont.getUsername()+":"+cont.getCcontent()+"<br>"+cont.getCdate());
+			 //URLEncoder.encode(value,"UTF-8")
+			obj.put("replynum", URLEncoder.encode(replynum,"UTF-8"));
+//			obj.put("username", cont.getUsername());
+//			obj.put("userccontent", cont.getCcontent());
+//			obj.put("userCdate", cont.getCdate());
+			obj.put("username2",cont.getUsername()+":"+cont.getCcontent()+"<br>"+cont.getCdate());
 			return obj.toString();
 		}
 		@RequestMapping(value="noticewrite.user", method=RequestMethod.GET)
