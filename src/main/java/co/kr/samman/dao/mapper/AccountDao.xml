@@ -32,8 +32,17 @@
      ]]>
   </select>
   
-  <insert id="payok">
-     
+  <select id="getpayinfo" resultType="co.kr.samman.dto.payinfo">
+    select * from payinfo;
+  </select>
+  
+  <select id="payinfoselect" resultType="co.kr.samman.dto.payinfo">
+    select paysubcode, paypdate, payprice from payinfo where paysubcode=#{paysubcode}
+  </select>
+  
+  <insert id="payok" parameterType="co.kr.samman.dto.payinfo">
+    INSERT INTO PAYT (USERID, PAYMONEY, PAYDATE, expdate, PAYSUBCODE)
+    VALUES(#{userid},#{payprice},NOW(),ADDDATE(now(), INTERVAL #{paypdate} DAY), #{paysubcode});
   </insert>
 
 

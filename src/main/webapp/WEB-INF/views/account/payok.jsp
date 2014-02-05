@@ -13,34 +13,20 @@
     
     </div>
     
-	<div class="profilePOK_1 blockPOK_1">
-       <div>
-          1) 30일 이용권
-       </div>
-       <br>
-       <p>
-               본 상품은 30일동안   무제한으로 음악 다운로드와 MyPlayerList를  제공 합니다. 
-       </p>
-    </div>
-	<div class="profilePOK_1 blockPOK_1">
-	   <div>
-          2) 60일 이용권
-       </div>
-       <br>
-       <p>
-               본 상품은 60일동안   무제한으로 음악 다운로드와 MyPlayerList를  제공 합니다. 
-       </p>
-	</div>
-	<div class="profilePOK_1 blockPOK_1">
-	   <div>
-          3) 90일 이용권
-       </div>
-       <br>
-       <p>
-               본 상품은 90일동안   무제한으로 음악 다운로드와 MyPlayerList를  제공 합니다. 
-       </p>
-	</div>
-	
+	   <c:forEach var="pid" items="${payinfoDto }">
+	     <div class="profilePOK_1 blockPOK_1">
+		      <div>
+	             ${pid.paysubcode }) ${pid.payname }
+	          </div>
+		      <br>
+		      <p>
+	                  본 상품은 ${pid.paypdate }일동안   무제한으로 음악 다운로드와 MyPlayerList를  제공 합니다. 
+	          <br>
+	                  가격 : ${pid.payprice }
+	          </p>
+         </div>
+	   </c:forEach>
+  
     <input type="submit" class="payOK button" value="결제 OK">
 </form>
 

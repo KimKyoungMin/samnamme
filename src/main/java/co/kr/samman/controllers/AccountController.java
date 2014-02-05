@@ -1,10 +1,13 @@
 package co.kr.samman.controllers;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.sql.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import co.kr.samman.dao.AccountDao;
 import co.kr.samman.dto.mdlist;
+import co.kr.samman.dto.payinfo;
 import co.kr.samman.dto.payt;
 import co.kr.samman.dto.usert;
 
@@ -72,19 +76,30 @@ public class AccountController {
 		
 		//결제 하기
 		@RequestMapping(value="pay.user", method=RequestMethod.GET)
-		public String pay(){
+		public String pay(Model model){
+			AccountDao accountDao = sqlSession.getMapper(AccountDao.class);
+			List<payinfo> payinfoDto = accountDao.getpayinfo();
+			model.addAttribute("payinfoDto", payinfoDto);
 			
 			return "account.payok";
 		}
 		
 		@RequestMapping(value="pay.user", method=RequestMethod.POST)
-		public String payok(HttpServletRequest req) throws UnsupportedEncodingException{
-			req.setCharacterEncoding("utf-8");
-			System.out.println(req.getParameterValues("paysubcode"));
-			//AccountDao accountDao = sqlSession.getMapper(AccountDao.class);
+		public String payok(HttpServletRequest req, HttpServletResponse res) throws IOException{
+			System.out.println(req.getParameter("paysubcode"));  //라디오 값
+			int paysubcode = Integer.parseInt(req.getParameter("paysubcode"));
 			
+			AccountDao accountDao = sqlSession.getMapper(AccountDao.class);
 			
-			return null;
+			payinfo payinfoDto = accountDao.payinfoselect(paysubcode); //결제 가격, 서브코드, 더해질 날짜 셀렉트
+			System.out.println(payinfoDto.getPaysubcode()+"//"+payinfoDto.getPaypdate()+"//"+payinfoDto.getPayprice());
+			
+			UserDetails user = 
+					(UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            payinfoDto.setUserid(user.getUsername());
+			accountDao.payok(payinfoDto);
+			
+			return "redirect:account.user?userid="+user.getUsername();
 		}
 		
 		
