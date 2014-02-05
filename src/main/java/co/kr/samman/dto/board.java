@@ -14,7 +14,15 @@ public class board {
 	private Date bdate;
 	private int bsub;
 	private MultipartFile filespic;
+	private int replycount;
 	
+	
+	public int getReplycount() {
+		return replycount;
+	}
+	public void setReplycount(int replycount) {
+		this.replycount = replycount;
+	}
 	public MultipartFile getFilespic() {
 		return filespic;
 	}

@@ -18,9 +18,11 @@
 		INNER JOIN USERT
 		ON
 		CONT.USERID=USERT.USERID
-		ORDER BY CONT.CNUM ASC
+		ORDER BY CONT.CNUM DESC
 	</select>
-
+	<select id="noticereplygetcount" resultType="Integer">
+		select COUNT(*) from CONT WHERE BNUM=#{param1}
+	</select>
 	<insert id="writenotice" parameterType="co.kr.samman.dto.board">
 		INSERT INTO BOARDT
 		(USERID, BTITLE, BCONTENT, BPICNAME, BDATE, BSUB)
@@ -62,7 +64,7 @@
 		ON
 		CONT.USERID=USERT.USERID
 		WHERE CONT.BNUM=#{param1}
-        ORDER BY CONT.CDATE ASC
+        ORDER BY CONT.CDATE DESC
 	</select>
 	
 	<delete id="noticereplyDelete">

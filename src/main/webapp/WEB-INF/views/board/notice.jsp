@@ -10,10 +10,10 @@
 
 <!-- Ajax 함수 모음 -->
 <script type="text/javascript">
+//댓글 추가버튼 누를시 행동 사항에 대한 정의 --> 댓글 추가하기 함수 사용함
 	$(document).ready(function() {
 		//현재 로그인 중인 아이디 가져오기 전역 변수로 지정함
 		var loginUser = '<c:out value="${loginUser}"/>';
-		
 		// Ajax 댓글 추가시 진행
 		$(':button[id*=reply]').click(function() {
 			//id 값 끌고 오기위한 번호 체크 올때마다 틀림
@@ -28,47 +28,44 @@
 			var _bnum = document.getElementById(__bnum).value;
 			var _userid = document.getElementById(__userid).value;
 			var _ccontent = document.getElementById(__ccontent).value;
-			
-			$.ajax({
-				type : "post",
-				url : "noticereply.user",
-				data : ({
-					bnum : _bnum,
-					userid : _userid,
-					ccontent : _ccontent,
-					replynum : __num
-				}), //data를 갖고
-				dataType : "json",
-				success : function(data) {
-					htmlSrc = "";
-					for (var i = 0; i < data.length; i++) {
-						htmlSrc += data[i].username+ ":"+ data[i].ccontent;
-						htmlSrc += "<div style='text-align: left'>"+ data[i].cdate+ "";
-						 if(loginUser == data[i].userid){
-							 htmlSrc += "<a href='javascript:void()' onclick='replyDelete("+data[i].cnum+","+ data[i].bnum+","+__num+")'>&nbsp;삭제</a></div><br>";
-						}else{
-							htmlSrc+='</div><br>';
-						} 
-					}
-					$('#simson'+ __num).html(htmlSrc);
-					$(':text').val('');
-				},
-				error : function(data) {
-					alert("Error 발생");
-				}
-			});
+			/* alert("here you ok"); */
+			replyadd(_bnum, _userid, _ccontent, __num);
+			$(':text').val('');
 		});
 	});
 	
-	// Ajax 댓글 삭제시 진행 -->
-	function replyDelete(replyNo, boardNo, barnum){
+	//Ajax 댓글 추가하기
+	function replyadd(bnum, userid, ccontent, barnum){
+		/* alert("here replydelete start"); */
+		$.ajax({
+			type : "post",
+			url : "noticereplyadd.user",
+			data : ({
+				bnum : bnum,
+				userid : userid,
+				ccontent : ccontent,
+			}), //data를 갖고
+			dataType : "json",
+			success : function(data) {
+				/* alert("replyadd OK delete");
+				alert(bnum, barnum); */
+				replygetList(bnum, barnum);
+			},
+			error : function(data) {
+				alert("Error 발생");
+			}
+		});
+	};
+	
+	//Ajax 리스트 가져오기 
+	function replygetList(boardNo, barnum){
+		/* alert("here i ok"); */
 		var loginUser = '<c:out value="${loginUser}"/>';
 		$.ajax({
 			type : "post",
-			url : "noticereplydelete.user",
+			url : "noticereplygetList.user",
 			data : ({
-				cnum : replyNo,
-				bnum : boardNo,
+				bnum : boardNo
 			}), //data를 갖고
 			dataType : "json",
 			success : function(data2) {
@@ -85,6 +82,23 @@
 					} 
 				}
 				$('#simson'+ barnum).html(htmlSrc);
+			},
+			error : function(data) {alert("Error 발생");}
+		});
+	};
+	
+	// Ajax 댓글 삭제시
+	function replyDelete(replyNo, boardNo, barnum){
+		/* var loginUser = '<c:out value="${loginUser}"/>'; */
+		$.ajax({
+			type : "post",
+			url : "noticereplydelete.user",
+			data : ({
+				cnum : replyNo,
+			}), //data를 갖고
+			dataType : "json",
+			success : function(data) {
+				replygetList(boardNo, barnum);
 			},
 			error : function(data) {alert("Error 발생");}
 		});
@@ -106,7 +120,7 @@
 	<div class="blockL">
 		<div class="blockM">
 			<ul>
-				<li>${f.getUserid()}:${f.getBtitle() }<br>
+				<li><a name="title${varnum }">${f.getUserid()}:${f.getBtitle() }</a><br>
 					<div style="text-align: left">${f.getBdate() }</div>
 				</li>
 				<div class="notice">
@@ -126,12 +140,16 @@
 						<a href="noticedelete.user?bnum=${f.getBnum() }" class="dynamiclabel">공지사항삭제</a>
 					</s:authorize>
 					</div>
-				<h5 class="buttonmore">현재 댓글수 3</h5>
+				<h5 id ="replycount" class="buttonmore">현재 댓글수 ${f.getReplycount() }</h5>
 			</ul>
 			<div class="blockN">
 		
 		<div id="simson${varnum }" >
 		<c:set var="replynum" value="0"></c:set>
+		<input type="hidden" id="userid${varnum }" name="userid" value="${loginUser}"> 
+		<input type="hidden" id="bnum${varnum }" name="bnum" value="${f.getBnum() }">
+		<input type="text" id="ccontent${varnum }" name="ccontent" value="" class="element text medium">
+		<input type="button" id= "reply${varnum }" name="${varnum }" value="댓글달기" class="element text small"><P></P><BR>
 			<c:forEach var="c" items="${noticeBoardReplyList}">
 			<c:set var="replynum" value="${replynum+1 }"></c:set>
 				<c:if test="${f.getBnum() == c.getBnum()}">
@@ -148,10 +166,6 @@
 				</c:if>
 			</c:forEach>
 			</div>
-			<input type="hidden" id="userid${varnum }" name="userid" value="${loginUser}"> 
-			<input type="hidden" id="bnum${varnum }" name="bnum" value="${f.getBnum() }">
-			<input type="text" id="ccontent${varnum }" name="ccontent" value="" class="element text medium">
-			<input type="button" id= "reply${varnum }" name="${varnum }" value="댓글달기" class="element text small">
 		</div>
 		</div>
 		<!-- noticeBoardReplyList -->
