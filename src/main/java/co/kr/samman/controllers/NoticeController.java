@@ -47,12 +47,15 @@ public class NoticeController {
 			lastNumber lastnumb = new lastNumber();
 			lastnumb.setLastnum(lastnum);
 			model.addAttribute("lastNumber", lastnumb);
+			//보드 내용 구해 넣기
 			List<board> noticeBoardList = noticeBoardDao.noticeBoardList(firstnum, lastnum);
 			//reply갯수 구해서 더해주기
 			for(board boardreply :noticeBoardList){
 				boardreply.setReplycount(noticeBoardDao.noticereplygetcount(boardreply.getBnum()));
 			}
+			//댓글 구하기 
 			List<cont> noticeBoardReplyList = noticeBoardDao.noticereplyList();
+			
 			model.addAttribute("noticeBoardList", noticeBoardList);
 			model.addAttribute("noticeBoardReplyList", noticeBoardReplyList);
 			return "board.notice";
@@ -62,8 +65,12 @@ public class NoticeController {
 		@ResponseBody
 		public String noticeReplygetList(HttpServletRequest req,HttpServletResponse res, Model model, String bnum) throws UnsupportedEncodingException{
 			System.out.println(bnum);
+			int lastreply=7;
+//			if(lastreplynum!=0){
+//				lastreply =lastreplynum; 
+//			}
 			NoticeBoardDao noticeBoardDao = sqlSession.getMapper(NoticeBoardDao.class);
-			List<cont> cont=noticeBoardDao.noticereplyResult(bnum);
+			List<cont> cont=noticeBoardDao.noticereplyResult(bnum, lastreply);
 			
 			//Ajax 한글처리를위한 추가구문
 			req.setCharacterEncoding("UTF-8");

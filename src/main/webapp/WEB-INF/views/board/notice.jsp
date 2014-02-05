@@ -141,20 +141,31 @@
 					</s:authorize>
 					</div>
 				<h5 id ="replycount" class="buttonmore">현재 댓글수 ${f.getReplycount() }</h5>
+				
 			</ul>
 			<div class="blockN">
 		
-		<div id="simson${varnum }" >
-		<c:set var="replynum" value="0"></c:set>
 		<input type="hidden" id="userid${varnum }" name="userid" value="${loginUser}"> 
 		<input type="hidden" id="bnum${varnum }" name="bnum" value="${f.getBnum() }">
 		<input type="text" id="ccontent${varnum }" name="ccontent" value="" class="element text medium">
 		<input type="button" id= "reply${varnum }" name="${varnum }" value="댓글달기" class="element text small"><P></P><BR>
+		<div id="simson${varnum }" >
+		<!-- 댓글 작성 시작 -->
+		<!-- 댓글 아이디 부여 -->
+			<c:set var="replynum" value="0"></c:set>
+			<!-- 댓글 작성중 7개가되면 끊기위한 임의의 통제 변수 부여 -->
+			<c:set var="doneLoop" value="false"/> 
+			<c:set var="statetrue" value="0"/>
+			<!-- 댓글 for문 시작 -->
 			<c:forEach var="c" items="${noticeBoardReplyList}">
+			<!-- 댓글 아이디 증가 -->
 			<c:set var="replynum" value="${replynum+1 }"></c:set>
+				<c:if test="${not doneLoop}"> 
 				<c:if test="${f.getBnum() == c.getBnum()}">
 							${c.getUsername() } : ${c.getCcontent() }
 						<div style="text-align: left">${c.getCdate() }
+						<!-- 스테이트 추가 -->
+						<c:set var="statetrue" value="${statetrue+1 }"></c:set>
 							<!-- 본인이 적은글 삭제 할수 있게 해주는 기능 추가 -->
 							<c:choose>
 								<c:when test="${loginUser eq c.getUserid() }">
@@ -163,6 +174,11 @@
 							</c:choose>
 							</div>
 						<br>
+				</c:if>
+				<c:if test="${statetrue == 7}"> 
+					<c:set var="doneLoop" value="true"/> 
+					<c:set var="statetrue" value="0"/>
+				</c:if>
 				</c:if>
 			</c:forEach>
 			</div>

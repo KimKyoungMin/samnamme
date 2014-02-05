@@ -13,13 +13,27 @@
 
 	<select id="noticereplyList" resultType="co.kr.samman.dto.cont">
 		SELECT USERT.UNAME USERNAME, CONT.USERID USERID, CONT.CNUM CNUM, 
-		CONT.BNUM BNUM, CONT.CCONTENT CCONTENT, CONT.CDATE CDATE
+		CONT.BNUM BNUM, CONT.CCONTENT CCONTENT, DATE_FORMAT(CONT.CDATE,'%Y-%m-%d %H:%i:%s' ) CDATE
 		FROM CONT
 		INNER JOIN USERT
 		ON
 		CONT.USERID=USERT.USERID
 		ORDER BY CONT.CNUM DESC
+		
 	</select>
+	
+	<select id="noticereplyResult" resultType="co.kr.samman.dto.cont">
+		SELECT USERT.UNAME USERNAME, CONT.USERID USERID, 
+		CONT.CNUM CNUM, CONT.BNUM BNUM, CONT.CCONTENT CCONTENT,
+		DATE_FORMAT(CONT.CDATE,'%Y-%m-%d %H:%i:%s' ) CDATE
+		FROM CONT INNER JOIN USERT
+		ON
+		CONT.USERID=USERT.USERID
+		WHERE CONT.BNUM=#{param1}
+        ORDER BY CONT.CDATE DESC
+        LIMIT 0, 7
+	</select>
+	
 	<select id="noticereplygetcount" resultType="Integer">
 		select COUNT(*) from CONT WHERE BNUM=#{param1}
 	</select>
@@ -56,16 +70,7 @@
 		(#{param1},#{param2},#{param3},NOW()) 
 	</insert>
 
-	<select id="noticereplyResult" resultType="co.kr.samman.dto.cont">
-		SELECT USERT.UNAME USERNAME, CONT.USERID USERID, 
-		CONT.CNUM CNUM, CONT.BNUM BNUM, CONT.CCONTENT CCONTENT,
-		DATE_FORMAT(CONT.CDATE,'%Y-%m-%d %H:%i:%s' ) CDATE
-		FROM CONT INNER JOIN USERT
-		ON
-		CONT.USERID=USERT.USERID
-		WHERE CONT.BNUM=#{param1}
-        ORDER BY CONT.CDATE DESC
-	</select>
+	
 	
 	<delete id="noticereplyDelete">
 		DELETE FROM CONT WHERE CNUM=#{param1}
