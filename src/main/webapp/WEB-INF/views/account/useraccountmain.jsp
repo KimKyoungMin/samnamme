@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="s" uri="http://www.springframework.org/security/tags" %>
 
 <div class="profileA blockA">
 <h2 align="center">My Info</h2>
@@ -17,24 +18,37 @@ E-mail <input type="text" name="uemail" class="email text2-input" value="${usert
 <div class="profileD blockD">
 <h2 align="center">My DownList</h2>
 <br>
-<c:forEach var="mdlist" items="${md }">
-${mdlist.getMinfonum() } / ${mdlist.getMtitle() } / ${mdlist.getMsname() }<hr>
-</c:forEach>
-
+<c:choose>
+  <c:when test="${md.size()==0}">
+    <h2>다운 받은 리스트가 없습니다.</h2>
+  </c:when>
+  <c:otherwise>
+     <c:forEach var="mdlist" items="${md }">
+        ${mdlist.getMinfonum() } / ${mdlist.getMtitle() } / ${mdlist.getMsname() }<hr>
+     </c:forEach>
+  </c:otherwise>
+</c:choose>
 </div>
 
 <div class="profileP blockP">
+<s:authentication property="name" var="loginUser"/>
 <h2 align="center">Payment</h2>
 <br>
-<b>${pd.userid }</b> 님 <br>
+<b>${loginUser }</b> 님 <br>
 <br>
-결제한 상품은 <b>${pd.payname }</b> 입니다.<br>
-<br>
-<br>
-<b>유효 기간</b> <br>
-<input type="text" class="text5-input" name="paydate" value="${pd.paydate }" readonly> 부터 
-<input type="text" class="text5_1-input" name="expdate" value="${pd.expdate }" readonly> 까지
-
+<c:choose>
+  <c:when test="${pd==null }">
+      결제한 상품이 없습니다.
+  </c:when>
+  <c:otherwise>
+       결제한 상품은 <b>${pd.payname }</b> 입니다.<br>
+     <br>
+     <br>
+     <b>유효 기간</b> <br>
+     <input type="text" class="text5-input" name="paydate" value="${pd.paydate }" readonly> 부터 
+     <input type="text" class="text5_1-input" name="expdate" value="${pd.expdate }" readonly> 까지
+  </c:otherwise>
+</c:choose>
 
 <form action="paymentform.user" method="get">
 	<input type="submit" class="pay button" value="자세히 보기">
