@@ -14,9 +14,10 @@ Music Video player test 두번째
 </head>
 <body>
 
-<embed src="//www.youtube.com/v/YCxh29luJtg?version=3&amp;hl=ko_KR&amp;rel=0" 
-type="application/x-shockwave-flash" width="560" height="315"
- allowscriptaccess="always" allowfullscreen="true"></embed>
+<input type="text" id=video>
+
+
+
 
 </body>
 </html>
