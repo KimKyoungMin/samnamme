@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.kr.samman.dao.VideoDao">
+
+   <select id="getvediolists" resultType="co.kr.samman.dto.musict">
+       select * from musict order by minfonum desc limit #{param1},#{param2}  
+   </select>
+   
+   <select id="listcount" resultType="Integer">
+   select count(minfonum) from musict
+   </select>
+   
+   <select id="playvideo" resultType="co.kr.samman.dto.musict">
+   select murl from musict where minfonum = #{param1}
+   </select>
+   
+   
+</mapper>

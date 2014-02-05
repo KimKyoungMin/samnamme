@@ -24,11 +24,11 @@ int nowpage = (Integer)request.getAttribute("page");
 
 
 
-
+			
 			<c:forEach var="m" items="${videoList}">
 			
 				<li>
-				<a href="musicViedo.user?Minfonum=${m.getMinfonum()}">
+				<a href="musicViedo.user?Minfonum=${m.getMinfonum()}&page=${page}">
 						${m.getMtitle()} / ${m.getMsname()} /${m.getMinfonum()}
 				</a>
 				</li>
@@ -46,17 +46,17 @@ int nowpage = (Integer)request.getAttribute("page");
 								<c:when test="${page<=1}">
 									<a class="active">이전</a>&nbsp;</c:when>
 								<c:otherwise>
-									<a href="musicViedo.user?page=${page-1}" class="disabled">이전</a>&nbsp;
+									<a href="musicViedo.user?page=${page-1}&Minfonum=${m.getMinfonum()}" class="disabled">이전</a>&nbsp;
          </c:otherwise>
 							</c:choose> <%for(int a=startpage;a<=endpage;a++){
 				if(a==nowpage){%> <a class="current"><%=a %></a> <%}else{ %> <a
-							href="musicViedo.user?page=<%=a %>" class="disabled"><%=a %></a>&nbsp;
+							href="musicViedo.user?page=<%=a %>&Minfonum=${m.getMinfonum()}" class="disabled"><%=a %></a>&nbsp;
 							<%} %> <%} %> <c:choose>
 								<c:when test="${page>=maxpage }">
 									<a class="active">다음</a>
 								</c:when>
 								<c:otherwise>
-									<a href="musicViedo.user?page=${page+1}">다음</a>
+									<a href="musicViedo.user?page=${page+1}&Minfonum=${m.getMinfonum()}">다음</a>
 								</c:otherwise>
 							</c:choose>
 						</td>
