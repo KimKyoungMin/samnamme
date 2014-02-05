@@ -65,9 +65,9 @@ int nowpage = (Integer)request.getAttribute("page");
    <tr align=center height=20>
       <td colspan=7 style=font-family:Tahoma;font-size:10pt;>
          <c:choose>
-         <c:when test="${page<=1}"><a class="active">이전</a>&nbsp;</c:when>
+         <c:when test="${page<=1}"><a class="active">◀</a>&nbsp;</c:when>
          <c:otherwise>
-         <a href="qna.user?page=${page-1}" class="disabled">이전</a>&nbsp;
+         <a href="qna.user?page=${page-1}" class="disabled">◀</a>&nbsp;
          </c:otherwise>
          </c:choose>
         
@@ -80,9 +80,9 @@ int nowpage = (Integer)request.getAttribute("page");
 			<%} %>
           
          <c:choose>
-         <c:when test="${page>=maxpage }"><a class="active">다음</a></c:when>
+         <c:when test="${page>=maxpage }"><a class="active">▶</a></c:when>
          <c:otherwise>
-         <a href="qna.user?page=${page+1}">다음</a>
+         <a href="qna.user?page=${page+1}">▶</a>
          </c:otherwise>
          </c:choose>
       </td>

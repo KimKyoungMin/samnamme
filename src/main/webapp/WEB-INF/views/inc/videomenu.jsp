@@ -29,7 +29,7 @@ int nowpage = (Integer)request.getAttribute("page");
 			
 				<li>
 				<a href="musicViedo.user?Minfonum=${m.getMinfonum()}&page=${page}">
-						${m.getMtitle()} / ${m.getMsname()} /${m.getMinfonum()}
+						${m.getMtitle()} - ${m.getMsname()}
 				</a>
 				</li>
 			</c:forEach>
@@ -44,19 +44,19 @@ int nowpage = (Integer)request.getAttribute("page");
 						<td colspan=7 style="font-family: Tahoma; font-size: 10pt;">
 							<c:choose>
 								<c:when test="${page<=1}">
-									<a class="active">이전</a>&nbsp;</c:when>
+									<a class="active">◀</a>&nbsp;</c:when>
 								<c:otherwise>
-									<a href="musicViedo.user?page=${page-1}&Minfonum=${m.getMinfonum()}" class="disabled">이전</a>&nbsp;
+									<a href="musicViedo.user?page=${page-1}" class="disabled">◀</a>&nbsp;
          </c:otherwise>
 							</c:choose> <%for(int a=startpage;a<=endpage;a++){
 				if(a==nowpage){%> <a class="current"><%=a %></a> <%}else{ %> <a
-							href="musicViedo.user?page=<%=a %>&Minfonum=${m.getMinfonum()}" class="disabled"><%=a %></a>&nbsp;
+							href="musicViedo.user?page=<%=a %>" class="disabled"><%=a %></a>&nbsp;
 							<%} %> <%} %> <c:choose>
 								<c:when test="${page>=maxpage }">
-									<a class="active">다음</a>
+									<a class="active">▶</a>
 								</c:when>
 								<c:otherwise>
-									<a href="musicViedo.user?page=${page+1}&Minfonum=${m.getMinfonum()}">다음</a>
+									<a href="musicViedo.user?page=${page+1}">▶</a>
 								</c:otherwise>
 							</c:choose>
 						</td>
@@ -66,6 +66,7 @@ int nowpage = (Integer)request.getAttribute("page");
 
 
 		</div>
+		
 	</div>
 
 </div>
