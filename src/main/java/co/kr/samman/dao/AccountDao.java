@@ -16,5 +16,7 @@ public interface AccountDao {
 	public List<payinfo> getpayinfo(); //결제 상품 정보
 	public payinfo payinfoselect(int paysubcode); //결제 가격, 서브코드, 더해질 날짜 셀렉트
 	public void payok(payinfo payinfoDto); //결제
+	public void uexpUpdate(String expdate, String userid); //usert 에 uexpdate update
+	public int userCk(String userid); //유효 고객인지 체크
 
 }

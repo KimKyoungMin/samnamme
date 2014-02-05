@@ -19,6 +19,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import co.kr.samman.dao.AccountDao;
 import co.kr.samman.dao.MusicDao;
 import co.kr.samman.dto.musict;
 import co.kr.samman.dto.mymusict;
@@ -43,45 +44,64 @@ public class MusicController {
 		//음악 다운로드
 		@RequestMapping("download.htm")
 		public void download(String p, String f, int minfonum, HttpServletRequest req, HttpServletResponse res) throws IOException{
-			System.out.println(f); //한글파일명 깨짐
-			//String fname = new String(f.getBytes("ISO8859_1"), "UTF-8");
-			//System.out.println(fname); //한글파일명 깨짐 해결
 			
-			res.setHeader("Content-Disposition", "attachment;filename="+new String(f.getBytes(),"ISO8859_1"));
-			
-			//파일 실 경로에서 읽어와서 써준다
-			String fullpath = req.getRealPath(p+"/"+f);
-			System.out.println(fullpath);
-			FileInputStream fin = new FileInputStream(fullpath);
-			ServletOutputStream sout = res.getOutputStream();
-			
-			byte[] buf = new byte[1024];
-			int size = 0;
-			while((size=fin.read(buf,0,buf.length))!=-1){
-				sout.write(buf,0,size);
-			}
-			fin.close();
-			sout.close();
-			
-			//mdlist 에 추가
-			MusicDao musicDao = sqlSession.getMapper(MusicDao.class);
+			//이용 고객인지 체크
+			AccountDao accountDao = sqlSession.getMapper(AccountDao.class);
 			UserDetails user =   
 				       (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-			
-			musicDao.mydownlist(user.getUsername(),minfonum);
-			 
+			int ck = accountDao.userCk(user.getUsername());
+			if(ck==1){
+				System.out.println(f); //한글파일명 깨짐
+				//String fname = new String(f.getBytes("ISO8859_1"), "UTF-8");
+				//System.out.println(fname); //한글파일명 깨짐 해결
+				
+				res.setHeader("Content-Disposition", "attachment;filename="+new String(f.getBytes(),"ISO8859_1"));
+				
+				//파일 실 경로에서 읽어와서 써준다
+				String fullpath = req.getRealPath(p+"/"+f);
+				System.out.println(fullpath);
+				FileInputStream fin = new FileInputStream(fullpath);
+				ServletOutputStream sout = res.getOutputStream();
+				
+				byte[] buf = new byte[1024];
+				int size = 0;
+				while((size=fin.read(buf,0,buf.length))!=-1){
+					sout.write(buf,0,size);
+				}
+				fin.close();
+				sout.close();
+				
+				//mdlist 에 추가
+				MusicDao musicDao = sqlSession.getMapper(MusicDao.class);
+				
+				musicDao.mydownlist(user.getUsername(),minfonum);
+			}else {
+				res.setCharacterEncoding("EUC-KR");
+				PrintWriter out = res.getWriter();
+				out.println("<script type='text/javascript'>");
+		    	out.println("alert('이용 가능한 고객이 아닙니다.')");
+		    	out.println("history.back();");
+		    	out.println("</script>");
+		    	out.close();
+			}
+			    	
+				
 	
 		}
 		
 		//mymusict DB에 음악 넣기
 		@RequestMapping("myplayerlist.htm")
 		public String mpl(HttpServletRequest req, HttpServletResponse res) throws IOException{
-			String [] checked = req.getParameterValues("check[]");
+			//이용 고객인지 체크
+			AccountDao accountDao = sqlSession.getMapper(AccountDao.class);
+			UserDetails user =   
+				       (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			int ck = accountDao.userCk(user.getUsername());
+			if(ck==1){
+			   String [] checked = req.getParameterValues("check[]");
 			   for(int i=0; i<checked.length; i++){
 			       System.out.println(checked[i]); //리스트에 넣을 minfonum
 				   MusicDao musicDao = sqlSession.getMapper(MusicDao.class);
-			       UserDetails user =   
-					       (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 			       
 			       int minfonumCk = musicDao.myplayerlistCk(user.getUsername(), Integer.parseInt(checked[i]));
 			       System.out.println(minfonumCk);
@@ -100,7 +120,16 @@ public class MusicController {
 			    	   out.println("</script>");
 			    	   out.close();
 			       }	  	   
-			   }		   
+			    }		   
+		     }else{
+		    	 res.setCharacterEncoding("EUC-KR");
+		    	 PrintWriter out = res.getWriter();
+		    	 out.println("<script type='text/javascript'>");
+		    	 out.println("alert('이용 가능한 고객이 아닙니다.')");
+		    	 out.println("history.back();");
+		    	 out.println("</script>");
+		    	 out.close();
+		     }
 			return "redirect:musicmain.user";
 		}
 		

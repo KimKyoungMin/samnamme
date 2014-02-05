@@ -99,6 +99,11 @@ public class AccountController {
             payinfoDto.setUserid(user.getUsername());
 			accountDao.payok(payinfoDto);
 			
+			//회원 유효기간도 업데이트 해줌 uexpdate
+			payt paytDto = accountDao.getleastpay(user.getUsername());
+			String expdate = paytDto.getExpdate();
+			accountDao.uexpUpdate(expdate, user.getUsername());
+			
 			return "redirect:account.user?userid="+user.getUsername();
 		}
 		

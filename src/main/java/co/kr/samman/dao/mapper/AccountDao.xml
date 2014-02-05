@@ -44,6 +44,17 @@
     INSERT INTO PAYT (USERID, PAYMONEY, PAYDATE, expdate, PAYSUBCODE)
     VALUES(#{userid},#{payprice},NOW(),ADDDATE(now(), INTERVAL #{paypdate} DAY), #{paysubcode});
   </insert>
+  
+  <update id="uexpUpdate">
+    UPDATE usert set uexpdate=#{param1} where userid=#{param2} ;
+  </update>
+  
+  <select id="userCk" resultType="int">
+    select count(*) from usert 
+    <![CDATA[
+      where userid=#{userid} and now() <= uexpdate 
+    ]]>
+  </select>
 
 
 </mapper>
