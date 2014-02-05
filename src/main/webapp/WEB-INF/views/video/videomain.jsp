@@ -14,9 +14,7 @@ Music Video player test 두번째
 </head>
 <body>
 
-<input type="text" id=video>
-
-
+${playvideo }
 
 
 </body>
