@@ -8,7 +8,8 @@ public class payt {
 	private int paymoney;
 	private String paydate;
 	private int paysubcode;
-	
+	private String expdate;
+
 	//join 때문에 추가
 	private String payname;
 
@@ -50,6 +51,14 @@ public class payt {
 
 	public void setPaysubcode(int paysubcode) {
 		this.paysubcode = paysubcode;
+	}
+	
+	public String getExpdate() {
+		return expdate;
+	}
+
+	public void setExpdate(String expdate) {
+		this.expdate = expdate;
 	}
 
 	public String getPayname() {

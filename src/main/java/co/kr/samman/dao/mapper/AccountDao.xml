@@ -19,10 +19,22 @@
   </select>
   
   <select id="getpay" resultType="co.kr.samman.dto.payt">
-    select pt.PAYSUBCODE paysubcode, pi.PAYNAME payname, pt.PAYDATE paydate, pt.PAYMONEY paymoney
+    select pt.PAYSUBCODE paysubcode, pi.PAYNAME payname, pt.PAYDATE paydate, pt.EXPDATE expdate, pt.PAYMONEY paymoney
     from payt pt inner join payinfo pi on pt.PAYSUBCODE=pi.PAYSUBCODE
     where userid=#{userid} order by paydate desc; 
   </select>
+  
+  <select id="getleastpay" resultType="co.kr.samman.dto.payt">
+    select pt.USERID userid, pt.PAYDATE paydate, pt.EXPDATE expdate, pi.PAYNAME payname, pi.PAYSUBCODE paysubcode 
+    from payt pt inner join payinfo pi on pt.PAYSUBCODE=pi.PAYSUBCODE
+    <![CDATA[
+      where pt.USERID=#{userid} and now() <= pt.EXPDATE;
+     ]]>
+  </select>
+  
+  <insert id="payok">
+     
+  </insert>
 
 
 </mapper>
