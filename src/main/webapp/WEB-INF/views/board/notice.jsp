@@ -23,19 +23,22 @@
 			var __bnum = "bnum" + __num;
 			var __userid = "userid" + __num;
 			var __ccontent = "ccontent" + __num;
-			
+			var __bnumm = "bnumm"+__num;
+			var __bnummm = "bnummm"+__num;
 			//각 ID가 가진 value 값을 가져옴
 			var _bnum = document.getElementById(__bnum).value;
 			var _userid = document.getElementById(__userid).value;
 			var _ccontent = document.getElementById(__ccontent).value;
+			var _replycountin =  document.getElementById(__bnumm).value;
+			var _replycountnum =  document.getElementById(__bnummm).value;
 			/* alert("here you ok"); */
-			replyadd(_bnum, _userid, _ccontent, __num);
+			replyadd(_bnum, _userid, _ccontent, __num,_replycountin, _replycountnum);
 			$(':text').val('');
 		});
 	});
 	
 	//Ajax 댓글 추가하기
-	function replyadd(bnum, userid, ccontent, barnum){
+	function replyadd(bnum, userid, ccontent, barnum, replycountin, replycountnum){
 		/* alert("here replydelete start"); */
 		$.ajax({
 			type : "post",
@@ -49,7 +52,7 @@
 			success : function(data) {
 				/* alert("replyadd OK delete");
 				alert(bnum, barnum); */
-				replygetList(bnum, barnum);
+				replygetList(bnum, barnum, replycountin, replycountnum);
 			},
 			error : function(data) {
 				alert("Error 발생");
@@ -57,15 +60,75 @@
 		});
 	};
 	
-	//Ajax 리스트 가져오기 
-	function replygetList(boardNo, barnum){
-		/* alert("here i ok"); */
+	//Ajax 리스트 가져오기 (댓글 숫자가 늘어나지 않음)
+	function replygetList(boardNo, barnum, replycountin, replycountnum){
+		/* alert("here replygetList2 ok");
+		alert(boardNo, barnum, replycount); */
 		var loginUser = '<c:out value="${loginUser}"/>';
+		var replycount = parseInt(replycountin);
+		/* alert(replycount); */
 		$.ajax({
 			type : "post",
-			url : "noticereplygetList.user",
+			url : "noticereplygetList2.user",
 			data : ({
-				bnum : boardNo
+				bnum : boardNo,
+				replycount : replycount
+			}), //data를 갖고
+			dataType : "json",
+			success : function(data2) {
+				htmlSrc = "";
+				/* alert(replycountnum);
+				alert(replycountin); */
+				for (var i = 0; i < data2.length; i++) {
+					//댓글 출력 부분
+					htmlSrc += data2[i].username+ ':'+ data2[i].ccontent;
+					htmlSrc += '<div class="main-container" style="text-align: left">'+ data2[i].cdate+ '';
+					//조건에 따라 삭제 버튼키 추가
+					 if(loginUser == data2[i].userid){
+						 htmlSrc += "<a href='javascript:void()' onclick='replyDelete("+data2[i].cnum+","+ data2[i].bnum+","+barnum+","+replycountin+","+replycountnum+")'>&nbsp;삭제2</a></div><br>";
+					}else{
+						htmlSrc+='</div><br>';
+					} 
+				}
+				/* alert("^^"); */
+				
+				$('#simson'+ barnum).html(htmlSrc);
+				//버튼 입력 내용중 하나 리플리 값 갱신용
+				$('#bnumm'+ barnum).val(replycountin);
+				/* alert("OK"); */
+				//alert(replycountnum); //총 보유 댓글수
+				//alert(replycount); //현재 보여지는 댓글수
+				
+				htmlSrc2="";
+				
+				if(replycountnum > replycount){
+					htmlSrc2+="<a href='javascript:void()' onclick='replygetList2("+ boardNo+","+barnum+","+replycount+","+data2.length+")'>댓글 더 보기</a>";
+					/* <a href="javascript:void()" onclick="replygetList2('${f.getBnum()}','${varnum }',7)" >댓글 더 보기</a>*/ 
+					/* htmlSrc += "<a href='javascript:void()' onclick='replyDelete("+data2[i].cnum+","+ data2[i].bnum+","+barnum+")'>&nbsp;삭제</a></div><br>"; */
+				}else{
+					htmlSrc2='';
+				}
+				/* alert(htmlSrc2); */
+				$('#replynum'+barnum).html(htmlSrc2);
+				
+			},
+			error : function(data) {alert("Error 발생");}
+		});
+	};
+	
+	//Ajax 리스트 가져오기2  원글번호, 화면 태그가 가진 번호, 현재 리플 달아준 카운트 수, 현재 글 전체 리플 카운트 수 
+	function replygetList2(boardNo, barnum, replycountin, replycountnum){
+		/* alert("here replygetList2 ok");
+		alert(boardNo, barnum, replycount); */
+		var loginUser = '<c:out value="${loginUser}"/>';
+		var replycount = parseInt(replycountin)+7;
+		/* alert(replycount); */
+		$.ajax({
+			type : "post",
+			url : "noticereplygetList2.user",
+			data : ({
+				bnum : boardNo,
+				replycount : replycount
 			}), //data를 갖고
 			dataType : "json",
 			success : function(data2) {
@@ -73,22 +136,40 @@
 				for (var i = 0; i < data2.length; i++) {
 					//댓글 출력 부분
 					htmlSrc += data2[i].username+ ':'+ data2[i].ccontent;
-					htmlSrc += '<div style="text-align: left">'+ data2[i].cdate+ '';
+					htmlSrc += '<div class="main-container" style="text-align: left">'+ data2[i].cdate+ '';
 					//조건에 따라 삭제 버튼키 추가
 					 if(loginUser == data2[i].userid){
-						 htmlSrc += "<a href='javascript:void()' onclick='replyDelete("+data2[i].cnum+","+ data2[i].bnum+","+barnum+")'>&nbsp;삭제</a></div><br>";
+						 htmlSrc += "<a href='javascript:void()' onclick='replyDelete("+data2[i].cnum+","+ data2[i].bnum+","+barnum+","+replycount+","+replycountnum+")'>&nbsp;삭제3</a></div><br>";
 					}else{
 						htmlSrc+='</div><br>';
 					} 
 				}
+			/* 	alert("^^"); */
 				$('#simson'+ barnum).html(htmlSrc);
+				//버튼 입력 내용중 하나 리플리 값 갱신용
+				$('#bnumm'+ barnum).val(replycount);
+				//alert(replycountnum); //총 보유 댓글수
+				//alert(replycount); //현재 보여지는 댓글수
+				/* alert("OK"); */
+				htmlSrc2="";
+				
+				if(replycountnum > replycount){
+					htmlSrc2+="<a href='javascript:void()' onclick='replygetList2("+ boardNo+","+barnum+","+replycount+","+data2.length+")'>댓글 더 보기</a>";
+					/* <a href="javascript:void()" onclick="replygetList2('${f.getBnum()}','${varnum }',7)" >댓글 더 보기</a>*/ 
+					/* htmlSrc += "<a href='javascript:void()' onclick='replyDelete("+data2[i].cnum+","+ data2[i].bnum+","+barnum+")'>&nbsp;삭제</a></div><br>"; */
+				}else{
+					htmlSrc2='';
+				}
+				/* alert(htmlSrc2); */
+				$('#replynum'+barnum).html(htmlSrc2);
+				
 			},
 			error : function(data) {alert("Error 발생");}
 		});
 	};
 	
 	// Ajax 댓글 삭제시
-	function replyDelete(replyNo, boardNo, barnum){
+	function replyDelete(replyNo, boardNo, barnum, replycountin, replycountnum){
 		/* var loginUser = '<c:out value="${loginUser}"/>'; */
 		$.ajax({
 			type : "post",
@@ -98,11 +179,18 @@
 			}), //data를 갖고
 			dataType : "json",
 			success : function(data) {
-				replygetList(boardNo, barnum);
+				replygetList(boardNo, barnum, replycountin, replycountnum);
 			},
 			error : function(data) {alert("Error 발생");}
 		});
 	};
+	
+	//Ajax 댓글 더 보여주기
+	/* function replyMoreView(boradNo, barnum, replycount){
+		alert("replyMoreView call ok");
+		replygetList2(boardNo,barnum,replycount);
+		alert("replyMoreView end ok");
+	}; */
 </script>
 
 <div align="right">
@@ -147,6 +235,8 @@
 		
 		<input type="hidden" id="userid${varnum }" name="userid" value="${loginUser}"> 
 		<input type="hidden" id="bnum${varnum }" name="bnum" value="${f.getBnum() }">
+		<input type="hidden" id="bnumm${varnum }" name="bnumm" value="7">
+		<input type="hidden" id="bnummm${varnum }" name="bnummm" value="${f.getReplycount()}">
 		<input type="text" id="ccontent${varnum }" name="ccontent" value="" class="element text medium">
 		<input type="button" id= "reply${varnum }" name="${varnum }" value="댓글달기" class="element text small"><P></P><BR>
 		<div id="simson${varnum }" >
@@ -169,7 +259,7 @@
 							<!-- 본인이 적은글 삭제 할수 있게 해주는 기능 추가 -->
 							<c:choose>
 								<c:when test="${loginUser eq c.getUserid() }">
-									<a href="javascript:void()" onclick="replyDelete('${c.getCnum()}', '${c.getBnum() }','${varnum }')">&nbsp;삭제</a>
+									<a href="javascript:void()" onclick="replyDelete('${c.getCnum()}', '${c.getBnum() }','${varnum }','7','${f.getReplycount()}')">&nbsp;삭제</a>
 								</c:when>
 							</c:choose>
 							</div>
@@ -181,8 +271,15 @@
 				</c:if>
 				</c:if>
 			</c:forEach>
+			
 			</div>
+			
 		</div>
+		<div id="replynum${varnum }">
+			<c:if test="${f.getReplycount()>7 }">
+				<a href="javascript:void()" onclick="replygetList2('${f.getBnum()}','${varnum }','7', '${f.getReplycount()}')" >댓글 더 보기</a>
+			</c:if>
+			</div>
 		</div>
 		<!-- noticeBoardReplyList -->
 		

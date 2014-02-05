@@ -34,6 +34,18 @@
         LIMIT 0, 7
 	</select>
 	
+	<select id="noticereplyResult2" resultType="co.kr.samman.dto.cont">
+		SELECT USERT.UNAME USERNAME, CONT.USERID USERID, 
+		CONT.CNUM CNUM, CONT.BNUM BNUM, CONT.CCONTENT CCONTENT,
+		DATE_FORMAT(CONT.CDATE,'%Y-%m-%d %H:%i:%s' ) CDATE
+		FROM CONT INNER JOIN USERT
+		ON
+		CONT.USERID=USERT.USERID
+		WHERE CONT.BNUM=#{param1}
+        ORDER BY CONT.CDATE DESC
+        LIMIT 0, #{param2}
+	</select>
+	
 	<select id="noticereplygetcount" resultType="Integer">
 		select COUNT(*) from CONT WHERE BNUM=#{param1}
 	</select>
@@ -69,7 +81,7 @@
 		INSERT INTO CONT (BNUM, USERID, CCONTENT, CDATE) VALUES
 		(#{param1},#{param2},#{param3},NOW()) 
 	</insert>
-
+	
 	
 	
 	<delete id="noticereplyDelete">

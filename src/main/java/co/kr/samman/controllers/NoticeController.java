@@ -64,7 +64,7 @@ public class NoticeController {
 		@RequestMapping(value="noticereplygetList.user" ,produces="text/plain;charset=UTF-8")
 		@ResponseBody
 		public String noticeReplygetList(HttpServletRequest req,HttpServletResponse res, Model model, String bnum) throws UnsupportedEncodingException{
-			System.out.println(bnum);
+//			System.out.println(bnum);
 			int lastreply=7;
 //			if(lastreplynum!=0){
 //				lastreply =lastreplynum; 
@@ -92,6 +92,40 @@ public class NoticeController {
 				data2.add(obj);
 			}
 			System.out.println(data2.toString());
+			return data2.toString();
+		}
+		
+		@RequestMapping(value="noticereplygetList2.user" ,produces="text/plain;charset=UTF-8")
+		@ResponseBody
+		public String noticeReplygetList2(HttpServletRequest req,HttpServletResponse res, Model model, String bnum, int replycount) throws UnsupportedEncodingException{
+			System.out.println(bnum);
+			int lastreply=7;
+			if(replycount!=0){
+				lastreply =replycount; 
+			}
+			NoticeBoardDao noticeBoardDao = sqlSession.getMapper(NoticeBoardDao.class);
+			List<cont> cont=noticeBoardDao.noticereplyResult2(bnum, lastreply);
+			
+			//Ajax 한글처리를위한 추가구문
+			req.setCharacterEncoding("UTF-8");
+			res.setHeader("Content-Type", "text/html; charest=utf-8");
+			
+			//Json 리스트객체 생성
+			JSONArray data2 = new JSONArray();
+			
+			for(cont b : cont){
+				//Json 객체 생성
+				JSONObject obj = new JSONObject();
+				obj.put("username",b.getUsername());
+				obj.put("ccontent",b.getCcontent());
+				obj.put("cdate", b.getCdate());
+				obj.put("userid", b.getUserid());
+				obj.put("bnum",  b.getBnum());
+				obj.put("cnum", b.getCnum());
+				//Json 리스트에 객체를 추가함
+				data2.add(obj);
+			}
+//			System.out.println(data2.toString());
 			return data2.toString();
 		}
 		

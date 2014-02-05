@@ -17,4 +17,5 @@ public interface NoticeBoardDao {
 	public List<cont> noticereplyResult(String bnum, int lastreply);
 	public void noticereplyDelete(String bnum);
 	public int noticereplygetcount(int bnum);
+	public List<cont> noticereplyResult2(String bnum,int lastreply);
 }
