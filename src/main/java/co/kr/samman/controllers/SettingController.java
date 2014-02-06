@@ -12,6 +12,7 @@ import java.util.List;
 
 
 
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
 import co.kr.samman.dao.ConcertDao;
+import co.kr.samman.dao.MusicDao;
 import co.kr.samman.dao.SettingDao;
 import co.kr.samman.dto.concert;
 import co.kr.samman.dto.musict;
@@ -88,6 +90,17 @@ public class SettingController {
 			settingDao.musicInsert(ma);
 			
 			return "redirect:musicmain.user";
+		}
+		
+		//음악 수정
+		@RequestMapping(value="amusicEdit.admin", method=RequestMethod.GET)
+		public String musicEdit(int minfonum, Model model){
+			System.out.println(minfonum);
+			MusicDao musicDao = sqlSession.getMapper(MusicDao.class);
+			musict musicDto = musicDao.musicselect(minfonum);
+			model.addAttribute("md", musicDto);
+			
+			return "setting.amusicedit";
 		}
 		
 		@RequestMapping(value="acform.admin", method=RequestMethod.GET)

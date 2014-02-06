@@ -87,27 +87,45 @@ public class AccountController {
 		@RequestMapping(value="pay.user", method=RequestMethod.POST)
 		public String payok(HttpServletRequest req, HttpServletResponse res) throws IOException{
 			System.out.println(req.getParameter("paysubcode"));  //라디오 값
-			int paysubcode = Integer.parseInt(req.getParameter("paysubcode"));
-			
-			AccountDao accountDao = sqlSession.getMapper(AccountDao.class);
-			
-			payinfo payinfoDto = accountDao.payinfoselect(paysubcode); //결제 가격, 서브코드, 더해질 날짜 셀렉트
-			System.out.println(payinfoDto.getPaysubcode()+"//"+payinfoDto.getPaypdate()+"//"+payinfoDto.getPayprice());
 			
 			UserDetails user = 
 					(UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            payinfoDto.setUserid(user.getUsername());
-			accountDao.payok(payinfoDto);
+			AccountDao accountDao = sqlSession.getMapper(AccountDao.class);
 			
-			//회원 유효기간도 업데이트 해줌 uexpdate
-			payt paytDto = accountDao.getleastpay(user.getUsername());
-			String expdate = paytDto.getExpdate();
-			accountDao.uexpUpdate(expdate, user.getUsername());
-			
+			//유효기간이 끝나지 않았는데 결제하려고 할때 
+			int ck = accountDao.userCk(user.getUsername());
+			if(ck==0){
+				if(req.getParameter("paysubcode")!=null){				
+					int paysubcode = Integer.parseInt(req.getParameter("paysubcode"));
+					payinfo payinfoDto = accountDao.payinfoselect(paysubcode); //결제 가격, 서브코드, 더해질 날짜 셀렉트
+					System.out.println(payinfoDto.getPaysubcode()+"//"+payinfoDto.getPaypdate()+"//"+payinfoDto.getPayprice());
+					
+					payinfoDto.setUserid(user.getUsername());
+					accountDao.payok(payinfoDto);
+					
+					//회원 유효기간도 업데이트 해줌 uexpdate
+					payt paytDto = accountDao.getleastpay(user.getUsername());
+					String expdate = paytDto.getExpdate();
+					accountDao.uexpUpdate(expdate, user.getUsername());		
+				}else{
+					res.setCharacterEncoding("EUC-KR");
+					PrintWriter out = res.getWriter();
+					out.println("<script type='text/javascript'>");
+					out.println("alert('결제 상품을 선택해주세요')");
+					out.println("history.back();");
+					out.println("</script>");
+					out.close();
+				}				
+			}else{ //유효기간이 아직 끝나지 않았을 경우 
+				res.setCharacterEncoding("EUC-KR");
+				PrintWriter out = res.getWriter();
+				out.println("<script type='text/javascript'>");
+				out.println("alert('결제 기간이 아직 끝나지 않았습니다.')");
+				out.println("history.go(-1);");
+				out.println("</script>");
+				out.close();
+			}
 			return "redirect:account.user?userid="+user.getUsername();
 		}
-		
-		
-		
-		
+	
 }

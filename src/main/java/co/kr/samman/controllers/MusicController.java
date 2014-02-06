@@ -17,6 +17,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import co.kr.samman.dao.AccountDao;
@@ -158,6 +159,19 @@ public class MusicController {
 				musicDao.musicDel(Integer.parseInt(checked[i]));			
 			}
 			return "redirect:musicmain.user";
+		}
+		
+		//mymusict 음악 삭제
+		@RequestMapping("musiclistDel.htm")
+		public String mymusictDel(HttpServletRequest req){
+			String [] checked = req.getParameterValues("check[]");
+			for(int i=0;i<checked.length;i++){
+				System.out.println(checked[i]);
+				MusicDao musicDao = sqlSession.getMapper(MusicDao.class);
+				musicDao.mylistDel(Integer.parseInt(checked[i]));
+			}
+			
+			return "redirect:mylist.user";
 		}
 		
 		

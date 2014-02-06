@@ -8,6 +8,10 @@
        select minfonum, mpicname, mfilename, mtitle, msname, mgrade, metcinfo from musict order by minfonum desc   
    </select>
    
+   <select id="musicselect" resultType="co.kr.samman.dto.musict">
+       select * from musict where minfonum=#{minfonum}
+   </select>
+   
    <select id="myplayerlistCk" resultType="int">
        select COUNT(*) from mymusict where userid=#{param1} and minfonum=#{param2}
    </select>
@@ -28,6 +32,10 @@
    
    <delete id="musicDel">
       delete from musict where minfonum=#{minfonum}
+   </delete>
+   
+   <delete id="mylistDel">
+      delete from mymusict where minfonum=#{minfonum}
    </delete>
 
 

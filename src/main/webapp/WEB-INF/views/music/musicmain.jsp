@@ -22,6 +22,9 @@
    <div class="profileM blockK">  <!-- 음악 리스트  (RIGHT-CONTAINER) -->
 			
 			   <ul>
+			     <s:authorize ifAnyGranted="ROLE_ADMIN">
+  			        <li align="left"><a href="amusicEdit.admin?minfonum=${m.getMinfonum()}">수정</a></li> 
+			     </s:authorize>
 			     <li align="right"><input type="checkbox" id="check[]" name="check[]" value=${m.getMinfonum() }></li>
 		   	
 			   <div class="music" align="center">
@@ -33,7 +36,6 @@
 			      장르 : ${m.getMgrade()}<br>
 			      다운 : <a href="download.htm?p=upload&f=${m.getMfilename()}&minfonum=${m.getMinfonum()}">${m.getMfilename()}</a>
 			   </div>
-			   
 			   	<li>${m.getMetcinfo()}</li>
 			   	
 			   	</ul>
