@@ -4,13 +4,12 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/security/tags"%>
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-latest.js"></script>
-<!-- Ajax 추가 소스 아직 안되는 상태 시작-->
+
 <H1>공지사항</h1>
 <s:authentication property="name" var="loginUser"/>
-
 <!-- Ajax 함수 모음 -->
 <script type="text/javascript">
-//댓글 추가버튼 누를시 행동 사항에 대한 정의 --> 댓글 추가하기 함수 사용함
+//댓글 추가버튼 누를시 버튼 정보 제어에 대한 정보 겟 처리 --> 댓글 추가하기 함수 사용함
 	$(document).ready(function() {
 		//현재 로그인 중인 아이디 가져오기 전역 변수로 지정함
 		var loginUser = '<c:out value="${loginUser}"/>';
@@ -31,15 +30,85 @@
 			var _ccontent = document.getElementById(__ccontent).value;
 			var _replycountin =  document.getElementById(__bnumm).value;
 			var _replycountnum =  document.getElementById(__bnummm).value;
-			/* alert("here you ok"); */
 			replyadd(_bnum, _userid, _ccontent, __num,_replycountin, _replycountnum);
 			$(':text').val('');
 		});
 	});
 	
+	//Ajax 리스트 가져오기1 (댓글 숫자가 늘어나지 않음 = 댓글 숫자를 하나 덜가져옴)
+	//원글번호, 화면 태그가 가진 번호, 현재 리플 달아준 카운트 수, 현재 글 전체 리플 카운트 수 , 보여주는 댓글 숫자를 늘릴지의 여부
+	function replygetList(boardNo, barnum, replycountin, replycountnum, incrasebool){
+		var loginUser = '<c:out value="${loginUser}"/>';
+		var replycount;
+		//보여지는 댓글 숫자를 늘릴지 여부를 결정함
+		if(parseInt(incrasebool)==1){
+			replycount = parseInt(replycountin)+7;
+		}else{
+			replycount = parseInt(replycountin);
+		}
+		
+		$.ajax({
+			type : "post",
+			url : "noticereplygetList.user",
+			data : ({
+				bnum : boardNo,
+				replycount : replycount
+			}), //data를 갖고
+			dataType : "json",
+			success : function(data2) {
+				htmlSrc = "";
+				
+				var newreplycount = data2[0].newreplyCount;
+				$('#replycount'+barnum).html('현재 댓글수'+newreplycount);
+				for (var i = 1; i < data2.length; i++) {
+					//댓글 출력 부분
+					htmlSrc += data2[i].username+ ':'+ data2[i].ccontent;
+					htmlSrc += '<div class="main-container" style="text-align: left">'+ data2[i].cdate+ '';
+					//조건에 따라 삭제 버튼키 추가
+					 if(loginUser == data2[i].userid){
+						 htmlSrc += "<a href='javascript:void()' onclick='replyDelete("+data2[i].cnum+","+ data2[i].bnum+","+barnum+","+replycount+","+replycountnum+")'>&nbsp;삭제2</a></div><br>";
+						//원글번호, 화면 태그가 가진 번호, 현재 리플 달아준 카운트 수, 현재 글 전체 리플 카운트 수 , 보여주는 댓글 숫자를 늘릴지의 여부
+					}else{
+						htmlSrc+='</div><br>';
+					} 
+				}
+				
+				$('#simson'+ barnum).html(htmlSrc);
+				//버튼 입력 내용중 하나 리플리 값 갱신용
+				$('#bnumm'+ barnum).val(replycount);
+				//댓글 더 보기 메뉴에 대한 정보를 확인
+				htmlSrc2="";
+				
+				if(newreplycount > replycount){
+					//댓글수가 증가하는 href문임
+					htmlSrc2+="<a href='javascript:void()' onclick='replygetList("+ boardNo+","+barnum+","+replycount+","+data2.length+",1)'>댓글 더 보기</a>";
+				}else{
+					htmlSrc2='';
+				}
+				$('#replynum'+barnum).html(htmlSrc2);
+			},
+			error : function(data) {alert("Error 발생");}
+		});
+	};
+	
+	// Ajax 댓글 삭제시
+	function replyDelete(replyNo, boardNo, barnum, replycountin, replycountnum){
+		$.ajax({
+			type : "post",
+			url : "noticereplydelete.user",
+			data : ({
+				cnum : replyNo,
+			}), //data를 갖고
+			dataType : "json",
+			success : function(data) {
+				replygetList(boardNo, barnum, replycountin, replycountnum,0);
+			},
+			error : function(data) {alert("Error 발생");}
+		});
+	};
+	
 	//Ajax 댓글 추가하기
 	function replyadd(bnum, userid, ccontent, barnum, replycountin, replycountnum){
-		/* alert("here replydelete start"); */
 		$.ajax({
 			type : "post",
 			url : "noticereplyadd.user",
@@ -50,160 +119,19 @@
 			}), //data를 갖고
 			dataType : "json",
 			success : function(data) {
-				/* alert("replyadd OK delete");
-				alert(bnum, barnum); */
-				replygetList(bnum, barnum, replycountin, replycountnum);
+				replygetList(bnum, barnum, replycountin, replycountnum,0);
 			},
 			error : function(data) {
 				alert("Error 발생");
 			}
 		});
 	};
-	
-	//Ajax 리스트 가져오기 (댓글 숫자가 늘어나지 않음)
-	function replygetList(boardNo, barnum, replycountin, replycountnum){
-		/* alert("here replygetList2 ok");
-		alert(boardNo, barnum, replycount); */
-		var loginUser = '<c:out value="${loginUser}"/>';
-		var replycount = parseInt(replycountin);
-		/* alert(replycount); */
-		$.ajax({
-			type : "post",
-			url : "noticereplygetList.user",
-			data : ({
-				bnum : boardNo,
-				replycount : replycount
-			}), //data를 갖고
-			dataType : "json",
-			success : function(data2) {
-				htmlSrc = "";
-				/* alert(replycountnum);
-				alert(replycountin); */
-				
-				var newreplycount = data2[0].newreplyCount;
-				$('#replycount'+barnum).html('현재 댓글수'+newreplycount);
-				for (var i = 1; i < data2.length; i++) {
-					//댓글 출력 부분
-					htmlSrc += data2[i].username+ ':'+ data2[i].ccontent;
-					htmlSrc += '<div class="main-container" style="text-align: left">'+ data2[i].cdate+ '';
-					//조건에 따라 삭제 버튼키 추가
-					 if(loginUser == data2[i].userid){
-						 htmlSrc += "<a href='javascript:void()' onclick='replyDelete("+data2[i].cnum+","+ data2[i].bnum+","+barnum+","+replycountin+","+replycountnum+")'>&nbsp;삭제2</a></div><br>";
-					}else{
-						htmlSrc+='</div><br>';
-					} 
-				}
-				/* alert("^^"); */
-				
-				$('#simson'+ barnum).html(htmlSrc);
-				//버튼 입력 내용중 하나 리플리 값 갱신용
-				$('#bnumm'+ barnum).val(replycountin);
-				/* alert("OK"); */
-				//alert(replycountnum); //총 보유 댓글수
-				//alert(replycount); //현재 보여지는 댓글수
-				
-				//댓글 더 보기 메뉴에 대한 정보를 확인
-				htmlSrc2="";
-				alert("리플 갯수"+replycountnum+"새로 받아온 리플 갯수"+newreplycount+"뭔가 비교하는 변수명"+replycount);
-				if(newreplycount > replycount){
-					htmlSrc2+="<a href='javascript:void()' onclick='replygetList2("+ boardNo+","+barnum+","+replycount+","+data2.length+")'>댓글 더 보기</a>";
-					/* <a href="javascript:void()" onclick="replygetList2('${f.getBnum()}','${varnum }',7)" >댓글 더 보기</a>*/ 
-					/* htmlSrc += "<a href='javascript:void()' onclick='replyDelete("+data2[i].cnum+","+ data2[i].bnum+","+barnum+")'>&nbsp;삭제</a></div><br>"; */
-				}else{
-					htmlSrc2='';
-				}
-				/* alert(htmlSrc2); */
-				$('#replynum'+barnum).html(htmlSrc2);
-				
-			},
-			error : function(data) {alert("Error 발생");}
-		});
-	};
-	
-	//Ajax 리스트 가져오기2  원글번호, 화면 태그가 가진 번호, 현재 리플 달아준 카운트 수, 현재 글 전체 리플 카운트 수 
-	function replygetList2(boardNo, barnum, replycountin, replycountnum){
-		/* alert("here replygetList2 ok");
-		alert(boardNo, barnum, replycount); */
-		var loginUser = '<c:out value="${loginUser}"/>';
-		var replycount = parseInt(replycountin)+7;
-		/* alert(replycount); */
-		$.ajax({
-			type : "post",
-			url : "noticereplygetList.user",
-			data : ({
-				bnum : boardNo,
-				replycount : replycount
-			}), //data를 갖고
-			dataType : "json",	
-			success : function(data2) {
-				var newreplycount = data2[0].newreplyCount;
-				$('#replycount'+barnum).html('현재 댓글수'+newreplycount);
-				htmlSrc = "";
-				for (var i = 1; i < data2.length; i++) {
-					//댓글 출력 부분
-					htmlSrc += data2[i].username+ ':'+ data2[i].ccontent;
-					htmlSrc += '<div class="main-container" style="text-align: left">'+ data2[i].cdate+ '';
-					//조건에 따라 삭제 버튼키 추가
-					 if(loginUser == data2[i].userid){
-						 htmlSrc += "<a href='javascript:void()' onclick='replyDelete("+data2[i].cnum+","+ data2[i].bnum+","+barnum+","+replycount+","+replycountnum+")'>&nbsp;삭제3</a></div><br>";
-					}else{
-						htmlSrc+='</div><br>';
-					} 
-				}
-			/* 	alert("^^"); */
-				$('#simson'+ barnum).html(htmlSrc);
-				//버튼 입력 내용중 하나 리플리 값 갱신용
-				$('#bnumm'+ barnum).val(replycount);
-				//alert(replycountnum); //총 보유 댓글수
-				//alert(replycount); //현재 보여지는 댓글수
-				/* alert("OK"); */
-				htmlSrc2="";
-				alert(replycountnum, newreplycount, replycount);
-				if(newreplycount > replycount){
-					htmlSrc2+="<a href='javascript:void()' onclick='replygetList2("+ boardNo+","+barnum+","+replycount+","+data2.length+")'>댓글 더 보기</a>";
-					/* <a href="javascript:void()" onclick="replygetList2('${f.getBnum()}','${varnum }',7)" >댓글 더 보기</a>*/ 
-					/* htmlSrc += "<a href='javascript:void()' onclick='replyDelete("+data2[i].cnum+","+ data2[i].bnum+","+barnum+")'>&nbsp;삭제</a></div><br>"; */
-				}else{
-					htmlSrc2='';
-				}
-				/* alert(htmlSrc2); */
-				$('#replynum'+barnum).html(htmlSrc2);
-				
-			},
-			error : function(data) {alert("Error 발생");}
-		});
-	};
-	
-	// Ajax 댓글 삭제시
-	function replyDelete(replyNo, boardNo, barnum, replycountin, replycountnum){
-		/* var loginUser = '<c:out value="${loginUser}"/>'; */
-		$.ajax({
-			type : "post",
-			url : "noticereplydelete.user",
-			data : ({
-				cnum : replyNo,
-			}), //data를 갖고
-			dataType : "json",
-			success : function(data) {
-				replygetList(boardNo, barnum, replycountin, replycountnum);
-			},
-			error : function(data) {alert("Error 발생");}
-		});
-	};
-	
-	//Ajax 댓글 더 보여주기
-	/* function replyMoreView(boradNo, barnum, replycount){
-		alert("replyMoreView call ok");
-		replygetList2(boardNo,barnum,replycount);
-		alert("replyMoreView end ok");
-	}; */
 </script>
 
 <div align="right">
 	<s:authorize ifAnyGranted="ROLE_ADMIN">
 		<a href="noticewrite.user" class="dynamiclabel">공지사항 등록</a>
 	</s:authorize>
-
 </div>
 <!-- noticeBoardList -->
 <c:set var="varnum" value="0"></c:set>
@@ -283,7 +211,7 @@
 		</div>
 		<div id="replynum${varnum }">
 			<c:if test="${f.getReplycount()>7 }">
-				<a href="javascript:void()" onclick="replygetList2('${f.getBnum()}','${varnum }','7', '${f.getReplycount()}')" >댓글 더 보기</a>
+				<a href="javascript:void()" onclick="replygetList('${f.getBnum()}','${varnum }','7', '${f.getReplycount()}',1)" >댓글 더 보기</a>
 			</c:if>
 			</div>
 		</div>
