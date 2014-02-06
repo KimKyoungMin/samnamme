@@ -722,7 +722,14 @@ h1, h2, p, a, span{
 			   float: left;	
 			   margin-right: 20px ;
 			   width:440pt;     
-			}	
+			}
+			.morebutton{
+			 margin-bottom: 55px;
+			   background: rgba(111, 74, 112, 0.61);
+			   float: left;	
+			   margin-right: 0px ;
+			   width:170pt;
+			}
 			.blockM li{
 			   margin-bottom: 10px; margin-left: 10px;
 			   font-size: 17px;
@@ -2713,8 +2720,6 @@ div#banner {
 .buttonmore{
 text-decoration: none;
 padding: 5px 7px;
-margin-right: 100px;
-margin-left: 100px;
 margin-top : 40px;
 margin-bottom : 5px;
 border: 1px solid #778;

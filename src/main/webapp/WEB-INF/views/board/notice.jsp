@@ -142,27 +142,20 @@
 	<div class="blockL">
 		<div class="blockM">
 			<ul>
-				<li><a name="title${varnum }">${f.getUserid()}:${f.getBtitle() }</a><br>
-					<div style="text-align: left">${f.getBdate() }</div>
+				<li><a name="title${varnum }"><b>${f.getUserid()}</b><br>제목 :&nbsp;&nbsp;&nbsp;&nbsp; 	${f.getBtitle() }</a><br>
+					
 				</li>
 				<div class="notice">
 					${f.getBcontent() }
 					<c:if test="${f.getBpicname()!=null && f.getBpicname()!='' }">
 					<div class="boardimagebox">
 					<img src="CSS/noticeboardpic/${f.getBpicname()}"  class="boardimagereal"><br>
-					
 					</div>
 					
 					</c:if>
-					
+					<div style="text-align: left">${f.getBdate() }</div><br>
 				</div>
-				<div class="morebutton">
-					<s:authorize ifAnyGranted="ROLE_ADMIN">
-						<a href="noticeupdate.user?bnum=${f.getBnum() }" class="dynamiclabel">공지사항수정</a>
-						<a href="noticedelete.user?bnum=${f.getBnum() }" class="dynamiclabel">공지사항삭제</a>
-					</s:authorize>
-					</div>
-				<h5 id ="replycount${varnum }" class="buttonmore">현재 댓글수 ${f.getReplycount() }</h5>
+				
 				
 			</ul>
 			<div class="blockN">
@@ -217,7 +210,14 @@
 		</div>
 		<!-- noticeBoardReplyList -->
 		
-		
+		<div class="morebutton">
+					<s:authorize ifAnyGranted="ROLE_ADMIN"><p><br><br></p>
+						<a href="noticeupdate.user?bnum=${f.getBnum() }" class="dynamiclabel">공지사항수정</a><br><p><br><br></p>
+						<a href="noticedelete.user?bnum=${f.getBnum() }" class="dynamiclabel">공지사항삭제</a><br><p><br><br></p>
+					</s:authorize>
+					
+				<h5 id ="replycount${varnum }" class="buttonmore">현재 댓글수 ${f.getReplycount() }</h5>
+		</div>
 		</div>
 </c:forEach>
 <div class="blockM">
