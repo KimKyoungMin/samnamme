@@ -17,7 +17,7 @@
 <script type="text/javascript">
  $(document).ready(function(){  
   $(".header-menu-tab").hover(function() {     
-   $(this).parent().find(".subnav").slideDown('normal').show(); 
+   $(this).parent().find(".subnav").slideDown('fast').show(); 
    $(this).parent().hover(function() {  
    }, function(){  
     $(this).parent().find(".subnav").slideUp('fast');   

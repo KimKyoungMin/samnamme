@@ -7,14 +7,14 @@
 
    <form action="myplayerlist.htm" method="post" name="form1">
    <div align="right">
-	   <h2>
+	   <h3>
 	   <input type="submit" class="listadd button3" value="MyPlayerList에 추가하기"> 
 	   
 	   <s:authorize ifAnyGranted="ROLE_ADMIN">
 	  	 <input type="button" class="delete button2" value="Delete" onclick="javascript:submit_delete()">
 	   </s:authorize>
 	      || 전체 선택 <input type="checkbox" name="checkall" onclick="javascript:CheckAll()">
-	   </h2>
+	   </h3>
 	   <br>
    </div>
    <div>
@@ -31,12 +31,30 @@
 			     <img src="upload/${m.getMpicname()}" width="250px" height="200px">
 			   </div>
 			   <div class="music">
-			      노래 : ${m.getMtitle()}<br>
-			      가수 : ${m.getMsname()}<br>
-			      장르 : ${m.getMgrade()}<br>
-			      다운 : <a href="download.htm?p=upload&f=${m.getMfilename()}&minfonum=${m.getMinfonum()}">${m.getMfilename()}</a>
+			      <table>
+			         <tr>
+			            <td><b>노래</b></td>
+			            <td>${m.getMtitle()}</td>
+			         </tr>
+			         <tr>
+			            <td><b>가수</b></td>
+			            <td>${m.getMsname()}</td>
+			         </tr>
+			         <tr>
+			            <td><b>장르</b></td>
+			            <td>${m.getMgrade()}</td>
+			         </tr>
+			         <tr rowspan="2">
+			            <td><b>Down</b></td>
+			            <td><a href="download.htm?p=upload&f=${m.getMfilename()}&minfonum=${m.getMinfonum()}">${m.getMfilename()}</a></td>
+			         </tr>
+			         <%-- <tr>
+			            <td colspan="2">${m.getMetcinfo()}</td>
+			         </tr> --%>
+			      </table>
+			      <br>
+			      ${m.getMetcinfo()}
 			   </div>
-			   	<li>${m.getMetcinfo()}</li>
 			   	
 			   	</ul>
 	

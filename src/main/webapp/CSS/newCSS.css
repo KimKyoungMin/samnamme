@@ -87,14 +87,19 @@
 }
 
 body {
-background: -moz-linear-gradient(top,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.65)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
-background: linear-gradient(to bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+/* background: -moz-linear-gradient(top,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); FF3.6+
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.65)), color-stop(100%,rgba(0,0,0,0))); Chrome,Safari4+
+background: -webkit-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); Chrome10+,Safari5.1+
+background: -o-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); Opera 11.10+
+background: -ms-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); IE10+
+background: linear-gradient(to bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); W3C
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); IE6-9
+ */
+ background: F0F2EB;
+}
 
+.header01 h1{
+	padding-top: 15px;
 }
 
 ul {
@@ -106,13 +111,17 @@ ul {
 h1 {
 	text-align: center;
 	font-size: 45px;
-	margin-top: 5px;
+	padding-top: 15px;
 	margin-bottom: 0;
 }
 
 h2 {
-	font-size: 17px;
+	font-size: 22px;
 	margin-top: 0;
+}
+
+h3 {
+	font-size: 15px;
 }
 
 p {
@@ -128,10 +137,10 @@ a {
 	}
 
 h1, h2, p, a, span{
-	color: #fff;
+    color: 4A3D3D;
 }
 	.scnd-font-color {
-		color: #9099b7;
+		color: FF6161;
 	}
 
 .input-container {
@@ -154,9 +163,9 @@ h1, h2, p, a, span{
 		margin-left: 20px;
 		margin-bottom: 20px;
 		padding-left: 45px;
-		background: #50597b;
-		color: #fff;
-		border: solid 1px #1f253d;
+		background: F0F2EB;
+		color: 4A3D3D;
+		border: solid 1px 4A3D3D;
 		border-radius: 5px;		
 	}
 	input.text3_1-input{      /*결제 상품, 가격 input 창*/
@@ -421,8 +430,8 @@ h1, h2, p, a, span{
 					transition: background .3s;
 				}
 					.header-menu-tab:hover {
-						background: #50597b;
-						border-bottom: 4px solid #fcb150;
+						background: D8DEC3;
+						border-bottom: 4px solid FF4242;
 						text-decoration: none;
 					}
 					.header-menu-tab .icon {
@@ -484,7 +493,7 @@ h1, h2, p, a, span{
 	}
 		.block {
 			margin-bottom: 15px;
-			background: #394264;
+			background: E1EDB9;  
 			border-radius: 5px;
 		}
 
@@ -494,7 +503,7 @@ h1, h2, p, a, span{
 				height: 360px;
 			}
 				.menu-box .titular {
-					background: #11a8ab;
+					background: D4EE5E;
 				}
 				.menu-box-menu .icon {
 					display: inline-block;
@@ -527,7 +536,7 @@ h1, h2, p, a, span{
 					transition: background .2s;
 				}
 					.menu-box-tab:hover {
-						background: #50597b;
+						background: D8DEC3;
 						border-top: 1px solid #1f253d;
 						text-decoration: none;
 					}
@@ -538,21 +547,21 @@ h1, h2, p, a, span{
 						background: #e64c65;
 					}
 	        /****** 회원 명단 ********/
-	        .ausers table ,thead ,tbody{
+	        .ausers table ,thead ,t{
 	           color: #fff;
 	        }
 	       
 	        /****** 사용자 정보 페이지 **/
 	        .profileA {
 	           padding-top: 5px;
-	           color: #fff;
+	           color: 4A3D3D;
 			   height: 350px;
 			   width: 300px;		   
 			}
 	        .blockA {
 			  /*  display: inline; */
 			   margin-bottom: 25px;
-			   background: #394264;
+			   background: E1EDB9;
 			   border-radius: 5px;	
 			   float: left;	
 			   margin-right: 20px ;
@@ -563,7 +572,7 @@ h1, h2, p, a, span{
 /****** 사용자 다운 리스트 **/
 .profileD {
 	padding-top: 5px;
-	color: #fff;
+	color: 4A3D3D;
 	height: 350px;
 	width: 300px;
 }
@@ -571,7 +580,7 @@ h1, h2, p, a, span{
 .blockD {
 	/*  display: inline; */
 	margin-bottom: 25px;
-	background: #394264;
+	background: E1EDB9;
 	border-radius: 5px;
 	float: left;
 	margin-right: 20px;
@@ -581,16 +590,16 @@ h1, h2, p, a, span{
 /****** 사용자 현재 결제 내역 페이지 **/
 .profileP {
 	padding-top: 5px;
-	color: #fff;
+	color: 4A3D3D;
 	height: 350px;
 	width: 300px;
 }
 
 .blockP {
 	/*  display: inline; */
-	color: #fff;
+	color: 4A3D3D;
 	margin-bottom: 25px;
-	background: #394264;
+	background: E1EDB9;
 	border-radius: 5px;
 	float: left;
 	margin-right: 20px;
@@ -685,21 +694,26 @@ h1, h2, p, a, span{
 	transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-/****** 음악 리스트 ******/.profileM {
-			   color: #fff;
-			   height: 350px;
+            .profileM {         /****** 음악 리스트 ******/
+			   color: 4A3D3D;
+			   height: 370px;
 			   width: 300px;		   
 			}
+			.music table{
+			   color: 4A3D3D;
+			}
+			
 			.blockL {
 			background: #6a5acd;
 			width:800pt;
-			
 			}
-			
 			.blockK {
 			  /*  display: inline; */
+			   font-size: 14px;
+			   padding-left: 10px;
+			   padding-right: 5px;
 			   margin-bottom: 25px;
-			   background: #394264;
+			   background: E1EDB9;
 			   border-radius: 5px;	
 			   float: left;	
 			   margin-right: 20px ;
@@ -1451,23 +1465,26 @@ h1, h2, p, a, span{
 			    /***** 노래 삭제 버튼 ********/
 			    .delete.button2 {
 				    border: none;
-					background: #e64c65;
+					background: #FF7A85;
 					color: #fff;
 					margin: 2px auto;
 				}
-					.edit.button2:hover {
+					.delete.button2:hover {
 						background: #cc324b;
 					}
 					
 				/***** 노래 리스트 추가 버튼 ***/
 			    .listadd.button3 {
+			        width: 200px;
 				    border: none;
-					background: #11a8ab;
+					background: #FF7A85;
 					color: #fff;
 					margin-top: 3px;
+					padding-top: 3px;
+					padding-bottom: 3px;
 				}
 					.listadd.button3:hover {
-						background: #0F9295;
+						background: #FF848F;
 					}
 			    
 			    
@@ -1534,6 +1551,8 @@ h1, h2, p, a, span{
 						background: -ms-linear-gradient(left, #4fc4f6 43%,#50597b 43%); /* IE10+ */
 						background: linear-gradient(to right, #4fc4f6 43%,#50597b 43%); /* W3C */
 					}
+			
+			/******* 캘린더 ******/			
 			.calendar-day {
 				height: 320px;
 				background: #3468af;
@@ -1615,7 +1634,7 @@ ul, li{list-style:none;}
 /*�ָ޴� ���콺 ������*/
 
 .header-menu-tab:hover{
-	color:#9099b7;
+	color:#fff;
 }
 
 
@@ -1634,7 +1653,7 @@ ul, li{list-style:none;}
 	position: absolute;
 	width: 100%;
 	left: 0; top: 80px;
-	background: black;
+	background: E1EDB9;
 	display: none;
 }
 
@@ -1645,7 +1664,7 @@ ul, li{list-style:none;}
 	padding:0;
 	width:100%;
 	text-align:center;
-	border-bottom:1px solid #222;
+	border-bottom:1px solid D8DEC3;
 	border-top:1px solid;
 	cursor:pointer;
 }
@@ -1654,8 +1673,8 @@ ul, li{list-style:none;}
 /*����޴� ���콺 ������*/
 
 .subnav li:hover{
-	background: #50597b;
-	border-bottom: 4px solid #fcb150;
+	background: D8DEC3;
+	border-bottom: 4px solid FF4242;
 	text-decoration: none;
 }
 

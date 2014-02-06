@@ -37,7 +37,7 @@
 
 <c:choose>
    <c:when test="${mylists.size()==0}">
-        <h2>노래 리스트가 없습니다.</h2>
+        <h3>음악 리스트가 없습니다.</h3>
    </c:when>
    <c:otherwise>
        <form action="musiclistDel.htm" method="get">
