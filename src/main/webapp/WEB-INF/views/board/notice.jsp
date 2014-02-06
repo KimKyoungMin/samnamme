@@ -63,14 +63,15 @@
 				for (var i = 1; i < data2.length; i++) {
 					//댓글 출력 부분
 					htmlSrc += data2[i].username+ ':'+ data2[i].ccontent;
-					htmlSrc += '<div class="main-container" style="text-align: left">'+ data2[i].cdate+ '';
-					//조건에 따라 삭제 버튼키 추가
 					 if(loginUser == data2[i].userid){
-						 htmlSrc += "<a href='javascript:void()' onclick='replyDelete("+data2[i].cnum+","+ data2[i].bnum+","+barnum+","+replycount+","+replycountnum+")'>&nbsp;삭제2</a></div><br>";
+						 htmlSrc += "<a href='javascript:void()' onclick='replyDelete("+data2[i].cnum+","+ data2[i].bnum+","+barnum+","+replycount+","+replycountnum+")'><img alt='글 삭제하기' src='CSS/noticeboardpic/deletebut.jpg' style='width:12pt; height:9pt;' ></a></div>";
 						//원글번호, 화면 태그가 가진 번호, 현재 리플 달아준 카운트 수, 현재 글 전체 리플 카운트 수 , 보여주는 댓글 숫자를 늘릴지의 여부
 					}else{
-						htmlSrc+='</div><br>';
+						htmlSrc+='</div>';
 					} 
+					htmlSrc += '<div class="main-container" style="text-align: left">'+ data2[i].cdate+ '<p><br></p>';
+					//조건에 따라 삭제 버튼키 추가
+					
 				}
 				
 				$('#simson'+ barnum).html(htmlSrc);
@@ -177,18 +178,19 @@
 			<c:forEach var="c" items="${noticeBoardReplyList}">
 			<!-- 댓글 아이디 증가 -->
 			<c:set var="replynum" value="${replynum+1 }"></c:set>
-				<c:if test="${not doneLoop}"> 
+				<c:if test="${not doneLoop}">
 				<c:if test="${f.getBnum() == c.getBnum()}">
 							${c.getUsername() } : ${c.getCcontent() }
+							<c:choose>
+								<c:when test="${loginUser eq c.getUserid() }">
+									<a href="javascript:void()" onclick="replyDelete('${c.getCnum()}', '${c.getBnum() }','${varnum }','7','${f.getReplycount()}')"><img alt="글 삭제하기" src="CSS/noticeboardpic/deletebut.jpg" style="width:12pt; height:9pt;" ></a>
+								</c:when>
+							</c:choose>
 						<div style="text-align: left">${c.getCdate() }
 						<!-- 스테이트 추가 -->
 						<c:set var="statetrue" value="${statetrue+1 }"></c:set>
 							<!-- 본인이 적은글 삭제 할수 있게 해주는 기능 추가 -->
-							<c:choose>
-								<c:when test="${loginUser eq c.getUserid() }">
-									<a href="javascript:void()" onclick="replyDelete('${c.getCnum()}', '${c.getBnum() }','${varnum }','7','${f.getReplycount()}')">&nbsp;삭제</a>
-								</c:when>
-							</c:choose>
+							
 							</div>
 						<br>
 				</c:if>
