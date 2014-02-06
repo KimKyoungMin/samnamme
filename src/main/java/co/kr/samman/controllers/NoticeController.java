@@ -37,13 +37,9 @@ public class NoticeController {
 			int lastnum=3;
 			int firstnum=0;
 			String lastnumS = req.getParameter("lastnum");
-//			System.out.println("noticeList-lastnumS : "+lastnumS);
-//			System.out.println("noticeList-lastnum : "+lastnum);
 			if(lastnumS !=null && !lastnumS.equals("")){
 				lastnum = Integer.parseInt(lastnumS)+3;
 			}
-//			System.out.println("noticeList-lastnumS : "+lastnumS);
-//			System.out.println("noticeList-lastnum : "+lastnum);
 			lastNumber lastnumb = new lastNumber();
 			lastnumb.setLastnum(lastnum);
 			model.addAttribute("lastNumber", lastnumb);
@@ -61,44 +57,9 @@ public class NoticeController {
 			return "board.notice";
 		}
 		
-//		@RequestMapping(value="noticereplygetList.user" ,produces="text/plain;charset=UTF-8")
-//		@ResponseBody
-//		public String noticeReplygetList(HttpServletRequest req,HttpServletResponse res, Model model, String bnum) throws UnsupportedEncodingException{
-////			System.out.println(bnum);
-//			int lastreply=7;
-////			if(lastreplynum!=0){
-////				lastreply =lastreplynum; 
-////			}
-//			NoticeBoardDao noticeBoardDao = sqlSession.getMapper(NoticeBoardDao.class);
-//			List<cont> cont=noticeBoardDao.noticereplyResult(bnum, lastreply);
-//			
-//			//Ajax 한글처리를위한 추가구문
-//			req.setCharacterEncoding("UTF-8");
-//			res.setHeader("Content-Type", "text/html; charest=utf-8");
-//			
-//			//Json 리스트객체 생성
-//			JSONArray data2 = new JSONArray();
-//			
-//			for(cont b : cont){
-//				//Json 객체 생성
-//				JSONObject obj = new JSONObject();
-//				obj.put("username",b.getUsername());
-//				obj.put("ccontent",b.getCcontent());
-//				obj.put("cdate", b.getCdate());
-//				obj.put("userid", b.getUserid());
-//				obj.put("bnum",  b.getBnum());
-//				obj.put("cnum", b.getCnum());
-//				//Json 리스트에 객체를 추가함
-//				data2.add(obj);
-//			}
-//			System.out.println(data2.toString());
-//			return data2.toString();
-//		}
-		
 		@RequestMapping(value="noticereplygetList.user" ,produces="text/plain;charset=UTF-8")
 		@ResponseBody
-		public String noticeReplygetList2(HttpServletRequest req,HttpServletResponse res, Model model, String bnum, int replycount) throws UnsupportedEncodingException{
-			System.out.println(bnum);
+		public String noticeReplygetList(HttpServletRequest req,HttpServletResponse res, Model model, String bnum, int replycount) throws UnsupportedEncodingException{
 			int lastreply=7;
 			if(replycount!=0){
 				lastreply =replycount; 
@@ -131,9 +92,36 @@ public class NoticeController {
 				//Json 리스트에 객체를 추가함
 				data2.add(obj);
 			}
-//			System.out.println(data2.toString());
 			return data2.toString();
 		}
+		@RequestMapping(value="noticereplyget.user" ,produces="text/plain;charset=UTF-8")
+		@ResponseBody
+		public String noticeReplyget(HttpServletRequest req,HttpServletResponse res, Model model, String Cnum) throws UnsupportedEncodingException {
+			System.out.println(Cnum);
+			NoticeBoardDao noticeBoardDao = sqlSession.getMapper(NoticeBoardDao.class);
+			//noticeBoardDao.noticereplyDelete(cnum);
+			cont cont = noticeBoardDao.noticereplyGet(Cnum);
+			System.out.println(cont.getCcontent());
+			JSONObject data = new JSONObject();
+			data.put("replycontent", cont.getCcontent());
+			System.out.println(data.toString());
+			return data.toString();
+		}
+		
+		@RequestMapping(value="noticereplyupdate.user" ,produces="text/plain;charset=UTF-8")
+		@ResponseBody
+		public String noticeReplyUpdate(HttpServletRequest req,HttpServletResponse res, Model model, String Cnum, String concent){
+			NoticeBoardDao noticeBoardDao = sqlSession.getMapper(NoticeBoardDao.class);
+			noticeBoardDao.noticereplyUpdate(concent, Integer.parseInt(Cnum));
+			
+			JSONObject data = new JSONObject();
+			data.optString("message", "success");
+			System.out.println(data.toString());
+			return data.toString();
+		}
+		
+		
+		
 		
 		@RequestMapping(value="noticereplydelete.user" ,produces="text/plain;charset=UTF-8")
 		@ResponseBody

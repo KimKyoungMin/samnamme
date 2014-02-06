@@ -87,4 +87,13 @@
 	<delete id="noticereplyDelete">
 		DELETE FROM CONT WHERE CNUM=#{param1}
 	</delete>
+	
+	<select id="noticereplyGet" resultType="co.kr.samman.dto.cont">
+		SELECT CCONTENT FROM CONT WHERE CNUM= #{param1}
+	</select>
+	
+	<update id="noticereplyUpdate">
+		UPDATE CONT SET CCONTENT = #{param1}
+		WHERE CNUM= #{param2}
+	</update>
 </mapper>

@@ -36,7 +36,7 @@
 	});
 	
 	//Ajax 리스트 가져오기1 (댓글 숫자가 늘어나지 않음 = 댓글 숫자를 하나 덜가져옴)
-	//원글번호, 화면 태그가 가진 번호, 현재 리플 달아준 카운트 수, 현재 글 전체 리플 카운트 수 , 보여주는 댓글 숫자를 늘릴지의 여부
+	//화면 태그가 가진 번호, 원글번호, 현재 리플 달아준 카운트 수, 현재 글 전체 리플 카운트 수 , 보여주는 댓글 숫자를 늘릴지의 여부
 	function replygetList(boardNo, barnum, replycountin, replycountnum, incrasebool){
 		var loginUser = '<c:out value="${loginUser}"/>';
 		var replycount;
@@ -62,12 +62,16 @@
 				$('#replycount'+barnum).html('현재 댓글수'+newreplycount);
 				for (var i = 1; i < data2.length; i++) {
 					//댓글 출력 부분
+					htmlSrc +="<div id='replyUpdateForm"+barnum+"num"+i+"'>";
 					htmlSrc += data2[i].username+ ':'+ data2[i].ccontent;
 					 if(loginUser == data2[i].userid){
-						 htmlSrc += "<a href='javascript:void()' onclick='replyDelete("+data2[i].cnum+","+ data2[i].bnum+","+barnum+","+replycount+","+replycountnum+")'><img alt='글 삭제하기' src='CSS/noticeboardpic/deletebut.jpg' style='width:12pt; height:9pt;' ></a></div>";
+						htmlSrc += "<a href='javascript:void()' onclick='replyDelete("+data2[i].cnum+","+ data2[i].bnum+","+barnum+","+replycount+","+replycountnum+")'><img alt='글 삭제하기' src='CSS/noticeboardpic/deletebut.jpg' style='width:12pt; height:9pt;' ></a>";
 						//원글번호, 화면 태그가 가진 번호, 현재 리플 달아준 카운트 수, 현재 글 전체 리플 카운트 수 , 보여주는 댓글 숫자를 늘릴지의 여부
+						htmlSrc +="<a href='javascript:void()' onclick='replyUpdateFormcall("+barnum+","+i+","+data2[i].bnum+","+data2[i].cnum+","+replycount+","+replycountnum+")'>글 수정하기</a>";
+						 //<a href="javascript:void()" onclick="replyUpdateFormcall(${varnum}, ${replynum }, ${c.getBnum() },${c.getCnum() },'7', '${f.getReplycount()}')">글 수정하기</a> 
+						htmlSrc +="</div></div>"; 
 					}else{
-						htmlSrc+='</div>';
+						htmlSrc+='</div></div>';
 					} 
 					htmlSrc += '<div class="main-container" style="text-align: left">'+ data2[i].cdate+ '<p><br></p>';
 					//조건에 따라 삭제 버튼키 추가
@@ -127,6 +131,51 @@
 			}
 		});
 	};
+	
+	//댓글 수정 처리
+	function replyUpdateLogic(Bnum, varnum, Cnum, replycountin, replycountnum){
+		var concent=document.getElementById("modifyreply").value;
+		
+		 $.ajax({
+			type : "post",
+			url : "noticereplyupdate.user",
+			data : ({
+				Cnum : Cnum,
+				concent: concent
+			}), //data를 갖고
+			dataType : "json",
+			success : function(data) {
+				alert("updatelogic call ok");
+				replygetList(varnum, Bnum, replycountin, replycountnum,0);				
+			},
+			error : function(data) {
+				alert("Error 발생");
+			}
+		}); 
+	};
+	//댓글 수정하기 폼 작성
+	//글번호(태그상 번호), 댓글번호(태그상 번호), 원글번호(DB상), 댓글번호(DB상), 댓글수, 전체 댓글수
+	function replyUpdateFormcall(varnum, replynum , Bnum, Cnum, replycountin, replycountnum){
+		$.ajax({
+			type : "post",
+			url : "noticereplyget.user",
+			data : ({
+				Cnum : Cnum,
+			}), //data를 갖고
+			dataType : "json",
+			success : function(data) {
+				htmlSrc="<input type='text' id='modifyreply' value='"+data.replycontent+"'>";
+				// <a href="javascript:void()" onclick="replyUpdateFormcall(${varnum}, ${replynum }, ${c.getCnum() },${c.getCnum() },'7', '${f.getReplycount()}')">글 수정하기</a> 
+				htmlSrc+="<a href='javascript:void()' onclick='replyUpdateLogic("+varnum+","+Bnum+","+Cnum+","+replycountin+","+replycountnum+")'>수정사항적용</a>";
+				$('#replyUpdateForm'+varnum+'num'+replynum).html(htmlSrc);
+			},
+			error : function(data) {
+				alert("Error 발생");
+			}
+		});
+		//<input type="button" id= "reply${varnum }" name="${varnum }" value="댓글달기" class="element text small"><P></P><BR>
+	};
+	
 </script>
 
 <div align="right">
@@ -178,14 +227,18 @@
 			<c:forEach var="c" items="${noticeBoardReplyList}">
 			<!-- 댓글 아이디 증가 -->
 			<c:set var="replynum" value="${replynum+1 }"></c:set>
+			<div id="replyUpdateForm${varnum }num${replynum }">
 				<c:if test="${not doneLoop}">
 				<c:if test="${f.getBnum() == c.getBnum()}">
 							${c.getUsername() } : ${c.getCcontent() }
 							<c:choose>
 								<c:when test="${loginUser eq c.getUserid() }">
 									<a href="javascript:void()" onclick="replyDelete('${c.getCnum()}', '${c.getBnum() }','${varnum }','7','${f.getReplycount()}')"><img alt="글 삭제하기" src="CSS/noticeboardpic/deletebut.jpg" style="width:12pt; height:9pt;" ></a>
+									<a href="javascript:void()" onclick="replyUpdateFormcall(${varnum}, ${replynum }, ${c.getBnum() },${c.getCnum() },'7', '${f.getReplycount()}')">글 수정하기</a>
+									
 								</c:when>
 							</c:choose>
+							
 						<div style="text-align: left">${c.getCdate() }
 						<!-- 스테이트 추가 -->
 						<c:set var="statetrue" value="${statetrue+1 }"></c:set>
@@ -199,6 +252,7 @@
 					<c:set var="statetrue" value="0"/>
 				</c:if>
 				</c:if>
+				</div>
 			</c:forEach>
 			
 			</div>
@@ -217,7 +271,6 @@
 						<a href="noticeupdate.user?bnum=${f.getBnum() }" class="dynamiclabel">공지사항수정</a><br><p><br><br></p>
 						<a href="noticedelete.user?bnum=${f.getBnum() }" class="dynamiclabel">공지사항삭제</a><br><p><br><br></p>
 					</s:authorize>
-					
 				<h5 id ="replycount${varnum }" class="buttonmore">현재 댓글수 ${f.getReplycount() }</h5>
 		</div>
 		</div>
