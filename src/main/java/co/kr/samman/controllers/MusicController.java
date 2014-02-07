@@ -99,11 +99,11 @@ public class MusicController {
 			UserDetails user =   
 				       (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 			int ck = accountDao.userCk(user.getUsername());
-			System.out.println(ck);
 			if(ck==1){
+				System.out.println(ck);
 			   String [] checked = req.getParameterValues("check[]");
-			   //System.out.println(checked.length);
-			   if(checked.length<=0){
+		   
+			   if(checked==null){
 				   res.setCharacterEncoding("EUC-KR");
 		    	   PrintWriter out = res.getWriter();
 		    	   out.println("<script type='text/javascript'>");
