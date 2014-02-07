@@ -8,7 +8,7 @@
       <h1>Music Site</h1>
    </header>
 </div>
-
+<!-- igo -->
 <div class="block3">
       <s:authentication property="name" var="loginUser"/>
    <h2>
