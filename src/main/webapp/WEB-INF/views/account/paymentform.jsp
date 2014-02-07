@@ -33,6 +33,6 @@
 </c:choose>
 
 <form action="pay.user" method="get">
-  <input type="submit" class="pay button" value="결제">
+  <input type="submit" class="payOK_1 button" value="결제">
 </form>
 

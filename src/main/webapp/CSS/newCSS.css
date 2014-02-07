@@ -174,9 +174,9 @@ h1, h2, p, a, span{
 		height: 40px;
 		margin-right: 10px;
 		margin-bottom: 10px;
-		background: #50597b;
-		color: #fff;
-		border: solid 1px #1f253d;
+		background: F0F2EB;
+		color: 4A3D3D;
+		border: solid 1px 4A3D3D;
 		border-radius: 5px;		
 	}
 	input.text3_2-input{      /*결제일 input 창*/
@@ -185,9 +185,9 @@ h1, h2, p, a, span{
 		height: 40px;
  		margin-left: 3px; 
 		margin-bottom: 10px;
-		background: #50597b;
-		color: #fff;
-		border: solid 1px #1f253d;
+		background: F0F2EB;
+		color: 4A3D3D;
+		border: solid 1px 4A3D3D;
 		border-radius: 5px;		
 	}
 	input.text3-input{    /*결제유효기간 input 창*/
@@ -196,9 +196,9 @@ h1, h2, p, a, span{
  		margin-left: 7px; 
 		margin-bottom: 10px;
 		padding-left: 45px;
-		background: #50597b;
-		color: #fff;
-		border: solid 1px #1f253d;
+		background: F0F2EB;
+		color: 4A3D3D;
+		border: solid 1px 4A3D3D;
 		border-radius: 5px;		
 	}
 	input.text4-input{
@@ -215,9 +215,9 @@ h1, h2, p, a, span{
 		height: 40px;
 		margin-top: 10px;
 		padding-left: 18px;
-		background: #50597b;
-		color: #fff;
-		border: solid 1px #1f253d;
+		background: F0F2EB;
+		color: 4A3D3D;
+		border: solid 1px 4A3D3D;
 		border-radius: 5px;		
 	}
 	input.text5_1-input{       
@@ -226,9 +226,9 @@ h1, h2, p, a, span{
 		margin-top: 10px;
 		margin-left: 65px;
 		padding-left: 18px;
-		background: #50597b;
-		color: #fff;
-		border: solid 1px #1f253d;
+		background: F0F2EB;
+		color: 4A3D3D;
+		border: solid 1px 4A3D3D;
 		border-radius: 5px;		
 	}
 	audio#au{
@@ -572,10 +572,16 @@ h1, h2, p, a, span{
 /****** 사용자 다운 리스트 **/
 .profileD {
 	padding-top: 5px;
+	padding-left: 5px;
 	color: 4A3D3D;
 	height: 350px;
 	width: 300px;
 }
+.profileDtable table {
+	border-style: 1px solid;
+	color: 4A3D3D;
+}
+
 
 .blockD {
 	/*  display: inline; */
@@ -586,6 +592,7 @@ h1, h2, p, a, span{
 	margin-right: 20px;
 	margin-bottom: 25px;
 }
+
 
 /****** 사용자 현재 결제 내역 페이지 **/
 .profileP {
@@ -610,22 +617,26 @@ h1, h2, p, a, span{
 }
 
 /****** 사용자 결제처리 페이지 **/
-.profilePOK {
- 	margin-left: 170px; 
+.profilePOK { 
 	padding-top: 15px;
 	color: #fff;
 	height: 390px;
-	width: 600px;
+	width: 960px;
 }
 .profilePOK h2 {
-	font-size: 20px;
+	font-size: 30px;
 }
+.profilePOK div {
+	font-size: 20px;
+	color: 4A3D3D;
+}
+
 
 .blockPOK {
 	/*  display: inline; */
 	color: #fff;
 	margin-bottom: 25px;
-	background: #394264;
+	background: E1EDB9;
 	border-radius: 5px;
 	float: left;
 	margin-right: 25px;
@@ -635,18 +646,17 @@ h1, h2, p, a, span{
 	padding-bottom: 20px;
 }
 
-.profile_radio input{
+.profilePOK input{
 	display: inline;
+	margin-bottom: 5px;
 }
-.block_radio {
-	margin-left: 90px;
-	margin-right: 50px;
+.blockPOK {
+	margin-right: 35px;
 }
 
 .profilePOK_1 {
- 	margin-left: 10px; 
 	padding-top: 5px;
-	color: #fff;
+	color: 4A3D3D;
 	height: 200px;
 	width: 180px;
 }
@@ -655,6 +665,7 @@ h1, h2, p, a, span{
 	border-style: outset;
 	border-color: #fff;
 	color: #fff;
+	margin-left: 90px;
 	margin-bottom: 25px;
 	border-radius: 5px;
 	float: left;
@@ -663,6 +674,7 @@ h1, h2, p, a, span{
 	padding-left: 5px;
 	padding-right: 5px;
 	padding-bottom: 20px;
+	background-color: orange;
 }
 
 /*****결제 상세 내역 페이지 ****/
@@ -673,6 +685,7 @@ h1, h2, p, a, span{
 	padding-top: 10px;
 	padding-left: 3px;
 	padding-right: 3px;
+	border-color: E1EDB9;
 }
 
 
@@ -1453,13 +1466,22 @@ h1, h2, p, a, span{
 						background: #0F9295;
 					}
 			     /***** 결제OK 버튼 *****/
-			    .payOK.button {
+			    .payOK.button {       /* 결제 내역에서 결제 버튼 */
 				    border: none;
-					background: #11a8ab;
-					color: #fff;
+					background: E1EDB9;
+					color: 4A3D3D;
 				}
-					.payOK.button:hover {
-						background: #0F9295;
+				   .payOK.button:hover {
+				        background: D8DEC3;
+					}
+				.payOK_1.button {
+				    border: none;
+					background: E1EDB9;
+					color: 4A3D3D;
+					margin-top: 20px;
+				}
+					.payOK_1.button:hover {
+						background: D8DEC3;
 					}
 				
 			    /***** 노래 삭제 버튼 ********/

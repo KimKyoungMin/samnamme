@@ -23,9 +23,22 @@ E-mail <input type="text" name="uemail" class="email text2-input" value="${usert
     <h2>다운 받은 리스트가 없습니다.</h2>
   </c:when>
   <c:otherwise>
-     <c:forEach var="mdlist" items="${md }">
-        ${mdlist.getMinfonum() } / ${mdlist.getMtitle() } / ${mdlist.getMsname() }<hr>
-     </c:forEach>
+  <div class="profileDtable">
+     <table>
+       <tr>
+          <th>NO.</th>
+          <th>제목</th>
+          <th>가수</th>
+       </tr>
+       <c:forEach var="mdlist" items="${md }">
+          <tr>
+            <td>${mdlist.getMinfonum() }</td>
+            <td>${mdlist.getMtitle() }</td> 
+            <td>${mdlist.getMsname() }</td>
+           </tr>
+       </c:forEach>
+     </table>
+  </div>
   </c:otherwise>
 </c:choose>
 </div>

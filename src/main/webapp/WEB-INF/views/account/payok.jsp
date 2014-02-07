@@ -6,17 +6,11 @@
 <form action="pay.user" method="post">
 <h2>결제 </h2><br>
 <br>
-    <div class="profile_radio">
-       <input type="radio" name="paysubcode" value="1" class="block_radio">
-       <input type="radio" name="paysubcode" value="2" class="block_radio">
-	   <input type="radio" name="paysubcode" value="3" class="block_radio">
-    
-    </div>
-    
 	   <c:forEach var="pid" items="${payinfoDto }">
 	     <div class="profilePOK_1 blockPOK_1">
+	          <input type="radio" name="paysubcode" value="${pid.paysubcode }" class="block_radio">
 		      <div>
-	             ${pid.paysubcode }) ${pid.payname }
+	             <b>${pid.paysubcode }) ${pid.payname }</b>
 	          </div>
 		      <br>
 		      <p>
