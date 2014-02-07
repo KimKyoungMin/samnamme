@@ -93,35 +93,49 @@ public class MusicController {
 		//mymusict DB에 음악 넣기
 		@RequestMapping("myplayerlist.htm")
 		public String mpl(HttpServletRequest req, HttpServletResponse res) throws IOException{
+			System.out.println("control");
 			//이용 고객인지 체크
 			AccountDao accountDao = sqlSession.getMapper(AccountDao.class);
 			UserDetails user =   
 				       (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 			int ck = accountDao.userCk(user.getUsername());
+			System.out.println(ck);
 			if(ck==1){
 			   String [] checked = req.getParameterValues("check[]");
-			   for(int i=0; i<checked.length; i++){
-			       System.out.println(checked[i]); //리스트에 넣을 minfonum
-				   MusicDao musicDao = sqlSession.getMapper(MusicDao.class);
-			       
-			       int minfonumCk = musicDao.myplayerlistCk(user.getUsername(), Integer.parseInt(checked[i]));
-			       System.out.println(minfonumCk);
-			       if(minfonumCk==0){
-			    	   mymusict m = new mymusict();
-					   //System.out.println(user.getUsername()); //로그인하고 있는 username
-					   m.setUserid(user.getUsername());
-					   m.setMinfonum(Integer.parseInt(checked[i]));
-					   musicDao.myplayerlist(m); 
-			       }else{
-			    	   res.setCharacterEncoding("EUC-KR");
-			    	   PrintWriter out = res.getWriter();
-			    	   out.println("<script type='text/javascript'>");
-			    	   out.println("alert('이미 리스트에 있습니다.^^')");
-			    	   out.println("history.back();");
-			    	   out.println("</script>");
-			    	   out.close();
-			       }	  	   
-			    }		   
+			   //System.out.println(checked.length);
+			   if(checked.length<=0){
+				   res.setCharacterEncoding("EUC-KR");
+		    	   PrintWriter out = res.getWriter();
+		    	   out.println("<script type='text/javascript'>");
+		    	   out.println("alert('음악을 선택해 주세요')");
+		    	   out.println("history.back();");
+		    	   out.println("</script>");
+		    	   out.close();
+			   }else{
+				   for(int i=0; i<checked.length; i++){
+					   System.out.println(checked[i]); //리스트에 넣을 minfonum
+					   MusicDao musicDao = sqlSession.getMapper(MusicDao.class);
+					   
+					   int minfonumCk = musicDao.myplayerlistCk(user.getUsername(), Integer.parseInt(checked[i]));
+					   System.out.println(minfonumCk);
+					   if(minfonumCk==0){
+						   mymusict m = new mymusict();
+						   //System.out.println(user.getUsername()); //로그인하고 있는 username
+						   m.setUserid(user.getUsername());
+						   m.setMinfonum(Integer.parseInt(checked[i]));
+						   musicDao.myplayerlist(m); 
+					   }else{
+						   res.setCharacterEncoding("EUC-KR");
+						   PrintWriter out = res.getWriter();
+						   out.println("<script type='text/javascript'>");
+						   out.println("alert('"+ checked[i] +"번곡은 이미 리스트에 있습니다.^^')");
+						   out.println("history.back();");
+						   out.println("</script>");
+						   out.close();
+					   }	  	   
+				   }
+				   
+			   }
 		     }else{
 		    	 res.setCharacterEncoding("EUC-KR");
 		    	 PrintWriter out = res.getWriter();
@@ -131,9 +145,9 @@ public class MusicController {
 		    	 out.println("</script>");
 		    	 out.close();
 		     }
-			return "redirect:musicmain.user";
-		}
-		
+			return "redirect:musicmain.user";	
+		  }
+
 		//MyPlayerList 곡 select 
 		@RequestMapping("mylist.user")
 		public String mylistSelect(Model model){

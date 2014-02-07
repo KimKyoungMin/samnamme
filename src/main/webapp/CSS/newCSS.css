@@ -83,7 +83,6 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;  
-  z-index: 3;
 }
 
 body {
@@ -95,7 +94,7 @@ background: -ms-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); I
 background: linear-gradient(to bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); W3C
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); IE6-9
  */
-background: F0F2EB; 
+background: url(../images/bg-header.gif) 0 0 repeat-x ;
 /* background: #f6f8f9; Old browsers
 background: -moz-linear-gradient(top,  #f6f8f9 0%, #e5ebee 9%, #d7dee3 28%, #f5f7f9 100%); FF3.6+
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f6f8f9), color-stop(9%,#e5ebee), color-stop(28%,#d7dee3), color-stop(100%,#f5f7f9)); Chrome,Safari4+
@@ -446,7 +445,7 @@ h1, h2, p, a, span{
 					.header-menu-tab .icon {
 						padding-right: 15px;
 					}
-				.header-menu-number {
+				 .header-menu-number {
 					position: absolute;
 					line-height: 22px;
 					padding: 0 6px;
@@ -727,6 +726,7 @@ h1, h2, p, a, span{
 			
 			.blockL {
 			background: #6a5acd;
+			margin-top: 10px;
 			width:800pt;
 			}
 			.blockK {
@@ -741,27 +741,30 @@ h1, h2, p, a, span{
 			   margin-right: 20px ;
 			   margin-bottom: 25px;
 			}	
-			.blockM {
+			.blockM {      /*공지글 */
 			  /*  display: inline; */
-			   margin-bottom: 25px;
-			   background: #394264;
-			   border-radius: 5px;	
+			   margin-bottom: 5px;
+			   padding-top: 10px;
+			   padding-left: 10px;
+			   padding-right: 10px;
+			   background: E1EDB9;
+			   color: 4A3D3D;
+			   border-radius: 3px;	
 			   float: left;	
-			   margin-right: 20px ;
-			   width:440pt;     
+			   width:520pt;  		      
 			}	
-			.blockN {
+			.blockN {    /*댓글*/
 			  /*  display: inline; */
-			   margin-bottom: 55px;
-			   background: rgba(111, 74, 112, 0.61);
-			   border-radius: 5px;	
+			   margin-bottom: 45px;
+			   background: F4FAD2;
+			   color: 4A3D3D;
+			   border-radius: 3px;	
 			   float: left;	
-			   margin-right: 20px ;
-			   width:440pt;     
-			}
+			   width:520pt;     
+			}			
 			.morebutton{
-			 margin-bottom: 55px;
-			   background: rgba(111, 74, 112, 0.61);
+			   margin-bottom: 55px;
+			   background: orange;
 			   float: left;	
 			   margin-right: 0px ;
 			   width:170pt;
@@ -1518,6 +1521,16 @@ h1, h2, p, a, span{
 						background: #FF848F;
 					}
 			    
+			     /***** 공지사항 수정, 삭제 버튼 ********/
+			    .notice.button4 {
+				    border: none;
+					background: #FF7A85;
+					color: #fff;
+					margin: 2px auto;
+				}
+					.notice.button4:hover {
+						background: #cc324b;
+					}
 			    
 				.account p { 
 					text-align: center;
@@ -2715,9 +2728,9 @@ div#banner {
       line-height: 5px;
       border-radius: 4px;    
       clear: both;
-      height: 35pt;
+      height: 0pt;
       /* background-color: rgb(85, 126, 185); For non-CSS3 browsers. */
-      background-color: #1f253d;
+      /*background-color: #1f253d;*/
       /* background-image: -webkit-radial-gradient(100% 0%, circle cover, rgb(104,24,136) 0%, rgb(85,126,185) 100%); */
       /* background-image: radial-gradient(circle at 100% 0%, rgb(104,24,136) 0%, rgb(85,126,185) 100%); IE10 and later */
     } 
@@ -2782,5 +2795,25 @@ box-shadow: 3px 3px 4px rgba(0,0,0,.5);
 	-webkit-gradient(linear, center top, center bottom, from(#a4ccec), color-stop(25%, #72a6d4), color-stop(45%, #3282c2), color-stop(85%, #357cbd), to(#72a6d4));
 }
 
+.round{
+	line-height: 22px;
+	padding: 0 6px;
+	font-weight: 700;
+	background: #66CDAA;
+	border-radius: 100%;
+	top: 15px;
+	right: 2px;
+}
+
 .hov{background-color: #00a; color: #fff;}
 .page {margin: 5px;}
+
+
+/*공지사항 */
+.noticeDiv{
+	float: left;
+	margin-right: 80px;
+}
+.noticeaddbutton {
+	margin-left: 560px;
+}

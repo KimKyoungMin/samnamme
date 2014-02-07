@@ -20,7 +20,7 @@ E-mail <input type="text" name="uemail" class="email text2-input" value="${usert
 <br>
 <c:choose>
   <c:when test="${md.size()==0}">
-    <h2>다운 받은 리스트가 없습니다.</h2>
+    <h3>다운 받은 리스트가 없습니다.</h3>
   </c:when>
   <c:otherwise>
   <div class="profileDtable">

@@ -6,7 +6,7 @@
 <br>
 <c:choose>
   <c:when test="${pt.size()==0 }">
-      <h2>결제 내역이 없습니다.</h2> 
+      <h3>결제 내역이 없습니다.</h3> 
   </c:when>
   <c:otherwise>
      <div class="paymenttable">
