@@ -65,9 +65,9 @@
 					htmlSrc +="<div id='replyUpdateForm"+barnum+"num"+i+"'>";
 					htmlSrc += data2[i].username+ ':'+ data2[i].ccontent;
 					 if(loginUser == data2[i].userid){
-						htmlSrc += "<a href='javascript:void()' onclick='replyDelete("+data2[i].cnum+","+ data2[i].bnum+","+barnum+","+replycount+","+replycountnum+")'><img alt='글 삭제하기' src='CSS/noticeboardpic/deletebut.jpg' style='width:12pt; height:9pt;' ></a>";
+						htmlSrc +="<a href='javascript:void()' onclick='replyUpdateFormcall("+barnum+","+i+","+data2[i].bnum+","+data2[i].cnum+","+replycount+","+replycountnum+")'><img alt='글 수정하기' src='CSS/noticeboardpic/Custom-Icon-Design-Mini-2-Marker.ico' style='width:20pt; height:10pt;' ></a>";
+						htmlSrc += "<a href='javascript:void()' onclick='replyDelete("+data2[i].cnum+","+ data2[i].bnum+","+barnum+","+replycount+","+replycountnum+")'><img alt='글 삭제하기' src='CSS/noticeboardpic/100-coffee-icon.png' style='width:20pt; height:10pt;' ></a>";
 						//원글번호, 화면 태그가 가진 번호, 현재 리플 달아준 카운트 수, 현재 글 전체 리플 카운트 수 , 보여주는 댓글 숫자를 늘릴지의 여부
-						htmlSrc +="<a href='javascript:void()' onclick='replyUpdateFormcall("+barnum+","+i+","+data2[i].bnum+","+data2[i].cnum+","+replycount+","+replycountnum+")'>글 수정하기</a>";
 						 //<a href="javascript:void()" onclick="replyUpdateFormcall(${varnum}, ${replynum }, ${c.getBnum() },${c.getCnum() },'7', '${f.getReplycount()}')">글 수정하기</a> 
 						htmlSrc +="</div></div>"; 
 					}else{
@@ -145,7 +145,7 @@
 			}), //data를 갖고
 			dataType : "json",
 			success : function(data) {
-				alert("updatelogic call ok");
+				//alert("updatelogic call ok");
 				replygetList(varnum, Bnum, replycountin, replycountnum,0);				
 			},
 			error : function(data) {
@@ -154,8 +154,8 @@
 		}); 
 	};
 	//댓글 수정하기 폼 작성
-	//글번호(태그상 번호), 댓글번호(태그상 번호), 원글번호(DB상), 댓글번호(DB상), 댓글수, 전체 댓글수
-	function replyUpdateFormcall(varnum, replynum , Bnum, Cnum, replycountin, replycountnum){
+	//글번호(태그상 번호), 댓글번호(태그상 번호), 원글번호(DB상), 댓글번호(DB상), 댓글수, 전체 댓글수, 유저ID
+	function replyUpdateFormcall(varnum, replynum , Bnum, Cnum, replycountin, replycountnum, username){
 		$.ajax({
 			type : "post",
 			url : "noticereplyget.user",
@@ -164,9 +164,10 @@
 			}), //data를 갖고
 			dataType : "json",
 			success : function(data) {
-				htmlSrc="<input type='text' id='modifyreply' value='"+data.replycontent+"'>";
-				// <a href="javascript:void()" onclick="replyUpdateFormcall(${varnum}, ${replynum }, ${c.getCnum() },${c.getCnum() },'7', '${f.getReplycount()}')">글 수정하기</a> 
-				htmlSrc+="<a href='javascript:void()' onclick='replyUpdateLogic("+varnum+","+Bnum+","+Cnum+","+replycountin+","+replycountnum+")'>수정사항적용</a>";
+				htmlSrc=""+username;
+				htmlSrc+="<input type='text'  id='modifyreply' value='"+data.replycontent+"'>";
+				// <a href="javascript:void()" onclick="replyUpdateFormcall(${varnum}, ${replynum }, ${c.getCnum() },${c.getCnum() },'7', '${f.getReplycount()}','')">글 수정하기</a> 
+				htmlSrc+="<a href='javascript:void()' onclick='replyUpdateLogic("+varnum+","+Bnum+","+Cnum+","+replycountin+","+replycountnum+")'> 확인</a>";
 				$('#replyUpdateForm'+varnum+'num'+replynum).html(htmlSrc);
 			},
 			error : function(data) {
@@ -180,7 +181,7 @@
 
 <div class="noticeaddbutton">
 	<s:authorize ifAnyGranted="ROLE_ADMIN">
-		<a href="noticewrite.user" class="dynamiclabel">공지사항 등록</a>
+		<a href="noticewrite.user" class="dynamiclabel_2">공지사항 등록</a>
 	</s:authorize>
 </div>
 <!-- noticeBoardList -->
@@ -212,8 +213,8 @@
 					<div class="noticeDiv" style="text-align: left">${f.getBdate() }</div>
 					<div class="noticeDiv">
 						<s:authorize ifAnyGranted="ROLE_ADMIN"><p>
-							<a href="noticeupdate.user?bnum=${f.getBnum() }" class="notice button4">공지사항수정</a>&nbsp;&nbsp;
-							<a href="noticedelete.user?bnum=${f.getBnum() }" class="notice button4">공지사항삭제</a><br>
+							<a href="noticeupdate.user?bnum=${f.getBnum() }" class="dynamiclabel">공지사항수정</a>&nbsp;&nbsp;
+							<a href="noticedelete.user?bnum=${f.getBnum() }" class="dynamiclabel_1">공지사항삭제</a><br>
 						</s:authorize>
 		            </div><br>
 					    현재 댓글 수 <span id ="replycount${varnum }" class="round">${f.getReplycount() }</span>
@@ -244,8 +245,8 @@
 							<b style="color:#3C467D;">${c.getUsername() }</b>  ${c.getCcontent() }
 							<c:choose>
 								<c:when test="${loginUser eq c.getUserid() }">
-									<a href="javascript:void()" onclick="replyDelete('${c.getCnum()}', '${c.getBnum() }','${varnum }','7','${f.getReplycount()}')"><img alt="글 삭제하기" src="CSS/noticeboardpic/deletebut.jpg" style="width:12pt; height:9pt;" ></a>
-									<a href="javascript:void()" onclick="replyUpdateFormcall(${varnum}, ${replynum }, ${c.getBnum() },${c.getCnum() },'7', '${f.getReplycount()}')">글 수정하기</a>
+									<a href="javascript:void()" onclick="replyUpdateFormcall(${varnum}, ${replynum }, ${c.getBnum() },${c.getCnum() },'7', '${f.getReplycount()}', '${c.getUsername() }')"><img alt="글 수정하기" src="CSS/noticeboardpic/Custom-Icon-Design-Mini-2-Marker.ico" style="width:20pt; height:10pt;" ></a>
+									<a href="javascript:void()" onclick="replyDelete('${c.getCnum()}', '${c.getBnum() }','${varnum }','7','${f.getReplycount()}')"><img alt="글 삭제하기" src="CSS/noticeboardpic/100-coffee-icon.png" style="width:20pt; height:10pt;" ></a>
 									
 								</c:when>
 							</c:choose>

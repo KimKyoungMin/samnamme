@@ -94,8 +94,8 @@ background: -ms-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); I
 background: linear-gradient(to bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); W3C
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); IE6-9
  */
-background: url(../images/bg-header.gif) 0 0 repeat-x ;
-/* background: #f6f8f9; Old browsers
+
+background: #f6f8f9; Old browsers
 background: -moz-linear-gradient(top,  #f6f8f9 0%, #e5ebee 9%, #d7dee3 28%, #f5f7f9 100%); FF3.6+
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f6f8f9), color-stop(9%,#e5ebee), color-stop(28%,#d7dee3), color-stop(100%,#f5f7f9)); Chrome,Safari4+
 background: -webkit-linear-gradient(top,  #f6f8f9 0%,#e5ebee 9%,#d7dee3 28%,#f5f7f9 100%); Chrome10+,Safari5.1+
@@ -103,7 +103,7 @@ background: -o-linear-gradient(top,  #f6f8f9 0%,#e5ebee 9%,#d7dee3 28%,#f5f7f9 1
 background: -ms-linear-gradient(top,  #f6f8f9 0%,#e5ebee 9%,#d7dee3 28%,#f5f7f9 100%); IE10+
 background: linear-gradient(to bottom,  #f6f8f9 0%,#e5ebee 9%,#d7dee3 28%,#f5f7f9 100%); W3C
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#f5f7f9',GradientType=0 ); IE6-9
- */
+
 }
 
 .header01 h1{
@@ -700,7 +700,42 @@ h1, h2, p, a, span{
 .dynamiclabel  { /* pop up label style */
 	left: 0;
 	/* background: rgb(140, 170, 101); */
-	border: 3px solid rgb(139, 139, 122);
+	border: 1px solid rgb(139, 139, 122);
+	border-radius: 2px;
+	margin-left: 50px;
+	padding: 3px 10px;
+	box-shadow: 4px 1px 5px gray;
+	font-weight: bold;
+	-webkit-backface-visibility: hidden;
+	top: 10px;
+	/* initial top position of label relative to dynamiclabel container */
+	-moz-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	-webkit-transition: all 0.4s ease-in-out;
+	/* Safari doesn't seem to support cubic-bezier values beyond 0 to 1, so use keyword value instead */
+	-o-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.dynamiclabel_1  { /* pop up label style */
+	left: 0;
+	/* background: rgb(140, 170, 101); */
+	border: 1px solid rgb(139, 139, 122);
+	border-radius: 2px;
+	padding: 3px 10px;
+	box-shadow: 4px 1px 5px gray;
+	font-weight: bold;
+	-webkit-backface-visibility: hidden;
+	top: 10px;
+	/* initial top position of label relative to dynamiclabel container */
+	-moz-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	-webkit-transition: all 0.4s ease-in-out;
+	/* Safari doesn't seem to support cubic-bezier values beyond 0 to 1, so use keyword value instead */
+	-o-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.dynamiclabel_2  { /* pop up label style */
+	left: 0;
+	/* background: rgb(140, 170, 101); */
+	border: 1px solid rgb(139, 139, 122);
 	border-radius: 2px;
 	padding: 3px 10px;
 	box-shadow: 4px 1px 5px gray;
@@ -2817,3 +2852,23 @@ box-shadow: 3px 3px 4px rgba(0,0,0,.5);
 .noticeaddbutton {
 	margin-left: 560px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
