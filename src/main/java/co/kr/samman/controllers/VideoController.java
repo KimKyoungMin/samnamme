@@ -42,7 +42,7 @@ public class VideoController {
 		int startrow = ((page-1)*limit);
 		
 		VideoDao videoDao = sqlSession.getMapper(VideoDao.class);
-		List<musict> videoList = videoDao.getvediolists(startrow, limit);
+		List<musict> videoList = videoDao.getvediolists(startrow,limit);
 		int listcount = videoDao.listcount();
 		
 		
@@ -74,7 +74,7 @@ public class VideoController {
 			int startrow = ((page-1)*limit);
 			
 			VideoDao videoDao = sqlSession.getMapper(VideoDao.class);
-			List<musict> videoList = videoDao.getvediolists(startrow, limit);
+			List<musict> videoList = videoDao.getvediolists(startrow,limit);
 			int listcount = videoDao.listcount();
 			
 			
@@ -101,14 +101,14 @@ public class VideoController {
 		
 		@RequestMapping(value="pagechangeof.user" ,produces="text/plain;charset=UTF-8")
 		@ResponseBody
-		public String pagechange(HttpServletRequest request,HttpServletResponse response, Model model) throws UnsupportedEncodingException {
+		public String pagechange(HttpServletRequest request,HttpServletResponse response, Model model, int pagenum) throws UnsupportedEncodingException {
 		
 			
 			int page = 1;
 			int limit = 6;
-			int startrow = ((page-1)*limit);
+			int startrow = ((pagenum-1)*limit);
 			VideoDao videoDao = sqlSession.getMapper(VideoDao.class);
-			List<musict> videoList = videoDao.getvediolists(startrow, limit);
+			List<musict> videoList = videoDao.getvediolists(startrow,limit);
 			int listcount = videoDao.listcount();
 			//Ajax 한글처리를위한 추가구문
 			request.setCharacterEncoding("UTF-8");
@@ -126,6 +126,10 @@ public class VideoController {
 			request.setAttribute("endpage", endpage);*/
 			model.addAttribute("listcount", listcount);
 			JSONArray data = new JSONArray();
+			JSONObject obj2 = new JSONObject();
+			obj2.put("listcount",listcount);
+			data.add(obj2);
+			
 			for(musict b : videoList){
 				//Json 객체 생성
 				JSONObject obj = new JSONObject();

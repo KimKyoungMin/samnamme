@@ -5,7 +5,7 @@
 <mapper namespace="co.kr.samman.dao.VideoDao">
 
    <select id="getvediolists" resultType="co.kr.samman.dto.musict">
-       select * from musict order by minfonum <!-- desc limit #{param1},#{param2} -->  
+       select * from musict order by minfonum  desc limit #{param1},#{param2}   
    </select>
    
    <select id="listcount" resultType="Integer">
