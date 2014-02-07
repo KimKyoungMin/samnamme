@@ -140,7 +140,7 @@ public class MusicController {
 			MusicDao musicDao = sqlSession.getMapper(MusicDao.class);
 			UserDetails user = 
 					(UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();            
-			System.out.println(user.getUsername());
+//			System.out.println(user.getUsername());
 
 			List<mymusict> mylists = musicDao.getmylist(user.getUsername());
 			model.addAttribute("mylists", mylists);
