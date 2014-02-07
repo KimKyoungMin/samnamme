@@ -95,7 +95,7 @@ background: linear-gradient(to bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); IE6-9
  */
 
-background: #f6f8f9; Old browsers
+/* background: #f6f8f9; Old browsers
 background: -moz-linear-gradient(top,  #f6f8f9 0%, #e5ebee 9%, #d7dee3 28%, #f5f7f9 100%); FF3.6+
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f6f8f9), color-stop(9%,#e5ebee), color-stop(28%,#d7dee3), color-stop(100%,#f5f7f9)); Chrome,Safari4+
 background: -webkit-linear-gradient(top,  #f6f8f9 0%,#e5ebee 9%,#d7dee3 28%,#f5f7f9 100%); Chrome10+,Safari5.1+
@@ -103,7 +103,8 @@ background: -o-linear-gradient(top,  #f6f8f9 0%,#e5ebee 9%,#d7dee3 28%,#f5f7f9 1
 background: -ms-linear-gradient(top,  #f6f8f9 0%,#e5ebee 9%,#d7dee3 28%,#f5f7f9 100%); IE10+
 background: linear-gradient(to bottom,  #f6f8f9 0%,#e5ebee 9%,#d7dee3 28%,#f5f7f9 100%); W3C
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#f5f7f9',GradientType=0 ); IE6-9
-
+ */
+ background: #fff;
 }
 
 .header01 h1{
