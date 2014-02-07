@@ -97,10 +97,14 @@ public class VideoController {
 			
 			return "video.videomain";
 		}
+		
+		
 		@RequestMapping(value="pagechangeof.user" ,produces="text/plain;charset=UTF-8")
 		@ResponseBody
-		public String pagechange(HttpServletRequest request,HttpServletResponse response, Model model,int pagenum) throws UnsupportedEncodingException {
-			int page = pagenum;
+		public String pagechange(HttpServletRequest request,HttpServletResponse response, Model model) throws UnsupportedEncodingException {
+		
+			
+			int page = 1;
 			int limit = 6;
 			int startrow = ((page-1)*limit);
 			VideoDao videoDao = sqlSession.getMapper(VideoDao.class);
@@ -111,15 +115,16 @@ public class VideoController {
 			response.setHeader("Content-Type", "text/html; charest=utf-8");
 			int maxpage = (int)((double)listcount/limit + 0.95);
 			int startpage = (((int)((double)page / 10 + 0.9)) -1)*10 + 1;
-			int endpage = startpage + 10 - 1;
+			int endpage = /*startpage + 10 - 1*/10;
 			if(endpage > maxpage){
 				endpage = maxpage;
 			}
 			model.addAttribute("videoList", videoList);
 			//확인 필요
-			request.setAttribute("page", page);
+			/*request.setAttribute("page", page);
 			request.setAttribute("startpage", startpage);
-			request.setAttribute("endpage", endpage);
+			request.setAttribute("endpage", endpage);*/
+			model.addAttribute("listcount", listcount);
 			JSONArray data = new JSONArray();
 			for(musict b : videoList){
 				//Json 객체 생성
