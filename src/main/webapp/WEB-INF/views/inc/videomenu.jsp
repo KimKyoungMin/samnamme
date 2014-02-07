@@ -35,7 +35,7 @@ function videopagecall(pagenum){
 					 
 					
 					/* data[0].minfonum 노래 번호*/
-					htmlSrc1 +="<li class='menu-box-tab'><a href='musicViedo.user?Minfonum="+data[i].minfonum+"'>";
+					htmlSrc1 +="<li class='menu-box-tab'><a href='musicViedo.user?Minfonum="+data[i].minfonum+"&pagenum="+pagenum+"'>";
 					htmlSrc1 +=data[i].mtitle;   
 					htmlSrc1 +="-"+ data[i].msname;   
 					htmlSrc1 +="</a></li>";

@@ -63,7 +63,7 @@ public class VideoController {
 	
 	//뮤직 비디오 페이지
 		@RequestMapping(value="musicViedo.user" , method=RequestMethod.GET)
-		public String video(HttpServletRequest request, Model model, int Minfonum) {
+		public String video(HttpServletRequest request, Model model, int Minfonum,int pagenum) {
 			
 			
 			int page = 1;
@@ -86,7 +86,7 @@ public class VideoController {
 			}
 			
 			
-			musict playvideo2 = videoDao.playvideo(Minfonum);
+			musict playvideo2 = videoDao.playvideo(Minfonum,pagenum);
 			String playvideo= playvideo2.getMurl();
 			model.addAttribute("videoList", videoList);
 			model.addAttribute("playvideo", playvideo);

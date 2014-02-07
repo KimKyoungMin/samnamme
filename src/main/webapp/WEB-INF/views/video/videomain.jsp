@@ -13,8 +13,16 @@ Music Video player test 두번째
 <title>Insert title here</title>
 </head>
 <body>
+<c:if test="${playvideo==null }">
 
+<embed src="//www.youtube.com/v/CJ_J7E67Xoc?hl=ko_KR&amp;version=3&amp;rel=0"
+ type="application/x-shockwave-flash" width="560" height="315"
+  allowscriptaccess="always" allowfullscreen="true"></embed>
+
+</c:if>
 ${playvideo }
+
+
 
 
 </body>

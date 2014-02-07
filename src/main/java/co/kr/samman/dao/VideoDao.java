@@ -8,5 +8,5 @@ public interface VideoDao {
 
 	public List<musict> getvediolists(int page,int limit);
 	public int listcount();
-	public musict playvideo(int minfonum);
+	public musict playvideo(int minfonum,int pagenum);
 }
