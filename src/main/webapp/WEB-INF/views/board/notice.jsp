@@ -5,7 +5,7 @@
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-latest.js"></script>
 
-<H1>공지사항</h1>
+<h2>공지사항</h2>
 <s:authentication property="name" var="loginUser"/>
 <!-- Ajax 함수 모음 -->
 <script type="text/javascript">
@@ -175,10 +175,10 @@
 		});
 		//<input type="button" id= "reply${varnum }" name="${varnum }" value="댓글달기" class="element text small"><P></P><BR>
 	};
-	
+
 </script>
 
-<div align="right">
+<div class="noticeaddbutton">
 	<s:authorize ifAnyGranted="ROLE_ADMIN">
 		<a href="noticewrite.user" class="dynamiclabel">공지사항 등록</a>
 	</s:authorize>
@@ -189,32 +189,43 @@
 <c:forEach var="f" items="${noticeBoardList}">
 <c:set var="varnum" value="${varnum+1 }"></c:set>
 <input type="hidden" name="num" id="num" value="${varnum }">
-	<div class="blockL">
-		<div class="blockM">
+	<div class="blockL"> <!-- 댓글 수 div -->
+		<div class="blockM">  <!-- 작성글 div -->
 			<ul>
-				<li><a name="title${varnum }"><b>${f.getUserid()}</b><br>제목 :&nbsp;&nbsp;&nbsp;&nbsp; 	${f.getBtitle() }</a><br>
-					
+				<li style="color:4A3D3D;">
+				   <b style="color:#3C467D;">${f.getUserid()}</b> &nbsp;&nbsp;&nbsp; <b>${f.getBtitle() }</b><br>
 				</li>
 				<div class="notice">
-					${f.getBcontent() }
-					<c:if test="${f.getBpicname()!=null && f.getBpicname()!='' }">
-					<div class="boardimagebox">
-					<img src="CSS/noticeboardpic/${f.getBpicname()}"  class="boardimagereal"><br>
-					</div>
+					<table style="width: 670px;">
+					   <tr>
+					     <td>${f.getBcontent() }</td>
+					   </tr>
+					   <tr>
+					     <td>
+					       <c:if test="${f.getBpicname()!=null && f.getBpicname()!='' }">
+					         <img src="CSS/noticeboardpic/${f.getBpicname()}"  class="boardimagereal"  style="width:670px;height:300;"><br>
+					       </c:if>
+					     </td>
+					   </tr>
+					</table>
 					
-					</c:if>
-					<div style="text-align: left">${f.getBdate() }</div><br>
-				</div>
-				
-				
+					<div class="noticeDiv" style="text-align: left">${f.getBdate() }</div>
+					<div class="noticeDiv">
+						<s:authorize ifAnyGranted="ROLE_ADMIN"><p>
+							<a href="noticeupdate.user?bnum=${f.getBnum() }" class="notice button4">공지사항수정</a>&nbsp;&nbsp;
+							<a href="noticedelete.user?bnum=${f.getBnum() }" class="notice button4">공지사항삭제</a><br>
+						</s:authorize>
+		            </div><br>
+					    현재 댓글 수 <span class="round">${f.getReplycount() }</span>
+				</div>	
 			</ul>
-			<div class="blockN">
-		
+	    </div>
+	    <div class="blockN">  <!-- 댓글 div -->		
 		<input type="hidden" id="userid${varnum }" name="userid" value="${loginUser}"> 
 		<input type="hidden" id="bnum${varnum }" name="bnum" value="${f.getBnum() }">
 		<input type="hidden" id="bnumm${varnum }" name="bnumm" value="7">
 		<input type="hidden" id="bnummm${varnum }" name="bnummm" value="${f.getReplycount()}">
-		<input type="text" id="ccontent${varnum }" name="ccontent" value="" class="element text medium">
+		<input type="text" id="ccontent${varnum }" name="ccontent" value="" class="element text medium" style="width: 435px;">
 		<input type="button" id= "reply${varnum }" name="${varnum }" value="댓글달기" class="element text small"><P></P><BR>
 		<div id="simson${varnum }" >
 		<!-- 댓글 작성 시작 -->
@@ -230,7 +241,7 @@
 			<div id="replyUpdateForm${varnum }num${replynum }">
 				<c:if test="${not doneLoop}">
 				<c:if test="${f.getBnum() == c.getBnum()}">
-							${c.getUsername() } : ${c.getCcontent() }
+							<b style="color:#3C467D;">${c.getUsername() }</b>  ${c.getCcontent() }
 							<c:choose>
 								<c:when test="${loginUser eq c.getUserid() }">
 									<a href="javascript:void()" onclick="replyDelete('${c.getCnum()}', '${c.getBnum() }','${varnum }','7','${f.getReplycount()}')"><img alt="글 삭제하기" src="CSS/noticeboardpic/deletebut.jpg" style="width:12pt; height:9pt;" ></a>
@@ -242,9 +253,8 @@
 						<div style="text-align: left">${c.getCdate() }
 						<!-- 스테이트 추가 -->
 						<c:set var="statetrue" value="${statetrue+1 }"></c:set>
-							<!-- 본인이 적은글 삭제 할수 있게 해주는 기능 추가 -->
-							
-							</div>
+							<!-- 본인이 적은글 삭제 할수 있게 해주는 기능 추가 -->	
+						</div>
 						<br>
 				</c:if>
 				<c:if test="${statetrue == 7}"> 
@@ -252,27 +262,21 @@
 					<c:set var="statetrue" value="0"/>
 				</c:if>
 				</c:if>
-				</div>
+			</div>
 			</c:forEach>
 			
-			</div>
-			
 		</div>
+			
+		
 		<div id="replynum${varnum }">
 			<c:if test="${f.getReplycount()>7 }">
 				<a href="javascript:void()" onclick="replygetList('${f.getBnum()}','${varnum }','7', '${f.getReplycount()}',1)" >댓글 더 보기</a>
 			</c:if>
-			</div>
 		</div>
+		</div>
+
 		<!-- noticeBoardReplyList -->
 		
-		<div class="morebutton">
-					<s:authorize ifAnyGranted="ROLE_ADMIN"><p><br><br></p>
-						<a href="noticeupdate.user?bnum=${f.getBnum() }" class="dynamiclabel">공지사항수정</a><br><p><br><br></p>
-						<a href="noticedelete.user?bnum=${f.getBnum() }" class="dynamiclabel">공지사항삭제</a><br><p><br><br></p>
-					</s:authorize>
-				<h5 id ="replycount${varnum }" class="buttonmore">현재 댓글수 ${f.getReplycount() }</h5>
-		</div>
 		</div>
 </c:forEach>
 <div class="blockM">

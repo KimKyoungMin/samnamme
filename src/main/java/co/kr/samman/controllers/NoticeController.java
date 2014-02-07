@@ -184,12 +184,12 @@ public class NoticeController {
 		
 		@RequestMapping(value="noticeupdate.user", method=RequestMethod.GET)
 		public String noticeUpdateform(HttpServletRequest req, Model model){
-//			System.out.println("NoticeController.noticeUpdateform - get");
+			System.out.println("NoticeController.noticeUpdateform - get");
 			int boardid = Integer.parseInt(req.getParameter("bnum"));
-//			System.out.println("boardid"+boardid);
+			System.out.println("boardid"+boardid);
 			
 			NoticeBoardDao noticeBoardDao = sqlSession.getMapper(NoticeBoardDao.class);
-//			System.out.println("sqlsession create good");
+			System.out.println("sqlsession create good");
 			model.addAttribute("board", noticeBoardDao.getNoticedetail(boardid));
 			return "board.noticeupdate";
 		}
