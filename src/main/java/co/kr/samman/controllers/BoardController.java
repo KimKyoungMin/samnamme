@@ -70,6 +70,7 @@ public class BoardController {
 			if(endpage > maxpage){
 				endpage = maxpage;
 			}
+			System.out.println("====================");
 			System.out.println("page"+page);
 			System.out.println("max"+maxpage);
 			System.out.println("start"+startpage);

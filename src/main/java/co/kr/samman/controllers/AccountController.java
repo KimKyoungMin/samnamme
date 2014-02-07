@@ -32,19 +32,53 @@ public class AccountController {
 	
 	//회원 정보 페이지
 		@RequestMapping(value="account.user", method=RequestMethod.GET)
-		public String account(String userid, Model model) {
+		public String account(String userid, Model model,HttpServletRequest request, int page) {
+			
+			
+			 page = 1;
+			int limit = 7;
+			if(request.getParameter("page") != null){
+				page = Integer.parseInt(request.getParameter("page"));
+			}
+			
+			int startrow = ((page-1)*limit);
+			
 			System.out.println(userid);
 			AccountDao accountDao = sqlSession.getMapper(AccountDao.class);
 			usert usertDto = accountDao.getuserinfo(userid);
+			int listcount = accountDao.listcount(userid);
+			
 			model.addAttribute("usertDto", usertDto);
 			
-			//다운 리스트
-			List<mdlist> md = accountDao.getmdlist(userid);
-			model.addAttribute("md", md);
+			int maxpage = (int)((double)listcount/limit + 0.95);
+			int startpage = (((int)((double)page / 10 + 0.9)) -1)*10 + 1;
+			int endpage = startpage + 10 - 1;
+			if(endpage > maxpage){
+				endpage = maxpage;
+			}
 			
+			System.out.println("타냐1");
+			request.setAttribute("userid", userid);
+			request.setAttribute("page", page);
+			request.setAttribute("startpage", startpage);
+			request.setAttribute("endpage", endpage);
+			model.addAttribute("listcount",listcount);
+			System.out.println("타냐2");
+			//다운 리스트
+			List<mdlist> md = accountDao.getmdlist(userid,startrow, limit);
+			model.addAttribute("md", md);
+			System.out.println("타냐3");
 			//현재 결제 이용기간 보여주기
 			payt paytDto = accountDao.getleastpay(userid);
 			model.addAttribute("pd", paytDto);
+			System.out.println("타냐4");
+			System.out.println("====================");
+			System.out.println("page"+page);
+			System.out.println("max"+maxpage);
+			System.out.println("start"+startpage);
+			System.out.println("end"+endpage);
+			System.out.println("====================");
+			
 			
 			return "account.useraccountmain";
 		}

@@ -3,6 +3,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ taglib prefix="s" uri="http://www.springframework.org/security/tags" %>
 
+<%
+int startpage = (Integer)request.getAttribute("startpage");
+int endpage = (Integer)request.getAttribute("endpage");
+int nowpage = (Integer)request.getAttribute("page");
+String userid = (String)request.getAttribute("userid");
+%>
+
 <div class="profileA blockA">
 <h2 align="center">My Info</h2>
 <br>
@@ -14,6 +21,10 @@ E-mail <input type="text" name="uemail" class="email text2-input" value="${usert
 <input type="submit" class="edit button" value="Edit">
 </form>
 </div>
+
+
+
+
 
 <div class="profileD blockD">
 <h2 align="center">My DownList</h2>
@@ -38,10 +49,58 @@ E-mail <input type="text" name="uemail" class="email text2-input" value="${usert
            </tr>
        </c:forEach>
      </table>
+     
+     
   </div>
   </c:otherwise>
 </c:choose>
+
+  <div style="clear: both" align="center">
+  <br>
+   <table  class="list_n_menu">
+   <tr align=center height=20>
+      <td colspan=7 style=font-family:Tahoma;font-size:10pt;>
+         <c:choose>
+         <c:when test="${page<=1}"><a class="active">◀</a>&nbsp;</c:when>
+         <c:otherwise>
+         <a href="account.user?userid=${loginUser }&page=${page-1}" class="disabled">◀</a>&nbsp;
+         </c:otherwise>
+         </c:choose>
+        
+      <%for(int a=startpage;a<=endpage;a++){
+				if(a==nowpage){%>
+				<a class="current"><%=a %></a>
+				<%}else{ %>
+				<a href="account.user?page=<%=a %>&userid=<%=userid %>" class="disabled"><%=a %></a>&nbsp;
+				<%} %>
+			<%} %>
+          
+         <c:choose>
+         <c:when test="${page>=maxpage }"><a class="active">▶</a></c:when>
+         <c:otherwise>
+         <a href="account.user?userid=${loginUser }&page=${page+1}">▶</a>
+         </c:otherwise>
+         </c:choose>
+      </td>
+   </tr>
+   </table>
+   </div>
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div class="profileP blockP">
 <s:authentication property="name" var="loginUser"/>

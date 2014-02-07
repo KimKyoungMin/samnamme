@@ -15,7 +15,7 @@
   <select id="getmdlist" resultType="co.kr.samman.dto.mdlist">
     select md.MINFONUM minfonum, mu.MTITLE mtitle, mu.MSNAME msname 
     from musict mu inner join mdlist md on mu.MINFONUM=md.MINFONUM
-    where md.USERID=#{userid} order by mdownnum desc;
+    where md.USERID=#{param1} order by mdownnum desc limit #{param2},#{param3};
   </select>
   
   <select id="getpay" resultType="co.kr.samman.dto.payt">
@@ -55,7 +55,12 @@
       where userid=#{userid} and now() <= uexpdate 
     ]]>
   </select>
-
+  
+  <select id="listcount" resultType="int">
+  select count(md.MINFONUM) 
+    from musict mu inner join mdlist md on mu.MINFONUM=md.MINFONUM
+    where md.USERID=#{userid} order by mdownnum 
+</select>
 
 </mapper>
 
