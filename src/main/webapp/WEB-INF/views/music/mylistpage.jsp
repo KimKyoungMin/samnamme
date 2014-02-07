@@ -32,7 +32,7 @@ function playerstart(){
 	 	temp = "hiddenfilename"+i;
 		//alert(document.getElementById(temp).value);
 		htmlSrc+=""+document.getElementById(temp).value+"";
-		if(i <mylists){
+		if((i+1) < mylists){
 			//alert("temp 값음 : "+ temp +"이며 mylists 의 값은 : "+mylists);
 			htmlSrc+="|upload/";
 		}
