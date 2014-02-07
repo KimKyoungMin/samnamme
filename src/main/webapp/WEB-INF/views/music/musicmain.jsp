@@ -48,9 +48,6 @@
 			            <td><b>Down</b></td>
 			            <td><a href="download.htm?p=upload&f=${m.getMfilename()}&minfonum=${m.getMinfonum()}">${m.getMfilename()}</a></td>
 			         </tr>
-			         <%-- <tr>
-			            <td colspan="2">${m.getMetcinfo()}</td>
-			         </tr> --%>
 			      </table>
 			      <br>
 			      ${m.getMetcinfo()}

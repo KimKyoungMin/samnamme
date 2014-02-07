@@ -59,7 +59,7 @@
 				htmlSrc = "";
 				
 				var newreplycount = data2[0].newreplyCount;
-				$('#replycount'+barnum).html('현재 댓글수'+newreplycount);
+				$('#replycount'+barnum).html(newreplycount);
 				for (var i = 1; i < data2.length; i++) {
 					//댓글 출력 부분
 					htmlSrc +="<div id='replyUpdateForm"+barnum+"num"+i+"'>";
@@ -216,7 +216,7 @@
 							<a href="noticedelete.user?bnum=${f.getBnum() }" class="notice button4">공지사항삭제</a><br>
 						</s:authorize>
 		            </div><br>
-					    현재 댓글 수 <span class="round">${f.getReplycount() }</span>
+					    현재 댓글 수 <span id ="replycount${varnum }" class="round">${f.getReplycount() }</span>
 				</div>	
 			</ul>
 	    </div>
@@ -225,7 +225,7 @@
 		<input type="hidden" id="bnum${varnum }" name="bnum" value="${f.getBnum() }">
 		<input type="hidden" id="bnumm${varnum }" name="bnumm" value="7">
 		<input type="hidden" id="bnummm${varnum }" name="bnummm" value="${f.getReplycount()}">
-		<input type="text" id="ccontent${varnum }" name="ccontent" value="" class="element text medium" style="width: 435px;">
+		<input type="text" id="ccontent${varnum }" name="ccontent" value="" class="element text medium" style="width: 510px;">
 		<input type="button" id= "reply${varnum }" name="${varnum }" value="댓글달기" class="element text small"><P></P><BR>
 		<div id="simson${varnum }" >
 		<!-- 댓글 작성 시작 -->
