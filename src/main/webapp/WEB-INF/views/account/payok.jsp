@@ -21,7 +21,7 @@
          </div>
 	   </c:forEach>
   
-    <input type="submit" class="payOK button" value="결제 OK">
+    <input type="submit" class="payOK_1 button" value="결제 OK">
 </form>
 
 </div>

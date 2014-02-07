@@ -95,7 +95,16 @@ background: -ms-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); I
 background: linear-gradient(to bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); W3C
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); IE6-9
  */
- background: F0F2EB;
+background: F0F2EB; 
+/* background: #f6f8f9; Old browsers
+background: -moz-linear-gradient(top,  #f6f8f9 0%, #e5ebee 9%, #d7dee3 28%, #f5f7f9 100%); FF3.6+
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f6f8f9), color-stop(9%,#e5ebee), color-stop(28%,#d7dee3), color-stop(100%,#f5f7f9)); Chrome,Safari4+
+background: -webkit-linear-gradient(top,  #f6f8f9 0%,#e5ebee 9%,#d7dee3 28%,#f5f7f9 100%); Chrome10+,Safari5.1+
+background: -o-linear-gradient(top,  #f6f8f9 0%,#e5ebee 9%,#d7dee3 28%,#f5f7f9 100%); Opera 11.10+
+background: -ms-linear-gradient(top,  #f6f8f9 0%,#e5ebee 9%,#d7dee3 28%,#f5f7f9 100%); IE10+
+background: linear-gradient(to bottom,  #f6f8f9 0%,#e5ebee 9%,#d7dee3 28%,#f5f7f9 100%); W3C
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#f5f7f9',GradientType=0 ); IE6-9
+ */
 }
 
 .header01 h1{
@@ -663,7 +672,7 @@ h1, h2, p, a, span{
 .blockPOK_1 {
 	/*  display: inline; */
 	border-style: outset;
-	border-color: #fff;
+	/*border-color: #fff; */
 	color: #fff;
 	margin-left: 90px;
 	margin-bottom: 25px;
@@ -674,7 +683,7 @@ h1, h2, p, a, span{
 	padding-left: 5px;
 	padding-right: 5px;
 	padding-bottom: 20px;
-	background-color: orange;
+	background-color: F2E9E6;
 }
 
 /*****결제 상세 내역 페이지 ****/
@@ -774,7 +783,7 @@ h1, h2, p, a, span{
 			}
 			.blockV {
 			   margin-bottom: 25px;
-			   background: #394264;
+			   background: E1EDB9;
 			   border-radius: 5px;	
 			   float: left;	
 			   margin-right: 20px ;
@@ -1468,20 +1477,20 @@ h1, h2, p, a, span{
 			     /***** 결제OK 버튼 *****/
 			    .payOK.button {       /* 결제 내역에서 결제 버튼 */
 				    border: none;
-					background: E1EDB9;
+					background: D4EE5E;
 					color: 4A3D3D;
 				}
 				   .payOK.button:hover {
-				        background: D8DEC3;
+				        background: #A8F552;
 					}
 				.payOK_1.button {
 				    border: none;
-					background: E1EDB9;
+					background: D4EE5E;
 					color: 4A3D3D;
-					margin-top: 20px;
+					margin-top: 15px;
 				}
 					.payOK_1.button:hover {
-						background: D8DEC3;
+						background: #A8F552;
 					}
 				
 			    /***** 노래 삭제 버튼 ********/
@@ -2772,3 +2781,6 @@ box-shadow: 3px 3px 4px rgba(0,0,0,.5);
 	-moz-linear-gradient(center top, #a4ccec, #72a6d4 25%, #3282c2 45%, #357cbd 85%, #72a6d4);
 	-webkit-gradient(linear, center top, center bottom, from(#a4ccec), color-stop(25%, #72a6d4), color-stop(45%, #3282c2), color-stop(85%, #357cbd), to(#72a6d4));
 }
+
+.hov{background-color: #00a; color: #fff;}
+.page {margin: 5px;}

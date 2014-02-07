@@ -76,8 +76,8 @@
       </div>
 
        <div id="banner">   
-          <audio  id="au" src="" controls="controls" style="width: 30%;" autoplay="true"></audio>
-          <input type="text" id="mfilename" class="text4-input" placeholder="노래 리스트가 없습니다.." readonly>
+          <!-- <audio  id="au" src="" controls="controls" style="width: 30%;" autoplay="true"></audio>
+          <input type="text" id="mfilename" class="text4-input" placeholder="노래 리스트가 없습니다.." readonly> -->
       </div> 
    </header>
    
