@@ -40,26 +40,25 @@ function playerstart(){
 	
 	htmlSrc+="&amp;autoplay=1&amp;loop=1&amp;showvolume=1&amp;showloading=always&amp;showlist=0&amp;playlistalpha=0&amp;showplaylistnumbers=0'/>";
 	htmlSrc+="</object>";
+	alert(htmlSrc);
 	}else{
 		htmlSrc="<h3>음악 리스트가 없습니다.</h3>";
 	}
+	
 	$('#pushaudio').html(htmlSrc);
 	 
 };
 
-
-
-
 	//mylist 에서 음악파일 선택시 재생
-	/* function doopen(mfilename){
+	 /* function doopen(mfilename){
 		//alert(mfilename);
 		opener.document.getElementById("mfilename").value=mfilename;
 		opener.document.getElementById("au").src = "upload/" + mfilename;
 		
-	} */
+	}  */
 	
 	//checkbox 전체 선택 & 해제 (선택후 적용하면 리스트에서 삭제되는 형태)
-	/* var check = false;
+	 var check = false;
 	function CheckAll() {
 		var chk = document.getElementsByName("check[]");
 		if (check == false) {
@@ -73,7 +72,7 @@ function playerstart(){
 				chk[i].checked = false; //모두 해제
 			}
 		}
-	} */
+	} 
 </script>
 
 <c:choose>
