@@ -156,7 +156,7 @@
 	//댓글 수정하기 폼 작성
 	//글번호(태그상 번호), 댓글번호(태그상 번호), 원글번호(DB상), 댓글번호(DB상), 댓글수, 전체 댓글수, 유저ID
 	function replyUpdateFormcall(varnum, replynum , Bnum, Cnum, replycountin, replycountnum, username){
-		alert("replyUpdateFormCall" + username);
+		//alert("replyUpdateFormCall" + username);
 		$.ajax({
 			type : "post",
 			url : "noticereplyget.user",
