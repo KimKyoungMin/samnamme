@@ -25,8 +25,6 @@
          </s:authorize>
    </h2>
    
-   
-   
 </div>
 
 <div class="main-container">

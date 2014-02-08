@@ -57,7 +57,7 @@
               <section id="jms-slideshow" class="jms-slideshow">
 			
 			
-				<div class="step" data-color="color-1">
+				<div class="step" data-color="color-4">
 					<div class="jms-content">
 						<h3>Just when I thought...</h3>
 						<p>From fairest creatures we desire increase, that thereby beauty's rose might never die</p>
@@ -67,7 +67,7 @@
 				</div>
 				
 				
-				<div class="step" data-color="color-2" data-y="500" data-scale="0.4" data-rotate-x="30">
+				<div class="step" data-color="color-5" data-y="500" data-scale="0.4" data-rotate-x="30">
 					<div class="jms-content">
 						<h3>Holy cannoli!</h3>
 						<p>But as the riper should by time decease, his tender heir might bear his memory</p>
