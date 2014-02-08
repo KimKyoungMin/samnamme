@@ -3,7 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ taglib prefix="s" uri="http://www.springframework.org/security/tags" %>
 
-<div style="width:300px; border-color:E1EDB9; float:left">
+<h2>회원 정보</h2>
+<div class="userinfo">
 <h2 align="center">User Info</h2>
 <br>
 <form action="settingpay.admin" method="post">
@@ -16,10 +17,7 @@ E-mail <input type="text" name="uemail" class="email text2-input" value="${ud.ue
 </div>
 
 
-
-
-
-<div style="overflow-y:auto; width:300px; border-color:E1EDB9; float:left">
+<div class="userinfo">
 <h2 align="center">User DownList</h2>
 <br>
 <c:choose>
@@ -50,6 +48,9 @@ E-mail <input type="text" name="uemail" class="email text2-input" value="${ud.ue
 
 </div>
 
+<div>
+<a href="javascript:history.go(-1);" class="userinfo button">이전</a>
+</div>
 
 
 

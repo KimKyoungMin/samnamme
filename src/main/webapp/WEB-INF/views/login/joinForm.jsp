@@ -6,9 +6,9 @@
             
         <div class="right-container container">
              <form action="" method="post"> 
-                <div class="account2 block2"> <!-- Join (RIGHT-CONTAINER) -->
+                <div class="account2 block2" > <!-- Join (RIGHT-CONTAINER) -->
                     <h2 class="titular">MEMBER JOIN</h2>
-                    <div class="input-container">
+                    <div class="input-container" >
                         <input type="text" class="email text-input" name="userid" placeholder="your Id" required autofocus>
                         <div class="input-icon envelope-icon-acount"><span class="fontawesome-home scnd-font-color"></span></div>
                     </div>

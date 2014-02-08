@@ -161,9 +161,9 @@ h1, h2, p, a, span{
 		margin-left: 20px;
 		margin-bottom: 20px;
 		padding-left: 45px;
-		background: #50597b;
-		color: #fff;
-		border: solid 1px #1f253d;
+		background: #F0F2EB;
+		color: #4A3D3D;
+		border: solid 1px #F0F2EB;
 		border-radius: 5px;		
 	}
 	input.text2-input{        /*회원 정보 input 창*/
@@ -1455,7 +1455,8 @@ h1, h2, p, a, span{
 			   .block2 {
 			 align: center;
 			 margin: 30px 300px;
-		     background: #394264;
+			 border-style: solid;
+		     border-color: D4EE5E;
 			 border-radius: 5px;
 		     }
 			
@@ -1467,13 +1468,14 @@ h1, h2, p, a, span{
 	        /*login*/		
 			.account {
 			    align: center;
-			    width: 300px;
+			    width: 320px;
 				height: 370px;
 			}
 			   .block2 {
-			   align: center;
-			 margin: 30px 300px;
-		     background: #394264;
+			 align: center;
+			 margin: 10px 300px;
+			 border-style: solid;
+		     border-color: #D4EE5E;
 			 border-radius: 5px;
 		     }
 			
@@ -3097,14 +3099,26 @@ a.jms-link{
 	margin-top: 40px;
 }
 
+/* 관리자 회원 관리 페이지 */
+div.userinfo{
+	border-style: solid;
+	border-color: E1EDB9;
+	text-align: center;
+	width:460px;
+	height: 350px; 
+	float:left;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	overflow-y:auto;
+}
+.userinfo.button {
+	height: 50px;
+	border: none;
+	background: D4EE5E;
+	color: 4A3D3D;
+	margin-top: 370px;
+}
 
-
-
-
-
-
-
-
-
-
-
+.userinfo.button:hover {
+	background: #A8F552;
+}
