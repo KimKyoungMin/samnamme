@@ -26,12 +26,10 @@
 <security:authentication-manager>
    <security:authentication-provider>
       <!-- JDBC 사용해서 DB연동 인증 처리  -->
+      <security:password-encoder hash="sha" />
       <security:jdbc-user-service data-source-ref="dataSource"
          users-by-username-query="SELECT userid USERID, upwd PASSWORD, ENABLED FROM usert where userid=?"
-         authorities-by-username-query="SELECT userid USERID, ROLE_NAME FROM usert where userid=? "     
-      /> 
-   
+         authorities-by-username-query="SELECT userid USERID, ROLE_NAME FROM usert where userid=? "/> 
    </security:authentication-provider>
 </security:authentication-manager>
-
 </beans>
