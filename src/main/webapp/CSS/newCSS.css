@@ -2887,8 +2887,8 @@ div.noticemain{
 }
 .jms-wrapper {
 	width: auto;
-	min-width: 600px;
-	height: 440px;
+	min-width: 640px;
+	height: 400px;
 	background-color: #fff;
 	box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
 	-webkit-background-clip: padding;

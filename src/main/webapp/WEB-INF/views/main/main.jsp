@@ -5,10 +5,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-        <link rel="stylesheet" type="text/css" href="CSS/newCss.css" />
+        <link rel="stylesheet" type="text/css" href="CSS/newCSS.css" />
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-		<script type="text/javascript" src="js/jmpress.min.js"></script>
-		<script type="text/javascript" src="js/jquery.jmslideshow.js"></script>
+		<script type="text/javascript" src="CSS/js/jmpress.min.js"></script>
+		<script type="text/javascript" src="CSS/js/jquery.jmslideshow.js"></script>
 		
 		<noscript>
 			<style>
@@ -54,7 +54,6 @@
            </div>
 
            <div class="slide">
-              <h2 class="titular">광고</h2>
               <section id="jms-slideshow" class="jms-slideshow">
 				<div class="step" data-color="color-1">
 					<div class="jms-content">

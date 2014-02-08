@@ -7,11 +7,6 @@
       select userid, uname, utel, uemail, uexpdate from usert
    </select>
    
-    <insert id="musicInsert" parameterType="co.kr.samman.dto.musict_adtable">
-      INSERT INTO MUSICT (MTITLE, AID, MFILENAME, MURL, MPICNAME, MSNAME, MGRADE, METCINFO, MINSERTDATE)
-      VALUES(#{mtitle}, #{aid}, #{mfilename}, #{murl}, #{mpicname}, #{msname}, #{mgrade}, #{metcinfo}, now())
-    </insert>
-
     <insert id="concertInsert" parameterType="co.kr.samman.dto.concert">
       INSERT INTO CONCERT (CONTITLE, CONPLACE, CONSINGER, CONDATE, CONENDDATE, CONGRADE,
 		       CONLON, CONLAT, CONECTINFO, conpic, AID)
@@ -22,4 +17,52 @@
   <delete id="getConcertdelete" parameterType="Integer" >
   	DELETE FROM concert WHERE CONNUM = #{param1}
   </delete>
+ 
+  <!-- Music List ADD -->
+  <insert id="musicInsert" parameterType="co.kr.samman.dto.musict_adtable">
+      INSERT INTO MUSICT (MTITLE, AID, MFILENAME, MURL, MPICNAME, MSNAME, MGRADE, METCINFO, MINSERTDATE)
+      VALUES(#{mtitle}, #{aid}, #{mfilename}, #{murl}, #{mpicname}, #{msname}, #{mgrade}, #{metcinfo}, now())
+    </insert>
+  
+  <!-- Music List Update case1,2,3,4 -->
+  <update id="musicUpdatenoFile" parameterType="co.kr.samman.dto.musict_adtable">
+  	UPDATE MUSICT SET 
+		MTITLE = #{mtitle},
+		MURL =#{murl},
+		MSNAME =#{msname},
+		METCINFO=#{metcinfo}
+	where MINFONUM= ${minfonum}
+  </update>
+  
+  <update id="musicUpdatenoFileOne" parameterType="co.kr.samman.dto.musict_adtable">
+  	UPDATE MUSICT SET 
+		MTITLE = #{mtitle},
+		MURL =#{murl},
+		MSNAME =#{msname},
+		MPICNAME =#{mpicname},
+		METCINFO=#{metcinfo}
+	where MINFONUM= ${minfonum}
+  </update>
+  
+  <update id="musicUpdatenoFileTwo" parameterType="co.kr.samman.dto.musict_adtable">
+  	UPDATE MUSICT SET 
+		MTITLE = #{mtitle},
+		MURL =#{murl},
+		MSNAME =#{msname},
+		MFILENAME=#{mfilename},
+		METCINFO=#{metcinfo}
+	where MINFONUM= ${minfonum}
+  </update>
+  
+  <update id="musicUpdatenoFileAll" parameterType="co.kr.samman.dto.musict_adtable">
+  	UPDATE MUSICT SET 
+		MTITLE = #{mtitle},
+		MURL =#{murl},
+		MSNAME =#{msname},
+		MPICNAME =#{mpicname},
+		MFILENAME=#{mfilename},
+		METCINFO=#{metcinfo}
+	where MINFONUM= ${minfonum}
+  </update>
+  
 </mapper>

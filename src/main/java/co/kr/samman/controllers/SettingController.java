@@ -103,6 +103,60 @@ public class SettingController {
 			return "setting.amusicedit";
 		}
 		
+		@RequestMapping(value="amusicEdit.admin", method=RequestMethod.POST)
+		public String musicEditUpdate(musict_adtable ma, Model model, HttpServletRequest req) throws IOException{
+//			System.out.println("가져온값들은 정상인지 확인"+ma.getMtitle()+","+ma.getMsname()
+//					+","+ma.getMgrade()+","+ma.getMetcinfo()+","+ma.getMurl());
+			ArrayList<MultipartFile> files = ma.getFiles();
+			ArrayList<String> filenames = new ArrayList<String>();
+			System.out.println(ma.getAid());
+			int count=0;
+			int switchstate=0;
+			for(MultipartFile multipartfile : files){
+				count= count+1;
+				String fname = multipartfile.getOriginalFilename();
+				String path = req.getRealPath("/upload/"+fname);
+				//String path = request.getServletContext().getRealPath("/upload");
+			   
+				System.out.println(fname);
+				System.out.println(path);
+			    
+			    if(!fname.equals("")){
+			    	switchstate += count;
+			    	FileOutputStream fs = new FileOutputStream(path);
+			    	fs.write(multipartfile.getBytes());
+			    	fs.close();
+			    }
+			    filenames.add(fname);
+			    
+			}
+			SettingDao settingDao = sqlSession.getMapper(SettingDao.class);
+			switch(switchstate){
+			case 0:
+				//System.out.println("아무것도 선택 안했을때");
+				settingDao.musicUpdatenoFile(ma);
+				break;
+			case 1:
+				//System.out.println("1번 그림 파일 선택 했을때");
+				ma.setMpicname(filenames.get(0));
+				settingDao.musicUpdatenoFileOne(ma);
+				break;
+			case 2:
+				//System.out.println("2번 mp3 파일 선택 했을때");
+				ma.setMfilename(filenames.get(1));
+				settingDao.musicUpdatenoFileTwo(ma);
+				break;
+			case 3:
+				//System.out.println("1,2번 둘다 선택 했을때 ");
+				ma.setMpicname(filenames.get(0));
+				ma.setMfilename(filenames.get(1));
+				settingDao.musicUpdatenoFileAll(ma);
+				break;
+				
+			}
+			return "redirect:musicmain.user";
+		}
+		
 		@RequestMapping(value="acform.admin", method=RequestMethod.GET)
 		public String concertform(){	
 			return "setting.acform";
