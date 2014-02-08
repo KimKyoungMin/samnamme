@@ -9,7 +9,7 @@ public class qna {
 	private String userid;
 	private String qtitle;
 	private String qcontent;
-	private Date qdate;
+	private String qdate;
 	private int qstep;  
 	private int qdepth;
 	private int qrenum;
@@ -64,10 +64,10 @@ public class qna {
 	public void setQcontent(String qcontent) {
 		this.qcontent = qcontent;
 	}
-	public Date getQdate() {
+	public String getQdate() {
 		return qdate;
 	}
-	public void setQdate(Date qdate) {
+	public void setQdate(String qdate) {
 		this.qdate = qdate;
 	}
 	public int getStep() {

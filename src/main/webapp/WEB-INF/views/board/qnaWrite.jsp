@@ -16,7 +16,7 @@
 								제목
 							</dt>
 							<dd class="article-detail-data">
-								<input type="text" size="10" name="qtitle" id="qtitle">
+								<input type="text" size="10" name="qtitle" id="qtitle" >
 							</dd>
 						</dl>	
 						<dl class="article-detail-row half-row">
@@ -25,7 +25,7 @@
 							
 							</dt>
 							<dd class="article-detail-data half-data" >
-								..
+								${userid }
 							</dd>
 						</dl>
 						<dl class="article-detail-row half-row">
@@ -40,9 +40,10 @@
 							<textarea id="qcontent" class="txtContent" name="qcontent" ></textarea>
 						
 						<br>
-						<input type="submit" value="등록" >
-						<input type="reset" value="취소" >
-						
+							<div align="center" style="margin-top:5px;margin-bottom:5px;">
+								<input type="submit" value="등록" style="background-color: E1EDB9; width: 50px; height: 25px;">
+								<input type="reset" value="취소" onclick="javascript:history.go(-1)" style="background-color: E1EDB9; width: 50px; height: 25px;">
+							</div>
 						</div>			
 							
 					</div>

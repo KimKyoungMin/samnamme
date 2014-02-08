@@ -6,8 +6,8 @@
   
    <select id="qnalists" resultType="co.kr.samman.dto.qna">
        select K.*
-		from(select * 
-    		 from qna) as K
+		from(select *
+             from qna) as K
 		order by qrenum desc, qstep asc
 		limit #{param1},#{param2}
    </select>

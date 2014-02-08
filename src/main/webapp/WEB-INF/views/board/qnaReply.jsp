@@ -10,9 +10,8 @@
 </head>
 <body>
 
-reply 게시판
+<h2>댓글 Write</h2>
 
-${qnaReply.userid}
 <form action="qnaReply.user" method="post">
 <div id="notice-article-detail" class="article-detail margin-large" >						
 						<dl class="article-detail-row">
@@ -48,8 +47,10 @@ ${qnaReply.userid}
 					<input type="hidden" name="qrenum" value="${qnaReply.qrenum }">
 					<input type="hidden" name="qstep" value="${qnaReply.qstep }">
 					<input type="hidden" name="qdepth" value="${qnaReply.qdepth }">
-						<input type="submit" value="등록" >
-						<input type="reset" value="취소" >
+						<div align="center">
+							<input type="submit" value="등록" style="background-color: E1EDB9; width: 50px; height: 25px;">
+							<input type="reset" value="취소" onclick="javascript:history.go(-1);" style="background-color: E1EDB9; width: 50px; height: 25px;">
+						</div>
 		</form>
 
 

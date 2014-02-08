@@ -105,14 +105,19 @@ public class BoardController {
 		
 		//qnaWrite 게시판
 		@RequestMapping(value= "qnaWrite.user" , method=RequestMethod.GET)
-		public String qnaWritemenu() {	
+		public String qnaWritemenu(Model model) {
+			UserDetails user =   
+				       (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			model.addAttribute("userid", user.getUsername());
+			
 			return "board.qnaWrite";
 		}
 		
 		@RequestMapping(value= "qnaWrite.user" , method=RequestMethod.POST)
 		public String qnaWrite(qna qnadto) {	
 			BoardDao BoardDao = sqlSession.getMapper(BoardDao.class);
-			
+			System.out.println("33 : " + qnadto.getQtitle());
+			System.out.println("33 : " + qnadto.getQcontent());
 			UserDetails user =   
 				       (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 				
