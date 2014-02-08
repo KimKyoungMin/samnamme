@@ -88,10 +88,7 @@
 
 	}
 	
-	function openNewWindow(window){
-		open(window, "NewWindow" , "top=0,left=0,width=550,height=630,resizable=0,scrollbars=no");
-		
-	}
+	
 	
 </script>
 <title>Insert title here</title>
@@ -159,11 +156,12 @@
 						<c:if test="${f.getConyear()==cyear}">
 							<c:if test="${f.getConmonth() == cmonth }">
 								<c:if test="${f.getConday()==scopeday}">
-									<a href=javascript:openNewWindow("concertdetail.user?connum=${f.getConnum()}") style="color: #803232"
-									>●${f.getContitle()}
+									
+									<a href="javascript:void()" onclick="winopen(${f.getConnum()},1)" style="color: #803232">●${f.getContitle() } </a>
+									
 									 <s:authorize ifAnyGranted="ROLE_ADMIN">
 												<a href="concertupdate.admin?connum=${f.getConnum()}" style="color: #00EE00"><h6>수정</h6></a>
-									</s:authorize> <br></a>
+									</s:authorize> <br>
 								</c:if>
 							</c:if>
 						</c:if>

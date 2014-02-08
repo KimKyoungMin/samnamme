@@ -26,7 +26,9 @@
    
  });
  
- 
+ function winopen(connum){
+		window.open('concertdetail.user?connum='+connum,'NewWindow2','top=0,left=0,width=550,height=630,resizable=0,scrollbars=no');
+	}
  //mylist popup 
  function openNewWindow(window){
 	 open(window, "NewWindow", "top=0, right=0, width=320, height=310, resizable=0, scrollbars=yes");
