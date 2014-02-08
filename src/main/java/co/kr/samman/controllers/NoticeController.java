@@ -29,9 +29,8 @@ import co.kr.samman.dto.lastNumber;
 public class NoticeController {
 	@Autowired
 	private SqlSession sqlSession;
-	
-	//공지사항 게시판
-		@RequestMapping("notice.user")
+	//자유게시판
+		@RequestMapping("community.user")
 		public String noticeList(HttpServletRequest req, Model model) {
 			NoticeBoardDao noticeBoardDao = sqlSession.getMapper(NoticeBoardDao.class);
 			int lastnum=3;
@@ -54,7 +53,7 @@ public class NoticeController {
 			
 			model.addAttribute("noticeBoardList", noticeBoardList);
 			model.addAttribute("noticeBoardReplyList", noticeBoardReplyList);
-			return "board.notice";
+			return "board.community";
 		}
 		
 		@RequestMapping(value="noticereplygetList.user" ,produces="text/plain;charset=UTF-8")

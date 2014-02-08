@@ -23,12 +23,6 @@ public class BoardController {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	//자유 게시판
-	@RequestMapping("community.user")
-	public String notice() {	
-		return "board.community";
-	}
-	
 	//회원이 게시판에 글쓰기
 	@RequestMapping(value="communityReg.htm", method=RequestMethod.GET)
 	public String communityForm(){
