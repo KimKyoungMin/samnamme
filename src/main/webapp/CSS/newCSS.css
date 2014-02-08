@@ -1707,14 +1707,14 @@ h1, h2, p, a, span{
 
 body, div, ul, li, table, tr, td, th{margin:0px; padding:0px;}
 
-ul, li{list-style:none;}
+ul, li{list-style:none; z-index: 3; }
 
 
  
 /*�ָ޴� ���콺 ������*/
 
 .header-menu-tab:hover{
-	color:#fff;
+	color:E1EDB9;
 }
 
 
@@ -1735,6 +1735,7 @@ ul, li{list-style:none;}
 	left: 0; top: 80px;
 	background: E1EDB9;
 	display: none;
+	
 }
 
 
@@ -2886,6 +2887,8 @@ div.noticemain{
 	height: 460px;
 }
 .jms-wrapper {
+	
+	border-radius: 5px;
 	width: auto;
 	min-width: 640px;
 	height: 400px;
@@ -3001,9 +3004,10 @@ a.jms-link{
 	width: 100%;
 	position: absolute;
 	text-align: center;
+	height: 77px;
 	left: 0px;
 	bottom: 20px;
-	z-index: 2000;
+	/* z-index: 2000; */
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -3054,7 +3058,7 @@ a.jms-link{
 	height: 80px;
 	width: 30px;
 	cursor: pointer;
-	z-index: 2000;
+	/* z-index: 2000; */
 	box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
 	border-radius: 3px;
 }

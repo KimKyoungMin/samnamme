@@ -38,14 +38,14 @@
          <li><a class="header-menu-tab" href="musicViedo2.user"><span
                class="icon fontawesome-eye-open scnd-font-color"></span>MusicVideo</a>
          </li>
-         <li><a class="header-menu-tab" href="concertmain.user"><span
+         <li ><a class="header-menu-tab" href="concertmain.user"><span
                class="icon entypo-calendar scnd-font-color"></span>Inform</a></li>
          <li class="navi_set"><a class="header-menu-tab" href="#"><span
                class="icon entypo-paper-plane scnd-font-color"></span>Community</a>
              <ul class="subnav">
-               <li><a href="notice.user">Notice</a></li>
-               <li><a href="community.user">Community</a></li>
-               <li><a href="qna.user">Q&A</a></li>
+               <li style="background-color:E1EDB9"><a href="notice.user">Notice</a></li>
+               <li style="background-color:E1EDB9"><a href="community.user">Community</a></li>
+               <li style="background-color:E1EDB9"><a href="qna.user">Q&A</a></li>
             </ul>
          </li>
          
@@ -56,9 +56,9 @@
              <s:authorize ifAnyGranted="ROLE_ADMIN">
              <a class="header-menu-tab" href="#"><span class="icon entypo-cog scnd-font-color"></span>Settings</a>
                 <ul class="subnav">
-                  <li><a href="ausers.admin">User</a></li>
-                  <li><a href="amusicform.admin">Music</a></li>
-                  <li><a href="aconcertform.admin">Concert</a></li>
+                  <li style="background-color:E1EDB9"><a href="ausers.admin">User</a></li>
+                  <li style="background-color:E1EDB9"><a href="amusicform.admin">Music</a></li>
+                  <li style="background-color:E1EDB9"><a href="aconcertform.admin">Concert</a></li>
                </ul>
             </s:authorize>
          </li> 

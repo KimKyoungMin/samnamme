@@ -110,7 +110,30 @@
 			
 			}
 			
+			// add navigation dots
+			if( this.options.dots ) {
 			
+				this.$dots		= $( '<nav class="jms-dots"></nav>' );
+				
+				for( var i = this.slidesCount + 1; --i; ) {
+				
+					this.$dots.append( ( i === this.slidesCount ) ? '<span class="jms-dots-current"/>' : '<span/>' );
+				
+				}
+				
+				if( this.options.jmpressOpts.start ) {
+					
+					this.$start		= this.$jmsWrapper.find( this.options.jmpressOpts.start ), idxSelected = 0;
+					
+					( this.$start.length ) ? idxSelected = this.$start.index() : this.options.jmpressOpts.start = null;
+					
+					this.$dots.children().removeClass( 'jms-dots-current' ).eq( idxSelected ).addClass( 'jms-dots-current' );
+				
+				}
+				
+				this.$el.append( this.$dots )
+			
+			}
 			
 		},
 		// initialize the jmpress plugin
