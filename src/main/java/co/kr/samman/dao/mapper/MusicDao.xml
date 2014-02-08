@@ -8,6 +8,10 @@
        select minfonum, mpicname, mfilename, mtitle, msname, mgrade, metcinfo from musict order by minfonum desc   
    </select>
    
+    <select id="getMainMusiclists" resultType="co.kr.samman.dto.musict">
+		 select * from musict order by  minfonum desc limit 0, 5
+   </select>
+    
    <select id="musicselect" resultType="co.kr.samman.dto.musict">
        select * from musict where minfonum=#{minfonum}
    </select>

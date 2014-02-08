@@ -91,17 +91,6 @@ E-mail <input type="text" name="uemail" class="email text2-input" value="${usert
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 <div class="profileP blockP">
 <s:authentication property="name" var="loginUser"/>
 <h2 align="center">Payment</h2>

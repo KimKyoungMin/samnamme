@@ -1,5 +1,7 @@
 package co.kr.samman.controllers;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import co.kr.samman.dao.MemberDao;
+import co.kr.samman.dao.MusicDao;
+import co.kr.samman.dto.musict;
 import co.kr.samman.dto.usert;
 
 @Controller
@@ -18,7 +22,12 @@ public class MemberController {
 	
 	@RequestMapping("main.htm")
 	public String home(Model model) {
-
+		
+		MusicDao musicDao = sqlSession.getMapper(MusicDao.class);
+		
+		List<musict> musicList = musicDao.getMainMusiclists();
+		model.addAttribute("musicList", musicList);
+		
 		return "main.main";
 	}
 	

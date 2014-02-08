@@ -6,7 +6,9 @@ import co.kr.samman.dto.musict;
 import co.kr.samman.dto.mymusict;
 
 public interface MusicDao {
-	public List<musict> getMusiclists(); //음악 리스트 
+	public List<musict> getMusiclists(); //음악 리스트
+	public List<musict> getMainMusiclists(); //음악 리스트
+	
 	public musict musicselect(int minfonum); //음악 하나 select
 	public void myplayerlist(mymusict m); //myplayerlist (DB에)추가
 	public int myplayerlistCk(String userid, int minfonum); //myplayerlist (DB에)추가 할 때 값 비교

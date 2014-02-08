@@ -7,21 +7,12 @@
                 <div class="menu-box block"> <!--  Top5 (LEFT-CONTAINER) -->
                     <h2 class="titular">Music Top5</h2>
                     <ul class="menu-box-menu">
+                        <c:forEach var="m" items="${musicList}">
                         <li>
-                            <a class="menu-box-tab" href="#6">1st music</a>                            
+                            <a class="menu-box-tab" href="#6">${m.getMtitle()} / ${m.getMsname()}</a>                            
                         </li>
-                        <li>
-                            <a class="menu-box-tab" href="#8">2st music</a>                            
-                        </li>
-                        <li>
-                            <a class="menu-box-tab" href="#10">3st music</a>                            
-                        </li>
-                        <li>
-                            <a class="menu-box-tab" href="#12">4st music</a>
-                        </li>
-                        <li>
-                            <a class="menu-box-tab" href="#13">5st music</a>
-                        </li>                        
+                        </c:forEach> 
+                                             
                     </ul>
                 </div>
                                 
@@ -37,6 +28,7 @@
               
            </div>
            
+           <div align="center">
            <div class="noticemain">
               <h2>Notice</h2>
            </div>
@@ -44,7 +36,7 @@
            <div class="noticemain">
               <h2>Community</h2>
            </div>
-
+			</div>
 </div>
 
 
