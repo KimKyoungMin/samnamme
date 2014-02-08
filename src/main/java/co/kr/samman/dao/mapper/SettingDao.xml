@@ -7,6 +7,22 @@
       select userid, uname, utel, uemail, uexpdate from usert
    </select>
    
+   <select id="getusers" resultType="co.kr.samman.dto.usert">
+      select * from usert where userid=#{userid}
+   </select>
+   
+   <select id="getmdlist" resultType="co.kr.samman.dto.mdlist">
+      select md.MINFONUM minfonum, mu.MTITLE mtitle, mu.MSNAME msname 
+    from musict mu inner join mdlist md on mu.MINFONUM=md.MINFONUM
+    where md.USERID=#{userid} order by mdownnum desc ;
+   </select>
+   
+   <select id="getpay" resultType="co.kr.samman.dto.payt">
+    select pt.PAYSUBCODE paysubcode, pi.PAYNAME payname, pt.PAYDATE paydate, pt.EXPDATE expdate, pt.PAYMONEY paymoney
+    from payt pt inner join payinfo pi on pt.PAYSUBCODE=pi.PAYSUBCODE
+    where userid=#{userid} order by paydate desc; 
+   </select>
+   
     <insert id="concertInsert" parameterType="co.kr.samman.dto.concert">
       INSERT INTO CONCERT (CONTITLE, CONPLACE, CONSINGER, CONDATE, CONENDDATE, CONGRADE,
 		       CONLON, CONLAT, CONECTINFO, conpic, AID)

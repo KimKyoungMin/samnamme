@@ -4,7 +4,8 @@
 
 <div class="ausers">
   <h2>회원 List</h2>
-  <table border="1">
+  <div style="overflow-y:auto;  width:960px; height:380px;border-color: E1EDB9; border-style:solid">
+  <table style=" width: 940px; text-align: center;">
     <thead>
        <tr>
           <th>회원Id</th>
@@ -17,7 +18,7 @@
     <tbody>
        <c:forEach var="u" items="${userList}">
 	       <tr>
-			    <td class="userid">${u.getUserid() }</td>
+			    <td class="userid"><a href="ausersDetail.admin?userid=${u.getUserid() }">${u.getUserid() }</a></td>
 			    <td class="uname">${u.getUname() }</td>  
 			    <td class="utel">${u.getUtel() }</td>
 			    <td class="uemail">${u.getUemail() }</td>
@@ -26,6 +27,6 @@
        </c:forEach>
     </tbody>
   </table>
-  
+  </div>
 
 </div>

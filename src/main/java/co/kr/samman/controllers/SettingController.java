@@ -13,6 +13,8 @@ import java.util.List;
 
 
 
+
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
@@ -27,8 +29,10 @@ import co.kr.samman.dao.ConcertDao;
 import co.kr.samman.dao.MusicDao;
 import co.kr.samman.dao.SettingDao;
 import co.kr.samman.dto.concert;
+import co.kr.samman.dto.mdlist;
 import co.kr.samman.dto.musict;
 import co.kr.samman.dto.musict_adtable;
+import co.kr.samman.dto.payt;
 import co.kr.samman.dto.usert;
 
 @Controller
@@ -50,6 +54,32 @@ public class SettingController {
 			
 			return "setting.ausers";
 		}
+		
+		//회원 Detail
+		@RequestMapping("ausersDetail.admin")
+		public String userDetail(String userid, Model model){
+			System.out.println(userid);
+			SettingDao settingDao = sqlSession.getMapper(SettingDao.class);
+			usert usertDto = settingDao.getusers(userid);
+			model.addAttribute("ud", usertDto);
+			
+			//다운리스트
+			List<mdlist> md = settingDao.getmdlist(userid);
+			model.addAttribute("md", md);
+			
+			return "setting.ausersDetail";
+		}
+		
+		//회원 결제 내역 확인
+		@RequestMapping(value="settingpay.admin", method=RequestMethod.POST)
+		public String userPay(String userid, Model model){
+			SettingDao settingDao = sqlSession.getMapper(SettingDao.class);
+			List<payt> pt = settingDao.getpay(userid);
+			model.addAttribute("pt", pt);
+			
+			return "setting.ausersPay";
+		}
+	
 		
 		//음악 등록
 		@RequestMapping(value="amusicform.admin", method=RequestMethod.GET)

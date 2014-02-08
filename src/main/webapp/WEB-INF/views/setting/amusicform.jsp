@@ -36,7 +36,7 @@
 					<textarea id="metcinfo" name="metcinfo"
 						class="element textarea medium"></textarea>
 				</div>
-			<label class="description" for="element_4">유투브 URL 경로
+			<label class="description" for="element_4">유투브 URL <a href="https://www.youtube.com/">경로</a>
 			</label>
 				<div>
 					<textarea id="murl" name="murl"

@@ -8,7 +8,7 @@
 
 <h2> ${loginUser }님의 My Player List</h2>
 <br>
-<div id="pushaudio" class="pushaudio">아름다워아름다워 사람이 꽃보다 아름다워</div>
+<div id="pushaudio" class="pushaudio">아름다워아름다워 사람이 꽃보다 아름다워</div> 
 
 <script type="text/javascript"> 
 window.onload = playerstart;
@@ -23,7 +23,7 @@ function playerstart(){
 	if(mylists > 1){
 		//alert("리스트가 있습니다.");
 		//htmlSrc 에 플레이어를 등록함
-		htmlSrc+="<object type='application/x-shockwave-flash' data='http://flash-mp3-player.net/medias/player_mp3_multi.swf' width='200' height='100'>";
+		htmlSrc+="<object type='application/x-shockwave-flash' data='http://flash-mp3-player.net/medias/player_mp3_multi.swf' width='300' height='30'>";
 		htmlSrc+="<param name='movie' value='http://flash-mp3-player.net/medias/player_mp3_multi.swf'/>";
 		htmlSrc+="<param name='bgcolor' value='#ffffff'/>";
 		
@@ -40,7 +40,7 @@ function playerstart(){
 	
 	htmlSrc+="&amp;autoplay=1&amp;loop=1&amp;showvolume=1&amp;showloading=always&amp;showlist=0&amp;playlistalpha=0&amp;showplaylistnumbers=0'/>";
 	htmlSrc+="</object>";
-	alert(htmlSrc);
+	//alert(htmlSrc);
 	}else{
 		htmlSrc="<h3>음악 리스트가 없습니다.</h3>";
 	}
@@ -105,7 +105,8 @@ function playerstart(){
 	   </form>
 	</c:otherwise>
 </c:choose>
-  
+ 
+
 
 
 
