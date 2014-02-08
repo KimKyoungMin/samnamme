@@ -11,6 +11,7 @@
 }
 /* fontawesome */
 [class*="fontawesome-"]:before {
+	
   font-family: 'FontAwesome', sans-serif;
 }
 /* zocial */
@@ -153,6 +154,7 @@ h1, h2, p, a, span{
 	}
 
 .input-container {
+	padding-left: 15px;
 	position: relative;
 }
 	input.text-input{
@@ -538,6 +540,7 @@ h1, h2, p, a, span{
 					position: relative;										
 				}
 				.menu-box-tab {
+					padding-left: 10px;
 					line-height: 60px;
 					display: block;
 					border-bottom: 1px solid #1f253d;
@@ -1716,7 +1719,7 @@ ul, li{list-style:none; z-index: 3; }
 /*�ָ޴� ���콺 ������*/
 
 .header-menu-tab:hover{
-	color:E1EDB9;
+	color:white;
 }
 
 

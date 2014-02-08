@@ -10,23 +10,23 @@
                     <h2 class="titular">MEMBER JOIN</h2>
                     <div class="input-container" >
                         <input type="text" class="email text-input" name="userid" placeholder="your Id" required autofocus>
-                        <div class="input-icon envelope-icon-acount"><span class="fontawesome-home scnd-font-color"></span></div>
+                        <div class="input-icon envelope-icon-acount"><span style="padding-left: 20px" class="fontawesome-home scnd-font-color"></span></div>
                     </div>
                     <div class="input-container">
                         <input type="password" class="password text-input" name="upwd" placeholder="Password" required>
-                        <div class="input-icon password-icon"><span class="fontawesome-lock scnd-font-color"></span></div>
+                        <div class="input-icon password-icon"><span style="padding-left: 20px" class="fontawesome-lock scnd-font-color"></span></div>
                     </div>
                     <div class="input-container">
                         <input type="text" class="password text-input" name="uname" placeholder="name">
-                        <div class="input-icon password-icon"><span class="fontawesome-user scnd-font-color"></span></div>
+                        <div class="input-icon password-icon"><span style="padding-left: 20px" class="fontawesome-user scnd-font-color"></span></div>
                     </div>
                     <div class="input-container">
                         <input type="text" class="password text-input" name="utel" placeholder="phone number">
-                        <div class="input-icon password-icon"><span class="fontawesome-phone scnd-font-color"></span></div>
+                        <div class="input-icon password-icon"><span style="padding-left: 20px" class="fontawesome-phone scnd-font-color"></span></div>
                     </div>
                     <div class="input-container">
                         <input type="text" class="password text-input" name="uemail" placeholder="E-mail">
-                        <div class="input-icon password-icon"><span class="fontawesome-envelope scnd-font-color"></span></div>
+                        <div class="input-icon password-icon"><span style="padding-left: 20px" class="fontawesome-envelope scnd-font-color"></span></div>
                     </div>
                     <input type="submit" class="subscribe button" value="OK">
                 </div>
