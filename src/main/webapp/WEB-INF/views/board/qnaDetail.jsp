@@ -10,7 +10,7 @@
 </head>
 <body>
 
-qnadetail게시판
+<h2>qna Write</h2>
 
 <!-- <div class="profileN blockN" align="center"> -->
   
@@ -47,9 +47,13 @@ qnadetail게시판
 							</textarea>
 						</div>
 					</div>
-					<input type="submit" value="삭제">
+					<a href ="qnaReply.user?qnum=${qnaDetail.qnum}">댓글쓰기</a><br>
+					<div align="center">
+						<input type="button" value="이전" onclick="javascript:history.go(-1);" style="background-color: E1EDB9; width: 50px; height: 25px;">
+						<input type="button" value="수정" style="background-color: E1EDB9; width: 50px; height: 25px;">
+						<input type="submit" value="삭제" style="background-color: E1EDB9; width: 50px; height: 25px;">
+					</div>
 					</form>
-					<a href ="qnaReply.user?qnum=${qnaDetail.qnum}">댓글</a>
 				<%-- ?qnum=${qnaDetail.qnum} --%>
 
 </body>

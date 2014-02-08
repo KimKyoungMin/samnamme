@@ -32,43 +32,18 @@
             
            </div>
 
-            <!-- MIDDLE-CONTAINER -->
-            <div class="middle-container container">       
-                <div class="profile block"> <!--  (MIDDLE-CONTAINER) -->
-                    <a class="add-button" href="#28"><span class="icon entypo-plus scnd-font-color"></span></a>
-                    <div class="profile-picture big-profile-picture clear">
-                        <img width="150px" alt="Anne Hathaway picture" src="http://upload.wikimedia.org/wikipedia/commons/e/e1/Anne_Hathaway_Face.jpg" >
-                    </div>
-                    <h1 class="user-name">Anne Hathaway</h1>
-                    <div class="profile-description">
-                        <p class="scnd-font-color">Lorem ipsum dolor sit amet consectetuer adipiscing</p>
-                    </div>
-                </div>
-                 
-             </div>  
+           <div class="slide">
+              <h2 class="titular">광고</h2>
+              
+           </div>
            
-            <!-- RIGHT-CONTAINER -->
-            <div class="right-container container">
-                <div class="weather block clear"> <!-- 공지사항  (RIGHT-CONTAINER) -->
-                    <h2 class="titular">Least Notice</h2>
-                    <div class="tweet first"> 
-                       <p>
-	                       notice write.....<br>
-	                       samnammeajo^^%
-                       </p>        
-                    </div>    
-                </div>
-                
-                            
-                <div class="tweets block"> <!-- (RIGHT-CONTAINER) -->
-                    <h2 class="titular">NewsPeed</h2>
-                      <p> board ......1 </p>
-                      <hr>
-                      <p>   ${mfilename}</p>
-                </div>
-
-            </div>
-
+           <div class="noticemain">
+              <h2>Notice</h2>
+           </div>
+           
+           <div class="noticemain">
+              <h2>Community</h2>
+           </div>
 
 </div>
 

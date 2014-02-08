@@ -69,7 +69,6 @@
         <!-- content -->
 	    <tiles:insertAttribute name="content"></tiles:insertAttribute>
 	    
-        </div> 
 	    
         <!-- footer -->
         <tiles:insertAttribute name="footer"></tiles:insertAttribute>

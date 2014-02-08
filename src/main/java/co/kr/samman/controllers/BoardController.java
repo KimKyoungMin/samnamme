@@ -126,6 +126,7 @@ public class BoardController {
 			return "redirect:qna.user";
 		}
 		
+		//댓글달기
 		@RequestMapping(value= "qnaReply.user" , method=RequestMethod.GET)
 		public String qnaReply(String qnum, Model model) {
 			
@@ -139,15 +140,17 @@ public class BoardController {
 		@RequestMapping(value= "qnaReply.user" , method=RequestMethod.POST)
 		public String qnaReply2(qna qnadto) {	
 			BoardDao BoardDao = sqlSession.getMapper(BoardDao.class);
+			UserDetails user =   
+					(UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 			BoardDao.qnaWriteRef(qnadto);
 			qnadto.setQstep(qnadto.getQstep() + 1);
 			qnadto.setQdepth(qnadto.getQdepth() + 1);
+			qnadto.setUserid(user.getUsername());
+					
 			BoardDao.qnaReplyWrite(qnadto);
 			return "redirect:qna.user";
 		}
-		
-	
-		
+			
 	    //qna 글 삭제
 		@RequestMapping(value="qnaDelete.user", method=RequestMethod.POST)
 		public String qnaDelete(String qnum) {	

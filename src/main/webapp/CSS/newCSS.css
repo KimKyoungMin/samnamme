@@ -512,7 +512,7 @@ h1, h2, p, a, span{
 				height: 360px;
 			}
 				.menu-box .titular {
-					background: D4EE5E;
+					background: #6AC793;
 				}
 				.menu-box-menu .icon {
 					display: inline-block;
@@ -1284,7 +1284,7 @@ h1, h2, p, a, span{
 				height: 300px;
 			}
 				.weather .titular {
-					background: #cc324b;
+					background: #6EE5A3;
 				}
 					.weather .titular .icon {
 						padding-right: 15px;
@@ -1341,7 +1341,7 @@ h1, h2, p, a, span{
 				height: 480px;
 			}
 				.tweets .titular {
-					background: #35aadc;
+					background: #3CB371;
 				}
 					.tweets .titular .icon {
 						font-size: 18px;
@@ -1761,21 +1761,18 @@ ul, li{list-style:none;}
 
 /* ********************* Board ******************************** */
 
-.article-list thead{
-	background: #f5f5f5;
-}
-
 .article-list
 {
 	border-spacing:0px;
  	padding:0px;
 	border-collapse:collapse;
-	width:720px;
-	border-top: 2px solid #A566FF;	
+	width:960px;
+	border-top: 2px solid D4EE5E;	
 }
 
 .article-list thead{
-	background: #7F7EFF;
+	background: E1EDB9;
+	width: 960px;
 }
 
 .article-list tr
@@ -1799,8 +1796,9 @@ ul, li{list-style:none;}
 
 /* .article-list th
 {
-	background: url("../images/bgSpTitle.png") no-repeat left center; 
-} */
+	background: url("../images/bgSp
+.png") no-repeat left center; 
+}  */
 .article-list th:first-child
 {
 	background: none;
@@ -1840,8 +1838,9 @@ td.title a:hover{
 
 .article-detail
 {	
-	width:720px;
-	border-top: 2px solid #A566FF;
+	margin-top: 5px;
+	width:960px;
+	border-top: 2px solid #9EF048;
 }
 
 .article-detail-row
@@ -1862,27 +1861,26 @@ td.title a:hover{
 
 .article-detail-data
 {
-	width:565px;
+	width:805px;
 	text-indent: 15px;
 	float:left;
 }
 
 .half-row
 {
-	width:360px;
+	width:480px;
 	float:left;
 	clear:none;
 }
 
 .half-data
 {
-	width:205px;
+	width:325px;
 }
 
 .article-content
 {	
 	clear:left;
-	padding: 20px;
 	border-bottom:1px solid rgb(233,233,233);
 }
 
@@ -1900,7 +1898,8 @@ td.title a:hover{
 
 .article-detail textarea
 {
-	width:680px;
+	padding-left: 10px;
+	width:960px;
 	min-height: 300px;
 }
 
@@ -2854,7 +2853,25 @@ box-shadow: 3px 3px 4px rgba(0,0,0,.5);
 	margin-left: 560px;
 }
 
+/* main */
+div.slide{
+	width: 640px;
+	height: 400px;
+	border-radius: 7px;
+	margin-left: 315px;
+	background: yellow;
+}
 
+div.noticemain{
+	display: inline-block;
+	width: 300px;
+	height: 365px;
+	border-radius: 7px;
+	margin-top: 10px;
+	margin-left: 15px;
+	margin-right: 10px;
+	background: orange;
+}
 
 
 

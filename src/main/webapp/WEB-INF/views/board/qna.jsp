@@ -9,7 +9,6 @@ int endpage = (Integer)request.getAttribute("endpage");
 int nowpage = (Integer)request.getAttribute("page");
 %>
 
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,25 +18,22 @@ int nowpage = (Integer)request.getAttribute("page");
 
 </head>
 <body>
-	qna 게시판
+	<h2>qna 게시판</h2>
 	<div align="right">
 		<a href="qnaWrite.user">글쓰기</a> &nbsp;
 	</div>
+	
 	<table class="article-list margin-small">
 		<thead>
 			<tr>
-				<th class="seq">번호</th>
-				<th class="title">제목</th>
-				<th class="writer">작성자</th>
-				<th class="regdate">작성일</th>
-				<th class="hit">조회수</th>
+				<td class="seq">번호</td>
+				<td class="title">제목</td>
+				<td class="writer">작성자</td>
+				<td class="regdate">작성일</td>
+				<td class="hit">조회수</td>
 			</tr>
 		</thead>
-	</table>
-
-	<table class="article-list margin-small">
 		<tbody>
-
 			<c:forEach items="${qnaList}" var="n">
 				<tr>
 					<td class="seq">${n.qnum}</td>
@@ -47,17 +43,11 @@ int nowpage = (Integer)request.getAttribute("page");
 					<td class="hit">${n.qcount}</td>
 				</tr>
 			</c:forEach>
-
 		</tbody>
-	</table>
- page:  ${page }
- max:  ${maxpage }
- start:  ${startpage }
- end:  ${endpage }
+	</table> 
+
    <br>
-   
-  
-	${a}
+ ${a}
    <center>
   <div style="clear: both">
   <br>
