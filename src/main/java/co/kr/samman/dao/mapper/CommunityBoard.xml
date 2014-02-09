@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="co.kr.samman.dao.CommunityBoardDao">
+	<!-- get board 게시글 list -->
+	<select id="communityBoardList" resultType="co.kr.samman.dto.board">
+		SELECT BNUM, USERID,
+		BTITLE, BCONTENT, BPICNAME, BDATE, BSUB FROM BOARDT
+		WHERE BSUB=2 ORDER
+		BY BNUM DESC
+		LIMIT #{param1}, #{param2}
+	</select>
+
+	<!-- get reply count  -->
+	<select id="communityreplygetcount" resultType="Integer">
+		select COUNT(*) from CONT WHERE BNUM=#{param1}
+	</select>
+	
+	<!-- get reply list -->
+	<select id="communityreplyList" resultType="co.kr.samman.dto.cont">
+		SELECT USERT.UNAME USERNAME, CONT.USERID USERID, CONT.CNUM CNUM, 
+		CONT.BNUM BNUM, CONT.CCONTENT CCONTENT, DATE_FORMAT(CONT.CDATE,'%Y-%m-%d %H:%i:%s' ) CDATE
+		FROM CONT
+		INNER JOIN USERT
+		ON
+		CONT.USERID=USERT.USERID
+		ORDER BY CONT.CNUM DESC
+	</select>
+</mapper>

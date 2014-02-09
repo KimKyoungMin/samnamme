@@ -23,7 +23,7 @@ public class BoardController {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	//회원이 게시판에 글쓰기
+	/*//회원이 게시판에 글쓰기
 	@RequestMapping(value="communityReg.htm", method=RequestMethod.GET)
 	public String communityForm(){
 		return "board.communityForm";
@@ -32,7 +32,7 @@ public class BoardController {
 	@RequestMapping(value="communityReg.htm", method=RequestMethod.POST)
 	public String communityReg(){
 		return "redirect:community.user";
-	}
+	}*/
 	
 	//qna 게시판
 		@RequestMapping(value="qna.user",method=RequestMethod.GET)

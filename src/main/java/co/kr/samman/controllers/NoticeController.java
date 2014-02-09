@@ -30,7 +30,7 @@ public class NoticeController {
 	@Autowired
 	private SqlSession sqlSession;
 	//자유게시판
-		@RequestMapping("community.user")
+		@RequestMapping("notice.user")
 		public String noticeList(HttpServletRequest req, Model model) {
 			NoticeBoardDao noticeBoardDao = sqlSession.getMapper(NoticeBoardDao.class);
 			int lastnum=3;
@@ -53,7 +53,32 @@ public class NoticeController {
 			
 			model.addAttribute("noticeBoardList", noticeBoardList);
 			model.addAttribute("noticeBoardReplyList", noticeBoardReplyList);
-			return "board.community";
+			return "board.notice";
+		}
+		
+		//notice board write method 
+		@RequestMapping(value="noticewrite.user", method=RequestMethod.GET)
+		public String noticeWriteForm(Model model){
+//			System.out.println("NoticeController.noticeWriteForm()-get");
+			
+			return "board.noticewrite";
+		}
+		
+		@RequestMapping(value="noticewrite.user", method=RequestMethod.POST)
+		public String noticeWrite(board bor, HttpServletRequest req, Model model) throws IOException{
+			//System.out.println("NoticeController.noticeWriteForm()- post");
+			bor.setBpicname(bor.getFilespic().getOriginalFilename());
+			String path = req.getRealPath("/CSS/noticeboardpic/"+bor.getBpicname());
+			
+			if(!bor.getBpicname().equals("")){
+		    	FileOutputStream fs = new FileOutputStream(path);
+		    	fs.write(bor.getFilespic().getBytes());
+		    	fs.close();
+		    }
+			
+			NoticeBoardDao noticeBoardDao = sqlSession.getMapper(NoticeBoardDao.class);
+			noticeBoardDao.writenotice(bor);
+			return "redirect:notice.user";
 		}
 		
 		@RequestMapping(value="noticereplygetList.user" ,produces="text/plain;charset=UTF-8")
@@ -157,29 +182,7 @@ public class NoticeController {
 			return data.toString();
 		}
 		
-		@RequestMapping(value="noticewrite.user", method=RequestMethod.GET)
-		public String noticeWriteForm(Model model){
-//			System.out.println("NoticeController.noticeWriteForm()-get");
-			
-			return "board.noticewrite";
-		}
 		
-		@RequestMapping(value="noticewrite.user", method=RequestMethod.POST)
-		public String noticeWrite(board bor, HttpServletRequest req, Model model) throws IOException{
-			//System.out.println("NoticeController.noticeWriteForm()- post");
-			bor.setBpicname(bor.getFilespic().getOriginalFilename());
-			String path = req.getRealPath("/CSS/noticeboardpic/"+bor.getBpicname());
-			
-			if(!bor.getBpicname().equals("")){
-		    	FileOutputStream fs = new FileOutputStream(path);
-		    	fs.write(bor.getFilespic().getBytes());
-		    	fs.close();
-		    }
-			
-			NoticeBoardDao noticeBoardDao = sqlSession.getMapper(NoticeBoardDao.class);
-			noticeBoardDao.writenotice(bor);
-			return "redirect:notice.user";
-		}
 		
 		@RequestMapping(value="noticeupdate.user", method=RequestMethod.GET)
 		public String noticeUpdateform(HttpServletRequest req, Model model){

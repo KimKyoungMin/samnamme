@@ -5,7 +5,7 @@
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-latest.js"></script>
 
-<h2>공지사항</h2>
+<h2>자유 게시판</h2>
 <s:authentication property="name" var="loginUser"/>
 <!-- Ajax 함수 모음 -->
 <script type="text/javascript">
@@ -181,8 +181,11 @@
 </script>
 
 <div class="noticeaddbutton">
+	<s:authorize ifAnyGranted="ROLE_USER">
+		<a href="communitywrite.user" class="dynamiclabel_2">글 등록</a>
+	</s:authorize>
 	<s:authorize ifAnyGranted="ROLE_ADMIN">
-		<a href="noticewrite.user" class="dynamiclabel_2">공지사항 등록</a>
+		<a href="communitywrite.user" class="dynamiclabel_2">글 등록</a>
 	</s:authorize>
 </div>
 <!-- noticeBoardList -->
@@ -213,9 +216,9 @@
 					
 					<div class="noticeDiv" style="text-align: left">${f.getBdate() }</div>
 					<div class="noticeDiv">
-						<s:authorize ifAnyGranted="ROLE_ADMIN"><p>
-							<a href="noticeupdate.user?bnum=${f.getBnum() }" class="dynamiclabel">공지사항수정</a>&nbsp;&nbsp;
-							<a href="noticedelete.user?bnum=${f.getBnum() }" class="dynamiclabel_1">공지사항삭제</a><br>
+						<s:authorize ifAnyGranted="ROLE_USER"><p>
+							<a href="noticeupdate.user?bnum=${f.getBnum() }" class="dynamiclabel">글 수정</a>&nbsp;&nbsp;
+							<a href="noticedelete.user?bnum=${f.getBnum() }" class="dynamiclabel_1">글 삭제</a><br>
 						</s:authorize>
 		            </div><br>
 					    현재 댓글 수 <span id ="replycount${varnum }" class="round">${f.getReplycount() }</span>
@@ -285,7 +288,7 @@
 	<form method="get" action="">
 		<input type="hidden" name="lastnum"
 			value="${lastNumber.getLastnum() }"> <input type="submit"
-			name="" value="공지사항 더 확인하기">
+			name="" value="이전글 더 확인하기">
 		<!-- <input type="submit" name="" value="공지사항 더 확인하기" onclick="btnMore"> -->
 	</form>
 </div>
