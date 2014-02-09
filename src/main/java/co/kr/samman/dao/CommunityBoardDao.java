@@ -13,4 +13,8 @@ public interface CommunityBoardDao {
 
 	List<cont> communityreplyList();
 
+	void writenotice(board bor);
+	
+	
+
 }

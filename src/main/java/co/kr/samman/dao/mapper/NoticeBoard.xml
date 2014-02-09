@@ -60,7 +60,7 @@
 		resultType="co.kr.samman.dto.board">
 		SELECT BNUM, USERID, BTITLE,
 		BCONTENT, BPICNAME, BDATE, BSUB FROM BOARDT
-		WHERE BSUB=1 AND BNUM =
+		WHERE BNUM =
 		#{param1}
 	</select>
 

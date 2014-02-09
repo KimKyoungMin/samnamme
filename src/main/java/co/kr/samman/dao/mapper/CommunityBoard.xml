@@ -28,4 +28,12 @@
 		CONT.USERID=USERT.USERID
 		ORDER BY CONT.CNUM DESC
 	</select>
+	
+	<!-- board 게시글 write -->
+	<insert id="writenotice" parameterType="co.kr.samman.dto.board">
+		INSERT INTO BOARDT
+		(USERID, BTITLE, BCONTENT, BPICNAME, BDATE, BSUB)
+		VALUES
+		(#{userid}, #{btitle},#{bcontent},#{bpicname},NOW(),2)
+	</insert>
 </mapper>

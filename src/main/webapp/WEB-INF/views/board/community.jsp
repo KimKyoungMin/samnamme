@@ -49,7 +49,7 @@
 		
 		$.ajax({
 			type : "post",
-			url : "noticereplygetList.user",
+			url : "communityreplygetList.user",
 			data : ({
 				bnum : boardNo,
 				replycount : replycount
@@ -100,7 +100,7 @@
 	function replyDelete(replyNo, boardNo, barnum, replycountin, replycountnum){
 		$.ajax({
 			type : "post",
-			url : "noticereplydelete.user",
+			url : "communityreplydelete.user",
 			data : ({
 				cnum : replyNo,
 			}), //data를 갖고
@@ -116,7 +116,7 @@
 	function replyadd(bnum, userid, ccontent, barnum, replycountin, replycountnum){
 		$.ajax({
 			type : "post",
-			url : "noticereplyadd.user",
+			url : "communityreplyadd.user",
 			data : ({
 				bnum : bnum,
 				userid : userid,
@@ -138,7 +138,7 @@
 		
 		 $.ajax({
 			type : "post",
-			url : "noticereplyupdate.user",
+			url : "communityreplyupdate.user",
 			data : ({
 				Cnum : Cnum,
 				concent: concent
@@ -159,7 +159,7 @@
 		//alert("replyUpdateFormCall" + username);
 		$.ajax({
 			type : "post",
-			url : "noticereplyget.user",
+			url : "communityreplyget.user",
 			data : ({
 				Cnum : Cnum,
 			}), //data를 갖고
@@ -182,10 +182,10 @@
 
 <div class="noticeaddbutton">
 	<s:authorize ifAnyGranted="ROLE_USER">
-		<a href="communitywrite.user" class="dynamiclabel_2">글 등록</a>
+		<a href="communitywrite.user?userid=${loginUser }" class="dynamiclabel_2">글 등록</a>
 	</s:authorize>
 	<s:authorize ifAnyGranted="ROLE_ADMIN">
-		<a href="communitywrite.user" class="dynamiclabel_2">글 등록</a>
+		<a href="communitywrite.user?userid=${loginUser }" class="dynamiclabel_2">글 등록</a>
 	</s:authorize>
 </div>
 <!-- noticeBoardList -->
@@ -215,11 +215,22 @@
 					</table>
 					
 					<div class="noticeDiv" style="text-align: left">${f.getBdate() }</div>
-					<div class="noticeDiv">
-						<s:authorize ifAnyGranted="ROLE_USER"><p>
-							<a href="noticeupdate.user?bnum=${f.getBnum() }" class="dynamiclabel">글 수정</a>&nbsp;&nbsp;
+					<div class="noticeDiv"><h3>${loginUser } vs ${f.getUserid() }</h3>
+					<c:choose>
+						<c:when test="${loginUser eq f.getUserid() }">
+							<a href="communityupdate.user?bnum=${f.getBnum() }&userid=${loginUser}" class="dynamiclabel">글 수정</a>&nbsp;&nbsp;
+							<a href="communitydelete.user?bnum=${f.getBnum() }" class="dynamiclabel_1">글 삭제</a><br>
+						</c:when>
+					</c:choose>
+							<!-- 이전 롤로 확인했던 사항을 아이디가 같은지도 대체함 -->
+					<%-- <s:authorize ifAnyGranted="ROLE_USER"><p>
+							<a href="communityupdate.user?bnum=${f.getBnum() }&userid=${loginUser}" class="dynamiclabel">글 수정</a>&nbsp;&nbsp;
 							<a href="noticedelete.user?bnum=${f.getBnum() }" class="dynamiclabel_1">글 삭제</a><br>
 						</s:authorize>
+						<s:authorize ifAnyGranted="ROLE_ADMIN"><p>
+							<a href="communityupdate.user?bnum=${f.getBnum() }&userid=${loginUser}" class="dynamiclabel">글 수정</a>&nbsp;&nbsp;
+							<a href="noticedelete.user?bnum=${f.getBnum() }" class="dynamiclabel_1">글 삭제</a><br>
+						</s:authorize> --%>
 		            </div><br>
 					    현재 댓글 수 <span id ="replycount${varnum }" class="round">${f.getReplycount() }</span>
 				</div>	

@@ -8,7 +8,7 @@
 					<div class="form_description">
 		<BR>	<p>새글을 작성하고 싶군요? 마음대로 적어보세요</p>
 		</div>						
-			
+			<input type="hidden" name="userid" value="${userid }">
 		<label class="description" for="btitle">게시하고픈 글 제목 </label>
 		<div>
 			<input  name="btitle" class="element text medium" type="text" maxlength="255" value=""/> 
