@@ -98,13 +98,24 @@
 		$("#starttime").timePicker();
 		$("#endtime").timePicker();
 	});
+	
+	//글자수 제한 체크 
+	function len_chk(){
+	  var frm = document.form_782108.conectinfo; 
+	    
+	  if(frm.value.length > 3800){  
+	       alert("글자수는 영문3800, 한글1900자로 제한됩니다.!");  
+	       frm.value = frm.value.substring(0,3800);  
+	       frm.focus();  
+	  } 
+	} 
 </script>
 </head>
 <body id="main_body">
 
 	<div id="form_container">
 
-		<form class="appnitro" enctype="multipart/form-data"
+		<form class="appnitro" id="form_782108" name="form_782108" enctype="multipart/form-data"
 			method="post" action="">
 			<table>
 				<tr>
@@ -120,7 +131,8 @@
 					</label>
 						<div>
 							<input id="contitle" name="contitle" class="element text medium"
-								type="text" maxlength="200" value="${concertDetail.getContitle()}" />
+								type="text" maxlength="200" 
+								placeholder="input Concert title please" required autofocus value="${concertDetail.getContitle()}" />
 						</div>
 						<input name="connum" type="hidden" value="${concertDetail.getConnum()}" />
 						</td>
@@ -130,7 +142,8 @@
 					</label>
 						<div>
 							<input id="conplace" name="conplace" class="element text medium"
-								type="text" maxlength="100" value="${concertDetail.getConplace() }" />
+								type="text" maxlength="100" 
+								placeholder="input Concert floor please" required autofocus  value="${concertDetail.getConplace() }" />
 						</div></td>
 				</tr>
 
@@ -140,31 +153,36 @@
 						<div>
 							<input id="consinger" name="consinger"
 								class="element text medium" type="text" maxlength="100" 
+								placeholder="input Concert singer please" required autofocus
 								value="${concertDetail.getConsinger()}" />
 						</div></td>
 				</tr>
 				<tr>
 					<td>공연시작일<br>
-					<input type="text" id="startday" name="startday" 
+					<input type="text" id="startday" name="startday" placeholder="input Date please" required autofocus 
 					value="${concertDetail.getCondate()}"
 					> 공연시간 :<input
-						type="text" id="starttime" name="starttime" size="10" value="${concertDetail.getStarttime() }" 
+						type="text" id="starttime" name="starttime" size="10" 
+						placeholder="Start time" required autofocus value="${concertDetail.getStarttime() }" 
 						/> 공연종료시간<input
-						type="text" id="endtime" name="endtime" size="10" value="${concertDetail.getEndtime() }"/>
+						type="text" id="endtime" name="endtime" size="10" 
+						placeholder="endTime" required autofocus value="${concertDetail.getEndtime() }"/>
 					</td>
 				</tr>
 				<tr>
 					<td id="li_8"><label class="description" for="element_8">공연 분류 </label>
 						<div>
 							<input id="congrade" name="congrade" class="element text medium"
-								type="text" maxlength="255" value="${concertDetail.getCongrade() }"/>
+								type="text"  maxlength="100" 
+								placeholder="input Concert congrade please" required autofocus value="${concertDetail.getCongrade() }"/>
 						</div></td>
 				</tr>
 				<tr>
 					<td id="li_9"><label class="description" for="element_9">공연 좌표(위도) </label>
 						<div>
 							<input id="conlon" name="conlon" class="element text medium"
-								type="text" maxlength="255" value="${concertDetail.getConlon() }" />
+								type="text" maxlength="11" 
+								placeholder="conlon" required autofocus  value="${concertDetail.getConlon() }" />
 						</div></td>
 				</tr>
 				<tr>
@@ -172,13 +190,16 @@
 					</label>
 						<div>
 							<input id="conlat" name="conlat" class="element text medium"
-								type="text" maxlength="255" value="${concertDetail.getConlat()}" />
+								type="text" maxlength="11" 
+								placeholder="input Conlat title please" required autofocus value="${concertDetail.getConlat()}" />
 						</div></td>
 				</tr>
 				<tr>
 					<td id="li_11"><label class="description" for="element_11">설명 </label>
 						<div>
 							<textarea id="conectinfo" name="conectinfo"
+							onKeyup="len_chk()"
+								 placeholder="input content please" required autofocus
 								class="element textarea medium">${concertDetail.getConectinfo()}</textarea>
 						</div></td>
 				</tr>
