@@ -29,7 +29,7 @@ function len_chk(){
 		<label class="description" for="bcontent" >글 내용 </label>
 		<div>
 			<textarea name="bcontent" id="bcontent" class="element textarea medium" placeholder="input contente please" required autofocus
-			  onKeyup="len_chk()" cols="40"></textarea> 
+			  onKeyup="len_chk()"></textarea> 
 		</div> 
 		<label class="description" for="filespic">첨부사진 </label>
 		<div>
