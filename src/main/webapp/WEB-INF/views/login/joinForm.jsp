@@ -8,6 +8,13 @@
 		var checkVal = document.myform.userid.value;
 		document.myform.userid.value = checkVal.replace(regVal, "");
 	}
+	//연락처에 쓸 숫자만 입력가능하게끔 하는 정규식 적용
+	function telcheck(j){ 
+		var regVal = /[^0-9]/g;
+		var checkVal = document.myform.utel.value;
+		document.myform.utel.value = checkVal.replace(regVal, "");
+	}
+	
 </script>
 <br><br>
             
@@ -28,7 +35,7 @@
                         <div class="input-icon password-icon"><span style="padding-left: 20px" class="fontawesome-user scnd-font-color"></span></div>
                     </div>
                     <div class="input-container">
-                        <input type="text" class="password text-input" name="utel" placeholder="phone number" maxlength="20">
+                        <input type="text" class="password text-input" name="utel" placeholder="phone number you can do input number only" maxlength="20" onKeyup='telcheck()'>
                         <div class="input-icon password-icon"><span style="padding-left: 20px" class="fontawesome-phone scnd-font-color"></span></div>
                     </div>
                     <div class="input-container">
