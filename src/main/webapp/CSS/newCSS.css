@@ -490,7 +490,7 @@ h1, h2, p, a, span{
 		.block {
 			margin-bottom: 15px;
 			/* float:right; */
-			/* background: #E1EDB9; */  
+			/* background: black; */  
 			/* border-radius: 5px; */
 			border-bottom:2px solid #747474;
 			border-top:2px solid #747474;
@@ -562,7 +562,7 @@ h1, h2, p, a, span{
 	        .blockA {
 			  /*  display: inline; */
 			   margin-bottom: 25px;
-			   background: #E1EDB9;
+			   background: black;
 			   border-radius: 5px;	
 			   float: left;	
 			   margin-right: 20px ;
@@ -587,7 +587,7 @@ h1, h2, p, a, span{
 .blockD {
 	/*  display: inline; */
 	margin-bottom: 25px;
-	background: #E1EDB9;
+	background: black;
 	border-radius: 5px;
 	float: left;
 	margin-right: 20px;
@@ -607,7 +607,7 @@ h1, h2, p, a, span{
 	/*  display: inline; */
 	color: 4A3D3D;
 	margin-bottom: 25px;
-	background: #E1EDB9;
+	background: black;
 	border-radius: 5px;
 	float: left;
 	margin-right: 20px;
@@ -637,7 +637,7 @@ h1, h2, p, a, span{
 	/*  display: inline; */
 	color: #fff;
 	margin-bottom: 25px;
-	background: #E1EDB9;
+	background: black;
 	border-radius: 5px;
 	float: left;
 	margin-right: 25px;
@@ -686,7 +686,7 @@ h1, h2, p, a, span{
 	padding-top: 10px;
 	padding-left: 3px;
 	padding-right: 3px;
-	border-color: #E1EDB9;
+	border-color: black;
 }
 
 
@@ -763,7 +763,7 @@ h1, h2, p, a, span{
 			   padding-left: 10px;
 			   padding-right: 5px;
 			   margin-bottom: 25px;
-			   background: #E1EDB9;
+			   background: black;
 			   border-radius: 5px;	
 			   float: left;	
 			   margin-right: 20px ;
@@ -775,7 +775,7 @@ h1, h2, p, a, span{
 			   padding-top: 10px;
 			   padding-left: 10px;
 			   padding-right: 10px;
-			   background: #E1EDB9;
+			   background: black;
 			   color: 4A3D3D;
 			   border-radius: 3px;	
 			   float: left;	
@@ -814,7 +814,7 @@ h1, h2, p, a, span{
 			}
 			.blockV {
 			   margin-bottom: 25px;
-			   background: #E1EDB9;
+			   background: black;
 			   border-radius: 5px;	
 			   float: left;	
 			   margin-right: 20px ;
@@ -1727,7 +1727,7 @@ ul, li{list-style:none; z-index: 3; }
 	position: absolute;
 	width: 100%;
 	left: 0; top: 80px;
-	background: #E1EDB9;
+	background: white;
 	
 	
 	display: none;
@@ -1750,10 +1750,11 @@ ul, li{list-style:none; z-index: 3; }
 /*����޴� ���콺 ������*/
 
 .subnav li:hover{
-	background: #D8DEC3;
+	background: white;
 	border-bottom: 4px solid #D5D5D5;
 	text-decoration: none;
 }
+
 
 
 /* ********************* Board ******************************** */
@@ -1768,7 +1769,7 @@ ul, li{list-style:none; z-index: 3; }
 }
 
 .article-list thead{
-	background: #E1EDB9;
+	background: black;
 	width: 960px;
 }
 
@@ -3095,7 +3096,7 @@ a.jms-link{
 /* 관리자 회원 관리 페이지 */
 div.userinfo{
 	border-style: solid;
-	border-color: #E1EDB9;
+	border-color: black;
 	text-align: center;
 	width:460px;
 	height: 350px; 
