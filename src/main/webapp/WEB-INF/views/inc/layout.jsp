@@ -9,6 +9,7 @@
 <link rel="stylesheet" type="text/css" href="CSS/newCSS.css" />        
 
 <html>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -60,7 +61,34 @@
 </script>
 
 </head>
-    <body class="main-container">
+	
+	
+<article>
+   <div class="main">
+   <div class="row-1"> <a class="logo" href="main.htm">HomeStyle</a>
+          <ul class="head-nav">
+        <li><a href="index.html">Online store </a></li>
+        <li><a href="index1.html">About Us</a></li>
+        <li><a href="index2.html">Delivery</a></li>
+        <li><a href="index3.html">FAQs</a></li>
+        <li><a href="index4.html">Contacts</a></li>
+      </ul>
+          <form class="currency">
+        <label for="cur">Currencies:</label>
+        <select id="cur">
+              <option value="">US Dollar</option>
+              <option value="">US Dollar</option>
+              <option value="">US Dollar</option>
+            </select>
+        <a href="#">Change</a>
+      </form>
+          <div class="clear"></div>
+        </div></div>
+
+  </article>
+	
+	
+    <div class="main-container">
         
 	    
 	    <!-- <div class="main-container"> -->
@@ -78,6 +106,6 @@
         
 	      
 
-    </body>	
+    </div>	
 
 </html>

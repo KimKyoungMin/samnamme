@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 
-Music Video player test 두번째
+
 
 
 
@@ -16,7 +16,7 @@ Music Video player test 두번째
 <c:if test="${playvideo==null }">
 
 <embed src="//www.youtube.com/v/CJ_J7E67Xoc?hl=ko_KR&amp;version=3&amp;rel=0"
- type="application/x-shockwave-flash" width="560" height="315"
+ type="application/x-shockwave-flash" width="600" height="400"
   allowscriptaccess="always" allowfullscreen="true"></embed>
 
 </c:if>

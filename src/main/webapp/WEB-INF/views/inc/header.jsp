@@ -3,14 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ taglib prefix="s" uri="http://www.springframework.org/security/tags" %>
 
-<div align="center" style="margin-bottom: -50px;"><img src="upload/logo.png"></div>
-<div onclick="location.href='main.htm';" style="cursor: pointer;" class="header01">
-   <header align="center">
-     
-   </header>
-</div>
-<!-- igo -->
-<div class="block3">
+  
+
+<body>
+<div class="block3" style="margin-top: 130px;">
       <s:authentication property="name" var="loginUser"/>
    <h2>
       
@@ -29,8 +25,9 @@
 </div>
 
 <div class="main-container">
+</div>
 <!-- <div class="head-container"> -->
-   <header class="block">
+   <div class="block">
       <ul class="header-menu horizontal-list">
          <li><a class="header-menu-tab" href="musicmain.user"><span
                class="icon fontawesome-star-empty scnd-font-color"></span>Music</a></li>
@@ -78,6 +75,7 @@
           <!-- <audio  id="au" src="" controls="controls" style="width: 30%;" autoplay="true"></audio>
           <input type="text" id="mfilename" class="text4-input" placeholder="노래 리스트가 없습니다.." readonly> -->
       </div> 
-   </header>
+   </div>
+   </body>
    
    
