@@ -9,4 +9,5 @@ public interface ConcertDao {
 	public List<concert> getConcertList();
 	public concert getConcertdetail(int id);
 	public concert concertupdate(concert con);
+	public void concertupdatenoImage(co.kr.samman.dto.concert con);
 }

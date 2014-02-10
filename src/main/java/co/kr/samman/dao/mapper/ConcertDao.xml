@@ -16,7 +16,7 @@
        CONECTINFO, CONLON, CONLAT, AID,CONPIC, CONENDDATE,
        TIME(CONDATE) STARTTIME, TIME(CONENDDATE) ENDTIME FROM CONCERT WHERE CONNUM = #{param1}
 	</select>
-	<select id="concertupdate" parameterType="co.kr.samman.dto.concert">
+	<update id="concertupdate" parameterType="co.kr.samman.dto.concert">
 		UPDATE CONCERT SET CONTITLE = #{contitle},
     		CONPLACE=#{conplace} ,
    	 		CONSINGER=#{consinger},
@@ -30,5 +30,18 @@
 			AID='ADMIN'
 		where CONNUM=#{connum};
 
-	</select>
+	</update>
+	<update id="concertupdatenoImage" parameterType="co.kr.samman.dto.concert">
+		UPDATE CONCERT SET CONTITLE = #{contitle},
+    		CONPLACE=#{conplace} ,
+   	 		CONSINGER=#{consinger},
+    		CONDATE=#{condate},
+			CONENDDATE=#{conenddate},
+			CONGRADE=#{congrade},
+			CONECTINFO=#{conectinfo},
+			CONLON=#{conlon},
+			CONLAT=#{conlat},
+			AID='ADMIN'
+		where CONNUM=#{connum};
+	</update>
 </mapper>

@@ -59,12 +59,8 @@ public class ConcertController {
 	public String concertupdate(concert con, HttpServletRequest req, Model model) throws IOException{
 		con.setConpic(con.getFiles().getOriginalFilename());
 		String path = req.getRealPath("/concertpic/"+con.getConpic());
+		ConcertDao settingDao = sqlSession.getMapper(ConcertDao.class);
 		
-		if(!con.getConpic().equals("")){
-	    	FileOutputStream fs = new FileOutputStream(path);
-	    	fs.write(con.getFiles().getBytes());
-	    	fs.close();
-	    }
 		if(con.getStarttime().length()==5)
 			con.setCondate(con.getStartday() + " " + con.getStarttime()+":00");
 		else con.setCondate(con.getStartday() + " " + con.getStarttime());
@@ -72,11 +68,22 @@ public class ConcertController {
 			con.setConenddate(con.getStartday() + " " + con.getEndtime()+":00");
 		else con.setConenddate(con.getStartday() + " " + con.getEndtime());
 		
+		if(!con.getConpic().equals("")){
+	    	FileOutputStream fs = new FileOutputStream(path);
+	    	fs.write(con.getFiles().getBytes());
+	    	fs.close();
+	    	System.out.println(con.toString());
+	    	settingDao.concertupdate(con);
+	    }else{
+	    	settingDao.concertupdatenoImage(con);
+	    }
+		
+		
 //		System.out.println(con.getCondate());
 //		System.out.println(con.getConenddate());
 		
-		ConcertDao settingDao = sqlSession.getMapper(ConcertDao.class);
-		settingDao.concertupdate(con);
+		
+		
 		
 		return "redirect:concertmain.user";
 	}
