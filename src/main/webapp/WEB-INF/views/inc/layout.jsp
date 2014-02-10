@@ -66,23 +66,24 @@
 <article>
    <div class="main">
    <div class="row-1"> <a class="logo" href="main.htm">HomeStyle</a>
-          <ul class="head-nav">
-        <li><a href="index.html">Online store </a></li>
-        <li><a href="index1.html">About Us</a></li>
-        <li><a href="index2.html">Delivery</a></li>
-        <li><a href="index3.html">FAQs</a></li>
-        <li><a href="index4.html">Contacts</a></li>
-      </ul>
-          <form class="currency">
-        <label for="cur">Currencies:</label>
-        <select id="cur">
-              <option value="">US Dollar</option>
-              <option value="">US Dollar</option>
-              <option value="">US Dollar</option>
-            </select>
-        <a href="#">Change</a>
-      </form>
-          <div class="clear"></div>
+        
+    <div align="right">    
+      <s:authentication property="name" var="loginUser"/>
+   <h2>
+      
+        <s:authorize ifNotGranted="ROLE_USER, ROLE_ADMIN">
+         <a style="color: white; padding-top: 5px" href="login.htm">Login</a> <span style="color: white">||</span> <a style="color: white" href="join.htm">Join</a>
+        </s:authorize>
+        
+        <s:authentication property="name" var="loginUser"/>
+        <s:authorize ifAnyGranted="ROLE_USER, ROLE_ADMIN">
+             <a style="color: white" href="${pageContext.request.contextPath}/j_spring_security_logout">        
+                       Logout
+             </a>
+         </s:authorize>
+   </h2>
+   </div>
+   
         </div></div>
 
   </article>

@@ -55,8 +55,8 @@
             
            </div>
 
-           <div class="slide">
-              <section id="jms-slideshow" class="jms-slideshow">
+           <div class="slide" >
+              <section  id="jms-slideshow" class="jms-slideshow">
 			
 			
 				<div class="step" data-color="color-5">

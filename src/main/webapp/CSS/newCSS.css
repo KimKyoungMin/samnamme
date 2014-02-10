@@ -401,6 +401,7 @@ h1, h2, p, a, span{
 	/*********************************************** HEADER ***********************************************/
 	header {
 /* 		height: 90px;*/
+		
  	}
  	.header01{
  	height: 60pt;
@@ -409,11 +410,14 @@ h1, h2, p, a, span{
 			font-size: 17px;
 			line-height: 30px;
 		}
+		
 			.header-menu li {
+			
 				position: relative;
         		-webkit-transform: translateZ(0); /** To avoid a flash when hover messages **/
 			}
 				.header-menu-tab {
+					
 					padding: 0 27px;
 					display: block;
 					line-height: 74px;
@@ -422,8 +426,8 @@ h1, h2, p, a, span{
 					transition: background .3s;
 				}
 					.header-menu-tab:hover {
-						background: D8DEC3;
-						border-bottom: 4px solid FF4242;
+						background: #D5D5D5;
+						border-bottom: 3px solid #008299;
 						text-decoration: none;
 					}
 					.header-menu-tab .icon {
@@ -485,9 +489,13 @@ h1, h2, p, a, span{
 	}
 		.block {
 			margin-bottom: 15px;
-			background: #E1EDB9;  
-			border-radius: 5px;
+			/* float:right; */
+			/* background: #E1EDB9; */  
+			/* border-radius: 5px; */
+			border-bottom:2px solid #747474;
+			border-top:2px solid #747474;
 		}
+		
 
 		/******************************************** LEFT CONTAINER *****************************************/
 		.left-container {}
@@ -529,7 +537,7 @@ h1, h2, p, a, span{
 					transition: background .2s;
 				}
 					.menu-box-tab:hover {
-						background: D8DEC3;
+						background: #D8DEC3;
 						border-bottom: 2px solid #1f253d;
 						text-decoration: none;
 					}
@@ -537,7 +545,7 @@ h1, h2, p, a, span{
 						color: #fff;
 					}
 					.menu-box-tab:hover .menu-box-number {
-						background: #e64c65;
+						background: #D5D5D5;
 					}
 	        /****** 회원 명단 ********/
 	        .ausers table ,thead ,t{
@@ -1051,7 +1059,7 @@ h1, h2, p, a, span{
 					}
 						.time-lenght-btn:hover {
 							text-decoration: none;
-							background: #e64c65;
+							background: #D5D5D5;
 						}
 				.month-data {
 					padding-top: 28px;
@@ -1087,7 +1095,7 @@ h1, h2, p, a, span{
 						padding: 2px 5px 2px 9px;
 					}
 						#media-display .play:hover {
-							border: 2px solid #e64c65;
+							border: 2px solid #D5D5D5;
 					}
 				.media-control-bar {
 					padding: 6px 0 0 15px;
@@ -1101,7 +1109,7 @@ h1, h2, p, a, span{
 					}
 						.media-btn:hover, .media-btn:hover span {
 							text-decoration: none;
-							color: #e64c65;
+							color: #D5D5D5;
 						}
 						.play {
 							margin-right: 100px
@@ -1210,8 +1218,8 @@ h1, h2, p, a, span{
 					margin: 10px;					
 				}
 					.add-button .icon:hover {
-						color: #e64c65;
-						border-color: #e64c65;
+						color: #D5D5D5;
+						border-color: #D5D5D5;
 					}
 				.user-name {
 					margin: 25px 0 16px;
@@ -1250,7 +1258,7 @@ h1, h2, p, a, span{
 								color: #11a8ab;
 							}
 							.profile-options a:hover.likes .icon {
-								color: #e64c65;
+								color: #D5D5D5;
 							}
 							.profile-options .icon {
 								padding-right: 10px;
@@ -1720,6 +1728,8 @@ ul, li{list-style:none; z-index: 3; }
 	width: 100%;
 	left: 0; top: 80px;
 	background: #E1EDB9;
+	
+	
 	display: none;
 	
 }
@@ -1731,7 +1741,7 @@ ul, li{list-style:none; z-index: 3; }
 	padding:0;
 	width:100%;
 	text-align:center;
-	border-bottom:1px solid D8DEC3;
+	border-bottom:1px solid #D8DEC3;
 	border-top:1px solid;
 	cursor:pointer;
 }
@@ -1740,8 +1750,8 @@ ul, li{list-style:none; z-index: 3; }
 /*����޴� ���콺 ������*/
 
 .subnav li:hover{
-	background: D8DEC3;
-	border-bottom: 4px solid FF4242;
+	background: #D8DEC3;
+	border-bottom: 4px solid #D5D5D5;
 	text-decoration: none;
 }
 
