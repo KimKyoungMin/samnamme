@@ -142,7 +142,7 @@ public class MusicController {
 		    	 out.println("</script>");
 		    	 out.close(); 
 		     }
-			return "redirect:musicmain.user";	
+			return "redirect:mylist.user";	
 		  }
 
 		//MyPlayerList 곡 select 

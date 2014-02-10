@@ -12,6 +12,10 @@
 		limit #{param1},#{param2}
    </select>
    
+   <update id="qnaEdit" parameterType="co.kr.samman.dto.qna">
+       update qna set qtitle=#{qtitle}, qcontent=#{qcontent} where qnum=#{qnum}
+   </update>
+   
    <select id="qnaDetail" resultType="co.kr.samman.dto.qna">
       select qtitle,userid,qdepth,qcontent,qnum,qcount,qrenum,qstep from qna where qnum = #{qnum}
    </select>

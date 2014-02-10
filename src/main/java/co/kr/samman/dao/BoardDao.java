@@ -12,6 +12,8 @@ public interface BoardDao {
 	public int qnaWrite(qna qnadto);
 	public int qnaReplyWrite(qna qnadto);
 	public int qnaQnumCount();
+	
+	public void qnaEdit(qna qnadto);
 	public void qnaDelete(String qnum);
 	public int listcount();
 }

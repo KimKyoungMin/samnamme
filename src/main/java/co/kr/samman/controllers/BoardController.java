@@ -149,6 +149,26 @@ public class BoardController {
 			BoardDao.qnaReplyWrite(qnadto);
 			return "redirect:qna.user";
 		}
+		
+		//qna 글 수정
+		@RequestMapping(value="qnaEdit.user", method=RequestMethod.GET)
+		public String qnaEdit(String qnum, Model model){
+			System.out.println("수정 컨트롤러 // qnum="+qnum);
+			BoardDao BoardDao = sqlSession.getMapper(BoardDao.class);
+			qna qnaDto = BoardDao.qnaDetail(qnum);
+			model.addAttribute("qnadto", qnaDto);
+			
+			return "board.qnaEdit";
+		}
+		
+		@RequestMapping(value="qnaEdit.user", method=RequestMethod.POST)
+		public String qnaEditOk(qna qnadto){
+			BoardDao boardDao = sqlSession.getMapper(BoardDao.class);
+			boardDao.qnaEdit(qnadto);
+			System.out.println(qnadto.getQnum()+"//////");;
+			
+			return "redirect:qnaDetail.user?qnum="+qnadto.getQnum();
+		}
 			
 	    //qna 글 삭제
 		@RequestMapping(value="qnaDelete.user", method=RequestMethod.POST)
