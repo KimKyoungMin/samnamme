@@ -97,13 +97,25 @@
 		$("#starttime").timePicker();
 		$("#endtime").timePicker();
 	});
+	
+	//글자수 제한 체크 
+	function len_chk(){
+	  var frm = document.form_782108.conectinfo; 
+	    
+	  if(frm.value.length > 3800){  
+	       alert("글자수는 영문3800, 한글1900자로 제한됩니다.!");  
+	       frm.value = frm.value.substring(0,3800);  
+	       frm.focus();  
+	  } 
+
+	} 
 </script>
 </head>
 <body id="main_body">
 
 	<div id="form_container">
 
-		<form id="form_782108" class="appnitro" enctype="multipart/form-data"
+		<form id="form_782108" name="form_782108" class="appnitro" enctype="multipart/form-data"
 			method="post" action="">
 			<table>
 				<tr>
@@ -118,8 +130,9 @@
 					<td><label class="description" for="element_1">공연제목
 					</label>
 						<div>
-							<input id="contitle" name="contitle" class="element text medium"
-								type="text" maxlength="200" value="" />
+							<input id="contitle" name="contitle" class="element text medium" 
+								type="text" maxlength="200" 
+								placeholder="input Concert title please" required autofocus value="" >
 						</div></td>
 				</tr>
 
@@ -128,7 +141,8 @@
 					</label>
 						<div>
 							<input id="conplace" name="conplace" class="element text medium"
-								type="text" maxlength="100" value="" />
+								type="text" maxlength="100" 
+								placeholder="input Concert floor please" required autofocus value="" />
 						</div></td>
 				</tr>
 
@@ -137,28 +151,35 @@
 					</label>
 						<div>
 							<input id="consinger" name="consinger"
-								class="element text medium" type="text" maxlength="100" value="" />
+								class="element text medium" type="text" maxlength="100" 
+								placeholder="input Concert singer please" required autofocus value="" />
 						</div></td>
 				</tr>
 				<tr>
 					<td>공연시작일<br>
-					<input type="text" id="startday" name="startday"> 공연시간 :<input
-						type="text" id="starttime" name="starttime" size="10" /> 공연종료시간<input
-						type="text" id="endtime" name="endtime" size="10" />
+					<input type="text" id="startday" name="startday"
+					 placeholder="input Date please" required autofocus > 공연시간 :<input
+						type="text" id="starttime" name="starttime" size="10" 
+						placeholder="Start time" required autofocus />
+						 공연종료시간<input
+						type="text" id="endtime" name="endtime" size="10" 
+						placeholder="endTime" required autofocus/>
 					</td>
 				</tr>
 				<tr>
 					<td id="li_8"><label class="description" for="element_8">공연 분류 </label>
 						<div>
 							<input id="congrade" name="congrade" class="element text medium"
-								type="text" maxlength="255" value="" />
+								type="text" maxlength="100" 
+								placeholder="input Concert congrade please" required autofocus value="" />
 						</div></td>
 				</tr>
 				<tr>
 					<td id="li_9"><label class="description" for="element_9">공연 좌표(위도) </label>
 						<div>
 							<input id="conlon" name="conlon" class="element text medium"
-								type="text" maxlength="255" value="" />
+								type="text" maxlength="11" 
+								placeholder="conlon" required autofocus value="" />
 						</div></td>
 				</tr>
 				<tr>
@@ -166,14 +187,17 @@
 					</label>
 						<div>
 							<input id="conlat" name="conlat" class="element text medium"
-								type="text" maxlength="255" value="" />
+								type="text" maxlength="11" 
+								placeholder="input Conlat title please" required autofocus value="" />
 						</div></td>
 				</tr>
 				<tr>
 					<td id="li_11"><label class="description" for="element_11">설명 </label>
 						<div>
 							<textarea id="conectinfo" name="conectinfo"
-								class="element textarea medium"></textarea>
+								class="element textarea medium"
+								 onKeyup="len_chk()"
+								 placeholder="input content please" required autofocus></textarea>
 						</div></td>
 				</tr>
 				<tr>
