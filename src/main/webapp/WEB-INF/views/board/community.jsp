@@ -166,7 +166,7 @@
 			dataType : "json",
 			success : function(data) {
 				htmlSrc=""+username;
-				htmlSrc+="<input type='text'  id='modifyreply' value='"+data.replycontent+"'>";
+				htmlSrc+="<input type='text'  id='modifyreply' maxlength='500' placeholder='input contwrite please' required autofocus value='"+data.replycontent+"'>";
 				// <a href="javascript:void()" onclick="replyUpdateFormcall(${varnum}, ${replynum }, ${c.getCnum() },${c.getCnum() },'7', '${f.getReplycount()}','')">글 수정하기</a> 
 				htmlSrc+="<a href='javascript:void()' onclick='replyUpdateLogic("+varnum+","+Bnum+","+Cnum+","+replycountin+","+replycountnum+")'> 확인</a>";
 				$('#replyUpdateForm'+varnum+'num'+replynum).html(htmlSrc);
@@ -241,7 +241,7 @@
 		<input type="hidden" id="bnum${varnum }" name="bnum" value="${f.getBnum() }">
 		<input type="hidden" id="bnumm${varnum }" name="bnumm" value="7">
 		<input type="hidden" id="bnummm${varnum }" name="bnummm" value="${f.getReplycount()}">
-		<input type="text" id="ccontent${varnum }" name="ccontent" value="" class="element text medium" style="width: 510px;">
+		<input type="text" id="ccontent${varnum }" name="ccontent" maxlength="500" placeholder="input contwrite please" required autofocus value="" class="element text medium" style="width: 510px;">
 		<input type="button" id= "reply${varnum }" name="${varnum }" value="댓글달기" class="element text small"><P></P><BR>
 		<div id="simson${varnum }" >
 		<!-- 댓글 작성 시작 -->
