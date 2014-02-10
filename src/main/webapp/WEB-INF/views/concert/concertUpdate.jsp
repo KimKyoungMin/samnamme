@@ -157,7 +157,7 @@
 					<td id="li_8"><label class="description" for="element_8">공연 분류 </label>
 						<div>
 							<input id="congrade" name="congrade" class="element text medium"
-								type="text" maxlength="255" value="getCongrade()" />
+								type="text" maxlength="255" value="${concertDetail.getCongrade() }"/>
 						</div></td>
 				</tr>
 				<tr>
