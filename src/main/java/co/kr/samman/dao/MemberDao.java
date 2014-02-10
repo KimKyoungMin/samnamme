@@ -8,5 +8,7 @@ public interface MemberDao {
 	
 	public void userInsert(usert u); //회원 Insert
 
+	public int usercheck(String userid);
+
 
 }

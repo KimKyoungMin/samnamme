@@ -3,11 +3,13 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.kr.samman.dao.MemberDao">
-   <insert id="userInsert" parameterType="co.kr.samman.dto.usert">
+   	<insert id="userInsert" parameterType="co.kr.samman.dto.usert">
       INSERT INTO USERT(userid, upwd, uname, utel, uemail, ujoindate) 
       VALUES(#{userid}, SHA(#{upwd}), #{uname}, #{utel}, #{uemail}, NOW())
-   
-   </insert>
-   
-
-</mapper>
+   	</insert>
+   	<!-- 가입전 아이디 중복여부 체크 -->
+ 	<select id="usercheck" resultType="Integer">
+ 		SELECT COUNT(USERID) FROM USERT WHERE USERID=#{userid}
+ 	</select>
+ 	
+	</mapper>

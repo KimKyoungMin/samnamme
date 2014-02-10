@@ -2,9 +2,30 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <script type="text/javascript">
+$(document).ready(function() {
+    $('#userid').keyup(function() {
+    	
+       $.ajax({
+          type : "post",
+          url : "joinIdCheck.htm",
+          data : {
+             userId : $("#userid").val()
+          },
+          dataType : "json",
+          success : function(data) {
+        	  
+             $("#userIdCheck").html(data.resultvalue);
+          },
+          error : function(data) {
+             alert('Error 발생');
+          }
+       });
+    });
+});
+
 	//id check -> 숫자와 영어만 받도록 함(한글은 없애버림)
 	function idcheck() {
-		var regVal = /[^a-z0-9]/g;
+		var regVal = /[^A-Za-z0-9]/g;
 		var checkVal = document.myform.userid.value;
 		document.myform.userid.value = checkVal.replace(regVal, "");
 	}
@@ -23,7 +44,8 @@
                 <div class="account2 block2" > <!-- Join (RIGHT-CONTAINER) -->
                     <h2 class="titular">MEMBER JOIN</h2>
                     <div class="input-container" >
-                        <input type="text" class="email text-input" name="userid" placeholder="your Id impassible hangle" required autofocus maxlength="50" onKeyup="idcheck()">
+                        <input type="text" class="email text-input" id ="userid" name="userid" placeholder="your Id impassible hangle" required autofocus maxlength="50" onKeyup="idcheck()">
+                        <div id="userIdCheck" style="float: right; margin-right: 200px;"></div>
                         <div class="input-icon envelope-icon-acount"><span style="padding-left: 20px" class="fontawesome-home scnd-font-color"></span></div>
                     </div>
                     <div class="input-container">
