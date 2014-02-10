@@ -1,31 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-
+<script type="text/javascript">
+	//id check -> 숫자와 영어만 받도록 함(한글은 없애버림)
+	function idcheck() {
+		var regVal = /[^a-z0-9]/g;
+		var checkVal = document.myform.userid.value;
+		document.myform.userid.value = checkVal.replace(regVal, "");
+	}
+</script>
 <br><br>
             
         <div class="right-container container">
-             <form action="" method="post"> 
+             <form action="" name = "myform" id ="myform" method="post"> 
                 <div class="account2 block2" > <!-- Join (RIGHT-CONTAINER) -->
                     <h2 class="titular">MEMBER JOIN</h2>
                     <div class="input-container" >
-                        <input type="text" class="email text-input" name="userid" placeholder="your Id" required autofocus>
+                        <input type="text" class="email text-input" name="userid" placeholder="your Id impassible hangle" required autofocus maxlength="50" onKeyup="idcheck()">
                         <div class="input-icon envelope-icon-acount"><span style="padding-left: 20px" class="fontawesome-home scnd-font-color"></span></div>
                     </div>
                     <div class="input-container">
-                        <input type="password" class="password text-input" name="upwd" placeholder="Password" required>
+                        <input type="password" class="password text-input" name="upwd" placeholder="Password" required maxlength="600">
                         <div class="input-icon password-icon"><span style="padding-left: 20px" class="fontawesome-lock scnd-font-color"></span></div>
                     </div>
                     <div class="input-container">
-                        <input type="text" class="password text-input" name="uname" placeholder="name">
+                        <input type="text" class="password text-input" name="uname" placeholder="name" maxlength="50">
                         <div class="input-icon password-icon"><span style="padding-left: 20px" class="fontawesome-user scnd-font-color"></span></div>
                     </div>
                     <div class="input-container">
-                        <input type="text" class="password text-input" name="utel" placeholder="phone number">
+                        <input type="text" class="password text-input" name="utel" placeholder="phone number" maxlength="20">
                         <div class="input-icon password-icon"><span style="padding-left: 20px" class="fontawesome-phone scnd-font-color"></span></div>
                     </div>
                     <div class="input-container">
-                        <input type="text" class="password text-input" name="uemail" placeholder="E-mail">
+                        <input type="text" class="password text-input" name="uemail" placeholder="E-mail" maxlength="50">
                         <div class="input-icon password-icon"><span style="padding-left: 20px" class="fontawesome-envelope scnd-font-color"></span></div>
                     </div>
                     <input type="submit" class="subscribe button" value="OK">

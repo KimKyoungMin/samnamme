@@ -18,11 +18,11 @@
                 <div class="account block2"> <!-- login (RIGHT-CONTAINER) -->
                     <h2 class="titular">SIGN IN TO YOUR ACCOUNT</h2>
                     <div class="input-container">
-                        <input type="text" class="email text-input" name="j_username" placeholder="your Id" required autofocus>
+                        <input type="text" class="email text-input" name="j_username" placeholder="your Id" required autofocus value="">
                         <div class="input-icon envelope-icon-acount"><span style="padding-left: 20px" class="fontawesome-envelope scnd-font-color"></span></div>
                     </div>
                     <div class="input-container">
-                        <input type="password" class="password text-input" name="j_password" placeholder="Password" required>
+                        <input type="password" class="password text-input" name="j_password" placeholder="Password" required value="">
                         <div class="input-icon password-icon"><span style="padding-left: 20px" class="fontawesome-lock scnd-font-color"></span></div>
                     </div>
                     <input type="submit" class="sign-in button" value="SIGN IN">
