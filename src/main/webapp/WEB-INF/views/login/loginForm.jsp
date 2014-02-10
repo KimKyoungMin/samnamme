@@ -26,7 +26,7 @@
                         <div class="input-icon password-icon"><span style="padding-left: 20px" class="fontawesome-lock scnd-font-color"></span></div>
                     </div>
                     <input type="submit" class="sign-in button" value="SIGN IN">
-                    <a href="#"><p class="scnd-font-color">Forgot Password?</p></a>
+                    <a href="join.htm"><p class="scnd-font-color">New Member Click here</p></a>
                 </div>
             </form>
        </div>

@@ -81,13 +81,10 @@ public class MusicController {
 				PrintWriter out = res.getWriter();
 				out.println("<script type='text/javascript'>");
 		    	out.println("alert('이용 가능한 고객이 아닙니다.')");
-		    	out.println("history.back();");
+		    	out.println("location.href='pay.user'");
 		    	out.println("</script>");
 		    	out.close();
 			}
-			    	
-				
-	
 		}
 		
 		//mymusict DB에 음악 넣기
@@ -141,9 +138,9 @@ public class MusicController {
 		    	 PrintWriter out = res.getWriter();
 		    	 out.println("<script type='text/javascript'>");
 		    	 out.println("alert('이용 가능한 고객이 아닙니다.')");
-		    	 out.println("history.back();");
+		    	 out.println("location.href='pay.user';");
 		    	 out.println("</script>");
-		    	 out.close();
+		    	 out.close(); 
 		     }
 			return "redirect:musicmain.user";	
 		  }

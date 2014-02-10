@@ -90,7 +90,7 @@ public class AccountController {
 			//System.out.println(request.getParameter("uname"));
 			System.out.println(usert.getUserid()+"+++");
 			accountDao.usertEdit(usert);
-			return "redirect:account.user?userid="+usert.getUserid();
+			return "redirect:account.user?userid="+usert.getUserid()+"&page=1";
 		}
 		
 		//결제 상세 페이지
@@ -159,7 +159,7 @@ public class AccountController {
 				out.println("</script>");
 				out.close();
 			}
-			return "redirect:account.user?userid="+user.getUsername();
+			return "redirect:account.user?userid="+user.getUsername()+"&page=1";
 		}
 	
 }
