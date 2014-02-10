@@ -54,9 +54,16 @@ public class MemberController {
 	@RequestMapping(value="join.htm", method=RequestMethod.POST)
 	public String joinCheck(usert u){
 		MemberDao memberDao = sqlSession.getMapper(MemberDao.class);
-		memberDao.userInsert(u);
+		int usert = memberDao.usercheck(u.getUserid());
+		if(usert==0){
+			memberDao.userInsert(u);
+			return "redirect:main.htm";
+		}else{
+			return "redirect:join.htm";
+		}
 		
-		return "redirect:main.htm";
+		
+		
 	}
 	@RequestMapping(value="joinIdCheck.htm" , produces="text/plain;charset=UTF-8")
 	@ResponseBody
