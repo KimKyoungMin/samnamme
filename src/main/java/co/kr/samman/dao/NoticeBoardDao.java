@@ -20,4 +20,5 @@ public interface NoticeBoardDao {
 	public List<cont> noticereplyResult2(String bnum,int lastreply);
 	public cont noticereplyGet(String cnum);
 	public void noticereplyUpdate(String concent, int cnum);
+	public void noticeupdatenochangeimage(board board);
 }

@@ -73,6 +73,14 @@
 		BDATE=NOW()
 		where BNUM=#{bnum};
 	</update>
+	<update id="noticeupdatenochangeimage" parameterType="co.kr.samman.dto.board">
+		UPDATE
+		BOARDT
+		SET BTITLE=#{btitle},
+		BCONTENT =#{bcontent},
+		BDATE=NOW()
+		where BNUM=#{bnum};
+	</update>
 	<delete id="noticeudelete" parameterType="Integer">
 		DELETE FROM BOARDT WHERE BNUM = #{param1};
 	</delete>

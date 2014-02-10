@@ -201,15 +201,19 @@ public class NoticeController {
 //			System.out.println("NoticeController.noticeUpdateform - post");
 			board.setBpicname(board.getFilespic().getOriginalFilename());
 			String path = req.getRealPath("/CSS/noticeboardpic/"+board.getBpicname());
+			NoticeBoardDao noticeBoardDao = sqlSession.getMapper(NoticeBoardDao.class);
 			
 			if(!board.getBpicname().equals("")){
 		    	FileOutputStream fs = new FileOutputStream(path);
 		    	fs.write(board.getFilespic().getBytes());
 		    	fs.close();
+		    	noticeBoardDao.noticeupdate(board);
+		    }else{
+		    	noticeBoardDao.noticeupdatenochangeimage(board);
 		    }
 			
-			NoticeBoardDao noticeBoardDao = sqlSession.getMapper(NoticeBoardDao.class);
-			noticeBoardDao.noticeupdate(board);
+			
+			
 			
 			return "redirect:notice.user";
 		}
