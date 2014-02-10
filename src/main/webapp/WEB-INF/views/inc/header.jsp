@@ -3,9 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ taglib prefix="s" uri="http://www.springframework.org/security/tags" %>
 
+<div align="center" style="margin-bottom: -50px;"><img src="upload/logo.png"></div>
 <div onclick="location.href='main.htm';" style="cursor: pointer;" class="header01">
    <header align="center">
-      <h1>Music Site</h1>
+     
    </header>
 </div>
 <!-- igo -->

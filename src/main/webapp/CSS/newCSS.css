@@ -54,25 +54,6 @@
 /************************************* END FONTS *************************************/
 
 
-/* .container > header {
-	
-	width: 90%;
-	margin: auto;
-	padding: 0em;
-}
-
-.container > header {
-	text-align: center;
-	padding: 5em 0.5em 0;
-	background: rgba(1,1,1,0.02);
-}
-
-.container > header h1 {
-	text-align: center;
-	line-height: 5;
-	margin: 0;
-	font-weight: 300;
-} */
 
 .block3 {
 	text-align: right;
@@ -2816,10 +2797,10 @@ div#banner {
 }
 
 .list_n_menu .disabled {
-	BORDER: #eee 1px solid;
+	BORDER: #4C4C4C 1px solid;
 	padding: 5px 8px 4px 8px;
 	MARGIN: 2px;
-	COLOR: #ddd;
+	COLOR: #4C4C4C;
 }
 .buttonmore{
 text-decoration: none;
@@ -2874,8 +2855,7 @@ div.noticemain{
 	height: 365px;
 	border-radius: 7px;
 	margin-top: 10px;
-	margin-left: 15px;
-	margin-right: 10px;
+	margin-left: 10px;
 	background: orange;
 }
 

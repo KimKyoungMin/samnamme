@@ -61,7 +61,7 @@ E-mail <input type="text" name="uemail" class="email text2-input" value="${usert
    <tr align=center height=20>
       <td colspan=7 style=font-family:Tahoma;font-size:10pt;>
          <c:choose>
-         <c:when test="${page<=1}"><a class="active">◀</a>&nbsp;</c:when>
+         <c:when test="${page<=1}"><a class="disabled">◀</a>&nbsp;</c:when>
          <c:otherwise>
          <a href="account.user?userid=<%=userid %>&page=${page-1}" class="disabled">◀</a>&nbsp;
          </c:otherwise>
@@ -78,7 +78,7 @@ E-mail <input type="text" name="uemail" class="email text2-input" value="${usert
          <c:choose>
          <c:when test="${page>=maxpage }"><a class="active">▶</a></c:when>
          <c:otherwise>
-         <a href="account.user?userid=<%=userid %>&page=${page+1}">▶</a>
+         <a class="disabled" href="account.user?userid=<%=userid %>&page=${page+1}">▶</a>
          </c:otherwise>
          </c:choose>
       </td>
