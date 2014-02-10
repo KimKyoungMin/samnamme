@@ -215,7 +215,7 @@
 					</table>
 					
 					<div class="noticeDiv" style="text-align: left">${f.getBdate() }</div>
-					<div class="noticeDiv"><h3>${loginUser } vs ${f.getUserid() }</h3>
+					<div class="noticeDiv">
 					<c:choose>
 						<c:when test="${loginUser eq f.getUserid() }">
 							<a href="communityupdate.user?bnum=${f.getBnum() }&userid=${loginUser}" class="dynamiclabel">글 수정</a>&nbsp;&nbsp;
