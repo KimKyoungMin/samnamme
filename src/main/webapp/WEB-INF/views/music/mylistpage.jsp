@@ -1,26 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/security/tags" %>
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-latest.js"></script>
 <s:authentication property="name" var="loginUser"/>
 
-<h2> ${loginUser }´ÔÀÇ My Player List</h2>
+<h2> ${loginUser }ë‹˜ì˜ My Player List</h2>
 <br>
 
 <script type="text/javascript"> 
 
-//onload event Ã³À½ °î ¸®½ºÆ® ¼ÂÆÃ, °î ¼ÂÆÃ
+//onload event ì²˜ìŒ ê³¡ ë¦¬ìŠ¤íŠ¸ ì…‹íŒ…, ê³¡ ì…‹íŒ…
 	$(function() {
 		var my_audio = document.getElementById('my_audio');
 		my_audio.volume = 0.5;
-		//¸®½ºÆ®ÀÇ Ã¹ °ª ¼³Á¤
+		//ë¦¬ìŠ¤íŠ¸ì˜ ì²« ê°’ ì„¤ì •
 		var list_num = 1;
 		var play_num = 1;
 		
-		//list, type µÎ°¡Áö°¡ ÇÃ·¹ÀÌ¿Í »ó°üÀÖÀ½
-		//list´Â ³ë·¡Á¦¸ñ, type Àº ³ë·¡Å¸ÀÔÀÓ typeÀº °íÁ¤À¸·Î ¾²¸é µÇ°í(Å©·Ò±âÁØ), list´Â °¡Á®¿Í¼­ ³Ö¾îÁà¾ß ÇÔ
+		//list, type ë‘ê°€ì§€ê°€ í”Œë ˆì´ì™€ ìƒê´€ìˆìŒ
+		//listëŠ” ë…¸ë˜ì œëª©, type ì€ ë…¸ë˜íƒ€ì…ì„ typeì€ ê³ ì •ìœ¼ë¡œ ì“°ë©´ ë˜ê³ (í¬ë¡¬ê¸°ì¤€), listëŠ” ê°€ì ¸ì™€ì„œ ë„£ì–´ì¤˜ì•¼ í•¨
 		var list = new Array();
 		var type = new Array();
 		var mname = new Array();
@@ -40,7 +40,7 @@
 		my_audio.play();
 		
 		
-		//³ë·¡°¡ ³¡³ª´Â ÀÌº¥Æ® È£ÃâµÉ¶§
+		//ë…¸ë˜ê°€ ëë‚˜ëŠ” ì´ë²¤íŠ¸ í˜¸ì¶œë ë•Œ
 		my_audio.addEventListener('ended', function() {
 		
 			var zz = play_num + 1;
@@ -57,7 +57,7 @@
 			
 		});
 		
-		//button event create
+		//button event create (ë‹¤ìŒê³¡)
 		document.getElementById('few').onclick = function() {
 			  //alert('fewclick!');
 			var zz = play_num + 1;
@@ -73,6 +73,7 @@
 			play_num = zz;
 			};
 		
+			//button event create (ì´ì „ê³¡)
 		document.getElementById('rew').onclick = function() {
 			  //alert('rewclick!');
 			  
@@ -88,54 +89,94 @@
 			my_audio.play();
 			play_num = zz;
 			};
+			
+		for(var i=0; i<list_num; i++){
+			document.getElementById("musicchoice"+i).onclick = function(){
+				var zz = parseInt($(this).attr("name"))+1;
+				
+				document.getElementById('sos').src = list[zz];
+				document.getElementById('sos').type = type[zz];
+				$('#play_music').html(mname[zz]);
+				my_audio.load();
+				my_audio.play();
+				play_num = zz;
+				};
+			};
+		/* document.getElementByID$(':button[id*=choiceMusic]').onclick = function(){
+			alert("callok");
+		}; */
 	});
+	
+	//$(':button[id*=reply]').click(function() {
+	//document.getElementById('rew').onclick = function() {
+	 
+	function CheckAll() {
+		var check = false;
+		var chk = document.getElementsByName("check[]");
+		if (check == false) {
+			check = true;
+			for (var i = 0; i < chk.length; i++) {
+				chk[i].checked = true; //ëª¨ë‘ ì²´í¬
+			}
+		} else {
+			check = false;
+			for (var i = 0; i < chk.length; i++) {
+				chk[i].checked = false; //ëª¨ë‘ í•´ì œ
+			}
+		}
+	} 	
 </script>
 
-<!-- HTML5 Ãß°¡ ±¸¹® -->
+
+
+<!-- HTML5 ì¶”ê°€ êµ¬ë¬¸ -->
 <audio id='my_audio' preload='auto' controls loop>
 <source id='sos' src='' type=''>
 </audio><br>
-<!-- <div id="play_music"></div> -->
-<input type="text" id="play_music" placeholder="Àá½Ã ±â´Ù·Á ÁÖ¼¼¿ä..loading.." readonly>
-<input type="image" src="CSS/images/media-rewind-outline.png" style="width:35px;height:35px;" name="rew" id="rew" value="ÀÌÀü°î">
-<input type="image" src="CSS/images/media-fast-forward-outline.png" style="width:35px;height:35px;" name="few" id="few" value="´ÙÀ½°î">
- 
+
+<div id="play_controller2">
+<table id="play_controller2"><tr>
+<td>
+<input type="image" src="CSS/images/media-rewind-outline.png" style="width:35px;height:35px;" name="rew" id="rew" value="ì´ì „ê³¡">
+</td>
+<td>
+<input type="image" src="CSS/images/media-fast-forward-outline.png" style="width:35px;height:35px;" name="few" id="few" value="ë‹¤ìŒê³¡">
+</td>
+<td colspan="5">
+<div id="play_music" class="play_music"></div></td>
+</tr></table>
+ </div>
  <div id="mu_list">
  <c:forEach var="m" items="${mylists}" varStatus="arraycount">
 	<source src="upload/${m.getMfilename()}" type="audio/mpeg" mname="${m.getMtitle()}/${m.getMsname()}" number="arraycount.index"></source>
 	</c:forEach>
 </div>
 
-
-
-
-<!-- ±âÁ¸ ÀÛ¼º ±¸¹® -->
+<!-- ê¸°ì¡´ ì‘ì„± êµ¬ë¬¸ -->
 <c:choose>
    <c:when test="${mylists.size()==0}">
    </c:when>
    <c:otherwise>
        <form action="musiclistDel.htm" method="get">
-       
-       <input type="checkbox" id ="checkall" name="checkall" onclick="javascript:CheckAll()"><input type="submit" class="delete button2" value="»èÁ¦">
-       <br>
-       
-	   <div class="popup" id="popup" >
-	   
+	   <div class="popup" id="popup" ><b>ì¦ê²¨ì°¾ê¸° ë¦¬ìŠ¤íŠ¸</b>
 		 <ul>
 			<c:forEach var="m" items="${mylists}" varStatus="arraycount">
 				<li>
 				   <input type="checkbox" id="check[]" name="check[]" value=${m.getMinfonum() }>
 				  	
-				   <!-- ÆÄÀÏ ÀÌ¸§À» ¹Ş¾Æ³»¾î ÀÚ¹Ù ½ºÅ©¸³Æ® ´Ü¿¡¼­ ºÒ·¯¾¸ -->
-				   <!-- arraycount´Â foreach ¹®°ú ÇÔ²² ÇÏ´Â index °ªÀÎµ¥ ºÙ¿©¼­ ¾²¸é id¸¦ °íÀ¯ÇÏ°Ô ÇØÁÙ¼öÀÖÀ½ -->
-				   <input type='hidden' id="hiddenfilename${arraycount.index }" value="${m.getMfilename()}">
-				   <!-- ÆÄÀÏ ¸®½ºÆ®¸¦ »Ñ·ÁÁÖ°í ÀÌÈÄ¿¡ ÇØ´ç ÆÄÀÏ Å¬¸¯½Ã ÇØ´ç ÆÄÀÏºÎÅÍ ½ÇÇàµÇµµ·Ï ÇÏ±âÀ§ÇÔ -->
-				   <a href="javascript:doopen('${m.getMfilename()}');">${m.getMtitle()}/${m.getMsname()}</a>
+				   <!-- íŒŒì¼ ì´ë¦„ì„ ë°›ì•„ë‚´ì–´ ìë°” ìŠ¤í¬ë¦½íŠ¸ ë‹¨ì—ì„œ ë¶ˆëŸ¬ì”€ -->
+				   <!-- arraycountëŠ” foreach ë¬¸ê³¼ í•¨ê»˜ í•˜ëŠ” index ê°’ì¸ë° ë¶™ì—¬ì„œ ì“°ë©´ idë¥¼ ê³ ìœ í•˜ê²Œ í•´ì¤„ìˆ˜ìˆìŒ -->
+				   <%-- <input type='hidden' id="hiddenfilename${arraycount.index }" value="${m.getMfilename()}"> --%>
+				   <!-- íŒŒì¼ ë¦¬ìŠ¤íŠ¸ë¥¼ ë¿Œë ¤ì£¼ê³  ì´í›„ì— í•´ë‹¹ íŒŒì¼ í´ë¦­ì‹œ í•´ë‹¹ íŒŒì¼ë¶€í„° ì‹¤í–‰ë˜ë„ë¡ í•˜ê¸°ìœ„í•¨ -->
+				   
+				    <a href="#" id="musicchoice${arraycount.index }" name="${arraycount.index }" >${m.getMtitle()}/${m.getMsname()}</a>
 				   <hr>
 				</li>
-				<!-- ¸®½ºÆ® Áõ°¡°ª ÀúÀå -->
+				<!-- ë¦¬ìŠ¤íŠ¸ ì¦ê°€ê°’ ì €ì¥ -->
 			</c:forEach>
 		 </ul>
+		 <br>
+		 <input type="checkbox" id ="checkall" name="checkall" onclick="javascript:CheckAll()"><input type="submit" class="delete button2" value="ì‚­ì œ">
 	   </div>
 	   </form>
 	</c:otherwise>
