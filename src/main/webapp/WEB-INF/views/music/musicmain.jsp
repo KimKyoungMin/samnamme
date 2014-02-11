@@ -2,8 +2,18 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/security/tags" %>
+<script>
+var boo = '<c:out value="${boo}"/>';
 
-   <h2>Music List</h2>
+if(boo=="on"){
+	$(document).ready(function() {
+		 openNewWindow("mylist.user");
+	});
+} 
+
+</script>
+
+   <h2>Music List ${boo}</h2>
 
    <form action="myplayerlist.htm" method="post" name="form1">
    <div align="right">

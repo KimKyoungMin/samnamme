@@ -89,7 +89,7 @@ public class MusicController {
 		
 		//mymusict DB에 음악 넣기
 		@RequestMapping("myplayerlist.htm")
-		public String mpl(HttpServletRequest req, HttpServletResponse res) throws IOException{
+		public String mpl(HttpServletRequest req, HttpServletResponse res, Model model) throws IOException{
 			System.out.println("control");
 			//이용 고객인지 체크
 			AccountDao accountDao = sqlSession.getMapper(AccountDao.class);
@@ -121,6 +121,9 @@ public class MusicController {
 						   m.setUserid(user.getUsername());
 						   m.setMinfonum(Integer.parseInt(checked[i]));
 						   musicDao.myplayerlist(m); 
+						   
+						   List<musict> musicList = musicDao.getMusiclists();
+						   model.addAttribute("musicList", musicList);
 					   }else{
 						   res.setCharacterEncoding("EUC-KR");
 						   PrintWriter out = res.getWriter();
@@ -131,7 +134,9 @@ public class MusicController {
 						   out.close();
 					   }	  	   
 				   }
-				   
+				   System.out.println("dddddddddd"); 
+				   String boo = "on";
+				   model.addAttribute("boo",boo);
 			   }
 		     }else{
 		    	 res.setCharacterEncoding("EUC-KR");
@@ -141,8 +146,8 @@ public class MusicController {
 		    	 out.println("location.href='pay.user';");
 		    	 out.println("</script>");
 		    	 out.close(); 
-		     }
-			return "redirect:mylist.user";	
+		     }	
+			return "music.musicmain";	
 		  }
 
 		//MyPlayerList 곡 select 
