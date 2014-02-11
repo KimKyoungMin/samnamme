@@ -8,73 +8,106 @@
 
 <h2> ${loginUser }님의 My Player List</h2>
 <br>
-<div id="pushaudio" class="pushaudio">아름다워아름다워 사람이 꽃보다 아름다워</div> 
 
 <script type="text/javascript"> 
-window.onload = playerstart;
 
-//리스트가 tag에 있고 mylists 라는 리스트 객체가 있다면 이걸 이용가능함(처음 로드이 사용됨)
-function playerstart(){
-	
-	var mylists = '<c:out value="${mylists.size()}"/>';
-	//alert("mylists 갯수는 : "+mylists);
-	htmlSrc = "";
-	
-	if(mylists > 1){
-		//alert("리스트가 있습니다.");
-		//htmlSrc 에 플레이어를 등록함
-		htmlSrc+="<object type='application/x-shockwave-flash' data='http://flash-mp3-player.net/medias/player_mp3_multi.swf' width='300' height='30'>";
-		htmlSrc+="<param name='movie' value='http://flash-mp3-player.net/medias/player_mp3_multi.swf'/>";
-		htmlSrc+="<param name='bgcolor' value='#ffffff'/>";
+//onload event 처음 곡 리스트 셋팅, 곡 셋팅
+	$(function() {
+		var my_audio = document.getElementById('my_audio');
+		my_audio.volume = 0.5;
+		//리스트의 첫 값 설정
+		var list_num = 1;
+		var play_num = 1;
 		
-		htmlSrc+="<param name='FlashVars' value='mp3=upload/";
-	for(var i=0; i< mylists; i++){
-	 	temp = "hiddenfilename"+i;
-		//alert(document.getElementById(temp).value);
-		htmlSrc+=""+document.getElementById(temp).value+"";
-		if((i+1) < mylists){
-			//alert("temp 값음 : "+ temp +"이며 mylists 의 값은 : "+mylists);
-			htmlSrc+="|upload/";
-		}
-	}
-	
-	htmlSrc+="&amp;autoplay=1&amp;loop=1&amp;showvolume=1&amp;showloading=always&amp;showlist=0&amp;playlistalpha=0&amp;showplaylistnumbers=0'/>";
-	htmlSrc+="</object>";
-	//alert(htmlSrc);
-	}else{
-		htmlSrc="<h3>음악 리스트가 없습니다.</h3>";
-	}
-	
-	$('#pushaudio').html(htmlSrc);
-	 
-};
-
-	//mylist 에서 음악파일 선택시 재생
-	 /* function doopen(mfilename){
-		//alert(mfilename);
-		opener.document.getElementById("mfilename").value=mfilename;
-		opener.document.getElementById("au").src = "upload/" + mfilename;
+		//list, type 두가지가 플레이와 상관있음
+		//list는 노래제목, type 은 노래타입임 type은 고정으로 쓰면 되고(크롬기준), list는 가져와서 넣어줘야 함
+		var list = new Array();
+		var type = new Array();
+		var mname = new Array();
+		//list get for function
+		$("#mu_list source").each(function(i) {
+			list_num = i + 1;
+			list[list_num] = $(this).attr("src");
+			type[list_num] = $(this).attr("type");
+			mname[list_num] = $(this).attr("mname");
+			$('#mu_list').remove();
+		});
 		
-	}  */
-	
-	//checkbox 전체 선택 & 해제 (선택후 적용하면 리스트에서 삭제되는 형태)
-	 var check = false;
-	function CheckAll() {
-		var chk = document.getElementsByName("check[]");
-		if (check == false) {
-			check = true;
-			for (var i = 0; i < chk.length; i++) {
-				chk[i].checked = true; //모두 체크
+		document.getElementById('sos').src = list[1];
+		document.getElementById('sos').type = type[1];
+		
+		$('#play_music').html(""+mname[1]);
+		my_audio.play();
+		
+		
+		//노래가 끝나는 이벤트 호출될때
+		my_audio.addEventListener('ended', function() {
+		
+			var zz = play_num + 1;
+			if (zz > list_num) {
+				zz = 1;
 			}
-		} else {
-			check = false;
-			for (var i = 0; i < chk.length; i++) {
-				chk[i].checked = false; //모두 해제
+			
+			document.getElementById('sos').src = list[zz];
+			document.getElementById('sos').type = type[zz];
+			$('#play_music').html(mname[zz]);
+			my_audio.load();
+			my_audio.play();
+			play_num = zz;
+			
+		});
+		
+		//button event create
+		document.getElementById('few').onclick = function() {
+			  //alert('fewclick!');
+			var zz = play_num + 1;
+			if (zz > list_num) {
+				zz = 1;
 			}
-		}
-	} 
+			
+			document.getElementById('sos').src = list[zz];
+			document.getElementById('sos').type = type[zz];
+			$('#play_music').html(mname[zz]);
+			my_audio.load();
+			my_audio.play();
+			play_num = zz;
+			};
+		
+		document.getElementById('rew').onclick = function() {
+			  //alert('rewclick!');
+			  
+			var zz = play_num - 1;
+			if (zz <= 0) {
+				zz = list_num;
+			}
+			
+			document.getElementById('sos').src = list[zz];
+			document.getElementById('sos').type = type[zz];
+			$('#play_music').html(mname[zz]);
+			my_audio.load();
+			my_audio.play();
+			play_num = zz;
+			};
+	});
 </script>
 
+<!-- HTML5 추가 구문 -->
+<audio id='my_audio' preload='auto' controls loop>
+<source id='sos' src='' type=''>
+</audio>
+ <input type="button" name="rew" id="rew" value="이전곡">
+ <input type="button" name="few" id="few" value="다음곡">
+ 
+ <div id="mu_list">
+ <c:forEach var="m" items="${mylists}" varStatus="arraycount">
+	<source src="upload/${m.getMfilename()}" type="audio/mpeg" mname="${m.getMtitle()}/${m.getMsname()}" number="arraycount.index"></source>
+	</c:forEach>
+</div>
+<div id="play_music"></div>
+
+
+
+<!-- 기존 작성 구문 -->
 <c:choose>
    <c:when test="${mylists.size()==0}">
    </c:when>
@@ -106,8 +139,3 @@ function playerstart(){
 	</c:otherwise>
 </c:choose>
  
-
-
-
-
-
