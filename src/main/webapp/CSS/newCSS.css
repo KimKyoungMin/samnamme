@@ -27,6 +27,7 @@
 		url('http://jlalovi-cv.herokuapp.com/font/icomoon.svg#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
+	
 }
 
 [class^="icon-"], [class*=" icon-"] {
@@ -488,10 +489,11 @@ h1, h2, p, a, span{
 		width: 300px;
 	}
 		.block {
-			margin-bottom: 15px;
+			
 			/* float:right; */
-			/* background: black; */  
+			/* background: white; */  
 			/* border-radius: 5px; */
+			margin-bottom: 15px;
 			border-bottom:2px solid #747474;
 			border-top:2px solid #747474;
 		}
@@ -562,7 +564,7 @@ h1, h2, p, a, span{
 	        .blockA {
 			  /*  display: inline; */
 			   margin-bottom: 25px;
-			   background: black;
+			   background: white;
 			   border-radius: 5px;	
 			   float: left;	
 			   margin-right: 20px ;
@@ -587,7 +589,7 @@ h1, h2, p, a, span{
 .blockD {
 	/*  display: inline; */
 	margin-bottom: 25px;
-	background: black;
+	background: white;
 	border-radius: 5px;
 	float: left;
 	margin-right: 20px;
@@ -607,7 +609,7 @@ h1, h2, p, a, span{
 	/*  display: inline; */
 	color: 4A3D3D;
 	margin-bottom: 25px;
-	background: black;
+	background: white;
 	border-radius: 5px;
 	float: left;
 	margin-right: 20px;
@@ -637,7 +639,7 @@ h1, h2, p, a, span{
 	/*  display: inline; */
 	color: #fff;
 	margin-bottom: 25px;
-	background: black;
+	background: white;
 	border-radius: 5px;
 	float: left;
 	margin-right: 25px;
@@ -686,7 +688,7 @@ h1, h2, p, a, span{
 	padding-top: 10px;
 	padding-left: 3px;
 	padding-right: 3px;
-	border-color: black;
+	border-color: white;
 }
 
 
@@ -763,9 +765,10 @@ h1, h2, p, a, span{
 			   padding-left: 10px;
 			   padding-right: 5px;
 			   margin-bottom: 25px;
-			   background: black;
-			   border-radius: 5px;	
-			   float: left;	
+			   background: white;
+			   border-radius: 3px;	
+			   float: left;
+			   border:1px solid gray;	
 			   margin-right: 20px ;
 			   margin-bottom: 25px;
 			}	
@@ -775,7 +778,7 @@ h1, h2, p, a, span{
 			   padding-top: 10px;
 			   padding-left: 10px;
 			   padding-right: 10px;
-			   background: black;
+			   background: white;
 			   color: 4A3D3D;
 			   border-radius: 3px;	
 			   float: left;	
@@ -814,7 +817,7 @@ h1, h2, p, a, span{
 			}
 			.blockV {
 			   margin-bottom: 25px;
-			   background: black;
+			   background: white;
 			   border-radius: 5px;	
 			   float: left;	
 			   margin-right: 20px ;
@@ -1724,6 +1727,7 @@ ul, li{list-style:none; z-index: 3; }
 /*����޴� ��ü���� ����*/
 
 .subnav{
+	
 	position: absolute;
 	width: 100%;
 	left: 0; top: 80px;
@@ -1738,20 +1742,24 @@ ul, li{list-style:none; z-index: 3; }
 /*����޴� ��ĭ ����*/
 
 .subnav li{
+	
 	padding:0;
 	width:100%;
 	text-align:center;
-	border-bottom:1px solid #D8DEC3;
-	border-top:1px solid;
+	background-image: url("../upload/bg.png");	
+	/* border-bottom:1px solid #D8DEC3;
+	border-top:1px solid; */
 	cursor:pointer;
 }
 
 
 /*����޴� ���콺 ������*/
 
+
 .subnav li:hover{
-	background: white;
-	border-bottom: 4px solid #D5D5D5;
+	
+	/* background: #D5D5D5; */
+	border-bottom: 4px solid #008299;
 	text-decoration: none;
 }
 
@@ -1769,7 +1777,7 @@ ul, li{list-style:none; z-index: 3; }
 }
 
 .article-list thead{
-	background: black;
+	background: white;
 	width: 960px;
 }
 
@@ -3096,7 +3104,7 @@ a.jms-link{
 /* 관리자 회원 관리 페이지 */
 div.userinfo{
 	border-style: solid;
-	border-color: black;
+	border-color: white;
 	text-align: center;
 	width:460px;
 	height: 350px; 
