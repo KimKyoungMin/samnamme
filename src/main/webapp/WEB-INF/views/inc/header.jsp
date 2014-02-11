@@ -30,7 +30,7 @@
                class="icon entypo-calendar scnd-font-color"></span>Inform</a></li>
          
          <li>
-         	<a class="header-menu-tab" href="#"><span
+         	<a class="header-menu-tab" href="notice.user"><span
                class="icon entypo-paper-plane scnd-font-color"></span>Community</a>
              <ul class="subnav">
                <li><a href="notice.user">Notice</a></li>
@@ -39,16 +39,13 @@
               </ul>
          </li>
          
-         
-         
-         
           <li>
               <s:authorize ifNotGranted="ROLE_ADMIN">
-              
+                <s:authentication property="name" var="loginUser"/>
                 <a class="header-menu-tab" href="account.user?userid=${loginUser }&page=1"><span class="icon fontawesome-user scnd-font-color"></span>Account</a>
              </s:authorize>
              <s:authorize ifAnyGranted="ROLE_ADMIN">
-             <a class="header-menu-tab" href="#"><span class="icon entypo-cog scnd-font-color"></span>Settings</a>
+             <a class="header-menu-tab" href="ausers.admin"><span class="icon entypo-cog scnd-font-color"></span>Settings</a>
                 <!-- <div style="border: 1px; solid"> -->
                 <ul class="subnav">
                   
@@ -60,13 +57,8 @@
               <!--  </div> -->
             </s:authorize>
          </li> 
-         
-        
-         
-         
-         
+
          <li>
-            ${loginUser } 
             <s:authorize ifAnyGranted="ROLE_USER, ROLE_ADMIN">
                 <a class="header-menu-tab" href=javascript:openNewWindow("mylist.user")>
                 <span class="icon entypo-music scnd-font-color"></span>PlayList</a>

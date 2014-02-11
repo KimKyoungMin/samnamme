@@ -224,6 +224,7 @@ h1, h2, p, a, span{
 		border: solid 1px #4A3D3D;
 		border-radius: 5px;		
 	}
+	
 	audio#au{
 	    margin-top: 10px;
 	
@@ -658,26 +659,21 @@ h1, h2, p, a, span{
 }
 
 .profilePOK_1 {
-	padding-top: 5px;
-	color: 4A3D3D;
-	height: 200px;
-	width: 180px;
+	color: #4A3D3D;
+	height: 250px;
+	width: 890px;
 }
 .blockPOK_1 {
-	/*  display: inline; */
 	border-style: outset;
-	/*border-color: #fff; */
-	color: #fff;
-	margin-left: 90px;
-	margin-bottom: 25px;
+	text-align: left;
+	color: #4A3D3D;
+	margin-left: 30px;
+	margin-bottom: 20px;
 	border-radius: 5px;
-	float: left;
 	margin-bottom: 25px;
-	text-align: center;
-	padding-left: 5px;
-	padding-right: 5px;
-	padding-bottom: 20px;
-	background-color: F2E9E6;
+	padding: 10px 5px 20px 5px;
+	background-color: #fff;
+	font-size: 20px;
 }
 
 /*****결제 상세 내역 페이지 ****/

@@ -94,16 +94,18 @@
 <!-- HTML5 추가 구문 -->
 <audio id='my_audio' preload='auto' controls loop>
 <source id='sos' src='' type=''>
-</audio>
- <input type="button" name="rew" id="rew" value="이전곡">
- <input type="button" name="few" id="few" value="다음곡">
+</audio><br>
+<!-- <div id="play_music"></div> -->
+<input type="text" id="play_music" placeholder="잠시 기다려 주세요..loading.." readonly>
+<input type="image" src="CSS/images/media-rewind-outline.png" style="width:35px;height:35px;" name="rew" id="rew" value="이전곡">
+<input type="image" src="CSS/images/media-fast-forward-outline.png" style="width:35px;height:35px;" name="few" id="few" value="다음곡">
  
  <div id="mu_list">
  <c:forEach var="m" items="${mylists}" varStatus="arraycount">
 	<source src="upload/${m.getMfilename()}" type="audio/mpeg" mname="${m.getMtitle()}/${m.getMsname()}" number="arraycount.index"></source>
 	</c:forEach>
 </div>
-<div id="play_music"></div>
+
 
 
 
