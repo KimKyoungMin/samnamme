@@ -41,7 +41,7 @@
                     <ul class="menu-box-menu">
                         <c:forEach var="m" items="${musicList}">
                         <li>
-                            <a class="menu-box-tab" href="#6">${m.getMtitle()} / ${m.getMsname()}</a>                            
+                            <a class="menu-box-tab" href="musicmain.user">${m.getMtitle()} / ${m.getMsname()}</a>                            
                         </li>
                         </c:forEach> 
                                              
@@ -98,6 +98,7 @@
            
            <div class="noticemain">
               <h2>Community</h2>
+              
            </div>
 			</div>
 </div>

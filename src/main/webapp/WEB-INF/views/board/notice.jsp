@@ -65,8 +65,8 @@
 					htmlSrc +="<div id='replyUpdateForm"+barnum+"num"+i+"'>";
 					htmlSrc += '<b style="color:#3C467D;">'+data2[i].username+'</b> :'+ data2[i].ccontent;
 					 if(loginUser == data2[i].userid){
-						htmlSrc +="<a href='javascript:void()' onclick='replyUpdateFormcall("+barnum+","+i+","+data2[i].bnum+","+data2[i].cnum+","+replycount+","+replycountnum+",&apos;"+data2[i].username+"&apos;)'><img alt='글 수정하기' src='CSS/noticeboardpic/Custom-Icon-Design-Mini-2-Marker.ico' style='width:20pt; height:10pt;' ></a>";
-						htmlSrc += "<a href='javascript:void()' onclick='replyDelete("+data2[i].cnum+","+ data2[i].bnum+","+barnum+","+replycount+","+replycountnum+")'><img alt='글 삭제하기' src='CSS/noticeboardpic/100-coffee-icon.png' style='width:20pt; height:10pt;' ></a>";
+						htmlSrc +="<a href='javascript:void()' onclick='replyUpdateFormcall("+barnum+","+i+","+data2[i].bnum+","+data2[i].cnum+","+replycount+","+replycountnum+",&apos;"+data2[i].username+"&apos;)'><img alt='글 수정하기' src='CSS/noticeboardpic/pen.png' style='width:15pt; height:15pt;' ></a>";
+						htmlSrc += "<a href='javascript:void()' onclick='replyDelete("+data2[i].cnum+","+ data2[i].bnum+","+barnum+","+replycount+","+replycountnum+")'><img alt='글 삭제하기' src='CSS/noticeboardpic/delete-outline.png' style='width:15pt; height:15pt;' ></a>";
 						//원글번호, 화면 태그가 가진 번호, 현재 리플 달아준 카운트 수, 현재 글 전체 리플 카운트 수 , 보여주는 댓글 숫자를 늘릴지의 여부
 						 //<a href="javascript:void()" onclick="replyUpdateFormcall(${varnum}, ${replynum }, ${c.getBnum() },${c.getCnum() },'7', '${f.getReplycount()}')">글 수정하기</a> 
 						htmlSrc +="</div></div>"; 
@@ -166,7 +166,7 @@
 			dataType : "json",
 			success : function(data) {
 				htmlSrc=""+username;
-				htmlSrc+="<input type='text'  id='modifyreply' maxlength='500' placeholder='input contwrite please' required autofocus value='"+data.replycontent+"'>";
+				htmlSrc+="<input type='text' class='element text medium'  id='modifyreply' maxlength='500' placeholder='input contwrite please' required autofocus value='"+data.replycontent+"'>";
 				// <a href="javascript:void()" onclick="replyUpdateFormcall(${varnum}, ${replynum }, ${c.getCnum() },${c.getCnum() },'7', '${f.getReplycount()}','')">글 수정하기</a> 
 				htmlSrc+="<a href='javascript:void()' onclick='replyUpdateLogic("+varnum+","+Bnum+","+Cnum+","+replycountin+","+replycountnum+")'> 확인</a>";
 				$('#replyUpdateForm'+varnum+'num'+replynum).html(htmlSrc);
@@ -247,8 +247,8 @@
 							<b style="color:#3C467D;">${c.getUsername() }</b>  ${c.getCcontent() }
 							<c:choose>
 								<c:when test="${loginUser eq c.getUserid() }">
-									<a href="javascript:void()" onclick="replyUpdateFormcall(${varnum}, ${replynum }, ${c.getBnum() },${c.getCnum() },7, ${f.getReplycount()}, '${c.getUsername() }')"><img alt="글 수정하기" src="CSS/noticeboardpic/Custom-Icon-Design-Mini-2-Marker.ico" style="width:20pt; height:10pt;" ></a>
-									<a href="javascript:void()" onclick="replyDelete('${c.getCnum()}', '${c.getBnum() }','${varnum }','7','${f.getReplycount()}')"><img alt="글 삭제하기" src="CSS/noticeboardpic/100-coffee-icon.png" style="width:20pt; height:10pt;" ></a>
+									<a href="javascript:void()" onclick="replyUpdateFormcall(${varnum}, ${replynum }, ${c.getBnum() },${c.getCnum() },7, ${f.getReplycount()}, '${c.getUsername() }')"><img alt="글 수정하기" src="CSS/noticeboardpic/pen.png" style="width:15pt; height:15pt;" ></a>
+									<a href="javascript:void()" onclick="replyDelete('${c.getCnum()}', '${c.getBnum() }','${varnum }','7','${f.getReplycount()}')"><img alt="글 삭제하기" src="CSS/noticeboardpic/delete-outline.png" style="width:15pt; height:15pt;" ></a>
 									
 								</c:when>
 							</c:choose>
