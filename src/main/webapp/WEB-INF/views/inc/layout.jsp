@@ -71,7 +71,7 @@
     <div align="right">    
       <s:authentication property="name" var="loginUser"/>
    <h2>
-      
+      	<a href="account.user?userid=${loginUser }&page=1" style="color:#FFC341;">${loginUser }&nbsp;&nbsp;</a>
         <s:authorize ifNotGranted="ROLE_USER, ROLE_ADMIN">
          <a style="color: white; padding-top: 5px" href="login.htm">Login</a> <span style="color: white">||</span> <a style="color: white" href="join.htm">Join</a>
         </s:authorize>
