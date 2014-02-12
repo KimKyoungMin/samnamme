@@ -127,7 +127,8 @@
 	} 	
 </script>
 
-
+<style>
+</style>
 
 <!-- HTML5 추가 구문 -->
 <audio id='my_audio' preload='auto' controls loop>

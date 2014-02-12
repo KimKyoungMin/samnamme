@@ -7,11 +7,12 @@
   <head>
   	
   
-        <link rel="stylesheet" type="text/css" href="CSS/newCSS.css" />
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-		<script type="text/javascript" src="CSS/js/jmpress.min.js"></script>
-		<script type="text/javascript" src="CSS/js/jquery.jmslideshow.js"></script>
-		
+<link rel="stylesheet" type="text/css" href="CSS/newCSS.css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="CSS/js/jmpress.min.js"></script>
+<script type="text/javascript" src="CSS/js/jquery.jmslideshow.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
 		<noscript>
 			<style>
 			.step {
@@ -30,7 +31,57 @@
 			</style>
 		</noscript>
     </head>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
 
+$(function () {
+	var amount1 = new Array();
+
+	<c:forEach items="${productList}" var="name">
+    var amount2 = new Array();
+    amount2.push("${name.mtitle}");
+    amount2.push("${name.count}");
+    amount1.push(amount2);
+    </c:forEach>
+    
+    $('#container1234').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: ''
+        },
+        tooltip: {
+    	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    color: '#000000',
+                    connectorColor: '#000000',
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: '',
+            data: [
+                ['${musictitle1}',    ${musiccount1}],
+                ['${musictitle2}',    ${musiccount2}],
+                ['${musictitle3}',    ${musiccount3}],
+                ['${musictitle4}',    ${musiccount4}],
+                ['${musictitle5}',    ${musiccount5}]
+            ]
+        }]
+    });
+});
+</script>
 
 <body>
 <div class="main-container">
@@ -91,21 +142,16 @@
 			</section>
            </div>
            
-           <div align="center">
+ 
            <div class="noticemain">
-              <h2>Notice</h2>
+              <h2>음악 차트 순위</h2>
+              <div id="container1234" style="min-width: 640px; height: 360px; margin: 0 auto"></div>
            </div>
-           
-           <div class="noticemain">
-              <h2>Community</h2>
-              
-           </div>
-			</div>
+
 </div>
 
     	<script type="text/javascript">
 			$(function() {
-			
 				$( '#jms-slideshow' ).jmslideshow();
 				
 			});

@@ -12,4 +12,13 @@
  		SELECT COUNT(USERID) FROM USERT WHERE USERID=#{userid}
  	</select>
  	
-	</mapper>
+ 	<select id="getBookmark" resultType="co.kr.samman.dto.bookmark">
+ 		select 
+			m.minfonum,
+			count(m.minfonum) as count,
+			s.mtitle
+			from mymusict m
+			inner JOIN musict s on m.minfonum = s.minfonum
+			group by m.minfonum limit 5;
+ 	</select>
+</mapper>
