@@ -102,29 +102,26 @@
 				play_num = zz;
 				};
 			};
-		/* document.getElementByID$(':button[id*=choiceMusic]').onclick = function(){
-			alert("callok");
-		}; */
+	
 	});
 	
-	//$(':button[id*=reply]').click(function() {
-	//document.getElementById('rew').onclick = function() {
+
 	 
-	function CheckAll() {
-		var check = false;
-		var chk = document.getElementsByName("check[]");
-		if (check == false) {
-			check = true;
-			for (var i = 0; i < chk.length; i++) {
-				chk[i].checked = true; //모두 체크
+	 var check = false;
+		function CheckAll() {
+			var chk = document.getElementsByName("check[]");
+			if (check == false) {
+				check = true;
+				for (var i = 0; i < chk.length; i++) {
+					chk[i].checked = true; //모두 체크
+				}
+			} else {
+				check = false;
+				for (var i = 0; i < chk.length; i++) {
+					chk[i].checked = false; //모두 해제
+				}
 			}
-		} else {
-			check = false;
-			for (var i = 0; i < chk.length; i++) {
-				chk[i].checked = false; //모두 해제
-			}
-		}
-	} 	
+		} 
 </script>
 
 <style>
