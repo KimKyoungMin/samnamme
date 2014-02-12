@@ -208,8 +208,8 @@
 				</tr>
 
 				<tr>
-					<td class="buttons"><input id="saveForm" class="button_text"
-						type="submit" name="submit" value="입력완료" /></td>
+					<td class="buttons" align="center"><input id="saveForm" class="submit button3"
+						type="submit" name="submit" value="submit" /></td>
 				</tr>
 			</table>
 		</form>

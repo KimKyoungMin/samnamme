@@ -25,7 +25,7 @@ E-mail <input type="text" name="uemail" class="email text2-input" value="${ud.ue
     <h3>다운 받은 리스트가 없습니다.</h3>
   </c:when>
   <c:otherwise>
-  <div class="profileDtable">
+  <div class="profileDtable" style="width:450px; height: 345px; text-align:left;">
      <table>
        <tr>
           <th>NO.</th>

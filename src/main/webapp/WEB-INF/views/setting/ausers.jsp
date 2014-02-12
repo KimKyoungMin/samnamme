@@ -2,10 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 
-<div class="ausers">
-  <h2>회원 List</h2>
-  <div style="overflow-y:auto;  width:960px; height:380px;border-color: E1EDB9; border-style:solid">
-  <table style=" width: 940px; text-align: center;">
+<h2>회원 List</h2>
+<div class="datagrid">
+  <div style="overflow-y:auto;  width:960px; height:380px;border-color: #c8c8c8; border-style:solid">
+  <table style=" width: 940px; text-align: left;">
     <thead>
        <tr>
           <th>회원Id</th>
@@ -27,6 +27,6 @@
        </c:forEach>
     </tbody>
   </table>
-  </div>
+  </div> 
 
 </div>

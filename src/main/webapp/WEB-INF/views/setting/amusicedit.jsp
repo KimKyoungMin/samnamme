@@ -53,9 +53,11 @@
 						type="file" />-> ${md.mfilename }
 				</div>
 			<input type="hidden" name="aid" value="ADMIN">
-			<input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
-			<input id="cancle" class="button_text" type="button" name="cancle" value="Cancle" 
-			       onclick="javascript:history.go(-1)"/>
+			<div align="center">
+				<input id="saveForm" class="submit button3" type="submit" name="submit" value="Submit" />
+				<input id="cancle" class="submit button3" type="button" name="cancle" value="Cancle" 
+				       onclick="javascript:history.go(-1)"/>
+			</div>
 	</form>
 	
 </div>

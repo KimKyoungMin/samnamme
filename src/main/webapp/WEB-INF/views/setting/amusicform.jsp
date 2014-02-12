@@ -31,7 +31,7 @@ function len_chkk(){
 	<form class="appnitro" enctype="multipart/form-data" method="post"
 		action="" name=""appnitro"">
 		<div class="form_description">
-			<h2>음악정보 업로드 하는곳</h2>
+			<h2><b>음악정보 업로드 하는곳</b></h2>
 			<p>음악정보를 업로드 하세요</p>
 			
 		</div >
@@ -81,7 +81,9 @@ function len_chkk(){
 						type="file" />
 				</div>
 			<input type="hidden" name="aid" value="ADMIN">
-			<input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
+			<div align="center">
+			   <input id="saveForm" class="submit button3" type="submit" name="submit" value="Submit" />
+			</div>		
 	</form>
 	
 </div>
