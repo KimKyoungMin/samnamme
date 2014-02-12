@@ -3,9 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ taglib prefix="s" uri="http://www.springframework.org/security/tags" %>
 
+
+
 <head>
 
 
+  
  <link rel="stylesheet" type="text/css" href="CSS/newCSS.css" />
 
 </head>  

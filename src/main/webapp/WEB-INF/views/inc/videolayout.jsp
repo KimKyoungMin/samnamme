@@ -5,6 +5,8 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <html>
 <head>
+
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <link rel="stylesheet" type="text/css" href="CSS/newCSS.css" />
@@ -33,6 +35,9 @@ function openNewWindow(window){
  
 </script>
 </head>
+
+
+
     <body class="main-container">
         
 	    
@@ -47,7 +52,6 @@ function openNewWindow(window){
         <!-- content -->
 	    <tiles:insertAttribute name="content"></tiles:insertAttribute>
 	    
-        </div> 
 	    
         <!-- footer -->
         <tiles:insertAttribute name="footer"></tiles:insertAttribute>
