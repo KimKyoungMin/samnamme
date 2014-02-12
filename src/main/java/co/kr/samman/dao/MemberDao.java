@@ -1,5 +1,7 @@
 package co.kr.samman.dao;
 
+import java.util.List;
+
 import co.kr.samman.dto.usert;
 
 public interface MemberDao {
@@ -9,6 +11,8 @@ public interface MemberDao {
 	public void userInsert(usert u); //회원 Insert
 
 	public int usercheck(String userid);
+
+	public List<co.kr.samman.dto.bookmark> getBookmark();
 
 
 }

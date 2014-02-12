@@ -115,7 +115,9 @@ public class NoticeController {
 				obj.put("cnum", b.getCnum());
 				//Json 리스트에 객체를 추가함
 				data2.add(obj);
+				
 			}
+			System.out.println(data2.toString());
 			return data2.toString();
 		}
 		@RequestMapping(value="noticereplyget.user" ,produces="text/plain;charset=UTF-8")

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -18,6 +19,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import co.kr.samman.dao.MemberDao;
 import co.kr.samman.dao.MusicDao;
+import co.kr.samman.dto.bookmark;
+import co.kr.samman.dto.cont;
 import co.kr.samman.dto.musict;
 import co.kr.samman.dto.usert;
 
@@ -31,9 +34,22 @@ public class MemberController {
 	public String home(Model model) {
 		
 		MusicDao musicDao = sqlSession.getMapper(MusicDao.class);
-		
 		List<musict> musicList = musicDao.getMainMusiclists();
 		model.addAttribute("musicList", musicList);
+		//bookmark get
+		MemberDao memberDao = sqlSession.getMapper(MemberDao.class);
+		
+		List<bookmark> list = memberDao.getBookmark();
+		int state=0;
+			for(bookmark b : list){
+				state +=1;
+				model.addAttribute("musictitle"+state, b.getMtitle());
+			}
+			state =0;
+			for(bookmark b : list){
+				state +=1;
+				model.addAttribute("musiccount"+state, b.getCount());
+			}
 		
 		return "main.main";
 	}
@@ -71,16 +87,14 @@ public class MemberController {
 		MemberDao memberDao = sqlSession.getMapper(MemberDao.class);
 		JSONObject data = new JSONObject();
 		int usert = memberDao.usercheck(userId);
-		System.out.println("usert count : "+usert+"     userid : "+userId);
 		if(usert==0){
 			data.put("resultvalue", "가능");
-			System.out.println(data.toString());
 			return data.toString();
 		}else{
 			data.put("resultvalue", "중복값 있음");
-			System.out.println(data.toString());
 			return data.toString();
 		}
 	}
+	
 
 }
