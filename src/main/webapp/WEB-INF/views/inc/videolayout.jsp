@@ -42,7 +42,7 @@ function openNewWindow(window){
     <div class="main">
    <div class="row-1"> <a class="logo" href="main.htm">HomeStyle</a>
         
-    <div align="right">    
+    <div align="right">     
       <s:authentication property="name" var="loginUser"/>
    <h2>
       	<a href="account.user?userid=${loginUser }&page=1" style="color:#FFC341;">${loginUser }&nbsp;&nbsp;</a>
