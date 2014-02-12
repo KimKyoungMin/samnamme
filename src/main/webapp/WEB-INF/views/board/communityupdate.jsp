@@ -37,7 +37,9 @@ function len_chk(){
 			<input name="filespic" class="element file" type="file"/> 이전 파일명 : ${board.getBpicname()}
 		</div>  
 			    <!-- <input type="hidden" name="form_id" value="783685" />  -->
-				<input id="saveForm" class="button_text" type="submit" name="submit" value="수정하기" />
-				<input type="button" value="돌아가기" onclick="location.href='community.user'">
+				<div align="center">
+				  <input id="saveForm" class="submit button3" type="submit" name="submit" value="수정하기" />
+				  <input type="button" class="submit button3" value="Cancle" onclick="javascript:history.go(-1);">
+		        </div>
 		</form>	
 		</div>

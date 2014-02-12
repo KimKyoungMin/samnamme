@@ -47,11 +47,11 @@
 					</div>
 					<a href ="qnaReply.user?qnum=${qnaDetail.qnum}">댓글쓰기</a><br>
 					<div align="center">
-						<input type="button" value="목록" onclick="javascript:location.href='qna.user';" style="background-color: E1EDB9; width: 50px; height: 25px;">
+						<input type="button" value="목록" onclick="javascript:location.href='qna.user';" style="color:#fff; background-color: #28A8A8; width: 50px; height: 25px;">
                         <s:authentication property="name" var="loginUser"/>
                         <c:if test="${qnaDetail.userid==loginUser }">
-                           <input type="button" value="수정" onclick="javascript:qnaEdit(${qnaDetail.qnum})" style="background-color: E1EDB9; width: 50px; height: 25px;">
-						   <input type="submit" value="삭제" style="background-color: E1EDB9; width: 50px; height: 25px;">
+                           <input type="button" value="수정" onclick="javascript:qnaEdit(${qnaDetail.qnum})" style="color:#fff;background-color: #28A8A8; width: 50px; height: 25px;">
+						   <input type="submit" value="삭제" style="color:#fff;background-color: #28A8A8; width: 50px; height: 25px;">
                         </c:if>
 
 					</div>

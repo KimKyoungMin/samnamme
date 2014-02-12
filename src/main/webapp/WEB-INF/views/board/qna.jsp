@@ -20,7 +20,7 @@ int nowpage = (Integer)request.getAttribute("page");
 <body>
 	<h2>qna 게시판</h2>
 	<div align="right">
-		<a href="qnaWrite.user">글쓰기</a> &nbsp;
+		<a href="qnaWrite.user" class="dynamiclabel_2">글쓰기</a> &nbsp;
 	</div>
 	
 	<table class="article-list margin-small">
@@ -33,7 +33,7 @@ int nowpage = (Integer)request.getAttribute("page");
 				<td class="hit">조회수</td>
 			</tr>
 		</thead>
-		<tbody>
+		<tbody style="background-color:#fff;">
 			<c:forEach items="${qnaList}" var="n">
 				<tr>
 					<td class="seq">${n.qnum}</td>

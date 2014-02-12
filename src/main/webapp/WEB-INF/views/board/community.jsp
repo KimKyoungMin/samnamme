@@ -180,7 +180,7 @@
 
 </script>
 
-<div class="noticeaddbutton">
+<div class="noticeaddbutton" align="right">
 	<s:authorize ifAnyGranted="ROLE_USER">
 		<a href="communitywrite.user?userid=${loginUser }" class="dynamiclabel_2">글 등록</a>
 	</s:authorize>
@@ -197,6 +197,25 @@
 	<div class="blockL"> <!-- 댓글 수 div -->
 		<div class="blockM">  <!-- 작성글 div -->
 			<ul>
+			    <li>
+			       <div align="right">
+					<c:choose>
+						<c:when test="${loginUser eq f.getUserid() }">
+							<a href="communityupdate.user?bnum=${f.getBnum() }&userid=${loginUser}" class="dynamiclabel">글 수정</a>&nbsp;&nbsp;
+							<a href="communitydelete.user?bnum=${f.getBnum() }" class="dynamiclabel_1">글 삭제</a><br>
+						</c:when>
+					</c:choose>
+							<!-- 이전 롤로 확인했던 사항을 아이디가 같은지도 대체함 -->
+					<%-- <s:authorize ifAnyGranted="ROLE_USER"><p>
+							<a href="communityupdate.user?bnum=${f.getBnum() }&userid=${loginUser}" class="dynamiclabel">글 수정</a>&nbsp;&nbsp;
+							<a href="noticedelete.user?bnum=${f.getBnum() }" class="dynamiclabel_1">글 삭제</a><br>
+						</s:authorize>
+						<s:authorize ifAnyGranted="ROLE_ADMIN"><p>
+							<a href="communityupdate.user?bnum=${f.getBnum() }&userid=${loginUser}" class="dynamiclabel">글 수정</a>&nbsp;&nbsp;
+							<a href="noticedelete.user?bnum=${f.getBnum() }" class="dynamiclabel_1">글 삭제</a><br>
+						</s:authorize> --%>
+		            </div>
+			    </li>
 				<li style="color:4A3D3D;">
 				   <b style="color:#3C467D;">${f.getUserid()}</b> &nbsp;&nbsp;&nbsp; <b>${f.getBtitle() }</b><br>
 				</li>
@@ -214,24 +233,7 @@
 					   </tr>
 					</table>
 					
-					<div class="noticeDiv" style="text-align: left">${f.getBdate() }</div>
-					<div class="noticeDiv">
-					<c:choose>
-						<c:when test="${loginUser eq f.getUserid() }">
-							<a href="communityupdate.user?bnum=${f.getBnum() }&userid=${loginUser}" class="dynamiclabel">글 수정</a>&nbsp;&nbsp;
-							<a href="communitydelete.user?bnum=${f.getBnum() }" class="dynamiclabel_1">글 삭제</a><br>
-						</c:when>
-					</c:choose>
-							<!-- 이전 롤로 확인했던 사항을 아이디가 같은지도 대체함 -->
-					<%-- <s:authorize ifAnyGranted="ROLE_USER"><p>
-							<a href="communityupdate.user?bnum=${f.getBnum() }&userid=${loginUser}" class="dynamiclabel">글 수정</a>&nbsp;&nbsp;
-							<a href="noticedelete.user?bnum=${f.getBnum() }" class="dynamiclabel_1">글 삭제</a><br>
-						</s:authorize>
-						<s:authorize ifAnyGranted="ROLE_ADMIN"><p>
-							<a href="communityupdate.user?bnum=${f.getBnum() }&userid=${loginUser}" class="dynamiclabel">글 수정</a>&nbsp;&nbsp;
-							<a href="noticedelete.user?bnum=${f.getBnum() }" class="dynamiclabel_1">글 삭제</a><br>
-						</s:authorize> --%>
-		            </div><br>
+					<div class="noticeDiv" style="text-align: left">${f.getBdate() }</div><br>
 					    현재 댓글 수 <span id ="replycount${varnum }" class="round">${f.getReplycount() }</span>
 				</div>	
 			</ul>
@@ -241,7 +243,7 @@
 		<input type="hidden" id="bnum${varnum }" name="bnum" value="${f.getBnum() }">
 		<input type="hidden" id="bnumm${varnum }" name="bnumm" value="7">
 		<input type="hidden" id="bnummm${varnum }" name="bnummm" value="${f.getReplycount()}">
-		<input type="text" id="ccontent${varnum }" name="ccontent" maxlength="500" placeholder="input contwrite please" required autofocus value="" class="element text medium" style="width: 510px;">
+		<input type="text" id="ccontent${varnum }" name="ccontent" maxlength="500" placeholder="input contwrite please" value="" class="element text medium" style="width: 510px;">
 		<input type="button" id= "reply${varnum }" name="${varnum }" value="댓글달기" class="element text small"><P></P><BR>
 		<div id="simson${varnum }" >
 		<!-- 댓글 작성 시작 -->

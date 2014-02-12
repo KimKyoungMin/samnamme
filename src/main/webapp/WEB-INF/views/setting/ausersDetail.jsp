@@ -9,9 +9,9 @@
 <br>
 <form action="settingpay.admin" method="post">
 UserID <input type="text" name="userid" class="email text2-input" value="${ud.userid }" readonly><br>
-Name    <input type="text" name="uname" class="email text2-input" value="${ud.uname }"><br>
-Phone  <input type="text" name="utel" class="email text2-input" value="${ud.utel }"><br>
-E-mail <input type="text" name="uemail" class="email text2-input" value="${ud.uemail }"><br>
+Name    <input type="text" name="uname" class="email text2-input" value="${ud.uname }" readonly><br>
+Phone  <input type="text" name="utel" class="email text2-input" value="${ud.utel }" readonly><br>
+E-mail <input type="text" name="uemail" class="email text2-input" value="${ud.uemail }" readonly><br>
 <input type="submit" class="edit button" value="결제 내역 보기">
 </form>
 </div>

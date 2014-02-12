@@ -35,8 +35,8 @@
 						
 						<br>
 							<div align="center" style="margin-top:5px;margin-bottom:5px;">
-								<input type="submit" value="등록" style="background-color: E1EDB9; width: 50px; height: 25px;">
-								<input type="button" value="취소" onclick="javascript:history.back();" style="background-color: E1EDB9; width: 50px; height: 25px;">
+								<input type="submit" value="등록" style="color:#fff;background-color: #28A8A8; width: 50px; height: 25px;">
+								<input type="button" value="취소" onclick="javascript:history.back();" style="color:#fff;background-color: #28A8A8; width: 50px; height: 25px;">
 							</div>
 						</div>			
 							

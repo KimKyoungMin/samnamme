@@ -36,7 +36,9 @@ function len_chk(){
 			<input name="filespic" class="element file" type="file"/> 
 		</div>  
 			    <!-- <input type="hidden" name="form_id" value="783685" />  -->
-				<input id="saveForm" class="button_text" type="submit" name="submit" value="공지사항 올리기" />
-				<input type="button" value="돌아가기" onclick="location.href='notice.user'">
+				<div align="center">
+				  <input id="saveForm" class="submit button3" type="submit" name="submit" value="Write" />
+				  <input type="button" value="Cancle" onclick="javascript:history.go(-1);">
+				</div>
 		</form>	
 		</div>

@@ -46,8 +46,8 @@ function len_chk(){
 						<br>
 							<div align="center" style="margin-top:5px;margin-bottom:5px;">
 								<input type="hidden" name="qnum" value="${qnadto.qnum }">
-								<input type="submit" value="수정" style="background-color: E1EDB9; width: 50px; height: 25px;">
-								<input type="button" value="취소" onclick="javascript:history.back();" style="background-color: E1EDB9; width: 50px; height: 25px;">
+								<input type="submit" value="수정" style="color:#fff;background-color: #28A8A8; width: 50px; height: 25px;">
+								<input type="button" value="취소" onclick="javascript:history.back();" style="color:#fff;background-color: #28A8A8; width: 50px; height: 25px;">
 							</div>
 						</div>			
 							

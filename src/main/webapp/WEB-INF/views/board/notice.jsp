@@ -180,7 +180,7 @@
 
 </script>
 
-<div class="noticeaddbutton">
+<div class="noticeaddbutton" align="right">
 	<s:authorize ifAnyGranted="ROLE_ADMIN">
 		<a href="noticewrite.user" class="dynamiclabel_2">공지사항 등록</a>
 	</s:authorize>
@@ -194,6 +194,14 @@
 	<div class="blockL"> <!-- 댓글 수 div -->
 		<div class="blockM">  <!-- 작성글 div -->
 			<ul>
+			    <li>
+			       <div align="right">
+						<s:authorize ifAnyGranted="ROLE_ADMIN"><p>
+							<a href="noticeupdate.user?bnum=${f.getBnum() }" class="dynamiclabel">공지사항수정</a>&nbsp;&nbsp;
+							<a href="noticedelete.user?bnum=${f.getBnum() }" class="dynamiclabel_1">공지사항삭제</a><br>
+						</s:authorize>
+		            </div> 
+			    </li>
 				<li style="color:4A3D3D;">
 				   <b style="color:#3C467D;">${f.getUserid()}</b> &nbsp;&nbsp;&nbsp; <b>${f.getBtitle() }</b><br>
 				</li>
@@ -211,14 +219,8 @@
 					   </tr>
 					</table>
 					
-					<div class="noticeDiv" style="text-align: left">${f.getBdate() }</div>
-					<div class="noticeDiv">
-						<s:authorize ifAnyGranted="ROLE_ADMIN"><p>
-							<a href="noticeupdate.user?bnum=${f.getBnum() }" class="dynamiclabel">공지사항수정</a>&nbsp;&nbsp;
-							<a href="noticedelete.user?bnum=${f.getBnum() }" class="dynamiclabel_1">공지사항삭제</a><br>
-						</s:authorize>
-		            </div><br>
-					    현재 댓글 수 <span id ="replycount${varnum }" class="round">${f.getReplycount() }</span>
+					<div class="noticeDiv" style="text-align: left">${f.getBdate() }</div><br>
+					 현재 댓글 수 <span id ="replycount${varnum }" class="round">${f.getReplycount() }</span>
 				</div>	
 			</ul>
 	    </div>
@@ -228,7 +230,7 @@
 		<input type="hidden" id="bnumm${varnum }" name="bnumm" value="7">
 		<input type="hidden" id="bnummm${varnum }" name="bnummm" value="${f.getReplycount()}">
 		<input type="text" id="ccontent${varnum }" name="ccontent" value="" class="element text medium" 
-		 maxlength="500" placeholder="input contwrite please" required autofocus style="width: 510px">
+		 maxlength="500" placeholder="input contwrite please" style="width: 510px">
 		<input type="button" id= "reply${varnum }" name="${varnum }" value="댓글달기" class="element text small"><P></P><BR>
 		<div id="simson${varnum }" >
 		<!-- 댓글 작성 시작 -->
