@@ -499,8 +499,16 @@ h1, h2, p, a, span{
 			/* border-radius: 5px; */
 			margin-bottom: 15px;
 			border-bottom:2px solid #747474;
-			border-top:2px solid #747474;
+			border-top:2px solid #747474; 
 		}
+		.blockMain {
+			margin-bottom: 15px;
+			border: 1px solid;
+			width: 300px;
+			border-radius: 5px;
+
+		}
+		
 		
 
 		/******************************************** LEFT CONTAINER *****************************************/
@@ -509,7 +517,7 @@ h1, h2, p, a, span{
 				height: 360px;
 			}
 				.menu-box .titular {
-					background: #6AC793;
+					background: #FFC846;
 				}
 				.menu-box-menu .icon {
 					display: inline-block;
@@ -536,14 +544,14 @@ h1, h2, p, a, span{
 				}
 				.menu-box-tab {
 					padding-left: 10px;
-					line-height: 60px;
+					line-height: 58px;
 					display: block;
 					border-bottom: 1px solid #1f253d;
 					-webkit-transition: background .2s;
 					transition: background .2s;
 				}
 					.menu-box-tab:hover {
-						background: #D8DEC3;
+						background: #D5D5D5;
 						border-bottom: 2px solid #1f253d;
 						text-decoration: none;
 					}
@@ -822,6 +830,7 @@ h1, h2, p, a, span{
 			.blockV {
 			   margin-bottom: 25px;
 			   background: white;
+			   border: 1px solid;
 			   border-radius: 5px;	
 			   float: left;	
 			   margin-right: 20px ;
@@ -1473,8 +1482,9 @@ h1, h2, p, a, span{
 			   .block2 {
 			 align: center;
 			 margin: 10px 300px;
-			 border-style: solid;
-		     border-color: #D4EE5E;
+			 background-color: #fff;
+			 border: 1px solid;
+		     border-color: #505050;
 			 border-radius: 5px;
 		     }
 			
@@ -1951,7 +1961,7 @@ body
 	margin:0 auto;
 	text-align:left;
 	width:640px;
-	border-style: solid;
+	border: 1px solid;
 }
 
 #top

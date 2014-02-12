@@ -73,7 +73,7 @@ function videopagecall(pagenum){
 		
 
 	<div class="profileV blockV" >
-	<div id="ajax" class="menu-box" style="margin-left: 5" ></div>
+	<div id="ajax" class="menu-box" style="margin-left:5px" ></div>
 	<div style="margin-top: 10" class = "list_n_menu" id="ajax2"></div>
 	
 	</div>

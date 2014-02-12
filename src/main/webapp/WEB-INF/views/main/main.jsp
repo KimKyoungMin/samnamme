@@ -36,7 +36,7 @@
 <div class="main-container">
             <!-- LEFT-CONTAINER -->
             <div class="left-container container">
-                <div class="menu-box block"> <!--  Top5 (LEFT-CONTAINER) -->
+                <div class="menu-box blockMain"> <!--  Top5 (LEFT-CONTAINER) -->
                     <h2 class="titular">Music Top5</h2>
                     <ul class="menu-box-menu">
                         <c:forEach var="m" items="${musicList}">

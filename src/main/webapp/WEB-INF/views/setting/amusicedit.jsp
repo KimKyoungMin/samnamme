@@ -7,7 +7,7 @@
 	<form class="appnitro" enctype="multipart/form-data" method="post"
 		action="">
 		<div class="form_description">
-			<h2>음악정보 수정</h2>		
+			<h2><b>음악정보 수정</b></h2>		
 		</div >
 
 			<label class="description" for="element_1">노래제목
