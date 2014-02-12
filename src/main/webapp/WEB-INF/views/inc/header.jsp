@@ -33,7 +33,7 @@
          	<a class="header-menu-tab" href="notice.user"><span
                class="icon entypo-paper-plane scnd-font-color"></span>Community</a>
              <ul class="subnav">
-               <li><a href="notice.user">Notice</a></li>
+               <li style="border-top: 2px solid #747474;"><a href="notice.user">Notice</a></li>
                <li><a href="community.user">Community</a></li>
                <li><a href="qna.user">Q&A</a></li>
               </ul>
@@ -49,7 +49,7 @@
                 <!-- <div style="border: 1px; solid"> -->
                 <ul class="subnav">
                   
-                  <li><a href="ausers.admin">User</a></li>
+                  <li style="border-top: 2px solid #747474;"><a href="ausers.admin">User</a></li>
                   <li><a href="amusicform.admin">Music</a></li>
                   <li><a href="aconcertform.admin">Concert</a></li>
                   
