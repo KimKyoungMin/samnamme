@@ -300,12 +300,13 @@ h1, h2, p, a, span{
 /***********button2 (musicmain 삭제 버튼)****/
 .button2 {
 	width: 80px;
+	height: 23px;
 	/* line-height: 20px; */
 	font-size: 15px;
 	font-weight: 700;
 	text-align: center;
 	margin: 0 auto;
-	border-radius: 5px;
+	border-radius: 3px;
 	-webkit-transition: background .3s;
 	transition: background .3s;
 }
@@ -316,6 +317,7 @@ h1, h2, p, a, span{
 /***********button3 (musicmain list 노래 추가 버튼)****/
 .button3 {
 	width: 220px;
+	height: 23px;
 	/* line-height: 20px; */
 	font-size: 15px;
 	font-weight: 700;
