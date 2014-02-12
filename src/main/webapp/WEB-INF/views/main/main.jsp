@@ -92,7 +92,8 @@ $(function () {
                     <ul class="menu-box-menu">
                         <c:forEach var="m" items="${musicList}">
                         <li>
-                            <a class="menu-box-tab" href="musicmain.user">${m.getMtitle()} / ${m.getMsname()}</a>                            
+                            <a class="menu-box-tab" href="musicViedo.user?Minfonum=${m.getMinfonum()}&pagenum=1">${m.getMtitle()} / ${m.getMsname()}</a> 
+                            							<!--${m.getMinfonum()} -->                           
                         </li>
                         </c:forEach> 
                                              
