@@ -94,13 +94,14 @@
 <title>Insert title here</title>
 </head>
 <body onload="window_onload()">
+<h2>Music Concert Info</h2>
 	<!-- 연, 월 셋팅 -->
 	
-	<div id="calalign" align="center">
-		<table   cellspacing="1" cellpadding="2" bgcolor="#fff"> <!-- 달력 맨위  -->
+	<div id="calalign" align="center" style="margin-top:10px;">
+		<table   cellspacing="1" cellpadding="2" bgcolor="#5D5D5D"> <!-- 달력 맨위  -->
 		<tr>
 			<td width="<%=boxweight * 7 +6%>" colspan="7"
-				style="border: solid 1px #474747;"><b>&nbsp; <select
+				style="border: solid 1px #464646;"><b>&nbsp; <select
 					id="syear" onchange="year_onchange()">
 						<option></option>
 				</select></b> <b>&nbsp; <select id="smonth" onchange="month_onchange()">
@@ -108,16 +109,16 @@
 				</select></b></td>
 	</table>
 	<!-- 요일 셋팅 -->
-	<table   cellspacing="1" cellpadding="2" bgcolor="D8DEC3">
+	<table   cellspacing="1" cellpadding="2" bgcolor="#DBDBDB">
 		<tr align="left" valign="top">
-			<td bgcolor="E1EDB9" width="<%=boxweight%>" height="<%=boxheight%>"
+			<td bgcolor="#F0F2EB" width="<%=boxweight%>" height="<%=boxheight%>"
 				style="color: FF4242;">일</td>
-			<td bgcolor="E1EDB9" width="<%=boxweight%>" height="<%=boxheight%>">월</td>
-			<td bgcolor="E1EDB9" width="<%=boxweight%>" height="<%=boxheight%>">화</td>
-			<td bgcolor="E1EDB9" width="<%=boxweight%>" height="<%=boxheight%>">수</td>
-			<td bgcolor="E1EDB9" width="<%=boxweight%>" height="<%=boxheight%>">목</td>
-			<td bgcolor="E1EDB9" width="<%=boxweight%>" height="<%=boxheight%>">금</td>
-			<td bgcolor="E1EDB9" width="<%=boxweight%>" height="<%=boxheight%>"
+			<td bgcolor="#F0F2EB" width="<%=boxweight%>" height="<%=boxheight%>">월</td>
+			<td bgcolor="#F0F2EB" width="<%=boxweight%>" height="<%=boxheight%>">화</td>
+			<td bgcolor="#F0F2EB" width="<%=boxweight%>" height="<%=boxheight%>">수</td>
+			<td bgcolor="#F0F2EB" width="<%=boxweight%>" height="<%=boxheight%>">목</td>
+			<td bgcolor="#F0F2EB" width="<%=boxweight%>" height="<%=boxheight%>">금</td>
+			<td bgcolor="#F0F2EB" width="<%=boxweight%>" height="<%=boxheight%>"
 				style="color: 4A3D3D;">토</td>
 
 		</tr>
@@ -128,7 +129,7 @@
 				//날자 셋팅
 				for (scopeday = 1; scopeday < week; scopeday++) {
 					out.print("<td width=" + boxweight + " height=" + boxheight
-							+ " bgcolor='F4F8E6'>&nbsp;</td>");
+							+ " bgcolor='#fff'>&nbsp;</td>");
 					newLine++;
 				}
 
@@ -139,7 +140,7 @@
 					
 					//today = 배경색 지정, 나머지는 흰색으로 지정
 					String bgColor = (nowYear == year) && (nowMonth == month)
-							&& (nowDay == scopeday) ? " E1EDB9" : "F4F8E6";
+							&& (nowDay == scopeday) ? " #dcdcdc" : "#fff";
 					
 					//결정된 내용 화면에 뿌려주기
 					%>
@@ -157,10 +158,10 @@
 							<c:if test="${f.getConmonth() == cmonth }">
 								<c:if test="${f.getConday()==scopeday}">
 									
-									<a href="javascript:void()" onclick="winopen(${f.getConnum()},1)" style="color: #803232">●${f.getContitle() } </a>
+									<a href="javascript:void()" onclick="winopen(${f.getConnum()},1)" style="color: #14A0A0">●${f.getContitle() } </a>
 									
 									 <s:authorize ifAnyGranted="ROLE_ADMIN">
-												<a href="concertupdate.admin?connum=${f.getConnum()}" style="color: #00EE00"><h6>수정</h6></a>
+												<a href="concertupdate.admin?connum=${f.getConnum()}" style="color: #FFB432"><h4>수정</h4></a>
 									</s:authorize> <br>
 								</c:if>
 							</c:if>
@@ -176,7 +177,7 @@
 				}
 				while (newLine > 0 && newLine < 7) {
 					out.print("<td width=" + boxweight + " height=" + boxheight
-							+ " bgcolor='E1EDB9'>&nbsp;</td>");
+							+ " bgcolor='#F0F2EB'>&nbsp;</td>");
 					newLine++;
 				}
 				out.print("</tr>");

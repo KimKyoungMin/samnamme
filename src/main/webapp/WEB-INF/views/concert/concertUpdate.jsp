@@ -212,11 +212,11 @@
 						</div></td>
 				</tr>
 
-				<tr>
-					<td class="buttons"><input id="saveForm" class="button_text"
-						type="submit" name="submit" value="입력완료" /></td>
-				</tr>
 			</table>
+			<div align="center">
+			     <input id="saveForm" class="submit button3" type="submit" name="submit" value="입력완료" />
+			     <input class="submit button3" type="button" value="Cancel" onclick="javascript:history.back();"/> 
+			</div>
 		</form>
 	</div>
 </body>
