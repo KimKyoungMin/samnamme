@@ -97,10 +97,10 @@
 	<!-- 연, 월 셋팅 -->
 	
 	<div id="calalign" align="center">
-		<table   cellspacing="1" cellpadding="2" bgcolor="D4EE5E">
+		<table   cellspacing="1" cellpadding="2" bgcolor="#fff"> <!-- 달력 맨위  -->
 		<tr>
 			<td width="<%=boxweight * 7 +6%>" colspan="7"
-				style="color: blue; border: solid 1px green;"><b>&nbsp; <select
+				style="border: solid 1px #474747;"><b>&nbsp; <select
 					id="syear" onchange="year_onchange()">
 						<option></option>
 				</select></b> <b>&nbsp; <select id="smonth" onchange="month_onchange()">
