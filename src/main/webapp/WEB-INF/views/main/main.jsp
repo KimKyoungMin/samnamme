@@ -108,36 +108,46 @@ $(function () {
 
            <div class="slide" >
               <section  id="jms-slideshow" class="jms-slideshow">
+			<c:forEach var="f" items="${concertlist}" varStatus="imp">
+				<c:if test="${imp.index==0 }">
+					<div class="step" data-color="color-5">
+					<div class="jms-content">
+						<h3>${f.contitle }</h3>
+						<p>${f.conectinfo }</p>
+						<p class="jms-link" >${f.consinger }</p>
+					</div>
+					<img src="concertpic/${f.conpic }" />
+				</div>
+				</c:if>
+				
+				<c:if test="${imp.index==1 }">
+					<div class="step" data-color="color-4" data-y="500" data-scale="0.4" data-rotate-x="30">
+					<div class="jms-content">
+						<h3>${f.contitle }</h3>
+						<p>${f.conectinfo }</p>
+						<p class="jms-link" >${f.consinger }</p>
+					</div>
+					<img src="concertpic/${f.conpic }" />
+				</div>
+				</c:if>
+				<c:if test="${imp.index==2 }">
+					<div class="step" data-color="color-3" data-x="2000" data-z="3000" data-rotate="170">
+					<div class="jms-content">
+						<h3>${f.contitle }</h3>
+						<p>${f.conectinfo }</p>
+						<p class="jms-link" >${f.consinger }</p>
+					</div>
+					<img src="concertpic/${f.conpic }" />
+				</div>
+				</c:if>
+			</c:forEach>
 			
-			
-				<div class="step" data-color="color-5">
-					<div class="jms-content">
-						<h3>Just when I thought...</h3>
-						<p>From fairest creatures we desire increase, that thereby beauty's rose might never die</p>
-						<a class="jms-link" href="#">Read more</a>
-					</div>
-					<img src="images/1.png" />
-				</div>
 				
 				
-				<div class="step" data-color="color-4" data-y="500" data-scale="0.4" data-rotate-x="30">
-					<div class="jms-content">
-						<h3>Holy cannoli!</h3>
-						<p>But as the riper should by time decease, his tender heir might bear his memory</p>
-						<a class="jms-link" href="#">Read more</a>
-					</div>
-					<img src="images/2.png" />
-				</div>
 				
 				
-				<div class="step" data-color="color-3" data-x="2000" data-z="3000" data-rotate="170">
-					<div class="jms-content">
-						<h3>No time to waste</h3>
-						<p>Within thine own bud buriest thy content and, tender churl, makest waste in niggarding</p>
-						<a class="jms-link" href="#">Read more</a>
-					</div>
-					<img src="images/3.png" />
-				</div>
+				
+				
 				
 			</section>
            </div>

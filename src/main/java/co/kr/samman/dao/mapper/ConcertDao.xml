@@ -11,6 +11,18 @@
        YEAR(CONDATE) CONYEAR, MONTH(CONDATE) CONMONTH, DAYOFMONTH(CONDATE) CONDAY ,
        year(now()) NOWYEAR, month(now()) NOWMONTH FROM CONCERT;
 	</select>
+	
+	<select id="getConcertListthree" 
+	resultType="co.kr.samman.dto.concert">
+		SELECT CONNUM, CONTITLE, DATE(CONDATE) CONDATE, CONPLACE, CONSINGER, CONGRADE,
+       CONECTINFO, CONLON, CONLAT, AID, CONPIC,
+       YEAR(CONDATE) CONYEAR, MONTH(CONDATE) CONMONTH, DAYOFMONTH(CONDATE) CONDAY ,
+       year(now()) NOWYEAR, month(now()) NOWMONTH FROM CONCERT 
+       where condate > now()
+       ORDER BY CONDATE ASC LIMIT 0,3
+	</select>
+	
+	
 	<select id="getConcertdetail" parameterType="Integer" resultType="co.kr.samman.dto.concert">
 		SELECT CONNUM, CONTITLE, DATE(CONDATE) CONDATE, CONPLACE, CONSINGER, CONGRADE,
        CONECTINFO, CONLON, CONLAT, AID,CONPIC, CONENDDATE,

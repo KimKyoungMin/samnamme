@@ -17,9 +17,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import co.kr.samman.dao.ConcertDao;
 import co.kr.samman.dao.MemberDao;
 import co.kr.samman.dao.MusicDao;
 import co.kr.samman.dto.bookmark;
+import co.kr.samman.dto.concert;
 import co.kr.samman.dto.cont;
 import co.kr.samman.dto.musict;
 import co.kr.samman.dto.usert;
@@ -39,18 +41,23 @@ public class MemberController {
 		//bookmark get
 		MemberDao memberDao = sqlSession.getMapper(MemberDao.class);
 		
+		//최다 즐겨찾기 보유 리스트 찾아보기
 		List<bookmark> list = memberDao.getBookmark();
 		int state=0;
-			for(bookmark b : list){
-				state +=1;
-				model.addAttribute("musictitle"+state, b.getMtitle());
-			}
-			state =0;
-			for(bookmark b : list){
-				state +=1;
-				model.addAttribute("musiccount"+state, b.getCount());
-			}
+		for(bookmark b : list){
+			state +=1;
+			model.addAttribute("musictitle"+state, b.getMtitle());
+		}
+		state =0;
+		for(bookmark b : list){
+			state +=1;
+			model.addAttribute("musiccount"+state, b.getCount());
+		}
 		
+		ConcertDao concertdao = sqlSession.getMapper(ConcertDao.class);
+		List<concert> con = concertdao.getConcertListthree();
+		model.addAttribute("concertlist",con);
+			
 		return "main.main";
 	}
 	
