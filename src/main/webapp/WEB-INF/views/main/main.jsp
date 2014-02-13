@@ -167,7 +167,6 @@ $(function () {
 
          </section>
            </div>
-           
           
            <div class="noticemain">
               <h2>&nbsp;&nbsp;Most Listened Songs</h2>
