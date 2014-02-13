@@ -15,7 +15,7 @@
 <body>
 <c:if test="${playvideo==null }">
 
-<embed src="//www.youtube.com/v/CJ_J7E67Xoc?hl=ko_KR&amp;version=3&amp;rel=0"
+<embed src="//www.youtube.com/v/CJ_J7E67Xoc?hl=KR&autoplay=1"
  type="application/x-shockwave-flash" width="600" height="400"
   allowscriptaccess="always" allowfullscreen="true"></embed>
 
