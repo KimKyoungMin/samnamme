@@ -46,7 +46,7 @@ $(function () {
     
     $('#container1234').highcharts({
         chart: {
-            plotBackgroundColor: '#EAEAEA',
+            plotBackgroundColor: '#E9E9E9',
             plotBorderWidth: '#474747',
             plotShadow: false
         },
@@ -73,7 +73,15 @@ $(function () {
             name: '',
             data: [
                 ['${musictitle1}',    ${musiccount1}],
-                ['${musictitle2}',    ${musiccount2}],
+                
+                
+                {
+                    name: '${musictitle2}',
+                    y: ${musiccount2},
+                    sliced: true,
+                    selected: true
+                },
+
                 ['${musictitle3}',    ${musiccount3}],
                 ['${musictitle4}',    ${musiccount4}],
                 ['${musictitle5}',    ${musiccount5}]
@@ -109,18 +117,23 @@ $(function () {
                 </div>
                                 
              <div class="join-newsletter blockMain2"> <!--  (LEFT-CONTAINER) -->
-               <h2 class="titular">NOTICE.</h2>
+               <h2 class="titular">NOTICE</h2>
                <div>
+               <br>
+               <div align="center">
                 <table>
                   <tr>
                     <td><a href="notice.user"><h3>${boardDto.btitle }</h3></a></td>
                   </tr>
-                  <tr align="center">
+                  <tr>
                     <td><img src="CSS/noticeboardpic/${boardDto.bpicname}" style="width:250px;height:150px;"></td>
                   </tr>
                 </table>
+                </div>
+                <br>
+                <div style="overflow-y:auto; height:100px; width: 280px; padding-left: 5%; padding-right: 5%; ">
                 ${boardDto.bcontent }
-                 
+                 </div>
             </div>
             </div>
             
