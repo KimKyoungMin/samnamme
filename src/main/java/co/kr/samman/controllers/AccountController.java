@@ -62,6 +62,8 @@ public class AccountController {
 			request.setAttribute("page", page);
 			request.setAttribute("startpage", startpage);
 			request.setAttribute("endpage", endpage);
+			request.setAttribute("maxpage", maxpage);
+			
 			model.addAttribute("listcount",listcount);
 			System.out.println("타냐2");
 			//다운 리스트

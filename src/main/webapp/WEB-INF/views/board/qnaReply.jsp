@@ -19,7 +19,7 @@
 								제목
 							</dt>
 							<dd class="article-detail-data">
-								 <input type="text" size="10" name="qtitle" id="qtitle" value=">>re: ${qnaReply.qtitle}">
+								 <input type="text" size="10" name="qtitle" id="qtitle" value="[re]:${qnaReply.qtitle}">
 							</dd>
 						</dl>	
 						<dl class="article-detail-row half-row">
@@ -39,7 +39,7 @@
 							</dd>
 						</dl>
 						<div class="article-content" >
-							<textarea id="txtContent" class="txtContent" name="qcontent" >>>re:${qnaReply.qcontent}</textarea>
+							<textarea id="txtContent" class="txtContent" name="qcontent" >[re]:${qnaReply.qcontent}</textarea>
 						</div>
 					</div>
 					
