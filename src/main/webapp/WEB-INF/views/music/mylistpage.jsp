@@ -42,12 +42,10 @@
 		
 		//노래가 끝나는 이벤트 호출될때
 		my_audio.addEventListener('ended', function() {
-		
 			var zz = play_num + 1;
 			if (zz > list_num) {
 				zz = 1;
 			}
-			
 			document.getElementById('sos').src = list[zz];
 			document.getElementById('sos').type = type[zz];
 			$('#play_music').html(mname[zz]);
@@ -128,7 +126,7 @@
 </style>
 
 <!-- HTML5 추가 구문 -->
-<audio id='my_audio' preload='auto' controls loop>
+<audio id='my_audio' preload='auto' controls>
 <source id='sos' src='' type=''>
 </audio><br>
 
