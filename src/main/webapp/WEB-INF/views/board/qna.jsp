@@ -37,7 +37,16 @@ int nowpage = (Integer)request.getAttribute("page");
 			<c:forEach items="${qnaList}" var="n">
 				<tr>
 					<td class="seq">${n.qnum}</td>
-					<td class="title"><a href="qnaDetail.user?qnum=${n.qnum}">${n.qtitle}</a></td>
+
+					<td class="title"><c:choose>
+							<c:when test="${n.qdepth!=0 }">
+								<c:forEach begin="0" end="${n.qdepth*2 }" step="1">
+							&nbsp;
+							</c:forEach>
+								<img src="./upload/rep.png">
+							</c:when>
+						</c:choose> <a href="qnaDetail.user?qnum=${n.qnum}">${n.qtitle}</a></td>
+					
 					<td class="writer">${n.userid}</td>
 					<td class="regdate">${n.qdate}</td>
 					<td class="hit">${n.qcount}</td>

@@ -7,6 +7,7 @@
 int startpage = (Integer)request.getAttribute("startpage");
 int endpage = (Integer)request.getAttribute("endpage");
 int nowpage = (Integer)request.getAttribute("page");
+int maxpage = (Integer)request.getAttribute("maxpage");
 String userid = (String)request.getAttribute("userid");
 %>
 
@@ -76,11 +77,13 @@ E-mail <input type="text" name="uemail" class="email text2-input" value="${usert
 			<%} %>
           
          <c:choose>
-         <c:when test="${page>=maxpage }"><a class="active">▶</a></c:when>
+         <c:when test="${page>=maxpage }"><a class="disabled">▶</a></c:when>
          <c:otherwise>
-         <a class="disabled" href="account.user?userid=<%=userid %>&page=${page+1}">▶</a>
+         <a  href="account.user?userid=<%=userid %>&page=${page+1}">▶</a>
          </c:otherwise>
          </c:choose>
+         
+         
       </td>
    </tr>
    </table>
