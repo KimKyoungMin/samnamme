@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import co.kr.samman.dao.ConcertDao;
 import co.kr.samman.dao.MemberDao;
 import co.kr.samman.dao.MusicDao;
+import co.kr.samman.dto.board;
 import co.kr.samman.dto.bookmark;
 import co.kr.samman.dto.concert;
 import co.kr.samman.dto.cont;
@@ -42,7 +43,8 @@ public class MemberController {
 		MemberDao memberDao = sqlSession.getMapper(MemberDao.class);
 		
 		//최근 공지사항 한개 가져오기
-		
+		board boardDto = memberDao.mainnotice();
+		model.addAttribute("boardDto", boardDto);
 		
 		//최다 즐겨찾기 보유 리스트 찾아보기
 		List<bookmark> list = memberDao.getBookmark();

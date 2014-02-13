@@ -22,7 +22,9 @@
 			group by m.minfonum limit 5;
  	</select>
  	
- 	<select id="mainnotice" resultType="co.kr.samman.dto.notice">
- 	
+ 	<select id="mainnotice" resultType="co.kr.samman.dto.board">
+ 	    SELECT bnum, btitle, bcontent, bpicname FROM boardt 
+         where bsub='1' and bdate <![CDATA[ < ]]> now()
+         ORDER BY bdate desc LIMIT 0,1
  	</select>
 </mapper>

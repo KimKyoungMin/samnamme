@@ -508,6 +508,16 @@ h1, h2, p, a, span{
 			border-radius: 5px;
 
 		}
+		.blockMain2{
+		    margin-bottom: 15px;
+			border: 1px solid;
+			width: 300px;
+			border-radius: 5px;
+		}
+		.blockMain2 .titular{
+		    background-color: #20B2AA;
+		    height: 65px;
+		}
 		
 		
 

@@ -2,7 +2,7 @@ package co.kr.samman.dao;
 
 import java.util.List;
 
-import co.kr.samman.dto.notice;
+import co.kr.samman.dto.board;
 import co.kr.samman.dto.usert;
 
 public interface MemberDao {
@@ -14,6 +14,6 @@ public interface MemberDao {
 	public int usercheck(String userid);
 
 	public List<co.kr.samman.dto.bookmark> getBookmark();
-    public notice mainnotice(); //main에 최근 공지사항 글 가져오기
+    public board mainnotice(); //main에 최근 공지사항 글 가져오기
 
 }
