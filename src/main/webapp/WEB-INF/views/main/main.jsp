@@ -110,8 +110,9 @@ $(function () {
            <div class="slide" >
               <section  id="jms-slideshow" class="jms-slideshow">
 			<c:forEach var="f" items="${concertlist}" varStatus="imp">
+				
 				<c:if test="${imp.index==0 }">
-					<div class="step" data-color="color-5">
+					<div class="step" data-color="color-4" data-y="500" data-scale="0.4" data-rotate-x="30">
 					<div class="jms-content">
 						<h3>${f.contitle }</h3>
 						<p>${f.conectinfo }</p>
@@ -122,7 +123,7 @@ $(function () {
 				</c:if>
 				
 				<c:if test="${imp.index==1 }">
-					<div class="step" data-color="color-4" data-y="500" data-scale="0.4" data-rotate-x="30">
+					<div class="step" data-color="color-5">
 					<div class="jms-content">
 						<h3>${f.contitle }</h3>
 						<p>${f.conectinfo }</p>
@@ -131,6 +132,8 @@ $(function () {
 					<img src="concertpic/${f.conpic }" />
 				</div>
 				</c:if>
+				
+				
 				<c:if test="${imp.index==2 }">
 					<div class="step" data-color="color-3" data-x="2000" data-z="3000" data-rotate="170">
 					<div class="jms-content">
