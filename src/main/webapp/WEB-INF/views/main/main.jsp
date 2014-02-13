@@ -46,8 +46,8 @@ $(function () {
     
     $('#container1234').highcharts({
         chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
+            plotBackgroundColor: '#D5D5D5',
+            plotBorderWidth: '#474747',
             plotShadow: false
         },
         title: {
@@ -88,7 +88,7 @@ $(function () {
             <!-- LEFT-CONTAINER -->
             <div class="left-container container">
                 <div class="menu-box blockMain"> <!--  Top5 (LEFT-CONTAINER) -->
-                    <h2 class="titular">Music Top5</h2>
+                    <h2 class="titular">Recently Added Music5</h2>
                     <ul class="menu-box-menu">
                         <c:forEach var="m" items="${musicList}">
                         <li>
@@ -153,9 +153,9 @@ $(function () {
 			</section>
            </div>
            
- 
+ 			
            <div class="noticemain">
-              <h2>음악 차트 순위</h2>
+              <h2>Most Listened Songs</h2>
               <div id="container1234" style="min-width: 640px; height: 360px; margin: 0 auto"></div>
            </div>
 
