@@ -2900,12 +2900,12 @@ div.slide{
 
 div.noticemain{
 	display: inline-block;
-	width: 300px;
+	width: 640px;
 	height: 365px;
 	border-radius: 7px;
 	margin-top: 10px;
 	margin-left: 10px;
-	background: orange;
+	background: rgb(255, 255, 255);
 }
 
 
