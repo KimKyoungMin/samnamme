@@ -21,4 +21,8 @@
 			inner JOIN musict s on m.minfonum = s.minfonum
 			group by m.minfonum limit 5;
  	</select>
+ 	
+ 	<select id="mainnotice" resultType="co.kr.samman.dto.notice">
+ 	
+ 	</select>
 </mapper>

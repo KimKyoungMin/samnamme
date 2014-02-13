@@ -41,6 +41,9 @@ public class MemberController {
 		//bookmark get
 		MemberDao memberDao = sqlSession.getMapper(MemberDao.class);
 		
+		//최근 공지사항 한개 가져오기
+		
+		
 		//최다 즐겨찾기 보유 리스트 찾아보기
 		List<bookmark> list = memberDao.getBookmark();
 		int state=0;

@@ -38,7 +38,7 @@ function len_chk(){
 			    <!-- <input type="hidden" name="form_id" value="783685" />  -->
 				<div align="center">
 				  <input id="saveForm" class="submit button3" type="submit" name="submit" value="Write" />
-				  <input type="button" value="Cancle" onclick="javascript:history.go(-1);">
+				  <input type="button" class="submit button3" value="Cancle" onclick="javascript:history.go(-1);">
 				</div>
 		</form>	
 		</div>

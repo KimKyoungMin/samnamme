@@ -46,7 +46,7 @@ $(function () {
     
     $('#container1234').highcharts({
         chart: {
-            plotBackgroundColor: '#D5D5D5',
+            plotBackgroundColor: '#EAEAEA',
             plotBorderWidth: '#474747',
             plotShadow: false
         },
@@ -77,7 +77,8 @@ $(function () {
                 ['${musictitle3}',    ${musiccount3}],
                 ['${musictitle4}',    ${musiccount4}],
                 ['${musictitle5}',    ${musiccount5}]
-            ]
+            ],
+
         }]
     });
 });
@@ -101,7 +102,7 @@ $(function () {
                 </div>
                                 
 			    <div class="join-newsletter block"> <!--  (LEFT-CONTAINER) -->
-					<h2 class="titular">CONCERT INFOMATION.</h2>
+					<h2 class="titular">NOTICE.</h2>
 					<P>CONTENT</P>
 				</div>
             
@@ -115,33 +116,33 @@ $(function () {
 					<div class="step" data-color="color-4" data-y="500" data-scale="0.4" data-rotate-x="30">
 					<div class="jms-content">
 						<h3 style="color: black">${f.contitle }</h3>
-						<p style="color: darkgray">${f.conectinfo }</p>
-						<p style="color: gray" class="jms-link" >- ${f.consinger }</p>
+						<p style="color: #1E9E9E">${f.conectinfo }</p>
+						<p style="color: #FFB432" class="jms-link" >- ${f.consinger }</p>
 					</div>
-					<img src="concertpic/${f.conpic }" />
+					<img src="concertpic/${f.conpic }" style="width:350px;height:450px;"/>
 				</div>
 				</c:if>
 				
 				<c:if test="${imp.index==1 }">
-					<div class="step" data-color="color-5">
+					<div class="step" data-color="color-3">
 					<div class="jms-content">
 						<h3 style="color: black">${f.contitle }</h3>
-						<p style="color: darkgray">${f.conectinfo }</p>
-						<p style="color: gray" class="jms-link" >- ${f.consinger }</p>
+						<p style="color: #1E9E9E">${f.conectinfo }</p>
+						<p style="color: #FFB432" class="jms-link" >- ${f.consinger }</p>
 					</div>
-					<img src="concertpic/${f.conpic }" />
+					<img src="concertpic/${f.conpic }" style="width:350px;height:450px;"/>
 				</div>
 				</c:if>
 				
 				
 				<c:if test="${imp.index==2 }">
-					<div class="step" data-color="color-3" data-x="2000" data-z="3000" data-rotate="170">
+					<div class="step" data-color="color-4" data-x="2000" data-z="3000" data-rotate="170">
 					<div class="jms-content">
 						<h3 style="color: black">${f.contitle }</h3>
-						<p style="color: darkgray">${f.conectinfo }</p>
-						<p style="color: gray" class="jms-link" >- ${f.consinger }</p>
+						<p style="color: #1E9E9E">${f.conectinfo }</p>
+						<p style="color: #FFB432" class="jms-link" >- ${f.consinger }</p>
 					</div>
-					<img src="concertpic/${f.conpic }" />
+					<img src="concertpic/${f.conpic }" style="width:350px;height:450px;"/>
 				</div>
 				</c:if>
 			</c:forEach>
@@ -158,8 +159,8 @@ $(function () {
            
  			
            <div class="noticemain">
-              <h2>Most Listened Songs</h2>
-              <div id="container1234" style="min-width: 640px; height: 360px; margin: 0 auto"></div>
+              <h2>&nbsp;&nbsp;Most Listened Songs</h2>
+              <div id="container1234" style="min-width: 640px; height: 340px; margin: 0 auto"></div>
            </div>
 
 </div>
