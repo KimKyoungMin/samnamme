@@ -43,7 +43,7 @@
          </li>
          
           <li>
-              <s:authorize ifNotGranted="ROLE_ADMIN">
+              <s:authorize ifAnyGranted="ROLE_USER">
                 <s:authentication property="name" var="loginUser"/>
                 <a class="header-menu-tab" href="account.user?userid=${loginUser }&page=1"><span class="icon fontawesome-user scnd-font-color"></span>Account</a>
              </s:authorize>
