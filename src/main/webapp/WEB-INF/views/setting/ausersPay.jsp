@@ -16,6 +16,7 @@
 		    <th>가격</th>
 		    <th>결제일</th>
 		    <th>유효 기간</th>
+		    <th>유효 만료일</th>
         </tr>
 		<c:forEach var="pay" items="${pt }">
 		   <tr>
