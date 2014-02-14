@@ -99,6 +99,10 @@ public class MemberController {
 		MemberDao memberDao = sqlSession.getMapper(MemberDao.class);
 		JSONObject data = new JSONObject();
 		int usert = memberDao.usercheck(userId);
+		if("".equals(userId)||userId==null){
+			data.put("resultvalue", "");
+			return data.toString();
+		}
 		if(usert==0){
 			data.put("resultvalue", "사용가능한 ID 입니다.");
 			return data.toString();
