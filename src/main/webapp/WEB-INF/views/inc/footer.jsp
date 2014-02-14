@@ -6,5 +6,6 @@
 
    <div class="footer" align="center">
 	   <img alt="" src="CSS/images/footline.jpg" style="width:710pt;height:3pt">
-	   <h4>copyright@.........</h4>
+	   <h4 align="left" style="color: black">Copyright@2014 3NAMMAE KOSTA.,</h4>
+	   <h4 align="right" style="color: black">Developer - Kim KyungMin, Kim JungHun, Song JiHye .</h4>
 	</div>

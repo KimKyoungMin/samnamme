@@ -19,7 +19,7 @@
 								제목
 							</dt>
 							<dd class="article-detail-data">
-								 <input type="text" size="10" name="qtitle" id="qtitle" value="[re]:${qnaReply.qtitle}">
+								 <input type="text" size="10" name="qtitle" id="qtitle" value="[re]:${qnaReply.qtitle}" required>
 							</dd>
 						</dl>	
 						<dl class="article-detail-row half-row">
