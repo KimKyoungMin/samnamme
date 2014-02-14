@@ -8,7 +8,9 @@
 
 <h2> ${loginUser }님의 My Player List</h2>
 <br>
-
+<div id="play_pic" class="play_pic">
+<img src="#" width="220px" height="170px" align="middle" style="padding-left:85px;padding-bottom: 15px;">
+</div>
 <script type="text/javascript"> 
 
 //onload event 처음 곡 리스트 셋팅, 곡 셋팅
@@ -24,12 +26,14 @@
 		var list = new Array();
 		var type = new Array();
 		var mname = new Array();
+		var mpic = new Array();
 		//list get for function
 		$("#mu_list source").each(function(i) {
 			list_num = i + 1;
 			list[list_num] = $(this).attr("src");
 			type[list_num] = $(this).attr("type");
 			mname[list_num] = $(this).attr("mname");
+			mpic[list_num] = $(this).attr("mpic");
 			$('#mu_list').remove();
 		});
 		
@@ -37,8 +41,8 @@
 		document.getElementById('sos').type = type[1];
 		
 		$('#play_music').html(""+mname[1]);
+		$('#play_pic').html("<img src='upload/"+mpic[1]+"' width='220px' height='170px' align='middle' style='padding-left:85px;padding-bottom: 15px;'>");
 		my_audio.play();
-		
 		
 		//노래가 끝나는 이벤트 호출될때
 		my_audio.addEventListener('ended', function() {
@@ -49,6 +53,8 @@
 			document.getElementById('sos').src = list[zz];
 			document.getElementById('sos').type = type[zz];
 			$('#play_music').html(mname[zz]);
+			$('#play_pic').html("<img src='upload/"+mpic[zz]+"' width='220px' height='170px' align='middle' style='padding-left:85px;padding-bottom: 15px;'>");
+			
 			my_audio.load();
 			my_audio.play();
 			play_num = zz;
@@ -66,6 +72,7 @@
 			document.getElementById('sos').src = list[zz];
 			document.getElementById('sos').type = type[zz];
 			$('#play_music').html(mname[zz]);
+			$('#play_pic').html("<img src='upload/"+mpic[zz]+"' width='220px' height='170px' align='middle' style='padding-left:85px;padding-bottom: 15px;'>");
 			my_audio.load();
 			my_audio.play();
 			play_num = zz;
@@ -83,6 +90,7 @@
 			document.getElementById('sos').src = list[zz];
 			document.getElementById('sos').type = type[zz];
 			$('#play_music').html(mname[zz]);
+			$('#play_pic').html("<img src='upload/"+mpic[zz]+"' width='220px' height='170px' align='middle' style='padding-left:85px;padding-bottom: 15px;'>");
 			my_audio.load();
 			my_audio.play();
 			play_num = zz;
@@ -95,6 +103,7 @@
 				document.getElementById('sos').src = list[zz];
 				document.getElementById('sos').type = type[zz];
 				$('#play_music').html(mname[zz]);
+				$('#play_pic').html("<img src='upload/"+mpic[zz]+"' width='220px' height='170px' align='middle' style='padding-left:85px;padding-bottom: 15px;'>");
 				my_audio.load();
 				my_audio.play();
 				play_num = zz;
@@ -144,7 +153,7 @@
  </div>
  <div id="mu_list">
  <c:forEach var="m" items="${mylists}" varStatus="arraycount">
-	<source src="upload/${m.getMfilename()}" type="audio/mpeg" mname="${m.getMtitle()}/${m.getMsname()}" number="arraycount.index"></source>
+	<source src="upload/${m.getMfilename()}" type="audio/mpeg" mname="${m.getMtitle()}/${m.getMsname()}" number="arraycount.index" mpic="${m.getMpicname()}"></source>
 	</c:forEach>
 </div>
 

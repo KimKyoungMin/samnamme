@@ -10,8 +10,15 @@ public class mymusict {
 	private String mtitle;
 	private String msname;
 	private String mfilename;
+	private String mpicname;
 	
 	
+	public String getMpicname() {
+		return mpicname;
+	}
+	public void setMpicname(String mpicname) {
+		this.mpicname = mpicname;
+	}
 	public String getUserid() {
 		return userid;
 	}

@@ -25,7 +25,8 @@
    </insert>
 
    <select id="getmylist" resultType="co.kr.samman.dto.mymusict">
-      select my.USERID userid, m.MTITLE mtitle, m.MSNAME msname, my.MINFONUM minfonum, m.MFILENAME mfilename
+      select my.USERID userid, m.MTITLE mtitle, m.MSNAME msname, my.MINFONUM minfonum,
+       m.MFILENAME mfilename, m.MPICNAME mpicname
              from mymusict my inner join musict m on my.MINFONUM=m.MINFONUM 
              where my.USERID=#{userid} order by myordernum desc
    </select>
