@@ -72,34 +72,37 @@ $(function () {
             type: 'pie',
             name: '',
             data: [
-                ['${musictitle1}',    ${musiccount1}],
+                ['${musictitle1}',    ${musiccount3}],
                 
                 
                 {
-                    name: '${musictitle2}',
-                    y: ${musiccount2},
+                    name: '${musictitle4}',
+                    y: ${musiccount4},
                     sliced: true,
                     selected: true
                 },
 
-                ['${musictitle3}',    ${musiccount3}],
-                ['${musictitle4}',    ${musiccount4}],
-                ['${musictitle5}',    ${musiccount5}]
+                ['${musictitle3}',    ${musiccount5}],
+                ['${musictitle4}',    ${musiccount1}],
+                ['${musictitle5}',    ${musiccount2}]
             ],
             colors: [
                 '#C7E2C3',
-                '#F8F4C7',
-                '#E3D0A6',
                 '#FFF560',
+                '#E3D0A6',
+                '#F8F4C7',
                 '#2EE0AE'
             ],
 
         }]
     });
 });
+
 </script>
 
 <body>
+
+
 <div class="main-container">
             <!-- LEFT-CONTAINER -->
             <div class="left-container container">
