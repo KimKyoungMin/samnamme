@@ -151,6 +151,7 @@
 <!-- 기존 작성 구문 -->
 <c:choose>
    <c:when test="${mylists.size()==0}">
+      노래 리스트가 없습니다.
    </c:when>
    <c:otherwise>
        <form action="musiclistDel.htm" method="get">

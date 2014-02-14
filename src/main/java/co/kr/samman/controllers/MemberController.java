@@ -100,10 +100,10 @@ public class MemberController {
 		JSONObject data = new JSONObject();
 		int usert = memberDao.usercheck(userId);
 		if(usert==0){
-			data.put("resultvalue", "가능");
+			data.put("resultvalue", "사용가능한 ID 입니다.");
 			return data.toString();
 		}else{
-			data.put("resultvalue", "중복값 있음");
+			data.put("resultvalue", "이 ID는 사용할 수 없습니다.");
 			return data.toString();
 		}
 	}

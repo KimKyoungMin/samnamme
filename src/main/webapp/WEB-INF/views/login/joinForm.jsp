@@ -45,9 +45,10 @@ $(document).ready(function() {
                     <h2 class="titular">MEMBER JOIN</h2>
                     <div class="input-container" >
                         <input type="text" class="email text-input" id ="userid" name="userid" placeholder="your Id impassible hangle" required autofocus maxlength="50" onKeyup="idcheck()">
-                        <div id="userIdCheck" style="float: right; margin-right: 200px;"></div>
+                        
                         <div class="input-icon envelope-icon-acount"><span style="padding-left: 20px" class="fontawesome-home scnd-font-color"></span></div>
                     </div>
+                    <div id="userIdCheck" style="margin-left:80px;padding-bottom:15px;"></div>
                     <div class="input-container">
                         <input type="password" class="password text-input" name="upwd" placeholder="Password" required maxlength="600">
                         <div class="input-icon password-icon"><span style="padding-left: 20px" class="fontawesome-lock scnd-font-color"></span></div>
