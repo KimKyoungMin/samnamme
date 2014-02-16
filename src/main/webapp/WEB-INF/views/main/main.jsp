@@ -73,7 +73,15 @@ $(function () {
             name: '',
             data: [
                 ['${musictitle1}',    ${musiccount1}],
-                ['${musictitle2}',    ${musiccount2}],
+                
+                
+                {
+                    name: '${musictitle2}',
+                    y: ${musiccount2},
+                    sliced: true,
+                    selected: true
+                },
+
                 ['${musictitle3}',    ${musiccount3}],
                 ['${musictitle4}',    ${musiccount4}],
                 ['${musictitle5}',    ${musiccount5}]
