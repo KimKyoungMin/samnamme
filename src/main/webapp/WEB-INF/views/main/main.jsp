@@ -72,19 +72,11 @@ $(function () {
             type: 'pie',
             name: '',
             data: [
-                ['${musictitle1}',    ${musiccount3}],
-                
-                
-                {
-                    name: '${musictitle4}',
-                    y: ${musiccount4},
-                    sliced: true,
-                    selected: true
-                },
-
-                ['${musictitle3}',    ${musiccount5}],
-                ['${musictitle4}',    ${musiccount1}],
-                ['${musictitle5}',    ${musiccount2}]
+                ['${musictitle1}',    ${musiccount1}],
+                ['${musictitle2}',    ${musiccount2}],
+                ['${musictitle3}',    ${musiccount3}],
+                ['${musictitle4}',    ${musiccount4}],
+                ['${musictitle5}',    ${musiccount5}]
             ],
             colors: [
                 '#C7E2C3',
