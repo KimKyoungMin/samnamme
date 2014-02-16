@@ -30,8 +30,14 @@
 			var _ccontent = document.getElementById(__ccontent).value;
 			var _replycountin =  document.getElementById(__bnumm).value;
 			var _replycountnum =  document.getElementById(__bnummm).value;
-			replyadd(_bnum, _userid, _ccontent, __num,_replycountin, _replycountnum);
-			$(':text').val('');
+			
+			if(""==_ccontent){
+				alert("내용을 입력해주세요");
+			}else{
+				replyadd(_bnum, _userid, _ccontent, __num,_replycountin, _replycountnum);
+				$(':text').val('');	
+			}
+			
 		});
 	});
 	
