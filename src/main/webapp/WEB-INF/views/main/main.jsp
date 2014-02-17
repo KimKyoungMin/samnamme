@@ -129,7 +129,7 @@ $(function () {
                     <td><a href="notice.user"><h3>${boardDto.btitle }</h3></a></td>
                   </tr>
                   <tr>
-                    <td><img src="CSS/noticeboardpic/${boardDto.bpicname}" style="width:250px;height:150px;"></td>
+                    <td align="center"><img src="CSS/noticeboardpic/${boardDto.bpicname}" style="width:250px;height:150px;"></td>
                   </tr>
                 </table>
                 </div>
